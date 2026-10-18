@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-18",
+  "menuNavigation": true,
+  "escapeClosesMenu": true,
+  "focusReturnsToMenuTrigger": true,
+  "filters": [
+    {
+      "filter": "Digital",
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "filter": "Identidade visual",
+      "expected": 3,
+      "actual": 3
+    },
+    {
+      "filter": "Editorial",
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "filter": "Todos",
+      "expected": 4,
+      "actual": 4
+    },
+    {
+      "index": 4
+    }
+  ],
+  "indexCount": 4,
+  "storyOpenAndClose": true,
+  "railScrollAfterNext": 924,
+  "themePersistsAfterReload": "dark",
+  "contactRequiredFields": 2,
+  "contactSteps": 3,
+  "contactReturnPreservesText": true,
+  "mailtoDestination": "marioserafim.da@gmail.com",
+  "clipboardFeedback": true,
+  "emlDownload": "projeto-para-mario.eml",
+  "serviceExpansion": true,
+  "productionConsoleErrors": 0
+}

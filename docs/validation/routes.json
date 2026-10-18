@@ -1,0 +1,302 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/sobre",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/contato",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/amazonita",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/rooftop",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/opengraph-image",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-caneca.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-couro.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-cover.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-1.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-11.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-12.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-4.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-6.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-9.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-cover.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-editorial-1.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-motion.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-poster.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-system.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-video-poster.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-web.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-cover.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-1.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-12.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-13.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-14.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-15.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-6.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-8.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-9.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-01.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-02.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-03.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-cover.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-1.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-10.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-12.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-14.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-4.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-6.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-7.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-8.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-9.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/inexistente",
+    "status": 404,
+    "expected": 404,
+    "pass": true
+  }
+]

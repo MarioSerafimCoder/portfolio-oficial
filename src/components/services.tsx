@@ -1,0 +1,2 @@
+import { services } from '@/content/site';
+export function Services(){return <div className="service-list">{services.map((s,i)=><details key={s.title} className="service-row" data-reveal><summary><span className="service-number">0{i+1}</span><h3>{s.title}</h3><span className="service-line">{s.line}</span><span className="service-plus" aria-hidden="true">+</span></summary><div className="service-description"><p>{s.text}</p><span>{s.scope}</span></div></details>)}</div>}

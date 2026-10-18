@@ -1,0 +1,110 @@
+[
+  {
+    "name": "home",
+    "height": 5118,
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "name": "projects",
+    "height": 1974,
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "name": "amazonita",
+    "height": 5042,
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "name": "about",
+    "height": 4365,
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "name": "contact",
+    "height": 2068,
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "name": "home",
+    "height": 5344,
+    "viewport": 768,
+    "width": 753
+  },
+  {
+    "name": "projects",
+    "height": 2549,
+    "viewport": 768,
+    "width": 753
+  },
+  {
+    "name": "amazonita",
+    "height": 5012,
+    "viewport": 768,
+    "width": 753
+  },
+  {
+    "name": "about",
+    "height": 4569,
+    "viewport": 768,
+    "width": 753
+  },
+  {
+    "name": "contact",
+    "height": 1904,
+    "viewport": 768,
+    "width": 753
+  },
+  {
+    "name": "home",
+    "height": 6487,
+    "viewport": 1440,
+    "width": 1425
+  },
+  {
+    "name": "projects",
+    "height": 2285,
+    "viewport": 1440,
+    "width": 1425
+  },
+  {
+    "name": "amazonita",
+    "height": 6850,
+    "viewport": 1440,
+    "width": 1425
+  },
+  {
+    "name": "about",
+    "height": 4714,
+    "viewport": 1440,
+    "width": 1425
+  },
+  {
+    "name": "contact",
+    "height": 2100,
+    "viewport": 1440,
+    "width": 1425
+  },
+  {
+    "name": "rooftop",
+    "height": 4747,
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "name": "eduardo-noronha",
+    "height": 4372,
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "name": "amanda-araujo",
+    "height": 4298,
+    "viewport": 390,
+    "width": 375
+  }
+]

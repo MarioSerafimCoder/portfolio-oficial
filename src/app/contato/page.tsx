@@ -1,0 +1,5 @@
+import type {Metadata} from 'next';
+import {ContactForm} from '@/components/contact';
+import {site} from '@/content/site';
+export const metadata:Metadata={title:'Contato',description:'Vamos conversar sobre o seu próximo projeto de identidade visual, branding, direção de arte ou experiência digital.'};
+export default function Contact(){return <main id="conteudo" className="contact-page"><section className="page-heading section-wrap"><span className="eyebrow">Contato</span><h1>O que vamos<br/><em>construir?</em></h1></section><section className="contact-layout section-wrap"><div className="contact-aside"><h2>Uma ideia ainda não precisa<br/>ter todas as respostas.</h2><p>Conte o que você tem em mente.<br/>O primeiro passo é conversar.</p><div><span className="eyebrow">Direto, se preferir</span><a className="text-link" href={`mailto:${site.email}`}>{site.email} ↗</a><a className="text-link" href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a></div><span className="contact-place">De Fortaleza, para boas ideias.</span></div><ContactForm/></section></main>}
