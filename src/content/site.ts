@@ -6,8 +6,8 @@ export const site = {
   description: 'Direção de arte, identidade visual e experiências digitais. Portfólio de Mário Serafim, em Fortaleza, Brasil.',
 };
 export const services = [
-  {title:'Identidade visual', line:'Uma marca. Muitos pontos de encontro.', text:'Símbolo, tipografia, cores e aplicações organizados em um sistema visual coerente. Para ser reconhecido em cada detalhe.', scope:'Assinatura visual · Sistema gráfico · Manual de marca'},
-  {title:'Branding', line:'Clareza sobre quem você é.', text:'Posicionamento e expressão caminham juntos. O trabalho começa pela compreensão do contexto e encontra uma linguagem que faz sentido para a marca.', scope:'Posicionamento · Atributos · Expressão de marca'},
-  {title:'Direção de arte', line:'Cada escolha diz alguma coisa.', text:'Uma visão que conecta conceito, composição e linguagem. Da primeira imagem ao conjunto de peças, uma mesma intenção.', scope:'Conceito visual · Campanhas · Design editorial'},
-  {title:'Experiências digitais', line:'Presença que também se vive.', text:'Interfaces que aproximam a identidade da experiência. Hierarquia, clareza e atenção ao percurso de quem está do outro lado da tela.', scope:'UX/UI · Websites · Comunicação digital'},
+  {title:'Identidade visual', line:'Uma linguagem reconhecível em cada detalhe.', text:'Desenvolvimento de sistemas visuais que dão consistência à maneira como uma marca se apresenta.', scope:'Assinatura visual · Sistema gráfico · Paleta · Tipografia · Aplicações · Diretrizes de uso'},
+  {title:'Branding', line:'Uma marca precisa saber o que a torna diferente.', text:'Definição de fundamentos estratégicos que orientam o posicionamento e sua expressão visual.', scope:'Diagnóstico · Posicionamento · Atributos · Território de expressão'},
+  {title:'Direção de arte', line:'Cada escolha visual comunica uma intenção.', text:'Criação de linguagens visuais consistentes para campanhas, peças editoriais e experiências de marca.', scope:'Conceito visual · Direção estética · Composição · Campanhas · Peças editoriais'},
+  {title:'Experiências digitais', line:'Identidade também se constrói na experiência.', text:'Interfaces digitais que conectam linguagem visual, clareza de navegação e experiência de uso.', scope:'Interface · Website · UX/UI · Comunicação digital'},
 ];

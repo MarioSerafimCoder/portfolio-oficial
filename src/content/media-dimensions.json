@@ -138,5 +138,49 @@
   "/media/rooftop-manual-9.webp": {
     "width": 2000,
     "height": 1160
+  },
+  "/media/simetria/cover.webp": {
+    "width": 2000,
+    "height": 1415
+  },
+  "/media/simetria/portrait.webp": {
+    "width": 2000,
+    "height": 1415
+  },
+  "/media/simetria/mark.webp": {
+    "width": 2000,
+    "height": 1415
+  },
+  "/media/simetria/palette.webp": {
+    "width": 2000,
+    "height": 1415
+  },
+  "/media/simetria/typography.webp": {
+    "width": 2000,
+    "height": 1415
+  },
+  "/media/simetria/graphics.webp": {
+    "width": 2000,
+    "height": 1415
+  },
+  "/media/simetria/applications.webp": {
+    "width": 2000,
+    "height": 1415
+  },
+  "/media/simetria/environment.webp": {
+    "width": 2000,
+    "height": 1415
+  },
+  "/media/simetria/outdoor.webp": {
+    "width": 2000,
+    "height": 1500
+  },
+  "/media/simetria/tote.webp": {
+    "width": 2000,
+    "height": 1333
+  },
+  "/media/simetria/shirt.webp": {
+    "width": 2000,
+    "height": 1333
   }
 }
