@@ -2,7 +2,7 @@
 
 19 de outubro de 2026 · Branch `feat/portfolio-evolution`
 
-O site público [Mário Serafim — Portfólio](https://mario-serafim-portfolio-2026.mario-92.chatgpt.site/) permanece na versão anterior enquanto esta revisão é preparada. A versão local usa a mesma identidade editorial. A captura da página inicial pública anterior está em [`published-home.png`](screenshots/portfolio/published-home.png). As capturas da versão revisada em 390, 768, 1024 e 1440 px ainda não foram produzidas: a ferramenta de navegador bloqueou a prévia local nesta sessão. As capturas em `screenshots/portfolio/` anteriores a 19/10 pertencem à versão precedente.
+A versão 2 do site público [Mário Serafim — Portfólio](https://mario-serafim-portfolio-2026.mario-92.chatgpt.site/) foi ativada em 19/10/2026, após aprovação do usuário. A captura da página inicial pública anterior está em [`published-home.png`](screenshots/portfolio/published-home.png). As capturas da versão revisada em 390, 768, 1024 e 1440 px ainda não foram produzidas: a ferramenta de navegador bloqueou a prévia local nesta sessão. As capturas em `screenshots/portfolio/` anteriores a 19/10 pertencem à versão precedente.
 
 ## Páginas e conteúdo alterados
 
@@ -35,4 +35,4 @@ O [Apps Script implantado](https://script.google.com/macros/s/AKfycbyulPLIGLCQKt
 - LCP, CLS, INP e notas Lighthouse da nova versão: **não medidos**. Os MP4 finais somam cerca de 3,04 MB e cada vídeo fora da primeira viewport usa poster e `preload="none"`; isso reduz carga inicial, mas não substitui medições reais.
 - Safari/iOS e leitores de tela reais: não testados.
 
-O próximo passo de aceite é examinar a prévia local em 390, 768, 1024 e 1440 px, verificar o formulário pelo próprio site, medir Lighthouse e corrigir qualquer desvio encontrado. Só depois a versão salva deve substituir a publicação atual.
+A implantação pública da versão 2 foi concluída com sucesso, e as páginas dos cases e os quatro arquivos de vídeo responderam HTTP 200 no endereço final. Ainda falta a inspeção visual em 390, 768, 1024 e 1440 px, o teste do formulário pelo próprio site e a medição Lighthouse; qualquer desvio encontrado deve gerar uma correção posterior.
