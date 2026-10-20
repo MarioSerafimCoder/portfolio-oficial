@@ -31,18 +31,18 @@ Relatórios Lighthouse e verificação responsiva locais ficam em `docs/validati
 ## Conteúdo e manutenção
 
 - `src/content/projects.ts`: cases, narrativas, créditos, cores e fontes do material.
-- `src/content/site.ts`: apresentação, e-mail, LinkedIn e serviços.
-- `src/content/journal.ts`: artigos do Diário de bordo, categorias e estado de publicação (veja [manutenção do Diário](docs/JOURNAL.md)).
+- `src/content/site.ts`: apresentação, contato, redes sociais, faixas de investimento e FAQ.
+- `src/content/journal.ts`: artigos do Diário, categorias, rascunhos e estado de publicação (veja [manutenção do Diário](docs/JOURNAL.md)).
 - `src/app/sobre/page.tsx`: trajetória e abordagem editorial.
 - `src/app/globals.css`: tokens, composição, responsividade e animações.
-- `public/media/`: derivados WebP, vídeos dos cases e showreel preparados a partir dos arquivos autorizados. Originais de trabalho ficam em `tmp/`, fora do Git.
+- `public/media/`: derivados WebP e vídeos dos cases, incluindo versões menores para mobile. A home apresenta apenas imagens estáticas dos projetos. Originais de trabalho ficam em `tmp/`, fora do Git.
 - `public/fonts/`: Instrument Serif e DM Sans locais, com licenças OFL.
 
 Ao adicionar imagens, informe suas dimensões reais em `src/content/media-dimensions.json` e descrições alternativas no conteúdo do case. Preserve os créditos e diferencie aplicações simuladas de produtos fabricados.
 
 ## Contato e publicação
 
-O formulário organiza um briefing em duas etapas e envia a mensagem por um [Apps Script do Gmail](integrations/gmail-contact/README.md) para `marioserafim.da@gmail.com`. Inclui cópia do texto, link de e-mail e download `.eml` como alternativas. O destino é fixo no código do Apps Script; o site não inclui credenciais, banco de leads ou analytics de formulário.
+O formulário organiza um briefing em duas etapas e envia a mensagem por um [Apps Script do Gmail](integrations/gmail-contact/README.md) para `marioserafim.da@gmail.com`. Inclui cópia do texto, link de e-mail e download `.eml` como alternativas. O destino é fixo no código do Apps Script. Links de Instagram, Behance, LinkedIn e WhatsApp ficam em `src/content/site.ts`; agendamento, newsletter e métricas só aparecem após configuração. Nenhuma credencial é incluída no site.
 
 O endereço Sites está configurado como origem padrão dos metadados. Se mudar o domínio, configure `NEXT_PUBLIC_SITE_URL` e faça novo build (veja `.env.example`). A publicação usa o projeto declarado em `.openai/hosting.json`.
 

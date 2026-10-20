@@ -2,19 +2,15 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { Project } from '@/content/projects';
+import {trackEvent} from '@/lib/analytics';
 
-export function CaseStory({project:p}:{project:Project}){
- const dialog=useRef<HTMLDialogElement>(null);
- const [open,setOpen]=useState(false);
- useEffect(()=>{if(open){const old=document.body.style.overflow;document.body.style.overflow='hidden';return()=>{document.body.style.overflow=old}}},[open]);
- const close=()=>{dialog.current?.close();setOpen(false)};
- return <><button className="pill" onClick={()=>{dialog.current?.showModal();setOpen(true)}}>Ler a história completa <span aria-hidden="true">↗</span></button><dialog ref={dialog} className="story-dialog" aria-labelledby="story-title" onClose={()=>setOpen(false)} onClick={e=>{if(e.target===e.currentTarget)close()}}><div className="story-top"><span>Por trás do projeto</span><button className="close-button" aria-label="Fechar história" onClick={close}>×</button></div><h2 id="story-title">{p.name}</h2><p className="story-lead">{p.context}</p>{[['O desafio',p.challenge],['O objetivo',p.objective],['Meu papel',p.role],['As decisões',p.decisions],['O sistema',p.system],['Resultado observável',p.result],['Créditos',p.credits]].map(([label,text])=><section key={label}><h3>{label}</h3><p>{text}</p></section>)}</dialog></>;
-}
+export function CaseViewTracker({slug}:{slug:string}){useEffect(()=>{trackEvent('case_view',{case:slug})},[slug]);return null}
 
 export function Video({src,caption,poster='/media/amazonita-video-poster.webp'}:{src:string;caption:string;poster?:string}){
  const video=useRef<HTMLVideoElement>(null);const [playing,setPlaying]=useState(false);
+ const mobileSrc=`/media/mobile/${src.split('/').pop()}`;
 
- return <div className={`video-frame ${src==='/media/amazonita-motion.mp4'?'video-portrait':'video-landscape'}`}><video ref={video} poster={poster} playsInline muted loop controls preload="none" aria-label={caption} onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)}><source src={src} type="video/mp4"/>Seu navegador não suporta vídeo. <a href={src}>Baixar vídeo</a></video><button className="video-toggle" aria-label={playing?'Pausar vídeo':'Reproduzir vídeo'} onClick={()=>{if(playing)video.current?.pause();else video.current?.play().catch(()=>{})}}>{playing?'Pausar Ⅱ':'Reproduzir ▷'}</button></div>
+ return <div className={`video-frame ${src==='/media/amazonita-motion.mp4'?'video-portrait':'video-landscape'}`}><video ref={video} poster={poster} playsInline muted loop controls preload="none" aria-label={caption} onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)}><source src={mobileSrc} media="(max-width: 700px)" type="video/mp4"/><source src={src} type="video/mp4"/>Seu navegador não suporta vídeo. <a href={src}>Baixar vídeo</a></video><button className="video-toggle" aria-label={playing?'Pausar vídeo':'Reproduzir vídeo'} onClick={()=>{if(playing)video.current?.pause();else video.current?.play().catch(()=>{})}}>{playing?'Pausar Ⅱ':'Reproduzir ▷'}</button></div>
 }
 
 export function CaseRail({project:p}:{project:Project}){

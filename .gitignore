@@ -6,3 +6,6 @@ out/
 tmp/
 *.tsbuildinfo
 next-env.d.ts
+docs/screenshots/evolution/
+docs/validation/lighthouse-before-*.json
+docs/validation/lighthouse-after-*.json

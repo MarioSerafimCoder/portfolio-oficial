@@ -1,8 +1,9 @@
 import {journalDemoEnglish} from './journal-demo-en';
 
 export const journalCategories = {
-  'direcao-de-arte': 'Direção de arte', branding: 'Branding', processo: 'Processo',
-  'design-e-tecnologia': 'Design e tecnologia', 'pesquisa-e-referencias': 'Pesquisa e referências',
+  'identidade-visual': 'Identidade visual', branding: 'Branding',
+  'direcao-de-arte': 'Direção de arte', processo: 'Processo',
+  tecnologia: 'Tecnologia', referencias: 'Referências',
 } as const;
 
 export type JournalCategory = keyof typeof journalCategories;
@@ -20,25 +21,26 @@ export type JournalPost = {
   date: string; // YYYY-MM-DD; para posts publicados, use a data real da publicação.
   updatedAt?: string; // YYYY-MM-DD; somente quando o artigo tiver sido atualizado.
   status: 'draft' | 'published'; content: JournalBlock[];
-  demo?: boolean; // Rascunho demonstrativo visível somente no next dev.
+  cover?: {src: string; alt: string; width: number; height: number};
+  demo?: boolean; // Exemplo visível no Diário, rotulado como teste e excluído da indexação.
   sources?: {label: string; url: string}[];
   seo?: {title?: string; description?: string};
   translations?: {en?: {title: string; summary: string; content: JournalBlock[]}};
 };
 
-// O exemplo existe só para avaliar o template localmente. Não é uma publicação.
+// O exemplo permite avaliar o template; aparece com aviso de teste e não é uma publicação.
 export const journalPosts: JournalPost[] = [{
   title: 'Post de teste: o que faz a gente continuar lendo?',
   slug: 'exemplo-de-leitura',
   summary: 'Uma demonstração da página de artigo: hierarquia, respiro, imagem, links e referências em uma leitura sem distrações.',
-  category: 'design-e-tecnologia',
+  category: 'tecnologia',
   date: '2026-10-20',
   status: 'draft',
   demo: true,
-  seo: {title: 'Exemplo de leitura do Diário de bordo', description: 'Prévia local do template editorial do Diário de bordo.'},
+  seo: {title: 'Exemplo de leitura do Diário', description: 'Prévia local do template editorial do Diário.'},
   translations: {en: {title: 'Test post: what keeps us reading?', summary: 'A preview of the article page: hierarchy, breathing room, imagery, links and references in a reading experience without distractions.', content: journalDemoEnglish}},
   content: [
-    {type: 'paragraph', text: 'Este texto é uma demonstração do Diário de bordo. Ele serve para avaliar a experiência de leitura e não representa um artigo publicado ou o relato de um projeto novo.'},
+    {type: 'paragraph', text: 'Este texto é uma demonstração do Diário. Ele serve para avaliar a experiência de leitura e não representa um artigo publicado ou o relato de um projeto novo.'},
     {type: 'paragraph', text: 'Uma página pode ter boas ideias e ainda assim ser difícil de acompanhar. Às vezes o problema não está na frase: está no caminho que o olhar precisa percorrer para encontrá-la. Tamanho do texto, largura da coluna, intervalos e títulos interferem nesse percurso.'},
     {type: 'heading', level: 2, text: 'Antes da primeira frase'},
     {type: 'paragraph', text: 'Quem chega a um artigo costuma procurar pistas antes de decidir se fica. O título sugere uma pergunta; a introdução mostra por que ela importa; os subtítulos antecipam a direção da conversa. Nada disso precisa entregar uma resposta pronta, mas deve ajudar a pessoa a se orientar.'},
@@ -76,11 +78,29 @@ export const journalPosts: JournalPost[] = [{
     {label: 'W3C WAI — Headings', url: 'https://www.w3.org/WAI/tutorials/page-structure/headings/'},
     {label: 'web.dev — Typography', url: 'https://web.dev/learn/design/typography/'},
   ],
-}];
+},
+  {title:'O que uma identidade visual precisa ter além do logo',slug:'alem-do-logo',summary:'Um roteiro de perguntas sobre sistema visual, consistência e uso real da marca.',category:'identidade-visual',date:'',status:'draft',content:[
+    {type:'heading',level:2,text:'O que a marca precisa comunicar'},
+    {type:'heading',level:2,text:'Elementos que formam o sistema'},
+    {type:'heading',level:2,text:'Aplicações e critérios de uso'},
+  ]},
+  {title:'Quando é hora de redesenhar a marca de um negócio que cresceu',slug:'quando-redesenhar-a-marca',summary:'Sinais para avaliar se a identidade ainda acompanha o negócio e o que mudou.',category:'branding',date:'',status:'draft',content:[
+    {type:'heading',level:2,text:'O que mudou no negócio'},
+    {type:'heading',level:2,text:'O que ainda funciona'},
+    {type:'heading',level:2,text:'Critérios para uma nova direção'},
+  ]},
+  {title:'Por que começo um projeto sem abrir o Photoshop',slug:'antes-do-photoshop',summary:'Notas sobre escuta, perguntas e decisões que antecedem a primeira peça visual.',category:'processo',date:'',status:'draft',content:[
+    {type:'heading',level:2,text:'Entender antes de desenhar'},
+    {type:'heading',level:2,text:'Perguntas que orientam o trabalho'},
+    {type:'heading',level:2,text:'Da direção à construção'},
+  ]},
+];
 export const publishedJournalPosts = journalPosts.filter(post => post.status === 'published' && !post.demo).sort((a, b) => b.date.localeCompare(a.date));
-export const visibleJournalPosts = process.env.NODE_ENV === 'development'
-  ? journalPosts.filter(post => post.status === 'published' || post.demo).sort((a, b) => b.date.localeCompare(a.date))
-  : publishedJournalPosts;
+export const showJournalNavigation = true;
+export const indexJournal = publishedJournalPosts.length >= 3;
+export const visibleJournalPosts = journalPosts
+  .filter(post => post.status === 'published' || post.demo)
+  .sort((a, b) => b.date.localeCompare(a.date));
 export const getVisibleJournalPost = (slug: string) => visibleJournalPosts.find(post => post.slug === slug);
 export function readingMinutes(post: JournalPost) {
   const words = post.content.flatMap(block => {

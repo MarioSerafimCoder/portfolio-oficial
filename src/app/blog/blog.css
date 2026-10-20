@@ -157,3 +157,13 @@
   .site-footer:has(.journal-footer-invitation) .footer-base{grid-template-columns:1fr}
 }
 @media(max-width:380px){.journal-site-header>.wordmark{font-size:12px}.journal-site-header .header-actions{gap:0}.journal-language-toggle{min-width:56px}}
+
+@media(max-width:700px){
+  .journal-site-header{justify-content:space-between}
+  .journal-site-header>.wordmark,.journal-site-header>.header-actions{height:74px}
+  .journal-header-search{right:calc(var(--gutter) + 70px)}
+  .journal-language-toggle{position:absolute;top:77px;right:var(--gutter);height:44px;min-width:60px}
+}
+@media(max-width:700px){
+  .journal-language-toggle,.journal-demo-label,.journal-reading-time,.journal-index .eyebrow,.journal-hero .eyebrow,.journal-post-demo,.journal-post-byline,.journal-translation-note{font-size:12px}
+}

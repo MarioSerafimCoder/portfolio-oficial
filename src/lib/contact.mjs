@@ -1,12 +1,12 @@
-export function briefingText({name,email,type,description,budget='',whatsapp=''}) {
-  return `Olá, Mário!\n\nMeu nome é ${name}.\nE-mail de retorno: ${email}\nTipo de projeto: ${type}\nInvestimento previsto: ${budget || 'Não informado'}\nWhatsApp: ${whatsapp || 'Não informado'}\n\n${description || 'Prefiro conversar sobre os detalhes.'}\n\nEnviado a partir do portfólio Mário Serafim.`;
+export function briefingText({name,email,type,description,budget='',whatsapp='',industry=''}) {
+  return `Olá, Mário!\n\nMeu nome é ${name}.\nE-mail de retorno: ${email}\nTipo de projeto: ${type}\nÁrea de atuação: ${industry || 'Não informada'}\nInvestimento previsto: ${budget || 'Não informado'}\nWhatsApp: ${whatsapp || 'Não informado'}\n\n${description || 'Prefiro conversar sobre os detalhes.'}\n\nEnviado a partir do portfólio Mário Serafim.`;
 }
 // Preserve the contract of the deployed Apps Script, including its type allowlist
 // and minimum description length. Optional fields travel in the email body.
 export function deliveryPayload(data, origin, submittedAt = new Date().toISOString()) {
   const types = {'Site ou experiência digital':'Experiência digital','Ainda não tenho certeza':'Quero entender as possibilidades'};
   return {name:data.name.trim(), email:data.email.trim(), type:types[data.type] || data.type,
-    description:[`Solicitação: ${data.type}`, `Investimento previsto: ${data.budget || 'Não informado'}`,
+    description:[`Solicitação: ${data.type}`, `Área de atuação: ${data.industry || 'Não informada'}`, `Investimento previsto: ${data.budget || 'Não informado'}`,
       `WhatsApp: ${data.whatsapp || 'Não informado'}`, '', data.description.trim() || 'Prefiro conversar sobre os detalhes.',
       '', `Data do contato: ${submittedAt}`, `Origem: ${origin}`].join('\n')};
 }

@@ -24,7 +24,19 @@
     "pass": true
   },
   {
+    "path": "/blog/exemplo-de-leitura",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
     "path": "/blog/feed.xml",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/feed.xml",
     "status": 200,
     "expected": 200,
     "pass": true
@@ -37,6 +49,12 @@
   },
   {
     "path": "/privacidade",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/materiais",
     "status": 200,
     "expected": 200,
     "pass": true
@@ -432,13 +450,31 @@
     "pass": true
   },
   {
-    "path": "/blog/inexistente",
-    "status": "absent",
-    "expected": "absent",
+    "path": "/media/mobile/amazonita-motion.mp4",
+    "status": 200,
+    "expected": 200,
     "pass": true
   },
   {
-    "path": "/blog/exemplo-de-leitura",
+    "path": "/media/mobile/amazonita.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/mobile/rooftop.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/mobile/simetria.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/blog/inexistente",
     "status": "absent",
     "expected": "absent",
     "pass": true
@@ -477,6 +513,12 @@
     "path": "/blog/feed.xml",
     "status": "publicado-sem-demo",
     "expected": "publicado-sem-demo",
+    "pass": true
+  },
+  {
+    "path": "/blog/exemplo-de-leitura",
+    "status": "teste-sem-indexacao",
+    "expected": "teste-sem-indexacao",
     "pass": true
   }
 ]

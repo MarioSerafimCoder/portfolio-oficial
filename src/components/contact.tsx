@@ -4,9 +4,10 @@ import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import { site } from '@/content/site';
 import { briefingText, deliveryPayload, mailtoDraft, emlDraft } from '@/lib/contact.mjs';
+import {trackEvent} from '@/lib/analytics';
 
 const options = ['Identidade visual','Branding','Direção de arte','Site ou experiência digital','Ainda não tenho certeza'];
-const budgets = ['Ainda estou definindo','Até R$ 2.000','R$ 2.000 a R$ 5.000','R$ 5.000 a R$ 10.000','Acima de R$ 10.000'];
+const industries = ['Arquitetura e construção','Saúde e bem-estar','Serviços profissionais','Comércio e varejo','Educação','Indústria','Outra'];
 const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || 'https://script.google.com/macros/s/AKfycbyulPLIGLCQKtFhvcvRvz69KwrZIc4S_2TcQNU-4rWDanoisOmVMlyoATYTnHx3pToU/exec';
 // A collector may subscribe to this event. No visitor fields leave through analytics.
 function track(name:string){window.dispatchEvent(new CustomEvent('portfolio:analytics',{detail:{event:name,form:'contact'}}));}
@@ -14,7 +15,7 @@ export function ContactForm(){
  const isHome=usePathname()==="/";
  const id=useId().replace(/:/g,'');
  const [step,setStep]=useState(1);
- const [data,setData]=useState({name:'',email:'',type:'',budget:'',whatsapp:'',description:''});
+ const [data,setData]=useState({name:'',email:'',type:'',industry:'',budget:'',whatsapp:'',description:'',website:''});
  const [feedback,setFeedback]=useState('');
  const [sending,setSending]=useState(false);
  const [sent,setSent]=useState(false);
@@ -44,13 +45,15 @@ export function ContactForm(){
   window.addEventListener('message',receive);
   return()=>{window.removeEventListener('message',receive);if(timer.current)clearTimeout(timer.current)};
  },[]);
- function change(key:keyof typeof data,value:string){if(!started.current){started.current=true;track('contact_form_start')}setData(d=>({...d,[key]:value}));setErrors(e=>({...e,[key]:''}));}
+ function change(key:keyof typeof data,value:string){if(!started.current&&key!=='website'){started.current=true;trackEvent('contact_form_start')}setData(d=>({...d,[key]:value}));setErrors(e=>({...e,[key]:''}));}
  function next(e:React.FormEvent){e.preventDefault();if(!data.type){setErrors({type:'Escolha a opção que mais se aproxima da sua ideia.'});document.getElementById(`${id}-type-0`)?.focus();return}moveFocus.current=true;setStep(2);setFeedback('');track('contact_step_1_complete');track('contact_step_2_view')}
  function send(e:React.FormEvent){
   e.preventDefault();if(inFlight.current||sent)return;
   const invalid:Record<string,string>={};
+  if(data.website.trim())return;
   if(data.name.trim().length<2)invalid.name='Informe seu nome com pelo menos 2 caracteres.';
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim()))invalid.email='Informe um e-mail válido, como voce@empresa.com.br.';
+  if(data.whatsapp.trim()&&data.whatsapp.replace(/\D/g,'').length<10)invalid.whatsapp='Informe um telefone com DDD ou deixe este campo vazio.';
   setErrors(invalid);if(Object.keys(invalid).length){document.getElementById(`${id}-${Object.keys(invalid)[0]}`)?.focus();return}
   if(!deliveryForm.current)return;
   const form=deliveryForm.current;const token=crypto.randomUUID();activeToken.current=token;
@@ -58,7 +61,7 @@ export function ContactForm(){
   if(previous.current?.key!==key)previous.current={key,payload:deliveryPayload(data,window.location.origin+window.location.pathname+'#contato')};
   const payload={...previous.current!.payload,token};
   for(const [key,value] of Object.entries(payload)){const input=form.elements.namedItem(key) as HTMLInputElement;input.value=String(value)}
-  inFlight.current=true;setSending(true);setFeedback('Enviando sua solicitação…');track('contact_form_submit');
+  inFlight.current=true;setSending(true);setFeedback('Enviando sua solicitação…');trackEvent('contact_form_submit',{area:data.industry||'não informada'});
   try{form.submit();timer.current=setTimeout(()=>{inFlight.current=false;setSending(false);setFeedback('A confirmação está demorando. Seus dados continuam aqui. Você pode aguardar, tentar novamente ou usar o e-mail direto.');track('contact_form_error')},25000)}catch{inFlight.current=false;activeToken.current='';setSending(false);setFeedback('Não foi possível enviar. Seus dados foram preservados. Use o e-mail abaixo ou tente novamente.');track('contact_form_error')}
  }
  async function copy(){try{await navigator.clipboard.writeText(briefingText(data));setFeedback('Briefing copiado. Cole na sua mensagem.')}catch{setFeedback('Não foi possível copiar. Use o e-mail direto ou baixe o rascunho.')}}
@@ -66,14 +69,16 @@ export function ContactForm(){
  return <div ref={root} className="contact-form" aria-busy={sending}>
   <div className="form-progress" aria-label={`Etapa ${step} de 2`}><span>Vamos começar</span><span>0{step} / 02</span><div className="progress-track"><span style={{width:`${step/2*100}%`}}/></div></div>
   <h2 ref={title} tabIndex={-1}>{sent?'Sua mensagem chegou.':step===1?(isHome?'O que você precisa hoje?':'O que você tem em mente?'):'Agora, vamos nos conhecer.'}</h2>
-  {sent?<div className="contact-success"><span aria-hidden="true">↗</span><p>Obrigado por compartilhar seu projeto. Em breve, entrarei em contato.</p><Link className="text-link" href="/projetos">Explorar projetos ↗</Link></div>:step===1?<form onSubmit={next} noValidate>
+  {sent?<div className="contact-success"><span aria-hidden="true">↗</span><p>Obrigado por compartilhar seu projeto. {site.responseBusinessDays?`Respondo em até ${site.responseBusinessDays} dias úteis.`:'Vou responder assim que puder.'}</p><Link className="text-link" href="/projetos">Explorar projetos ↗</Link></div>:step===1?<form onSubmit={next} noValidate>
    <fieldset className="project-options" aria-describedby={errors.type?`${id}-type-error`:undefined}><legend className="sr-only">Escolha o tipo de projeto</legend>{options.map((option,i)=><label className="project-option" key={option}><input id={`${id}-type-${i}`} type="radio" name={`${id}-type`} value={option} checked={data.type===option} onChange={()=>change('type',option)}/><span>{option}<span className="option-mark" aria-hidden="true">{data.type===option?'↗':'+'}</span></span></label>)}</fieldset>
    {errors.type&&<p className="field-error" id={`${id}-type-error`} role="alert">{errors.type}</p>}
-   <label htmlFor={`${id}-budget`}>Faixa de investimento prevista <span className="optional">opcional</span><select id={`${id}-budget`} value={data.budget} onChange={e=>change('budget',e.target.value)}><option value="">Selecione, se já tiver uma ideia</option>{budgets.map(b=><option key={b}>{b}</option>)}</select></label>
+   <label htmlFor={`${id}-industry`}>Área de atuação do seu negócio <span className="optional">opcional</span><select id={`${id}-industry`} value={data.industry} onChange={e=>change('industry',e.target.value)}><option value="">Selecione, se fizer sentido</option>{industries.map(industry=><option key={industry}>{industry}</option>)}</select></label>
+   <label htmlFor={`${id}-budget`}>Faixa de investimento prevista <span className="optional">opcional</span><select id={`${id}-budget`} value={data.budget} onChange={e=>change('budget',e.target.value)}><option value="">Selecione, se já tiver uma ideia</option>{site.investmentRanges.map(b=><option key={b}>{b}</option>)}</select></label>
    <div className="form-buttons"><span className="form-reassurance">Não sabe responder tudo ainda? Sem problema. Podemos conversar sobre isso.</span><button type="submit" className="pill filled">Continuar <span aria-hidden="true">→</span></button></div>
    <p className="form-note">Se já tiver uma ideia de investimento, pode indicar. Isso ajuda a entender o escopo, mas não é um compromisso de orçamento.</p>
   </form>:<form onSubmit={send} noValidate>
    <p className="step-intro">Como posso entrar em contato para entender melhor sua ideia?</p>
+   <label className="contact-honeypot" htmlFor={`${id}-website`} aria-hidden="true">Deixe este campo vazio<input id={`${id}-website`} type="text" name="website" tabIndex={-1} autoComplete="off" value={data.website} onChange={e=>change('website',e.target.value)}/></label>
    <div className="contact-fields">{(['name','email','whatsapp'] as const).map(key=><label key={key} htmlFor={`${id}-${key}`}>{key==='name'?'Nome':key==='email'?'E-mail':'WhatsApp'} {key==='whatsapp'&&<span className="optional">opcional</span>}<input id={`${id}-${key}`} name={key} type={key==='email'?'email':key==='whatsapp'?'tel':'text'} autoComplete={key==='whatsapp'?'tel':key} disabled={sending} required={key!=='whatsapp'} maxLength={key==='email'?180:key==='whatsapp'?40:100} value={data[key]} onChange={e=>change(key,e.target.value)} aria-invalid={!!errors[key]} aria-describedby={errors[key]?`${id}-${key}-error`:undefined}/>{errors[key]&&<span id={`${id}-${key}-error`} className="field-error" role="alert">{errors[key]}</span>}</label>)}</div>
    <label htmlFor={`${id}-description`}>Breve descrição do projeto <span className="optional">opcional</span><textarea disabled={sending} id={`${id}-description`} maxLength={750} rows={3} value={data.description} onChange={e=>change('description',e.target.value)}/></label>
    <div className="form-buttons"><button className="text-button" type="button" disabled={sending} onClick={()=>{moveFocus.current=true;setStep(1);setFeedback('')}}>← Voltar</button><button className="pill filled" type="submit" disabled={sending}>{sending?'Enviando…':'Enviar solicitação ↗'}</button></div>

@@ -3,10 +3,17 @@ import Link from 'next/link';
 import {AboutTypewriter} from '@/components/about-typewriter';
 import {PointerProse} from '@/components/pointer-prose';
 import './about.css';
+import Image from 'next/image';
+import {existsSync} from 'node:fs';
+import {join} from 'node:path';
+import {site} from '@/content/site';
+import {socialLinks} from '@/lib/site-links';
 
 export const metadata: Metadata = {
   title: 'Sobre Mário Serafim | Diretor de Arte e Designer',
   description: 'Conheça Mário Serafim, diretor de arte em Fortaleza. Seu caminho pelo marketing, design e tecnologia e sua maneira de trabalhar.',
+  alternates:{canonical:'/sobre'},
+  openGraph:{title:'Sobre Mário Serafim — Direção de arte em Fortaleza',description:'Minha trajetória, formação e maneira de trabalhar com direção de arte e identidade visual.',url:'/sobre'},
 };
 
 // Certificação Adobe: reservar a inclusão até confirmar título oficial e validade.
@@ -24,7 +31,11 @@ const processParagraphs=[
 ];
 
 export default function About() {
+  const photoExists=existsSync(join(process.cwd(),'public',site.authorPhoto.replace(/^\//,'')));
+  const origin=(process.env.NEXT_PUBLIC_SITE_URL||'https://mario-serafim-portfolio-2026.mario-92.chatgpt.site').replace(/\/$/,'');
+  const structuredData={'@context':'https://schema.org','@type':'Person',name:site.name,url:origin,jobTitle:'Diretor de arte',sameAs:socialLinks.map(link=>link.url)};
   return <main id="conteudo" className="editorial-about">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,'\\u003c')}}/>
     <section className="about-opening section-wrap" aria-labelledby="about-title">
       <div className="about-opening-top"><span className="eyebrow">Sobre Mário Serafim</span><span>Direção de arte · Fortaleza, CE</span></div>
       <h1 id="about-title">Gosto de entender<br/>antes de <em>desenhar.</em></h1>
@@ -34,6 +45,7 @@ export default function About() {
     <section className="about-origin section-wrap" aria-labelledby="origin-title">
       <span className="eyebrow">01 / Um pouco sobre mim</span>
       <div><h2 id="origin-title">Meu caminho<br/><em>até aqui.</em></h2>
+        {photoExists&&<figure className="about-portrait"><Image src={site.authorPhoto} alt="Retrato de Mário Serafim" width={640} height={800} sizes="(max-width: 700px) 90vw, 420px"/></figure>}
         <div className="about-prose"><p>Comecei pelo marketing e, aos poucos, fui me aproximando cada vez mais do design. Passei por agências, trabalhei com educação, esporte e hoje estou no setor de rochas naturais. São universos bem diferentes, e talvez seja justamente isso que mais tenha acrescentado à minha maneira de trabalhar.</p><p>Aprendi que nem toda marca precisa parecer moderna, minimalista ou seguir a tendência do momento. Às vezes, a melhor decisão é fazer exatamente o contrário.</p><p>Hoje me interessa menos encontrar uma estética bonita logo de cara e mais descobrir qual direção realmente combina com o projeto.</p></div>
       </div>
     </section>
@@ -48,6 +60,6 @@ export default function About() {
       <div className="about-credential-list">{highlights.map((item, index) => <article key={item.label}><span>{String(index+1).padStart(2,'0')} /</span><div><h3><span className="credential-title-base">{item.label}</span><span className="credential-title-italic" aria-hidden="true">{item.label}</span></h3><p>{item.body}</p></div></article>)}</div>
     </section>
 
-    <section className="about-ending section-wrap" aria-labelledby="ending-title"><span className="eyebrow">O trabalho continua</span><div><h2 id="ending-title">O restante está<br/><em>nos projetos.</em></h2><p>Falei um pouco sobre mim. Mas acho que a melhor maneira de entender meu trabalho é conhecer os projetos, as escolhas que fiz e os problemas que tentei resolver.</p><div className="about-ending-actions"><Link className="pill filled" href="/projetos">Ver meus projetos <span aria-hidden="true">↗</span></Link><Link className="text-link" href="/#contato">Entrar em contato ↗</Link></div></div></section>
+    <section className="about-ending section-wrap" aria-labelledby="ending-title"><span className="eyebrow">O trabalho continua</span><div><h2 id="ending-title">O restante está<br/><em>nos projetos.</em></h2><p>Falei um pouco sobre mim. Mas acho que a melhor maneira de entender meu trabalho é conhecer os projetos, as escolhas que fiz e os problemas que tentei resolver.</p><div className="about-ending-actions"><Link className="pill filled" href="/projetos">Ver meus projetos <span aria-hidden="true">↗</span></Link><Link className="text-link" href="/contato">Entrar em contato ↗</Link></div></div></section>
   </main>;
 }

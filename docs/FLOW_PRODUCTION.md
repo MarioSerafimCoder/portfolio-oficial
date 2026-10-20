@@ -7,7 +7,7 @@ Projeto no [Google Flow](https://flow.google.com/project/f4ac3357-e58b-4e1b-b5e1
 | [`amazonita.mp4`](../public/media/motion/amazonita.mp4) | Fotografia real da rocha no acervo Amazonita, `amazonita-ref-0.jpg` | Case Amazonita e showreel | 1.282 kB |
 | [`rooftop.mp4`](../public/media/motion/rooftop.mp4) | Arte oficial Rooftop, `rooftop-ref.jpg` | Case Rooftop e showreel | 545 kB |
 | [`simetria.mp4`](../public/media/motion/simetria.mp4) | Arte do manual Simetria, `simetria-ref.jpg` | Case Simetria e showreel | 371 kB |
-| [`home-showreel.mp4`](../public/media/motion/home-showreel.mp4) | Trechos dos três vídeos acima | Homepage | 842 kB |
+| [`home-showreel.mp4`](../public/media/motion/home-showreel.mp4) | Trechos dos três vídeos acima | Arquivo histórico; removido da home | 842 kB |
 
 Os quatro posters `.webp` correspondentes estão no mesmo diretório. Os vídeos foram revisados por quadros para verificar composição e fidelidade às referências; a verificação visual final dentro das páginas do site permanece pendente.
 
