@@ -6,6 +6,8 @@
 .journal-hero-copy p{max-width:520px;margin:0 0 8px;font-size:clamp(17px,1.5vw,20px);line-height:1.65;color:var(--muted)}
 .journal-index{padding-top:87px;padding-bottom:125px;min-height:410px}
 .journal-index h2{font-size:clamp(41px,4.8vw,65px);line-height:1.1}
+.journal-index-plain{padding-top:64px}
+.journal-index-plain .journal-list,.journal-index-plain .journal-empty{margin-top:0;border-top:0}
 .journal-empty{margin-top:53px;padding:34px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;align-items:baseline;gap:35px}
 .journal-empty>span{font-size:18px;color:var(--accent)}.journal-empty p{font-size:clamp(17px,1.6vw,21px);line-height:1.6;color:var(--muted);max-width:690px}
 .journal-list{list-style:none;padding:0;margin:54px 0 0;border-top:1px solid var(--rule)}
