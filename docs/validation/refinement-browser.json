@@ -1,0 +1,942 @@
+[
+  {
+    "path": "/",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "theme": "dark",
+    "axe": []
+  },
+  {
+    "path": "/projetos",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/projetos",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos",
+    "theme": "dark",
+    "axe": []
+  },
+  {
+    "path": "/sobre",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/sobre",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/sobre",
+    "theme": "dark",
+    "axe": []
+  },
+  {
+    "path": "/contato",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/contato",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/contato",
+    "theme": "dark",
+    "axe": []
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/rooftop",
+    "theme": "dark",
+    "axe": []
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/simetria",
+    "theme": "dark",
+    "axe": []
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amazonita",
+    "theme": "dark",
+    "axe": []
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "theme": "dark",
+    "axe": []
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "theme": "dark",
+    "axe": []
+  },
+  {
+    "path": "/privacidade",
+    "theme": "light",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "light",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "light",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "light",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "light",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "light",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "light",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "light",
+    "axe": []
+  },
+  {
+    "path": "/privacidade",
+    "theme": "dark",
+    "width": 320,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "dark",
+    "width": 375,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "dark",
+    "width": 390,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "dark",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "dark",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": false
+  },
+  {
+    "path": "/privacidade",
+    "theme": "dark",
+    "axe": []
+  }
+]

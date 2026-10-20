@@ -13,7 +13,7 @@ export function CaseStory({project:p}:{project:Project}){
 
 export function Video({src,caption,poster='/media/amazonita-video-poster.webp'}:{src:string;caption:string;poster?:string}){
  const video=useRef<HTMLVideoElement>(null);const [playing,setPlaying]=useState(false);
- useEffect(()=>{const el=video.current;if(!el)return;const q=matchMedia('(prefers-reduced-motion: reduce)');if(q.matches)return;const observer=new IntersectionObserver(([e])=>{if(e.isIntersecting&&document.visibilityState==='visible'){el.play().catch(()=>{})}else el.pause()},{threshold:.4});observer.observe(el);const visibility=()=>{if(document.visibilityState==='hidden')el.pause()};document.addEventListener('visibilitychange',visibility);return()=>{observer.disconnect();document.removeEventListener('visibilitychange',visibility)}},[]);
+
  return <div className={`video-frame ${src==='/media/amazonita-motion.mp4'?'video-portrait':'video-landscape'}`}><video ref={video} poster={poster} playsInline muted loop controls preload="none" aria-label={caption} onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)}><source src={src} type="video/mp4"/>Seu navegador não suporta vídeo. <a href={src}>Baixar vídeo</a></video><button className="video-toggle" aria-label={playing?'Pausar vídeo':'Reproduzir vídeo'} onClick={()=>{if(playing)video.current?.pause();else video.current?.play().catch(()=>{})}}>{playing?'Pausar Ⅱ':'Reproduzir ▷'}</button></div>
 }
 

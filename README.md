@@ -32,6 +32,7 @@ Relatórios Lighthouse e verificação responsiva locais ficam em `docs/validati
 
 - `src/content/projects.ts`: cases, narrativas, créditos, cores e fontes do material.
 - `src/content/site.ts`: apresentação, e-mail, LinkedIn e serviços.
+- `src/content/journal.ts`: artigos do Diário de bordo, categorias e estado de publicação (veja [manutenção do Diário](docs/JOURNAL.md)).
 - `src/app/sobre/page.tsx`: trajetória e abordagem editorial.
 - `src/app/globals.css`: tokens, composição, responsividade e animações.
 - `public/media/`: derivados WebP, vídeos dos cases e showreel preparados a partir dos arquivos autorizados. Originais de trabalho ficam em `tmp/`, fora do Git.
@@ -41,7 +42,7 @@ Ao adicionar imagens, informe suas dimensões reais em `src/content/media-dimens
 
 ## Contato e publicação
 
-O formulário organiza um briefing em três etapas e envia a mensagem por um [Apps Script do Gmail](integrations/gmail-contact/README.md) para `marioserafim.da@gmail.com`. Inclui cópia do texto, link de e-mail e download `.eml` como alternativas. O destino é fixo no código do Apps Script; o site não inclui credenciais, banco de leads ou analytics de formulário.
+O formulário organiza um briefing em duas etapas e envia a mensagem por um [Apps Script do Gmail](integrations/gmail-contact/README.md) para `marioserafim.da@gmail.com`. Inclui cópia do texto, link de e-mail e download `.eml` como alternativas. O destino é fixo no código do Apps Script; o site não inclui credenciais, banco de leads ou analytics de formulário.
 
 O endereço Sites está configurado como origem padrão dos metadados. Se mudar o domínio, configure `NEXT_PUBLIC_SITE_URL` e faça novo build (veja `.env.example`). A publicação usa o projeto declarado em `.openai/hosting.json`.
 
