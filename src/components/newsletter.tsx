@@ -26,7 +26,7 @@ export function Newsletter(){
       setState('success');trackEvent('newsletter_signup');
     }catch{setState('error')}
   }
-  return <section className="journal-newsletter section-wrap" aria-labelledby="newsletter-title"><span className="eyebrow">Correspondência</span><h2 id="newsletter-title">Uma nota na sua caixa de entrada.</h2><p>Quando houver um texto novo, posso te avisar por e-mail. Sem frequência prometida.</p>{state==='success'?<p className="newsletter-feedback" role="status">Inscrição recebida. Obrigado por acompanhar o Diário.</p>:<form onSubmit={submit} noValidate>
+  return <section className="journal-newsletter section-wrap" aria-labelledby="newsletter-title"><span className="eyebrow">Correspondência</span><h2 id="newsletter-title">Uma nota na sua caixa de entrada.</h2><p>Quando houver um texto novo, posso te avisar por e-mail. Sem frequência prometida.</p>{state==='success'?<p className="newsletter-feedback" role="status">Inscrição recebida. Obrigado por acompanhar Pausa do café.</p>:<form onSubmit={submit} noValidate>
     <label htmlFor={`${id}-name`}>Nome <span className="optional">opcional</span><input id={`${id}-name`} value={name} onChange={event=>setName(event.target.value)} autoComplete="name" maxLength={100}/></label>
     <label htmlFor={`${id}-email`}>E-mail<input id={`${id}-email`} type="email" value={email} onChange={event=>setEmail(event.target.value)} autoComplete="email" required aria-invalid={state==='error'&&!email.includes('@')}/></label>
     <label className="contact-honeypot" aria-hidden="true" htmlFor={`${id}-website`}>Deixe este campo vazio<input id={`${id}-website`} tabIndex={-1} autoComplete="off" value={website} onChange={event=>setWebsite(event.target.value)}/></label>

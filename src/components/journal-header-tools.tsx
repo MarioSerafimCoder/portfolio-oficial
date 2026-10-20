@@ -25,7 +25,7 @@ export function JournalHeaderTools() {
       router.push(query.trim() ? `/blog?q=${encodeURIComponent(query.trim())}` : '/blog');
     }
   }
-  return <div className="journal-header-tools" aria-label={locale === 'en' ? 'Journal tools' : 'Ferramentas do Diário'}>
+  return <div className="journal-header-tools" aria-label={locale === 'en' ? 'Pausa do café tools' : 'Ferramentas de Pausa do café'}>
     <form className="journal-header-search" role="search" action="/blog" onSubmit={submit}>
       <label className="sr-only" htmlFor="journal-search">{copy.search}</label>
       <input id="journal-search" type="search" name="q" value={query} onChange={event => changeQuery(event.target.value)} placeholder={copy.search} autoComplete="off"/>

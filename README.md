@@ -32,7 +32,7 @@ Relatórios Lighthouse e verificação responsiva locais ficam em `docs/validati
 
 - `src/content/projects.ts`: cases, narrativas, créditos, cores e fontes do material.
 - `src/content/site.ts`: apresentação, contato, redes sociais, faixas de investimento e FAQ.
-- `src/content/journal.ts`: artigos do Diário, categorias, rascunhos e estado de publicação (veja [manutenção do Diário](docs/JOURNAL.md)).
+- `src/content/journal.ts`: artigos de Pausa do café, categorias, rascunhos e estado de publicação (veja [manutenção do blog](docs/JOURNAL.md)).
 - `src/app/sobre/page.tsx`: trajetória e abordagem editorial.
 - `src/app/globals.css`: tokens, composição, responsividade e animações.
 - `public/media/`: derivados WebP e vídeos dos cases, incluindo versões menores para mobile. A home apresenta apenas imagens estáticas dos projetos. Originais de trabalho ficam em `tmp/`, fora do Git.

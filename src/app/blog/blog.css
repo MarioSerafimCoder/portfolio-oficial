@@ -43,7 +43,7 @@
 @media(max-width:700px){.journal-hero-copy{grid-template-columns:1fr;gap:28px;margin-top:38px}.journal-hero-copy h1{max-width:100%;margin:0;font-size:clamp(56px,12vw,74px)}.journal-hero-copy p{max-width:520px;margin:0;font-size:16px;line-height:1.65}}
 @media(prefers-reduced-motion:reduce){.journal-list li::after,.journal-list-arrow{transition:none}}
 
-/* Leitura do artigo: a composição preserva a identidade do Diário. */
+/* Leitura do artigo: a composição preserva a identidade de Pausa do café. */
 .journal-post-hero{padding-bottom:58px}
 .journal-post-head-inner{max-width:72ch;margin-inline:auto}
 .journal-back{min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px}
@@ -125,7 +125,7 @@
 }
 @media(prefers-reduced-motion:reduce){.journal-toc summary>span{transition:none}}
 
-/* Ferramentas do Diário no cabeçalho compartilhado. */
+/* Ferramentas de Pausa do café no cabeçalho compartilhado. */
 .journal-site-header .header-actions{gap:18px}
 .journal-header-tools{display:flex;align-items:center;gap:10px}
 .journal-header-search{display:flex;align-items:center;width:245px;height:44px;border-bottom:1px solid var(--control)}

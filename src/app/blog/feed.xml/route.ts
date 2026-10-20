@@ -10,6 +10,6 @@ export function GET() {
     const link = `${origin}/blog/${post.slug}`;
     return `<item><title>${escapeXml(post.title)}</title><link>${escapeXml(link)}</link><guid isPermaLink="true">${escapeXml(link)}</guid><description>${escapeXml(post.summary)}</description><category>${escapeXml(journalCategories[post.category])}</category><pubDate>${new Date(`${post.date}T12:00:00Z`).toUTCString()}</pubDate></item>`;
   }).join('');
-  const xml = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Diário — Mário Serafim</title><link>${escapeXml(`${origin}/blog`)}</link><description>Reflexões sobre design, direção de arte e processos criativos.</description><language>pt-BR</language>${items}</channel></rss>`;
+  const xml = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Pausa do café — Mário Serafim</title><link>${escapeXml(`${origin}/blog`)}</link><description>Reflexões sobre design, direção de arte e processos criativos.</description><language>pt-BR</language>${items}</channel></rss>`;
   return new Response(xml, {headers: {'Content-Type': 'application/rss+xml; charset=utf-8'}});
 }

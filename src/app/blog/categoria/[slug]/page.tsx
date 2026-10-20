@@ -14,7 +14,7 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
   const {slug}=await params;
   const category=journalCategories[slug as JournalCategory];
   if(!category)return {robots:{index:false,follow:false}};
-  const title=`${category} — Diário`;
+  const title=`${category} — Pausa do café`;
   const description=`Textos de Mário Serafim sobre ${category.toLocaleLowerCase('pt-BR')}.`;
   return {title,description,robots:{index:indexJournal,follow:true},alternates:{canonical:`/blog/categoria/${slug}`},openGraph:{title,description,url:`/blog/categoria/${slug}`}};
 }

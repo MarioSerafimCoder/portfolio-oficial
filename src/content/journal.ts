@@ -22,7 +22,7 @@ export type JournalPost = {
   updatedAt?: string; // YYYY-MM-DD; somente quando o artigo tiver sido atualizado.
   status: 'draft' | 'published'; content: JournalBlock[];
   cover?: {src: string; alt: string; width: number; height: number};
-  demo?: boolean; // Exemplo visível no Diário, rotulado como teste e excluído da indexação.
+  demo?: boolean; // Exemplo visível em Pausa do café, rotulado como teste e excluído da indexação.
   sources?: {label: string; url: string}[];
   seo?: {title?: string; description?: string};
   translations?: {en?: {title: string; summary: string; content: JournalBlock[]}};
@@ -37,10 +37,10 @@ export const journalPosts: JournalPost[] = [{
   date: '2026-10-20',
   status: 'draft',
   demo: true,
-  seo: {title: 'Exemplo de leitura do Diário', description: 'Prévia local do template editorial do Diário.'},
+  seo: {title: 'Exemplo de leitura em Pausa do café', description: 'Post de teste do template editorial de Pausa do café.'},
   translations: {en: {title: 'Test post: what keeps us reading?', summary: 'A preview of the article page: hierarchy, breathing room, imagery, links and references in a reading experience without distractions.', content: journalDemoEnglish}},
   content: [
-    {type: 'paragraph', text: 'Este texto é uma demonstração do Diário. Ele serve para avaliar a experiência de leitura e não representa um artigo publicado ou o relato de um projeto novo.'},
+    {type: 'paragraph', text: 'Este texto é uma demonstração de Pausa do café. Ele serve para avaliar a experiência de leitura e não representa um artigo publicado ou o relato de um projeto novo.'},
     {type: 'paragraph', text: 'Uma página pode ter boas ideias e ainda assim ser difícil de acompanhar. Às vezes o problema não está na frase: está no caminho que o olhar precisa percorrer para encontrá-la. Tamanho do texto, largura da coluna, intervalos e títulos interferem nesse percurso.'},
     {type: 'heading', level: 2, text: 'Antes da primeira frase'},
     {type: 'paragraph', text: 'Quem chega a um artigo costuma procurar pistas antes de decidir se fica. O título sugere uma pergunta; a introdução mostra por que ela importa; os subtítulos antecipam a direção da conversa. Nada disso precisa entregar uma resposta pronta, mas deve ajudar a pessoa a se orientar.'},
