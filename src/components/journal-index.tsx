@@ -39,7 +39,7 @@ export function JournalIndex({posts,activeCategory}: {posts: JournalPost[];activ
     document.getElementById('journal-search')?.focus();
   }
   return <main id="conteudo" className="journal-page">
-    <header className="journal-hero section-wrap"><span className="eyebrow">{copy.eyebrow}</span><div className="journal-hero-copy"><h1>{copy.title}</h1><p>{copy.intro}</p></div></header>
+    <header className="journal-hero section-wrap"><span className="eyebrow">{copy.eyebrow}</span><div className="journal-hero-copy"><h1>Pausa do <em>café</em></h1><p>{copy.intro}</p></div></header>
     <section className={`journal-index section-wrap${activeCategory?'':' journal-index-plain'}`} aria-labelledby="journal-index-title"><h2 id="journal-index-title" className={activeCategory?undefined:'sr-only'}>{activeCategory?journalCategoryLabels[locale][activeCategory]:copy.index}</h2>
       {categories.length>1&&<nav className="journal-categories" aria-label={copy.categoryFilter}><Link href="/blog" aria-current={!activeCategory?'page':undefined}>{copy.allCategories}</Link>{categories.map(category=><Link key={category} href={`/blog/categoria/${category}`} aria-current={activeCategory===category?'page':undefined}>{journalCategoryLabels[locale][category]}</Link>)}</nav>}
       {posts.length === 0 ? <div className="journal-empty"><span aria-hidden="true">✳</span><p>{copy.empty}</p></div> : filtered.length === 0 ? <div className="journal-empty journal-no-results"><span aria-hidden="true">✳</span><div><p role="status">{copy.noResults}</p><button type="button" onClick={clearSearch}>{copy.clear} ↗</button></div></div> : <>

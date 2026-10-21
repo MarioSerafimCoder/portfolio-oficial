@@ -43,12 +43,6 @@
 
 @font-face{font-family:'DM Sans Light Local';src:url('/fonts/dm-sans-light.woff2') format('woff2');font-style:normal;font-weight:300;font-display:swap}
 .about-opening-bottom .about-typewriter{position:relative;font-family:'DM Sans Light Local',var(--font-sans),Arial,sans-serif;font-weight:300;color:color-mix(in srgb,var(--ink) 84%,var(--paper))}
-.about-typewriter-measure{visibility:hidden}
-.about-typewriter-visual{position:absolute;inset:0 auto auto 0;width:100%}
-.about-typewriter-cursor{display:inline-block;width:.55em;height:2px;margin-left:3px;background:var(--accent);vertical-align:-.12em;animation:about-cursor-blink 840ms steps(1,end) infinite}
-.about-typewriter-noscript{position:absolute;inset:0 auto auto 0;width:100%}
-@keyframes about-cursor-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-@media(prefers-reduced-motion:reduce){.about-typewriter-cursor{animation:none}}
 @media(max-width:700px){
   .about-opening-top,.about-credential-list article>span{font-size:12px}
   .about-prose p,.about-thinking-copy p,.about-credentials-head p,.about-credential-list p,.about-ending p{font-size:16px}

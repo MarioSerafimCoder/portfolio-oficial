@@ -9,6 +9,7 @@ import {useJournalPreferences} from './journal-preferences';
 import {JournalShare} from './journal-share';
 import {Newsletter} from './newsletter';
 import {site} from '@/content/site';
+import {ReadingProgress} from './reading-progress';
 
 function ArticleBlock({block, id, sourceLabel}: {block: JournalBlock; id?: string; sourceLabel: string}) {
   if (block.type === 'paragraph') return <p>{block.segments ? block.segments.map((segment, index) => segment.href
@@ -27,7 +28,7 @@ export function JournalArticle({post, related, canonicalUrl, authorPhoto}: {post
   const headings = journalHeadings(view.content);
   const headingIds = new Map(headings.map(heading => [heading.index, heading.id]));
   const textLanguage = view.translated ? undefined : 'pt-BR';
-  return <main id="conteudo" className="journal-post-page">
+  return <main id="conteudo" className="journal-post-page"><ReadingProgress/>
     <article><header className="journal-post-hero section-wrap"><div className="journal-post-head-inner">
       <Link className="journal-back" href="/blog">{copy.back}</Link>
       {post.demo && <div className="journal-post-demo" role="note">{copy.demo}</div>}
