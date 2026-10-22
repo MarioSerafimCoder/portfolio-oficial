@@ -1,3 +1,21 @@
+# Correção preparada após 910e96e — 22/10/2026
+
+Este registro prevalece sobre a descrição histórica abaixo.
+
+- Fonte ativa recuperada pela API Cloudflare via OAuth local já existente; snapshot sem credenciais em cloudflare/production-990e2bca.mjs. Confirmados namespace, secret, Cron, compatibilidade e observabilidade. Wrangler 4.152.0 instalado isoladamente em tmp/wrangler-safe (não versionado) após resolver os problemas do instalador transitório.
+- Causa histórica do 403 **não comprovada**: o Worker ativo faz a consulta Contents sem autenticação e lança somente o status, descartando corpo e headers. Logs das 16h45 não permitem distinguir rate limit de política/permissão. Às 17h00 houve recuperação espontânea: Nenhum artigo pronto para publicação. A API pública local respondeu 200, com limite 60 e 53 requisições restantes; isso não mede o IP de saída do Worker. Hipótese principal: limite compartilhado de acesso anônimo, ainda sem prova. Referência: https://docs.github.com/en/rest/using-the-rest-api/troubleshooting-the-rest-api
+- Correção local exige GITHUB_TOKEN, elimina dependência do limite anônimo, classifica 403/429 por headers/corpo sem imprimir conteúdo sensível e persiste cooldown no KV respeitando reset/retry-after. HTTP 401 e 403 não geram repetição imediata; rede/5xx têm no máximo 2 tentativas, espera de 1 segundo. Orçamento de 16 chamadas GitHub e 10 artigos por execução para conter subrequests no plano gratuito; crescimento exige paginação e novo dimensionamento.
+- Hook aceito grava status pending. Uma publicação só vira confirmed depois de data vencida e URL pública 200 contendo seu título SEO. Esta é confirmação da saída pública do deploy, não consulta ao status interno de uma tarefa Pages. Página 404 mantém pendência; outros erros abortam sem novo hook. No máximo 3 solicitações com intervalo de 30 minutos; depois exige verificar Pages manualmente. Confirmação não aciona outro build.
+- Histórico real: chave blog-scheduler-state-v1, objeto posts com path/status/when/due/sha/triggeredAt. A nova implementação lê esse histórico, reaproveita acionamentos da mesma data como pendentes e nunca altera ou apaga a chave original. Novos registros ficam nas chaves publication:v1. Ausência de token aborta antes de tocar no histórico.
+- Implantação bloqueada por GITHUB_TOKEN ausente. Configurar manualmente token fine-grained, somente MarioSerafimCoder/portfolio-oficial, Contents: Read-only (Metadata de leitura implícita), com expiração, como Secret no Worker. Não enviar token no chat. A sessão Wrangler OAuth já funciona; não é necessário criar outra credencial Cloudflare.
+- Para conferir/implantar usar node tmp/wrangler-safe/node_modules/wrangler/bin/wrangler.js deploy --dry-run --config cloudflare/wrangler.jsonc, seguido de deploy com a mesma configuração somente após configurar/validar o Secret. Secrets não são exportados nem sobrescritos. Não executar o snapshot histórico.
+- Às 17h10 de Fortaleza, a URL do artigo de 17h20 ainda retornava 404, corretamente antes da data. Não é evidência de falha. Execução de 17h30 e publicação automática continuam pendentes de observação; um push posterior ao horário pode publicar pelo Git e não comprova o Cron.
+
+- Validação desta correção: 25 testes aprovados, TypeScript e build estático aprovados; Wrangler 4.152.0 dry-run aprovado (121,07 KiB; gzip 24,32 KiB), mostrando o namespace existente. Não houve deploy do Worker nem gravação em KV de produção.
+- Pages consultado pela API: deployment b85c3c81-a789-4448-a162-a73b447eb56e do commit 910e96e com status success, origem github:push, criado às 17h07min55s. Às 17h16min59s a URL do artigo ainda retornava 404, antes das 17h20. A publicação futura ainda não pode ser validada.
+
+---
+
 # Publicação do blog — 22/10/2026
 
 ## Arquitetura e origem do código

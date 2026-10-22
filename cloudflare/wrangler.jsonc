@@ -1,9 +1,12 @@
 {
   "name": "portfolio-blog-publisher",
+  "account_id": "7bfc908c25ef636aade196a09572a11c",
   "main": "scheduled-rebuild.mjs",
   "compatibility_date": "2026-10-22",
   "keep_vars": true,
-  "observability": {"enabled": true},
+  "observability": {"enabled": true, "head_sampling_rate": 1,
+    "logs": {"enabled": true, "head_sampling_rate": 1, "persist": true, "invocation_logs": true},
+    "traces": {"enabled": false, "head_sampling_rate": 1, "persist": true}},
   "kv_namespaces": [{"binding": "BLOG_SCHEDULER_KV", "id": "ee5ac0710d04426c9fc927f68f92a2f2"}],
   "triggers": {"crons": ["*/15 * * * *"]}
 }
