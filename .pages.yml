@@ -1,0 +1,84 @@
+
+media:
+  input: public/media/blog
+  output: /media/blog
+  rename: true
+
+content:
+  - name: posts
+    label: Pausa do café
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [title, category, status, publish_at]
+      sort: [publish_at, title]
+      default:
+        sort: publish_at
+        order: desc
+    fields:
+      - name: title
+        label: Título do artigo
+        type: string
+        required: true
+
+      - name: summary
+        label: Resumo
+        type: text
+        required: true
+
+      - name: category
+        label: Categoria
+        type: select
+        required: true
+        options:
+          values:
+            - name: identidade-visual
+              label: Identidade visual
+            - name: branding
+              label: Branding
+            - name: direcao-de-arte
+              label: Direção de arte
+            - name: processo
+              label: Processo
+            - name: tecnologia
+              label: Tecnologia
+            - name: referencias
+              label: Referências
+
+      - name: status
+        label: Status editorial
+        type: select
+        required: true
+        options:
+          values:
+            - name: draft
+              label: Rascunho
+            - name: published
+              label: Publicar ou agendar
+
+      - name: publish_at
+        label: Data e hora da publicação
+        type: date
+        default: ""
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mm"
+
+      - name: cover
+        label: Imagem de capa
+        type: image
+
+      - name: seo_title
+        label: Título para SEO
+        type: string
+
+      - name: seo_description
+        label: Descrição para SEO
+        type: text
+
+      - name: body
+        label: Conteúdo do artigo
+        type: rich-text
