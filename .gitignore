@@ -4,6 +4,8 @@ out/
 .env*
 !.env.example
 tmp/
+.wrangler/
+.dev.vars*
 *.tsbuildinfo
 next-env.d.ts
 docs/screenshots/evolution/

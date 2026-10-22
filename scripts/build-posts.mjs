@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import {marked} from 'marked';
+import {parseYaml, publicationTime} from '../cloudflare/publication.mjs';
 
 const root=path.join(process.cwd(),'src/content/posts');
 const categories=new Set(['identidade-visual','branding','direcao-de-arte','processo','tecnologia','referencias']);
@@ -23,14 +24,12 @@ const posts=[];
 for(const filename of fs.readdirSync(root).filter(name=>name.endsWith('.md')).sort()){
   const slug=filename.slice(0,-3);
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)||slug==='exemplo-de-leitura')throw Error(`Slug inválido ou reservado: ${slug}`);
-  const {data,content}=matter(fs.readFileSync(path.join(root,filename),'utf8'));
+  const {data,content}=matter(fs.readFileSync(path.join(root,filename),'utf8'), {engines: {yaml: parseYaml}});
   if(!data.title||!data.summary||!categories.has(data.category)||!['draft','published'].includes(data.status))throw Error(`Metadados inválidos: ${filename}`);
   let date='';let publishAt;
   if(data.publish_at){
-    const local=typeof data.publish_at==='string'?data.publish_at:data.publish_at.toISOString();
-    const normalized=local.replace(/\.\d+Z$/,'Z');
-    publishAt=/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(normalized)?`${normalized}:00-03:00`:normalized;
-    if(!Number.isFinite(Date.parse(publishAt)))throw Error(`publish_at inválido: ${filename}`);
+    try { publishAt=publicationTime(data.publish_at); }
+    catch { throw Error(`publish_at inválido: ${filename}`); }
     date=publishAt.slice(0,10);
   }
   if(data.status==='published'&&!publishAt)throw Error(`Artigo publicado sem publish_at: ${filename}`);

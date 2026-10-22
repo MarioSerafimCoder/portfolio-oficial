@@ -4,26 +4,26 @@ Portfólio oficial de Mário Serafim, desenvolvido em Next.js App Router, React,
 
 ## Executar
 
-Requer Node.js 24 e npm.
+Requer Node.js 24 e pnpm 10 (mesmas versões do Cloudflare Pages).
 
 ```sh
-npm ci
-npm run dev
+pnpm install --frozen-lockfile
+pnpm run dev
 ```
 
 Abra http://127.0.0.1:3000. Para gerar a versão estática usada na publicação:
 
 ```sh
-npm run build
+pnpm run build
 ```
 
-O resultado fica em `out/`. A configuração de hospedagem está em `.openai/hosting.json`.
+O resultado fica em `out/`. A produção usa Cloudflare Pages, projeto `portfolio-oficial`, branch `main`. `.openai/hosting.json` é um registro da hospedagem anterior.
 
 ## Verificar
 
 ```sh
-npm run check
-npm test
+pnpm run check
+pnpm test
 ```
 
 Relatórios Lighthouse e verificação responsiva locais ficam em `docs/validation/`.
@@ -32,7 +32,7 @@ Relatórios Lighthouse e verificação responsiva locais ficam em `docs/validati
 
 - `src/content/projects.ts`: cases, narrativas, créditos, cores e fontes do material.
 - `src/content/site.ts`: apresentação, contato, redes sociais, faixas de investimento e FAQ.
-- `src/content/journal.ts`: artigos de Pausa do café, categorias, rascunhos e estado de publicação (veja [manutenção do blog](docs/JOURNAL.md)).
+- `src/content/posts/*.md`: artigos editados pelo Pages CMS; `src/content/journal.ts` reúne o conteúdo gerado, categorias e demonstração (veja [manutenção do blog](docs/JOURNAL.md)).
 - `src/app/sobre/page.tsx`: trajetória e abordagem editorial.
 - `src/app/globals.css`: tokens, composição, responsividade e animações.
 - `public/media/`: derivados WebP e vídeos dos cases, incluindo versões menores para mobile. A home apresenta apenas imagens estáticas dos projetos. Originais de trabalho ficam em `tmp/`, fora do Git.
@@ -44,7 +44,7 @@ Ao adicionar imagens, informe suas dimensões reais em `src/content/media-dimens
 
 O formulário organiza um briefing em duas etapas e envia a mensagem por um [Apps Script do Gmail](integrations/gmail-contact/README.md) para `marioserafim.da@gmail.com`. Inclui cópia do texto, link de e-mail e download `.eml` como alternativas. O destino é fixo no código do Apps Script. Links de Instagram, Behance, LinkedIn e WhatsApp ficam em `src/content/site.ts`; agendamento, newsletter e métricas só aparecem após configuração. Nenhuma credencial é incluída no site.
 
-O endereço Sites está configurado como origem padrão dos metadados. Se mudar o domínio, configure `NEXT_PUBLIC_SITE_URL` e faça novo build (veja `.env.example`). A publicação usa o projeto declarado em `.openai/hosting.json`.
+O domínio oficial dos metadados é `https://marioserafim.com.br`. Configure `NEXT_PUBLIC_SITE_URL` com esse valor no Pages (veja `.env.example`). A publicação automática e sua recuperação estão documentadas em [infraestrutura do blog](docs/BLOG_INFRASTRUCTURE.md).
 
 Veja o [relatório da evolução atual](docs/EVOLUTION_REPORT.md), o [registro de produção dos vídeos](docs/FLOW_PRODUCTION.md), a [verificação de conteúdo](docs/CONTENT_VERIFICATION.md) e a [auditoria da referência](COLLINS_REFERENCE_AUDIT.md). O [relatório de entrega anterior](docs/DELIVERY_REPORT.md) permanece como histórico da reconstrução inicial.
 

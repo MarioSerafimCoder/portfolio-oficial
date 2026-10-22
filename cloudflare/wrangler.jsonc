@@ -1,6 +1,9 @@
 {
-  "name": "portfolio-pausa-do-cafe-scheduler",
+  "name": "portfolio-blog-publisher",
   "main": "scheduled-rebuild.mjs",
-  "compatibility_date": "2026-10-21",
+  "compatibility_date": "2026-10-22",
+  "keep_vars": true,
+  "observability": {"enabled": true},
+  "kv_namespaces": [{"binding": "BLOG_SCHEDULER_KV", "id": "ee5ac0710d04426c9fc927f68f92a2f2"}],
   "triggers": {"crons": ["*/15 * * * *"]}
 }
