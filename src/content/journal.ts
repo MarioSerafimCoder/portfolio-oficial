@@ -1,3 +1,4 @@
+import generatedPosts from './journal-generated.json';
 import {journalDemoEnglish} from './journal-demo-en';
 
 export const journalCategories = {
@@ -20,6 +21,7 @@ export type JournalPost = {
   title: string; slug: string; summary: string; category: JournalCategory;
   date: string; // YYYY-MM-DD; para posts publicados, use a data real da publicação.
   updatedAt?: string; // YYYY-MM-DD; somente quando o artigo tiver sido atualizado.
+  publishAt?: string; // Horário absoluto gerado de publish_at em America/Fortaleza.
   status: 'draft' | 'published'; content: JournalBlock[];
   cover?: {src: string; alt: string; width: number; height: number};
   demo?: boolean; // Exemplo visível em Pausa do café, rotulado como teste e excluído da indexação.
@@ -29,7 +31,7 @@ export type JournalPost = {
 };
 
 // O exemplo permite avaliar o template; aparece com aviso de teste e não é uma publicação.
-export const journalPosts: JournalPost[] = [{
+const editorialFixtures: JournalPost[] = [{
   title: 'Post de teste: o que faz a gente continuar lendo?',
   slug: 'exemplo-de-leitura',
   summary: 'Uma demonstração da página de artigo: hierarquia, respiro, imagem, links e referências em uma leitura sem distrações.',
@@ -95,6 +97,7 @@ export const journalPosts: JournalPost[] = [{
     {type:'heading',level:2,text:'Da direção à construção'},
   ]},
 ];
+export const journalPosts: JournalPost[] = [...generatedPosts as JournalPost[], ...editorialFixtures];
 export const publishedJournalPosts = journalPosts.filter(post => post.status === 'published' && !post.demo).sort((a, b) => b.date.localeCompare(a.date));
 export const showJournalNavigation = true;
 export const indexJournal = publishedJournalPosts.length >= 3;

@@ -71,6 +71,10 @@ content:
         label: Imagem de capa
         type: image
 
+      - name: cover_alt
+        label: Texto alternativo da capa
+        type: string
+
       - name: seo_title
         label: Título para SEO
         type: string
