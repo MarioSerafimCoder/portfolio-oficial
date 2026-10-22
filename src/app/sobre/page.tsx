@@ -32,7 +32,7 @@ const processParagraphs=[
 
 export default function About() {
   const photoExists=existsSync(join(process.cwd(),'public',site.authorPhoto.replace(/^\//,'')));
-  const origin=(process.env.NEXT_PUBLIC_SITE_URL||'https://mario-serafim-portfolio-2026.mario-92.chatgpt.site').replace(/\/$/,'');
+  const origin=(process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br').replace(/\/$/,'');
   const structuredData={'@context':'https://schema.org','@type':'Person',name:site.name,url:origin,jobTitle:'Diretor de arte',sameAs:socialLinks.map(link=>link.url)};
   return <main id="conteudo" className="editorial-about">
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,'\\u003c')}}/>

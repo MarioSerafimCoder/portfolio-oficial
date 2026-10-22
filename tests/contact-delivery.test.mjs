@@ -22,7 +22,7 @@ test('as cinco opções são aceitas pelo backend atual sem reimplantação',()=
  }
 });
 test('a mensagem inclui investimento, WhatsApp e descrição sem truncar no limite do servidor',()=>{
- const payload=deliveryPayload({...data,budget:'Acima de R$ 10.000',whatsapp:'+55 85 99999-0000',description:'á'.repeat(750)},'https://mario-serafim-portfolio-2026.mario-92.chatgpt.site/projetos/eduardo-noronha#contato');
+ const payload=deliveryPayload({...data,budget:'Acima de R$ 10.000',whatsapp:'+55 85 99999-0000',description:'á'.repeat(750)},'https://marioserafim.com.br/projetos/eduardo-noronha#contato');
  assert.ok(payload.description.length<=1200);const b=backend();b.send(payload);assert.ok(b.mails[0].body.includes('á'.repeat(750)));assert.match(b.mails[0].body,/Acima de R\$ 10.000/);
 });
 test('backend rejeita e-mail inválido e honeypot, sem enviar mensagem',()=>{

@@ -7,7 +7,7 @@ import {projects} from '@/content/projects';
 import {CaseRail, CaseViewTracker, Video} from '@/components/case';
 import {WhatsAppLink} from '@/components/whatsapp-link';
 
-const origin=(process.env.NEXT_PUBLIC_SITE_URL||'https://mario-serafim-portfolio-2026.mario-92.chatgpt.site').replace(/\/$/,'');
+const origin=(process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br').replace(/\/$/,'');
 export const dynamicParams=false;
 export function generateStaticParams(){return projects.map(project=>({slug:project.slug}))}
 

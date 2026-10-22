@@ -12,7 +12,7 @@ import {socialLinks} from '@/lib/site-links';
 import {TrackedLink} from '@/components/tracked-link';
 import {ScrollHighlight} from '@/components/scroll-highlight';
 
-const origin=(process.env.NEXT_PUBLIC_SITE_URL||'https://mario-serafim-portfolio-2026.mario-92.chatgpt.site').replace(/\/$/,'');
+const origin=(process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br').replace(/\/$/,'');
 export const metadata:Metadata={title:'Direção de arte, identidade visual e branding em Fortaleza',description:'Portfólio de Mário Serafim: direção de arte, identidade visual, branding e experiências digitais desenvolvidas com clareza e personalidade.',alternates:{canonical:'/'},openGraph:{title:'Mário Serafim — Direção de arte e identidade visual',description:site.description,url:'/'}};
 
 const featured=['rooftop','simetria','eduardo-noronha','amanda-araujo'].map(slug=>projects.find(project=>project.slug===slug)!);

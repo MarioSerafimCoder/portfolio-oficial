@@ -1,6 +1,6 @@
 # Portfólio Mário Serafim
 
-Portfólio oficial de Mário Serafim, desenvolvido em Next.js App Router, React, TypeScript e CSS próprio. Site público: [mario-serafim-portfolio-2026.mario-92.chatgpt.site](https://mario-serafim-portfolio-2026.mario-92.chatgpt.site/).
+Portfólio oficial de Mário Serafim, desenvolvido em Next.js App Router, React, TypeScript e CSS próprio. Site público: [marioserafim.com.br](https://marioserafim.com.br/).
 
 ## Executar
 
@@ -47,3 +47,4 @@ O formulário organiza um briefing em duas etapas e envia a mensagem por um [App
 O endereço Sites está configurado como origem padrão dos metadados. Se mudar o domínio, configure `NEXT_PUBLIC_SITE_URL` e faça novo build (veja `.env.example`). A publicação usa o projeto declarado em `.openai/hosting.json`.
 
 Veja o [relatório da evolução atual](docs/EVOLUTION_REPORT.md), o [registro de produção dos vídeos](docs/FLOW_PRODUCTION.md), a [verificação de conteúdo](docs/CONTENT_VERIFICATION.md) e a [auditoria da referência](COLLINS_REFERENCE_AUDIT.md). O [relatório de entrega anterior](docs/DELIVERY_REPORT.md) permanece como histórico da reconstrução inicial.
+

@@ -2,7 +2,7 @@ import {journalCategories, publishedJournalPosts} from '@/content/journal';
 
 export const dynamic = 'force-static';
 
-const origin = (process.env.NEXT_PUBLIC_SITE_URL || 'https://mario-serafim-portfolio-2026.mario-92.chatgpt.site').replace(/\/$/, '');
+const origin = (process.env.NEXT_PUBLIC_SITE_URL || 'https://marioserafim.com.br').replace(/\/$/, '');
 const escapeXml = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 
 export function GET() {

@@ -2,7 +2,7 @@
 
 19 de outubro de 2026 · Branch `feat/portfolio-evolution`
 
-A versão 2 do site público [Mário Serafim — Portfólio](https://mario-serafim-portfolio-2026.mario-92.chatgpt.site/) foi ativada em 19/10/2026, após aprovação do usuário. A captura da página inicial pública anterior está em [`published-home.png`](screenshots/portfolio/published-home.png). As capturas da versão revisada em 390, 768, 1024 e 1440 px ainda não foram produzidas: a ferramenta de navegador bloqueou a prévia local nesta sessão. As capturas em `screenshots/portfolio/` anteriores a 19/10 pertencem à versão precedente.
+A versão 2 do site público [Mário Serafim — Portfólio](https://marioserafim.com.br/) foi ativada em 19/10/2026, após aprovação do usuário. A captura da página inicial pública anterior está em [`published-home.png`](screenshots/portfolio/published-home.png). As capturas da versão revisada em 390, 768, 1024 e 1440 px ainda não foram produzidas: a ferramenta de navegador bloqueou a prévia local nesta sessão. As capturas em `screenshots/portfolio/` anteriores a 19/10 pertencem à versão precedente.
 
 ## Páginas e conteúdo alterados
 
