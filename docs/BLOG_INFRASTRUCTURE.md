@@ -2,6 +2,16 @@
 
 Este registro prevalece sobre a descrição histórica abaixo.
 
+## Implantação autorizada após configurar o token
+
+O GITHUB_TOKEN inicialmente cadastrado como plain_text foi validado contra a API GitHub (HTTP 200; limite autenticado 5000/h) e convertido atomicamente em secret_text pela API Cloudflare, preservando os demais bindings. Nenhum valor foi impresso ou versionado. A sessão OAuth local do Wrangler foi reutilizada.
+
+Dry-run Wrangler 4.152.0 aprovado, seguido da implantação. Versão ativa da correção: cf3beea4-d156-4725-a48f-ef61af0fe425. Cron */15 * * * * confirmado; namespace ee5ac0710d04426c9fc927f68f92a2f2 e Secrets CLOUDFLARE_PAGES_DEPLOY_HOOK/GITHUB_TOKEN preservados. Hash do histórico blog-scheduler-state-v1 permaneceu idêntico. workers_dev permanece habilitado e preview_urls foi explicitado como false, mantendo a configuração anterior.
+
+O deployment Pages 307a8e27-3cdf-420c-831c-5c18343b8832 do commit c7b98af concluiu com sucesso, iniciado pelo Git às 17h17min27s, antes da data programada. Às 17h21min49s o artigo ainda retornava 404, aguardando o Cron das 17h30. O tail de produção foi conectado antes dessa execução.
+
+## Preparação anterior à implantação
+
 - Fonte ativa recuperada pela API Cloudflare via OAuth local já existente; snapshot sem credenciais em cloudflare/production-990e2bca.mjs. Confirmados namespace, secret, Cron, compatibilidade e observabilidade. Wrangler 4.152.0 instalado isoladamente em tmp/wrangler-safe (não versionado) após resolver os problemas do instalador transitório.
 - Causa histórica do 403 **não comprovada**: o Worker ativo faz a consulta Contents sem autenticação e lança somente o status, descartando corpo e headers. Logs das 16h45 não permitem distinguir rate limit de política/permissão. Às 17h00 houve recuperação espontânea: Nenhum artigo pronto para publicação. A API pública local respondeu 200, com limite 60 e 53 requisições restantes; isso não mede o IP de saída do Worker. Hipótese principal: limite compartilhado de acesso anônimo, ainda sem prova. Referência: https://docs.github.com/en/rest/using-the-rest-api/troubleshooting-the-rest-api
 - Correção local exige GITHUB_TOKEN, elimina dependência do limite anônimo, classifica 403/429 por headers/corpo sem imprimir conteúdo sensível e persiste cooldown no KV respeitando reset/retry-after. HTTP 401 e 403 não geram repetição imediata; rede/5xx têm no máximo 2 tentativas, espera de 1 segundo. Orçamento de 16 chamadas GitHub e 10 artigos por execução para conter subrequests no plano gratuito; crescimento exige paginação e novo dimensionamento.
