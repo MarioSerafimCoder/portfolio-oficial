@@ -1,6 +1,6 @@
 export const site = {
   name: 'Mário Serafim',
-  email: 'marioserafim.da@gmail.com',
+  email: 'contato@marioserafim.com.br',
   linkedin: 'https://www.linkedin.com/in/marioserafim/',
   instagram: 'https://www.instagram.com/marioserafims/',
   behance: 'https://www.behance.net/mario-serafim',

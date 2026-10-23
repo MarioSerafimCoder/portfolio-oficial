@@ -1,6 +1,6 @@
 // Deploy as an Apps Script web app running as the owner. Set access to anyone
 // only after reviewing the limited MailApp permission and the anti-abuse limits.
-const DESTINATION = 'marioserafim.da@gmail.com';
+const DESTINATION = 'contato@marioserafim.com.br';
 
 function doPost(event) {
   const p = event && event.parameter ? event.parameter : {};

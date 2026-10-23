@@ -42,9 +42,8 @@ Ao adicionar imagens, informe suas dimensões reais em `src/content/media-dimens
 
 ## Contato e publicação
 
-O formulário organiza um briefing em duas etapas e envia a mensagem por um [Apps Script do Gmail](integrations/gmail-contact/README.md) para `marioserafim.da@gmail.com`. Inclui cópia do texto, link de e-mail e download `.eml` como alternativas. O destino é fixo no código do Apps Script. Links de Instagram, Behance, LinkedIn e WhatsApp ficam em `src/content/site.ts`; agendamento, newsletter e métricas só aparecem após configuração. Nenhuma credencial é incluída no site.
+O formulário organiza um briefing em duas etapas e envia a mensagem por um [Google Apps Script](integrations/gmail-contact/README.md) para `contato@marioserafim.com.br`. Inclui cópia do texto, link de e-mail e download `.eml` como alternativas. O destino é fixo no código do Apps Script. Links de Instagram, Behance, LinkedIn e WhatsApp ficam em `src/content/site.ts`; agendamento, newsletter e métricas só aparecem após configuração. Nenhuma credencial é incluída no site.
 
 O domínio oficial dos metadados é `https://marioserafim.com.br`. Configure `NEXT_PUBLIC_SITE_URL` com esse valor no Pages (veja `.env.example`). A publicação automática e sua recuperação estão documentadas em [infraestrutura do blog](docs/BLOG_INFRASTRUCTURE.md).
 
 Veja o [relatório da evolução atual](docs/EVOLUTION_REPORT.md), o [registro de produção dos vídeos](docs/FLOW_PRODUCTION.md), a [verificação de conteúdo](docs/CONTENT_VERIFICATION.md) e a [auditoria da referência](COLLINS_REFERENCE_AUDIT.md). O [relatório de entrega anterior](docs/DELIVERY_REPORT.md) permanece como histórico da reconstrução inicial.
-

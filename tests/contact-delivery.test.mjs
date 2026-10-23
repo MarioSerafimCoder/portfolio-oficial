@@ -14,7 +14,7 @@ function backend(){
 test('campos opcionais vazios passam pela validação real do Apps Script',()=>{
  const b=backend(),payload=deliveryPayload(data,'http://localhost/#contato','2026-10-19T15:00:00Z');
  assert.match(b.send(payload),/"status":"sent"/);assert.equal(b.mails.length,1);
- assert.match(b.mails[0].body,/Ainda não tenho certeza/);assert.match(b.mails[0].body,/Data do contato: 2026-10-19/);assert.match(b.mails[0].body,/Origem: http:\/\/localhost/);
+ assert.equal(b.mails[0].to,'contato@marioserafim.com.br');assert.match(b.mails[0].body,/Ainda não tenho certeza/);assert.match(b.mails[0].body,/Data do contato: 2026-10-19/);assert.match(b.mails[0].body,/Origem: http:\/\/localhost/);
 });
 test('as cinco opções são aceitas pelo backend atual sem reimplantação',()=>{
  for(const type of ['Identidade visual','Branding','Direção de arte','Site ou experiência digital','Ainda não tenho certeza']){
