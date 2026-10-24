@@ -4,11 +4,12 @@ import {usePathname} from 'next/navigation';
 import {whatsappLink} from '@/lib/site-links';
 import {site} from '@/content/site';
 import {trackEvent} from '@/lib/analytics';
+import {useEffect,useState} from 'react';
 
 export function WhatsAppLink({context, className = '', label = 'Conversar pelo WhatsApp'}: {context: string; className?: string; label?: string}) {
   const href = whatsappLink(context);
   if (!href) return null;
-  return <a className={className} href={href} target="_blank" rel="noopener noreferrer" aria-label="Conversar com Mário pelo WhatsApp (abre em nova aba)" onClick={() => trackEvent('whatsapp_click', {page: context})}>{label}<span aria-hidden="true">↗</span></a>;
+  return <a className={className} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} com Mário (abre em nova aba)`} onClick={() => trackEvent('whatsapp_click', {page: context})}>{label}<span aria-hidden="true">↗</span></a>;
 }
 
 export function BookingLink({className = ''}: {className?: string}) {
@@ -18,7 +19,18 @@ export function BookingLink({className = ''}: {className?: string}) {
 
 export function WhatsAppFloating() {
   const path = usePathname();
+  const [contactVisible,setContactVisible]=useState(path==='/');
+  useEffect(()=>{
+    const targets=Array.from(document.querySelectorAll('.hero-cta,.contact-form'));
+    const visible=new Set<Element>();
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting)visible.add(entry.target);else visible.delete(entry.target)});
+      setContactVisible(visible.size>0);
+    });
+    targets.forEach(target=>observer.observe(target));
+    return()=>observer.disconnect();
+  },[path]);
   if (!site.whatsapp || path.startsWith('/blog')) return null;
   const context = path.startsWith('/projetos/') ? `o projeto ${path.split('/').pop()?.replace(/-/g, ' ')}` : path === '/sobre' ? 'a página Sobre' : 'seu trabalho';
-  return <WhatsAppLink context={context} className="whatsapp-floating" label="WhatsApp"/>;
+  return contactVisible?null:<WhatsAppLink context={context} className="whatsapp-floating" label="WhatsApp"/>;
 }

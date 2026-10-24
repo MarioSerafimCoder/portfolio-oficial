@@ -22,7 +22,7 @@ export function ScrollHighlight() {
       const progress = Math.max(0, Math.min(1, (start - rect.top) / distance));
       spans.forEach((span, index) => {
         const amount = Math.max(0, Math.min(1, progress * words.length - index));
-        span.style.setProperty('--word-mix', `${Math.round(55 + amount * 45)}%`);
+        span.style.setProperty('--word-mix', `${Math.round(90 + amount * 10)}%`);
       });
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };

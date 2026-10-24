@@ -13,6 +13,7 @@ import {SocialLinks} from './social-links';
 import {showJournalNavigation} from '@/content/journal';
 import {WhatsAppFloating} from './whatsapp-link';
 import {WhatsAppLink} from './whatsapp-link';
+import {createSpring} from '@/lib/motion';
 
 export function Arrow({diagonal=false}:{diagonal?:boolean}) {return <span aria-hidden="true" className="arrow">{diagonal?'↗':'↗'}</span>}
 
@@ -23,17 +24,27 @@ export function Header(){
   const dialog=useRef<HTMLDialogElement>(null);
   const trigger=useRef<HTMLButtonElement>(null);
   const [open,setOpen]=useState(false);
-  const [closing,setClosing]=useState(false);
-  const timer=useRef<ReturnType<typeof setTimeout>|null>(null);
-  function close(){if(!dialog.current?.open)return;setClosing(true);timer.current=setTimeout(()=>{dialog.current?.close();setClosing(false);setOpen(false);trigger.current?.focus({preventScroll:true})},matchMedia('(prefers-reduced-motion: reduce)').matches?0:260)}
-  function show(){if(timer.current)clearTimeout(timer.current);setClosing(false);dialog.current?.showModal();setOpen(true)}
+  const motion=useRef<ReturnType<typeof createSpring>|null>(null);
+  const destination=useRef(0);
+  function instant(){return matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.dataset.input==='keyboard'}
+  function finishClose(){dialog.current?.close();setOpen(false)}
+  function close(){if(!dialog.current?.open)return;destination.current=0;motion.current?.to(0,instant(),finishClose)}
+  function navigate(){destination.current=0;motion.current?.to(0,true);finishClose()}
+  function show(){if(!dialog.current)return;dialog.current.showModal();destination.current=1;setOpen(true);motion.current?.to(1,instant())}
+  useEffect(()=>{
+    motion.current=createSpring(value=>{if(dialog.current){dialog.current.style.opacity=String(value);dialog.current.style.transform=`translateY(${(1-value)*-12}px)`}});
+    const preference=matchMedia('(prefers-reduced-motion: reduce)');
+    const settle=()=>{if(preference.matches)motion.current?.to(destination.current,true,destination.current===0?finishClose:undefined)};
+    const keyboard=()=>motion.current?.to(destination.current,true,destination.current===0?finishClose:undefined);
+    preference.addEventListener('change',settle);document.addEventListener('keydown',keyboard);
+    return()=>{motion.current?.stop();preference.removeEventListener('change',settle);document.removeEventListener('keydown',keyboard)};
+  },[]);
   useEffect(()=>{document.body.style.overflow=open?'hidden':'';return()=>{document.body.style.overflow=''}},[open]);
-  useEffect(()=>()=>{if(timer.current)clearTimeout(timer.current)},[]);
   return <>
     <header className={`site-header${isJournal?' journal-site-header':''}`}><Link className="wordmark" href="/" aria-label="Mário Serafim — início">MÁRIO SERAFIM</Link><div className="header-actions">{isJournal?<JournalHeaderTools/>:<span className="header-note">Direção de arte & design</span>}<div className="header-social"><SocialLinks/></div><ThemeToggle compact locale={isJournal?locale:'pt'}/><button ref={trigger} type="button" className="menu-trigger" aria-label={isJournal&&locale==='en'?'Open menu':'Abrir menu'} aria-expanded={open} aria-controls="site-menu" onClick={show}><span/><span/></button></div></header>
-    <dialog ref={dialog} id="site-menu" aria-label="Navegação principal" className={`menu-dialog ${closing?'closing':''}`} onCancel={e=>{e.preventDefault();close()}} onClose={()=>setOpen(false)}>
-      <div className="menu-top"><Link className="wordmark" href="/" onClick={close}>MÁRIO SERAFIM</Link><div className="menu-top-actions"><div className="menu-mobile-social"><SocialLinks/></div><button className="close-button" aria-label={isJournal&&locale==='en'?'Close menu':'Fechar menu'} onClick={close}>×</button></div></div>
-      <div className="menu-content"><nav className="menu-links" aria-label={isJournal&&locale==='en'?'Main navigation':'Principal'}>{(isJournal&&locale==='en'?[['Projects','/projetos'],['About','/sobre'],...(showJournalNavigation?[['Pausa do café','/blog']]:[]),['Contact','/contato']]:[['Projetos','/projetos'],['Sobre','/sobre'],...(showJournalNavigation?[['Pausa do café','/blog']]:[]),['Contato','/contato']]).map(([label,url],i)=><Link key={url} href={url} aria-current={path===url?'page':undefined} onClick={close} style={{'--i':i} as React.CSSProperties}>{label}</Link>)}</nav><div className="menu-projects"><span className="eyebrow">{isJournal&&locale==='en'?'Featured':'Em foco'}</span>{[['Amazonita','amazonita','amazonita-cover'],['Rooftop Arquitetura','rooftop','rooftop-cover'],['Simetria Estética','simetria','simetria/portrait']].map(([name,slug,img])=><Link href={`/projetos/${slug}`} key={slug} onClick={close}><span className="menu-thumb"><Image src={`/media/${img}.webp`} alt="" fill sizes="110px"/></span><span><small>{isJournal&&locale==='en'?'Project':'Projeto'}</small>{name}</span><span aria-hidden="true">↗</span></Link>)}</div></div>
+    <dialog ref={dialog} id="site-menu" aria-label="Navegação principal" className="menu-dialog" onCancel={e=>{e.preventDefault();close()}} onClose={()=>setOpen(false)}>
+      <div className="menu-top"><Link className="wordmark" href="/" onClick={navigate}>MÁRIO SERAFIM</Link><div className="menu-top-actions"><div className="menu-mobile-social"><SocialLinks/></div><button className="close-button" aria-label={isJournal&&locale==='en'?'Close menu':'Fechar menu'} onClick={close}>×</button></div></div>
+      <div className="menu-content"><nav className="menu-links" aria-label={isJournal&&locale==='en'?'Main navigation':'Principal'}>{(isJournal&&locale==='en'?[['Projects','/projetos'],['About','/sobre'],...(showJournalNavigation?[['Pausa do café','/blog']]:[]),['Contact','/contato']]:[['Projetos','/projetos'],['Sobre','/sobre'],...(showJournalNavigation?[['Pausa do café','/blog']]:[]),['Contato','/contato']]).map(([label,url],i)=><Link key={url} href={url} aria-current={path===url?'page':undefined} onClick={navigate} style={{'--i':i} as React.CSSProperties}>{label}</Link>)}</nav><div className="menu-projects"><span className="eyebrow">{isJournal&&locale==='en'?'Featured':'Em foco'}</span>{[['Amazonita','amazonita','amazonita-cover'],['Rooftop Arquitetura','rooftop','rooftop-cover'],['Simetria Estética','simetria','simetria/portrait']].map(([name,slug,img])=><Link href={`/projetos/${slug}`} key={slug} onClick={navigate}><span className="menu-thumb"><Image src={`/media/${img}.webp`} alt="" fill sizes="110px"/></span><span><small>{isJournal&&locale==='en'?'Project':'Projeto'}</small>{name}</span><span aria-hidden="true">↗</span></Link>)}</div></div>
       <div className="menu-bottom"><div><span className="eyebrow">{isJournal&&locale==='en'?'An idea starts with a conversation.':'Uma ideia começa com uma conversa.'}</span><a className="text-link" href={`mailto:${site.email}`}>{site.email} ↗</a></div><div><SocialLinks variant="text"/><p>{isJournal&&locale==='en'?'Fortaleza, Brazil':'Fortaleza, Brasil'}</p></div></div>
     </dialog>
   </>;
@@ -56,9 +67,16 @@ export function Footer(){
 export function MotionObserver(){
   const path=usePathname();
   useEffect(()=>{
+    const keyboard=()=>{document.documentElement.dataset.input='keyboard'};
+    const pointer=()=>{document.documentElement.dataset.input='pointer'};
+    document.addEventListener('keydown',keyboard,true);
+    document.addEventListener('pointerdown',pointer,true);
+    return()=>{document.removeEventListener('keydown',keyboard,true);document.removeEventListener('pointerdown',pointer,true)};
+  },[]);
+  useEffect(()=>{
     const preference=matchMedia('(prefers-reduced-motion: reduce)');
     if(preference.matches)return;
-    const selector='[data-reveal],[data-motion],.how-section h2,.case-heading h1,.case-gallery figure,.case-story h2,.case-decisions h2,.about-opening h1,.about-origin h2,.about-credentials h2,.about-ending h2,.journal-post-hero h1,.journal-article-content h2,.home-feature,.project-card,.process-steps li';
+    const selector='[data-reveal],[data-motion],.how-section h2,.how-grid article,.case-heading h1,.case-gallery figure,.case-story h2,.case-decisions h2,.case-facts>div,.case-result p,.about-opening h1,.about-origin h2,.about-prose p,.about-credential-list article,.about-credentials h2,.about-ending h2,.journal-post-hero h1,.journal-article-content h2,.home-feature,.project-card,.process-steps li';
     const registered=new Set<HTMLElement>();
     const reveal=(element:HTMLElement)=>{
       element.classList.remove('motion-pending');

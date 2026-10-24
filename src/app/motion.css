@@ -1,62 +1,98 @@
-/* Editorial motion runs only after an observed element enters view. Content remains readable without JavaScript. */
-:root{--motion-text:1100ms;--motion-image:1200ms;--motion-ease:cubic-bezier(.25,.7,.25,1)}
-.page-enter{animation:none}
-@keyframes page-soft-enter{from{opacity:.86}to{opacity:1}}
+/* Shared motion language. SSR content is visible; observation only enhances it. */
+:root {
+  --motion-fast: 140ms;
+  --motion-ui: 220ms;
+  --motion-text: 560ms;
+  --motion-image: 650ms;
+  --motion-ease: cubic-bezier(.23,1,.32,1);
+  --motion-shift: 14px;
+}
+.page-enter { animation: page-soft-enter 220ms ease-out; }
+@keyframes page-soft-enter { from { opacity:.85 } to { opacity:1 } }
+.hero-title h1 { animation:none!important }
+.hero-line { display:block; overflow:clip; padding-bottom:.12em; margin-bottom:-.12em }
+.hero-line>span { display:inline-block; animation:hero-line-enter 720ms var(--motion-ease) both }
+.hero-line:nth-child(2)>span { animation-delay:65ms }
+.hero-bottom>span,.hero-action,.hero-down { animation:hero-support-enter 420ms var(--motion-ease) 120ms both }
+.hero-action { animation-delay:180ms }
+.hero-down { animation-delay:230ms }
+@keyframes hero-line-enter { from { transform:translateY(.16em);opacity:.4 } to { transform:none;opacity:1 } }
+@keyframes hero-support-enter { from { opacity:.65;transform:translateY(7px) } to { opacity:1;transform:none } }
+@keyframes motion-title-enter { from { opacity:.6;transform:translateY(var(--motion-shift)) } to { opacity:1;transform:none } }
+.section-heading.motion-seen h2,.how-section h2.motion-seen,.case-heading h1.motion-seen,
+.about-opening h1.motion-seen,.about-origin h2.motion-seen,.about-credentials h2.motion-seen,
+.about-ending h2.motion-seen,.journal-post-hero h1.motion-seen,.journal-article-content h2.motion-seen,
+.case-story h2.motion-seen,.case-decisions h2.motion-seen {
+  animation:motion-title-enter var(--motion-text) var(--motion-ease) both;
+}
+.section-heading.motion-seen h2:has(.editorial-line) { animation:none }
+.editorial-line { display:block;overflow:clip;padding-bottom:.09em;margin-bottom:-.09em }
+.section-heading.motion-seen .editorial-line>span { display:inline-block;animation:hero-line-enter var(--motion-text) var(--motion-ease) both }
+.section-heading.motion-seen .editorial-line:nth-child(2)>span { animation-delay:60ms }
+.section-heading.motion-seen>div>p,.case-heading:has(h1.motion-seen) p { animation:hero-support-enter 360ms var(--motion-ease) 80ms both }
+.services-section .section-heading h2 { font-size:clamp(52px,5.4vw,72px);line-height:1.02 }
+.selected-section .section-heading>div { min-width:0;max-width:800px }
+.selected-section .section-heading h2 { font-size:clamp(52px,5.4vw,78px);line-height:1.03;text-wrap:balance;max-width:19ch }
+.selected-section .section-heading h2 em,.journal-hero-copy h1 em { color:var(--accent);font-style:italic;font-weight:400 }
 
-.hero-title h1{animation:none!important}
-.hero-line{display:block;overflow:clip;padding-bottom:.09em;margin-bottom:-.09em}
-.hero-line>span{display:inline-block;animation:hero-line-enter 1200ms var(--motion-ease) both}
-.hero-line:nth-child(2)>span{animation-delay:180ms}
-.hero-bottom>span,.hero-action,.hero-down{animation:hero-support-enter 380ms var(--motion-ease) both;animation-delay:320ms}
-.hero-action{animation-delay:380ms}.hero-down{animation-delay:420ms}
-@keyframes hero-line-enter{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes hero-support-enter{from{opacity:.4;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+.project-card,.home-feature { opacity:1;translate:0 0;transition:opacity var(--motion-image) var(--motion-ease),translate var(--motion-image) var(--motion-ease) }
+.project-card.motion-pending,.home-feature.motion-pending { translate:0 var(--motion-shift) }
+/* JS springs own card image transforms; no competing CSS interpolation. */
+.project-card .project-media>img { transition:none;scale:1 }
+.project-card.motion-seen .project-caption h2 { animation:hero-support-enter 400ms var(--motion-ease) both }
+.project-card.motion-seen .project-caption p { animation:hero-support-enter 400ms var(--motion-ease) 45ms both }
+.case-gallery figure.motion-seen { animation:motion-title-enter var(--motion-image) var(--motion-ease) both }
+.case-facts>div.motion-seen,.case-result p.motion-seen,.about-prose p.motion-seen,
+.about-credential-list article.motion-seen,.how-grid article.motion-seen { animation:hero-support-enter var(--motion-text) var(--motion-ease) both }
+.process-steps li.motion-seen h3,.process-steps li.motion-seen .process-step-number { animation:hero-support-enter 400ms var(--motion-ease) both }
+.process-steps li.motion-seen:nth-child(2) h3 { animation-delay:45ms }
+.process-steps li.motion-seen:nth-child(3) h3 { animation-delay:90ms }
+.about-typewriter { position:relative!important }
+.about-sentence { animation:none }
+.about-typewriter.motion-seen .about-sentence { animation:hero-support-enter 480ms var(--motion-ease) both }
+.about-typewriter.motion-seen .about-sentence:nth-child(2) { animation-delay:45ms }
+.about-typewriter.motion-seen .about-sentence:nth-child(3) { animation-delay:90ms }
+.about-typewriter.motion-seen .about-sentence:nth-child(4) { animation-delay:135ms }
+.thinking-section .scroll-highlight [data-highlight-word] { color:color-mix(in srgb,var(--ink) var(--word-mix,70%),var(--paper));transition:color 80ms linear }
+.thinking-section .scroll-highlight em [data-highlight-word] { color:color-mix(in srgb,var(--accent) var(--word-mix,70%),var(--paper)) }
 
-.section-heading.motion-seen h2,.how-section h2.motion-seen,.case-heading h1.motion-seen,.about-opening h1.motion-seen,.about-origin h2.motion-seen,.about-credentials h2.motion-seen,.about-ending h2.motion-seen,.journal-post-hero h1.motion-seen,.journal-article-content h2.motion-seen,.case-story h2.motion-seen,.case-decisions h2.motion-seen{animation:motion-title-enter var(--motion-text) var(--motion-ease) both}
-.section-heading.motion-seen h2:has(.editorial-line){animation:none}
-.editorial-line{display:block;overflow:clip;padding-bottom:.07em;margin-bottom:-.07em}
-.section-heading.motion-seen .editorial-line>span{display:inline-block;animation:hero-line-enter 1100ms var(--motion-ease) both}
-.section-heading.motion-seen .editorial-line:nth-child(2)>span{animation-delay:90ms}
-.services-section .section-heading h2{font-size:clamp(52px,5.4vw,72px);line-height:1.02}
-.services-section .section-heading.motion-seen .editorial-line>span{animation-duration:1050ms}
-.services-section .section-heading.motion-seen .editorial-line:nth-child(2)>span{animation-delay:220ms}
-@media(max-width:700px){.services-section .section-heading h2{font-size:clamp(43px,10.5vw,56px)}}
-@keyframes motion-title-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.section-heading.motion-seen>div>p,.case-heading:has(h1.motion-seen) p{animation:hero-support-enter 380ms var(--motion-ease) 130ms both}
-
-.thinking-section .scroll-highlight [data-highlight-word]{color:color-mix(in srgb,var(--ink) var(--word-mix,55%),var(--paper));transition:color 80ms linear}
-.thinking-section .scroll-highlight em [data-highlight-word]{color:color-mix(in srgb,var(--accent) var(--word-mix,55%),var(--paper))}
-
-/* Each card reveals independently, once it is inside the viewport. */
-.project-card,.home-feature{opacity:1;translate:0 0;transition:opacity var(--motion-image) var(--motion-ease),translate var(--motion-image) var(--motion-ease)}
-.project-card.motion-pending,.home-feature.motion-pending{opacity:0;translate:0 30px}
-.project-card .project-media>img,.home-feature .feature-media>img{scale:1;transition:scale 1500ms var(--motion-ease),transform 1100ms var(--motion-ease)}
-.project-card.motion-pending .project-media>img,.home-feature.motion-pending .feature-media>img{scale:1.035}
-.case-gallery figure.motion-seen{animation:motion-case-image 1100ms var(--motion-ease) both}
-@keyframes motion-case-image{from{opacity:.25;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-.process-steps li.motion-seen h3{animation:motion-title-enter 950ms var(--motion-ease) both}
-.process-steps li.motion-seen .process-step-number{animation:hero-support-enter 350ms var(--motion-ease) both}
-.process-steps li.motion-seen:nth-child(2) h3,.process-steps li.motion-seen:nth-child(2) .process-step-number{animation-delay:90ms}
-.process-steps li.motion-seen:nth-child(3) h3,.process-steps li.motion-seen:nth-child(3) .process-step-number{animation-delay:170ms}
-
-.about-typewriter{position:relative!important}
-.about-sentence{animation:none}
-.about-typewriter.motion-seen .about-sentence{animation:about-prose-enter 900ms var(--motion-ease) both}
-.about-typewriter.motion-seen .about-sentence:nth-child(2){animation-delay:85ms}
-.about-typewriter.motion-seen .about-sentence:nth-child(3){animation-delay:155ms}
-.about-typewriter.motion-seen .about-sentence:nth-child(4){animation-delay:220ms}
-@keyframes about-prose-enter{from{opacity:.45}to{opacity:1}}
-
-.menu-dialog[open]:not(.closing) .menu-links>a{animation:menu-link-enter 400ms var(--motion-ease) backwards;animation-delay:calc(var(--i,0) * 55ms)}
-@keyframes menu-link-enter{from{opacity:.5;translate:0 12px}to{opacity:1;translate:0 0}}
-.reading-progress{position:fixed;left:0;right:0;top:0;height:2px;z-index:110;pointer-events:none;background:var(--accent);transform:scaleX(var(--reading-progress,0));transform-origin:left;transition:transform 100ms linear}
-
-@media(prefers-reduced-motion:reduce){.page-enter,.hero-line>span,.hero-bottom>span,.hero-action,.hero-down,.section-heading.motion-seen h2,.how-section h2.motion-seen,.case-heading h1.motion-seen,.about-opening h1.motion-seen,.about-origin h2.motion-seen,.about-credentials h2.motion-seen,.about-ending h2.motion-seen,.journal-post-hero h1.motion-seen,.journal-article-content h2.motion-seen,.case-story h2.motion-seen,.case-decisions h2.motion-seen,.project-card.motion-seen .project-media,.home-feature.motion-seen .feature-media,.project-card.motion-seen .project-media>img,.home-feature.motion-seen .feature-media>img,.project-card.motion-seen .project-caption,.home-feature.motion-seen .home-feature-note,.case-gallery figure.motion-seen,.process-steps li.motion-seen h3,.process-steps li.motion-seen .process-step-number,.about-typewriter.motion-seen .about-sentence,.menu-dialog[open] .menu-links>a{animation:none!important}.thinking-section .scroll-highlight [data-highlight-word]{--word-mix:100%!important;transition:none}.reading-progress{transition:none}}
-
-.selected-section .section-heading>div{min-width:0;max-width:800px}
-.selected-section .section-heading h2{font-size:clamp(52px,5.4vw,78px);line-height:1.03;text-wrap:balance;max-width:19ch}
-.selected-section .section-heading h2 em,.journal-hero-copy h1 em{color:var(--accent);font-style:italic;font-weight:400}
-@media(max-width:1000px){.selected-section .section-heading{flex-direction:column;align-items:flex-start;gap:28px}}
-@media(max-width:700px){.selected-section .section-heading h2{font-size:clamp(43px,10.5vw,56px)}}
-@media(prefers-reduced-motion:reduce){.project-card,.home-feature,.project-card.motion-pending,.home-feature.motion-pending{opacity:1;translate:none;transition:none}.project-card .project-media>img,.home-feature .feature-media>img{scale:1;transition:none}.section-heading.motion-seen .editorial-line>span,.section-heading.motion-seen>div>p,.case-heading:has(h1.motion-seen) p{animation:none!important}}
+.menu-dialog[open],.menu-dialog.closing { animation:none;transform-origin:top right }
+.menu-dialog[open] .menu-links>a { animation:hero-support-enter 250ms var(--motion-ease) backwards;animation-delay:calc(var(--i,0) * 40ms) }
+.pill:active:not(:disabled),.round-button:active,.menu-trigger:active,.close-button:active,.theme-toggle:active { transform:scale(.97);transition-duration:100ms }
+.menu-trigger,.close-button,.theme-toggle,.round-button { transition:transform var(--motion-fast) var(--motion-ease),color var(--motion-fast),background-color var(--motion-fast) }
+.project-filters button,.view-switch button { min-height:44px }
+.project-filters button[aria-pressed=true] { border-color:var(--control) }
+.project-caption h2 { font-weight:500 }
+.project-caption>.arrow { width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--rule);border-radius:50%;font-size:20px }
+.project-visit { transform:translateY(6px) }
+.progress-track>span { width:100%;transform-origin:left;transition:transform var(--motion-ui) var(--motion-ease) }
+.contact-form form:not([hidden]),.contact-success { animation:hero-support-enter var(--motion-ui) var(--motion-ease) both }
+.contact-form[aria-busy=true] .pill { cursor:progress }
+.contact-form[aria-busy=true] .pill::after { content:'';width:12px;height:12px;border:1px solid currentColor;border-right-color:transparent;border-radius:50%;animation:send-progress 650ms linear infinite }
+@keyframes send-progress { to { transform:rotate(360deg) } }
+.contact-fields .field-error { min-height:1.5em }
+.reading-progress { position:fixed;left:0;right:0;top:0;height:2px;z-index:110;pointer-events:none;background:var(--accent);transform:scaleX(var(--reading-progress,0));transform-origin:left;transition:transform 100ms linear }
+/* Animate an explicit theme change, never the first paint. */
+html.theme-changing body,html.theme-changing .site-header,html.theme-changing .site-footer,
+html.theme-changing main,html.theme-changing section { transition:background-color 200ms ease,color 200ms ease }
+@media (max-width:1000px) { .selected-section .section-heading { flex-direction:column;align-items:flex-start;gap:28px } }
+@media (max-width:700px) {
+  :root { --motion-shift:8px;--motion-text:440ms;--motion-image:480ms }
+  .services-section .section-heading h2,.selected-section .section-heading h2 { font-size:clamp(43px,10.5vw,56px) }
+}
+@media (hover:none),(pointer:coarse) {
+  .project-card:hover img,.feature-link:hover img,.rail-frame:hover img,.menu-projects a:hover img,
+  .menu-trigger:hover span,.hero-down:hover,.service-row summary:hover h3,a:hover .arrow { transform:none }
+}
+/* Keyboard actions have immediate feedback and never wait for decoration. */
+html[data-input=keyboard] *,html[data-input=keyboard] *::before,html[data-input=keyboard] *::after { animation:none!important;transition:none!important;scroll-behavior:auto!important }
+html[data-input=keyboard] .motion-pending { opacity:1;translate:none }
+@media (prefers-reduced-transparency:reduce) { .site-header,.menu-dialog { backdrop-filter:none;background:var(--paper) } }
+@media (prefers-contrast:more) { .pill,.project-caption>.arrow { border-color:currentColor }.menu-dialog { border:1px solid currentColor } }
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation:none!important;transition:none!important;scroll-behavior:auto!important }
+  .project-card,.home-feature,.motion-pending { opacity:1!important;translate:none!important }
+  .project-card .project-media>img,.pill:active:not(:disabled),.round-button:active,.menu-trigger:active,.close-button:active,.theme-toggle:active { transform:none!important }
+  .thinking-section .scroll-highlight [data-highlight-word] { --word-mix:100%!important }
+}
+html[data-input=keyboard] { scroll-behavior:auto }

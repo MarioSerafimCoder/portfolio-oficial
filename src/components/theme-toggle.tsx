@@ -1,13 +1,18 @@
 'use client';
 
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import type {JournalLocale} from './journal-preferences';
 import {journalCopy} from '@/content/journal-i18n';
 
 export function ThemeToggle({compact = false, locale = 'pt'}: {compact?: boolean; locale?: JournalLocale}) {
   const [dark, setDark] = useState(false);
+  const transitionTimer=useRef<ReturnType<typeof setTimeout>|null>(null);
   useEffect(() => { setDark(document.documentElement.dataset.theme === 'dark'); }, []);
+  useEffect(()=>()=>{if(transitionTimer.current)clearTimeout(transitionTimer.current);document.documentElement.classList.remove('theme-changing')},[]);
   function toggle() {
+    if(transitionTimer.current)clearTimeout(transitionTimer.current);
+    document.documentElement.classList.add('theme-changing');
+    transitionTimer.current=setTimeout(()=>document.documentElement.classList.remove('theme-changing'),240);
     const next = document.documentElement.dataset.theme !== 'dark';
     document.documentElement.dataset.theme = next ? 'dark' : 'light';
     setDark(next);
