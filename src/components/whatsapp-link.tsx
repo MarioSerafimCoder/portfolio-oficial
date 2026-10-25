@@ -21,7 +21,7 @@ export function WhatsAppFloating() {
   const path = usePathname();
   const [contactVisible,setContactVisible]=useState(path==='/');
   useEffect(()=>{
-    const targets=Array.from(document.querySelectorAll('.hero-cta,.contact-form'));
+    const targets=Array.from(document.querySelectorAll('.hero-cta,.contact-form,.faq-section'));
     const visible=new Set<Element>();
     const observer=new IntersectionObserver(entries=>{
       entries.forEach(entry=>{if(entry.isIntersecting)visible.add(entry.target);else visible.delete(entry.target)});

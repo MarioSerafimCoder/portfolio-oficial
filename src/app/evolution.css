@@ -89,3 +89,14 @@
   .video-toggle{font-size:12px;min-height:44px}.case-gallery figcaption{gap:12px}
 }
 @media(prefers-reduced-motion:reduce){.social-links a,.faq-section summary span{transition:none}.social-links a:hover,.faq-section details[open] summary span{transform:none}}
+
+/* Direct navigation and proportional project previews. */
+.header-nav { display:flex;align-items:center;gap:28px;margin-right:16px;font-size:14px }
+.header-nav a { display:inline-flex;align-items:center;gap:7px;min-height:44px;min-width:44px }
+.header-nav a:focus-visible { outline:2px solid var(--accent);outline-offset:5px }
+@media(hover:hover) and (pointer:fine) { .header-nav a:hover { color:var(--accent-text) } }
+@media(max-width:1000px) { .header-nav { gap:18px;margin-right:8px } }
+@media(max-width:700px) { .header-nav { font-size:12px;margin-right:8px }.header-nav a:first-child { display:none }.header-nav a>span { display:none } }
+@media(max-width:360px) { .site-header .wordmark { font-size:11px;letter-spacing:.035em }.header-nav { margin-right:2px;font-size:11px } }
+
+.case-rail[data-project=rooftop] .rail-0 { height:auto;aspect-ratio:2000/1160;align-self:center }

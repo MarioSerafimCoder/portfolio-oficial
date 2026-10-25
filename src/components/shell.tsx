@@ -41,7 +41,7 @@ export function Header(){
   },[]);
   useEffect(()=>{document.body.style.overflow=open?'hidden':'';return()=>{document.body.style.overflow=''}},[open]);
   return <>
-    <header className={`site-header${isJournal?' journal-site-header':''}`}><Link className="wordmark" href="/" aria-label="Mário Serafim — início">MÁRIO SERAFIM</Link><div className="header-actions">{isJournal?<JournalHeaderTools/>:<span className="header-note">Direção de arte & design</span>}<div className="header-social"><SocialLinks/></div><ThemeToggle compact locale={isJournal?locale:'pt'}/><button ref={trigger} type="button" className="menu-trigger" aria-label={isJournal&&locale==='en'?'Open menu':'Abrir menu'} aria-expanded={open} aria-controls="site-menu" onClick={show}><span/><span/></button></div></header>
+    <header className={`site-header${isJournal?' journal-site-header':''}`}><Link className="wordmark" href="/" aria-label="Mário Serafim — início">MÁRIO SERAFIM</Link><div className="header-actions">{isJournal?<JournalHeaderTools/>:<nav className="header-nav" aria-label="Acessos rápidos"><Link href="/projetos" prefetch={false}>Projetos</Link>{path==='/'?<a href="#contato">Contato <span aria-hidden="true">↗</span></a>:<Link href="/contato">Contato <span aria-hidden="true">↗</span></Link>}</nav>}<div className="header-social"><SocialLinks/></div><ThemeToggle compact locale={isJournal?locale:'pt'}/><button ref={trigger} type="button" className="menu-trigger" aria-label={isJournal&&locale==='en'?'Open menu':'Abrir menu'} aria-expanded={open} aria-controls="site-menu" onClick={show}><span/><span/></button></div></header>
     <dialog ref={dialog} id="site-menu" aria-label="Navegação principal" className="menu-dialog" onCancel={e=>{e.preventDefault();close()}} onClose={()=>setOpen(false)}>
       <div className="menu-top"><Link className="wordmark" href="/" onClick={navigate}>MÁRIO SERAFIM</Link><div className="menu-top-actions"><div className="menu-mobile-social"><SocialLinks/></div><button className="close-button" aria-label={isJournal&&locale==='en'?'Close menu':'Fechar menu'} onClick={close}>×</button></div></div>
       <div className="menu-content"><nav className="menu-links" aria-label={isJournal&&locale==='en'?'Main navigation':'Principal'}>{(isJournal&&locale==='en'?[['Projects','/projetos'],['About','/sobre'],...(showJournalNavigation?[['Pausa do café','/blog']]:[]),['Contact','/contato']]:[['Projetos','/projetos'],['Sobre','/sobre'],...(showJournalNavigation?[['Pausa do café','/blog']]:[]),['Contato','/contato']]).map(([label,url],i)=><Link key={url} href={url} aria-current={path===url?'page':undefined} onClick={navigate} style={{'--i':i} as React.CSSProperties}>{label}</Link>)}</nav><div className="menu-projects"><span className="eyebrow">{isJournal&&locale==='en'?'Featured':'Em foco'}</span>{[['Amazonita','amazonita','amazonita-cover'],['Rooftop Arquitetura','rooftop','rooftop-cover'],['Simetria Estética','simetria','simetria/portrait']].map(([name,slug,img])=><Link href={`/projetos/${slug}`} key={slug} onClick={navigate}><span className="menu-thumb"><Image src={`/media/${img}.webp`} alt="" fill sizes="110px"/></span><span><small>{isJournal&&locale==='en'?'Project':'Projeto'}</small>{name}</span><span aria-hidden="true">↗</span></Link>)}</div></div>
@@ -71,12 +71,13 @@ export function MotionObserver(){
     const pointer=()=>{document.documentElement.dataset.input='pointer'};
     document.addEventListener('keydown',keyboard,true);
     document.addEventListener('pointerdown',pointer,true);
-    return()=>{document.removeEventListener('keydown',keyboard,true);document.removeEventListener('pointerdown',pointer,true)};
+    document.addEventListener('pointermove',pointer,{passive:true});
+    return()=>{document.removeEventListener('keydown',keyboard,true);document.removeEventListener('pointerdown',pointer,true);document.removeEventListener('pointermove',pointer)};
   },[]);
   useEffect(()=>{
     const preference=matchMedia('(prefers-reduced-motion: reduce)');
     if(preference.matches)return;
-    const selector='[data-reveal],[data-motion],.how-section h2,.how-grid article,.case-heading h1,.case-gallery figure,.case-story h2,.case-decisions h2,.case-facts>div,.case-result p,.about-opening h1,.about-origin h2,.about-prose p,.about-credential-list article,.about-credentials h2,.about-ending h2,.journal-post-hero h1,.journal-article-content h2,.home-feature,.project-card,.process-steps li';
+    const selector='[data-reveal],[data-motion],.faq-section h2,.faq-section details,.contact-invitation h2,.case-heading h1,.case-gallery figure,.case-story h2,.case-decisions h2,.case-facts>div,.case-result p,.about-opening h1,.about-origin h2,.about-prose p,.about-credential-list article,.about-credentials h2,.about-ending h2,.journal-post-hero h1,.journal-article-content h2,.home-feature,.project-card,.process-steps li';
     const registered=new Set<HTMLElement>();
     const reveal=(element:HTMLElement)=>{
       element.classList.remove('motion-pending');
@@ -103,7 +104,7 @@ export function MotionObserver(){
     mutations.observe(document.getElementById('conteudo')||document.body,{childList:true,subtree:true});
     const onFocus=(event:FocusEvent)=>{
       const card=(event.target as HTMLElement).closest<HTMLElement>('.motion-pending');
-      if(card){reveal(card);observer.unobserve(card)}
+      if(card){card.classList.add('motion-instant');reveal(card);observer.unobserve(card)}
     };
     const onPreference=()=>{if(preference.matches){registered.forEach(reveal);observer.disconnect()}};
     document.addEventListener('focusin',onFocus);

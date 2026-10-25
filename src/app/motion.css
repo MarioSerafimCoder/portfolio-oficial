@@ -7,15 +7,11 @@
   --motion-ease: cubic-bezier(.23,1,.32,1);
   --motion-shift: 14px;
 }
-.page-enter { animation: page-soft-enter 220ms ease-out; }
-@keyframes page-soft-enter { from { opacity:.85 } to { opacity:1 } }
 .hero-title h1 { animation:none!important }
 .hero-line { display:block; overflow:clip; padding-bottom:.12em; margin-bottom:-.12em }
-.hero-line>span { display:inline-block; animation:hero-line-enter 720ms var(--motion-ease) both }
+.hero-line>span { display:inline-block;transform-origin:left bottom;animation:hero-depth-enter 800ms var(--motion-ease) both }
 .hero-line:nth-child(2)>span { animation-delay:65ms }
-.hero-bottom>span,.hero-action,.hero-down { animation:hero-support-enter 420ms var(--motion-ease) 120ms both }
-.hero-action { animation-delay:180ms }
-.hero-down { animation-delay:230ms }
+@keyframes hero-depth-enter { from { transform:perspective(1200px) translate3d(0,.18em,-45px) rotateX(9deg) } to { transform:none } }
 @keyframes hero-line-enter { from { transform:translateY(.16em);opacity:.4 } to { transform:none;opacity:1 } }
 @keyframes hero-support-enter { from { opacity:.65;transform:translateY(7px) } to { opacity:1;transform:none } }
 @keyframes motion-title-enter { from { opacity:.6;transform:translateY(var(--motion-shift)) } to { opacity:1;transform:none } }
@@ -30,23 +26,16 @@
 .section-heading.motion-seen .editorial-line>span { display:inline-block;animation:hero-line-enter var(--motion-text) var(--motion-ease) both }
 .section-heading.motion-seen .editorial-line:nth-child(2)>span { animation-delay:60ms }
 .section-heading.motion-seen>div>p,.case-heading:has(h1.motion-seen) p { animation:hero-support-enter 360ms var(--motion-ease) 80ms both }
-.services-section .section-heading h2 { font-size:clamp(52px,5.4vw,72px);line-height:1.02 }
-.selected-section .section-heading>div { min-width:0;max-width:800px }
-.selected-section .section-heading h2 { font-size:clamp(52px,5.4vw,78px);line-height:1.03;text-wrap:balance;max-width:19ch }
-.selected-section .section-heading h2 em,.journal-hero-copy h1 em { color:var(--accent);font-style:italic;font-weight:400 }
+.journal-hero-copy h1 em { color:var(--accent);font-style:italic;font-weight:400 }
 
-.project-card,.home-feature { opacity:1;translate:0 0;transition:opacity var(--motion-image) var(--motion-ease),translate var(--motion-image) var(--motion-ease) }
-.project-card.motion-pending,.home-feature.motion-pending { translate:0 var(--motion-shift) }
+.project-card,.home-feature { opacity:1;translate:none }
 /* JS springs own card image transforms; no competing CSS interpolation. */
 .project-card .project-media>img { transition:none;scale:1 }
 .project-card.motion-seen .project-caption h2 { animation:hero-support-enter 400ms var(--motion-ease) both }
 .project-card.motion-seen .project-caption p { animation:hero-support-enter 400ms var(--motion-ease) 45ms both }
-.case-gallery figure.motion-seen { animation:motion-title-enter var(--motion-image) var(--motion-ease) both }
+.case-gallery figure.motion-seen { animation:image-window-enter var(--motion-image) var(--motion-ease) both }
 .case-facts>div.motion-seen,.case-result p.motion-seen,.about-prose p.motion-seen,
 .about-credential-list article.motion-seen,.how-grid article.motion-seen { animation:hero-support-enter var(--motion-text) var(--motion-ease) both }
-.process-steps li.motion-seen h3,.process-steps li.motion-seen .process-step-number { animation:hero-support-enter 400ms var(--motion-ease) both }
-.process-steps li.motion-seen:nth-child(2) h3 { animation-delay:45ms }
-.process-steps li.motion-seen:nth-child(3) h3 { animation-delay:90ms }
 .about-typewriter { position:relative!important }
 .about-sentence { animation:none }
 .about-typewriter.motion-seen .about-sentence { animation:hero-support-enter 480ms var(--motion-ease) both }
@@ -75,17 +64,18 @@
 /* Animate an explicit theme change, never the first paint. */
 html.theme-changing body,html.theme-changing .site-header,html.theme-changing .site-footer,
 html.theme-changing main,html.theme-changing section { transition:background-color 200ms ease,color 200ms ease }
-@media (max-width:1000px) { .selected-section .section-heading { flex-direction:column;align-items:flex-start;gap:28px } }
 @media (max-width:700px) {
   :root { --motion-shift:8px;--motion-text:440ms;--motion-image:480ms }
-  .services-section .section-heading h2,.selected-section .section-heading h2 { font-size:clamp(43px,10.5vw,56px) }
 }
 @media (hover:none),(pointer:coarse) {
   .project-card:hover img,.feature-link:hover img,.rail-frame:hover img,.menu-projects a:hover img,
   .menu-trigger:hover span,.hero-down:hover,.service-row summary:hover h3,a:hover .arrow { transform:none }
 }
 /* Keyboard actions have immediate feedback and never wait for decoration. */
-html[data-input=keyboard] *,html[data-input=keyboard] *::before,html[data-input=keyboard] *::after { animation:none!important;transition:none!important;scroll-behavior:auto!important }
+html[data-input=keyboard] :is(button,summary,input,textarea,.pill,.text-link,.menu-links>a,.project-option>span),
+html[data-input=keyboard] :is(button,summary,.pill,.text-link)::before,
+html[data-input=keyboard] :is(button,summary,.pill,.text-link)::after { animation:none!important;transition:none!important }
+.motion-instant,.motion-instant * { animation:none!important;transition:none!important }
 html[data-input=keyboard] .motion-pending { opacity:1;translate:none }
 @media (prefers-reduced-transparency:reduce) { .site-header,.menu-dialog { backdrop-filter:none;background:var(--paper) } }
 @media (prefers-contrast:more) { .pill,.project-caption>.arrow { border-color:currentColor }.menu-dialog { border:1px solid currentColor } }
@@ -96,3 +86,17 @@ html[data-input=keyboard] .motion-pending { opacity:1;translate:none }
   .thinking-section .scroll-highlight [data-highlight-word] { --word-mix:100%!important }
 }
 html[data-input=keyboard] { scroll-behavior:auto }
+
+/* Distinct chapter entrances: image aperture, lateral services, drawn process rules. */
+@keyframes image-window-enter { from { clip-path:inset(7% 0 7% 0);scale:.985 } to { clip-path:inset(0);scale:1 } }
+@keyframes service-line-enter { from { transform:translateX(-14px);opacity:.6 } to { transform:none;opacity:1 } }
+@keyframes rule-enter { from { transform:scaleX(0) } to { transform:scaleX(1) } }
+.project-card.motion-seen .project-media,.home-feature.motion-seen .feature-media { animation:image-window-enter var(--motion-image) var(--motion-ease) both }
+.project-card:nth-child(even).motion-seen .project-media { animation-delay:60ms }
+.service-row.motion-seen h3 { animation:service-line-enter var(--motion-text) var(--motion-ease) both }
+.service-row.motion-seen .service-line { animation:hero-support-enter 420ms var(--motion-ease) 65ms both }
+.process-steps li.motion-seen::after { animation:rule-enter 650ms var(--motion-ease) both }
+.process-steps li.motion-seen h3 { animation:service-line-enter 480ms var(--motion-ease) both }
+.process-steps li.motion-seen p { animation:hero-support-enter 480ms var(--motion-ease) 70ms both }
+.faq-section h2.motion-seen,.contact-invitation h2.motion-seen { animation:motion-title-enter var(--motion-text) var(--motion-ease) both }
+.faq-section details.motion-seen { animation:hero-support-enter 320ms var(--motion-ease) both }

@@ -1,4 +1,5 @@
 node_modules/
+public/media/responsive/
 .next/
 out/
 .env*

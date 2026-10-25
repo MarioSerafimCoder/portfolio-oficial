@@ -1,5 +1,4 @@
 /* Restrained motion: one response per gesture, shared timing, no pointer chasing. */
-:root{--motion-fast:180ms;--motion-ui:320ms;--motion-image:700ms;--motion-ease:cubic-bezier(.2,.7,.2,1)}
 .pill{position:relative;isolation:isolate;overflow:hidden;transition:color var(--motion-fast),border-color var(--motion-fast),transform var(--motion-ui) var(--motion-ease)}
 .pill::before{content:'';position:absolute;inset:-1px;z-index:-1;background:var(--accent);transform:translateY(102%);transition:transform var(--motion-ui) var(--motion-ease);border-radius:inherit;pointer-events:none}
 .pill.filled{background:var(--ink);color:var(--paper)}
@@ -25,8 +24,6 @@
 .service-row[open] .service-number,.service-row[open] .service-plus{color:var(--accent-text)}
 .service-description{animation:detail-arrive var(--motion-ui) var(--motion-ease)}
 .service-row h3,.service-plus{transition:transform var(--motion-ui) var(--motion-ease),color var(--motion-fast)}
-.menu-dialog[open]{animation:menu-arrive var(--motion-ui) var(--motion-ease) both}
-.menu-dialog.closing{animation:menu-leave 260ms var(--motion-ease) both}
 .menu-links>a{width:fit-content;max-width:100%;transition:color var(--motion-fast),transform var(--motion-ui) var(--motion-ease)}
 .menu-links>a::after{content:'';position:absolute;left:0;bottom:5px;width:36px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform var(--motion-ui) var(--motion-ease)}
 .menu-links>a:focus-visible::after,.menu-links>a[aria-current=page]::after{transform:scaleX(1)}
@@ -45,8 +42,6 @@
 .will-reveal.revealed{animation:editorial-arrive 500ms var(--motion-ease) both}
 @keyframes editorial-arrive{from{opacity:.7;translate:0 10px}to{opacity:1;translate:0 0}}
 @keyframes detail-arrive{from{opacity:.65;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-@keyframes menu-arrive{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes menu-leave{to{opacity:0;transform:translateY(-6px)}}
 @media(hover:hover) and (pointer:fine){
  .pill:hover:not(:disabled),.pill.filled:hover:not(:disabled){background:transparent;border-color:var(--accent);color:var(--on-accent)}
  .pill:hover:not(:disabled)::before{transform:translateY(0)}

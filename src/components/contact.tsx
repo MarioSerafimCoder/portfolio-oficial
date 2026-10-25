@@ -7,12 +7,10 @@ import { briefingText, deliveryPayload, mailtoDraft, emlDraft } from '@/lib/cont
 import {trackEvent} from '@/lib/analytics';
 
 const options = ['Identidade visual','Branding','Direção de arte','Site ou experiência digital','Ainda não tenho certeza'];
-const industries = ['Arquitetura e construção','Saúde e bem-estar','Serviços profissionais','Comércio e varejo','Educação','Indústria','Outra'];
 const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || 'https://script.google.com/macros/s/AKfycbyulPLIGLCQKtFhvcvRvz69KwrZIc4S_2TcQNU-4rWDanoisOmVMlyoATYTnHx3pToU/exec';
 // A collector may subscribe to this event. No visitor fields leave through analytics.
 function track(name:string){window.dispatchEvent(new CustomEvent('portfolio:analytics',{detail:{event:name,form:'contact'}}));}
 export function ContactForm(){
- const isHome=usePathname()==="/";
  const id=useId().replace(/:/g,'');
  const [step,setStep]=useState(1);
  const [data,setData]=useState({name:'',email:'',type:'',industry:'',budget:'',whatsapp:'',description:'',website:''});
@@ -74,14 +72,11 @@ export function ContactForm(){
  function download(){const url=URL.createObjectURL(new Blob([emlDraft(data,site.email)],{type:'message/rfc822'}));const a=document.createElement('a');a.href=url;a.download='projeto-para-mario.eml';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);setFeedback('Rascunho preparado para abrir e enviar no seu aplicativo de e-mail.')}
  return <div ref={root} className="contact-form" aria-busy={sending}>
   <div className="form-progress" aria-label={`Etapa ${step} de 2`}><span>Vamos começar</span><span>0{step} / 02</span><div className="progress-track"><span style={{transform:`scaleX(${step/2})`}}/></div></div>
-  <h2 ref={title} tabIndex={-1}>{sent?'Sua mensagem chegou.':step===1?(isHome?'O que você precisa hoje?':'O que você tem em mente?'):'Agora, vamos nos conhecer.'}</h2>
+  <h2 ref={title} tabIndex={-1}>{sent?'Sua mensagem chegou.':step===1?'O que você precisa hoje?':'Agora, vamos nos conhecer.'}</h2>
   {sent?<div className="contact-success"><span aria-hidden="true">↗</span><p>Obrigado por compartilhar seu projeto. {site.responseBusinessDays?`Respondo em até ${site.responseBusinessDays} dias úteis.`:'Vou responder assim que puder.'}</p><Link className="text-link" href="/projetos">Explorar projetos ↗</Link></div>:step===1?<form key="project" onSubmit={next} noValidate>
    <fieldset className="project-options" aria-describedby={errors.type?`${id}-type-error`:undefined}><legend className="sr-only">Escolha o tipo de projeto</legend>{options.map((option,i)=><label className="project-option" key={option}><input id={`${id}-type-${i}`} type="radio" name={`${id}-type`} value={option} checked={data.type===option} onChange={()=>change('type',option)}/><span>{option}<span className="option-mark" aria-hidden="true">{data.type===option?'↗':'+'}</span></span></label>)}</fieldset>
    {errors.type&&<p className="field-error" id={`${id}-type-error`} role="alert">{errors.type}</p>}
-   <label htmlFor={`${id}-industry`}>Área de atuação do seu negócio <span className="optional">opcional</span><select id={`${id}-industry`} value={data.industry} onChange={e=>change('industry',e.target.value)}><option value="">Selecione, se fizer sentido</option>{industries.map(industry=><option key={industry}>{industry}</option>)}</select></label>
-   <label htmlFor={`${id}-budget`}>Faixa de investimento prevista <span className="optional">opcional</span><select id={`${id}-budget`} value={data.budget} onChange={e=>change('budget',e.target.value)}><option value="">Selecione, se já tiver uma ideia</option>{site.investmentRanges.map(b=><option key={b}>{b}</option>)}</select></label>
    <div className="form-buttons"><span className="form-reassurance">Não sabe responder tudo ainda? Sem problema. Podemos conversar sobre isso.</span><button type="submit" className="pill filled">Continuar <span aria-hidden="true">→</span></button></div>
-   <p className="form-note">Se já tiver uma ideia de investimento, pode indicar. Isso ajuda a entender o escopo, mas não é um compromisso de orçamento.</p>
   </form>:<form key="details" onSubmit={send} noValidate>
    <p className="step-intro">Como posso entrar em contato para entender melhor sua ideia?</p>
    <label className="contact-honeypot" htmlFor={`${id}-website`} aria-hidden="true">Deixe este campo vazio<input id={`${id}-website`} type="text" name="website" tabIndex={-1} autoComplete="off" value={data.website} onChange={e=>change('website',e.target.value)}/></label>
