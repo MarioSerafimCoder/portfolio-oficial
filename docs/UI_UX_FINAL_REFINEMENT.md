@@ -44,4 +44,21 @@ Skills aplicadas: `F:/lastro/.agents/skills/apple-design/SKILL.md` e `F:/lastro/
 
 Referência anterior: local mobile 76 / LCP 6,8 s; local desktop 97 / LCP 1,2 s. Produção anterior (arquivo tmp/refinement-production.json): mobile 85 / LCP 4,1 s, acessibilidade/boas práticas/SEO 100, CLS 0.
 
-A medição final no domínio oficial será registrada após a conclusão do deploy. Resultados locais sem compressão não devem ser comparados diretamente com produção. Metas de 90+ e LCP abaixo de 2,5 s só serão consideradas alcançadas quando medidas.
+Resultados finais (Lighthouse 13, uma execução por perfil, 25/10/2026):
+
+| Ambiente / perfil | Performance antes → depois | LCP antes → depois | Acessibilidade / boas práticas / SEO finais |
+| --- | --- | --- | --- |
+| Local mobile, sem compressão | 76 → 77 | 6,8 → 6,1 s | 100 / 100 / 100 |
+| Local desktop, movimento reduzido | 97 → 98 | 1,2 → 1,2 s | 100 / 100 / 100 |
+| Produção mobile | 85 → 98 | 4,1 → 2,1 s | 100 / 100 / 100 |
+| Produção desktop | Sem referência equivalente → 100 | Sem referência equivalente → 0,6 s | 100 / 100 / 100 |
+
+CLS 0 em todos os perfis. TBT final: local mobile 40 ms, local desktop 0 ms; produção mobile 30 ms e desktop 0 ms. As metas de performance >90 e LCP <2,5 s foram alcançadas nesta medição de produção, não no servidor local sem compressão. Valores de laboratório variam por execução e não representam dados de usuários reais.
+
+Resumo estruturado: docs/validation/final-refinement-lighthouse.json. Relatórios completos locais: tmp/final-mobile.json, tmp/final-desktop.json, tmp/final-production-mobile.json e tmp/final-production-desktop.json.
+
+## Publicação
+
+Código: commit 718857e, enviado a main. Cloudflare Pages concluiu com sucesso o deploy c895bde3-99d1-4dd8-b2ee-58d90fd1092f. A versão nova foi confirmada visualmente em https://marioserafim.com.br/, com navegação direta, projetos após hero e formulário simplificado. As 14 verificações HTTP pós-publicação (páginas principais, cinco cases, SEO e uma variante responsiva) retornaram 200. Captura: tmp/final-refinement-published.png.
+
+Este complemento de documentação registra as medições após a publicação; não altera o código do site.
