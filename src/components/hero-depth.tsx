@@ -1,6 +1,7 @@
 'use client';
 
 import {useEffect, useRef, type ReactNode} from 'react';
+import {IdentitySculpture} from './identity-sculpture';
 import {createSpring} from '@/lib/motion';
 
 /** Keep content server rendered; only the visible hero owns a scroll frame. */
@@ -43,5 +44,5 @@ export function HeroDepth({children}:{children:ReactNode}) {
     fine.addEventListener('change',preference);
     return()=>{observer.disconnect();x.stop();y.stop();cancelAnimationFrame(frame);element.removeEventListener('pointermove',move);element.removeEventListener('pointerleave',leave);window.removeEventListener('scroll',scroll);window.removeEventListener('resize',scroll);reduced.removeEventListener('change',preference);fine.removeEventListener('change',preference)};
   },[]);
-  return <section ref={root} className="home-hero"><div className="hero-depth" aria-hidden="true"><span/><span/></div>{children}</section>;
+  return <section ref={root} className="home-hero"><IdentitySculpture/>{children}</section>;
 }

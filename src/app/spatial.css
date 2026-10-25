@@ -1,0 +1,74 @@
+/* Spatial composition: geometry, perspective and distinct chapter rhythms. */
+.identity-sculpture{position:absolute;right:-3%;top:0;width:38%;height:76%;pointer-events:none;z-index:0;perspective:1000px}
+.identity-sculpture canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s;transform:translateY(calc(var(--hero-progress,0) * 110px))}
+.identity-sculpture canvas[data-ready=true]{opacity:1}
+.sculpture-shadow{position:absolute;left:20%;right:10%;height:14%;bottom:9%;border-radius:50%;background:radial-gradient(ellipse,rgba(80,0,0,.24),transparent 68%);transform:rotate(-15deg)}
+.home-hero .hero-title{pointer-events:none}
+.home-hero .hero-title h1{text-shadow:0 2px 25px var(--paper)}
+.home-hero .hero-line:nth-child(2){transform:translate3d(calc(var(--hero-x) * 16px),calc(var(--hero-progress) * -55px),70px)}
+.spatial-surface{--arrival:1;--travel:0}
+.case-page,.projects-page,.contact-page{overflow:clip}
+.case-rail{perspective:1600px;perspective-origin:50% 45%;padding-top:35px;padding-bottom:45px}
+.case-rail .rail-frame{transform:rotateY(calc((1 - var(--arrival)) * -14deg)) rotateZ(calc(var(--travel) * -3deg)) scale(calc(.92 + var(--arrival) * .08));transform-origin:center;box-shadow:0 24px 45px -28px rgba(0,0,0,.42)}
+.case-rail .rail-frame:nth-child(2){transform:rotateY(calc((1 - var(--arrival)) * 18deg)) translateY(calc(var(--travel) * 65px)) scale(.94)}
+.case-rail .rail-frame:nth-child(3){transform:rotateY(-9deg) translateY(calc(var(--travel) * -40px)) scale(.9)}
+.case-gallery{perspective:1400px;align-items:start}
+.case-gallery figure.spatial-surface{animation:none;transform:perspective(1400px) translateY(calc((1 - var(--arrival)) * 75px)) rotateX(calc((1 - var(--arrival)) * 12deg)) scale(calc(.93 + var(--arrival) * .07));transform-origin:50% 0}
+.case-gallery .gallery-image{overflow:hidden;box-shadow:0 24px 60px -45px rgba(0,0,0,.5)}
+.case-gallery figure:nth-child(3n+2) .gallery-image{clip-path:inset(calc((1 - var(--arrival)) * 12%) 0 0 0)}
+.case-gallery figure:nth-child(3n) .gallery-image{clip-path:inset(0 calc((1 - var(--arrival)) * 12%) 0 0)}
+.case-gallery figcaption{transform:translateY(calc((1 - var(--arrival)) * 18px))}
+.case-page .case-heading h1.motion-seen,.editorial-about .about-opening h1.motion-seen,.page-heading h1{animation:chapter-title-in 950ms cubic-bezier(.16,1,.3,1) both;transform-origin:0 100%}
+@keyframes chapter-title-in{from{clip-path:inset(0 0 100%);transform:perspective(1200px) translateY(65px) rotateX(14deg)}to{clip-path:inset(0);transform:none}}
+.case-page .palette>div{perspective:800px}
+.case-page .palette>div>span:first-child{transform-origin:bottom;transition:transform .5s var(--motion-ease),box-shadow .5s var(--motion-ease)}
+.case-navigation{background:var(--surface);position:relative}
+.case-navigation strong{display:block;transition:transform .4s var(--motion-ease)}
+.case-navigation a:hover strong{transform:translateX(16px)}
+.project-card{perspective:1000px}
+.project-card .project-media{transform:rotateX(var(--card-rx,0deg)) rotateY(var(--card-ry,0deg));transform-style:preserve-3d;box-shadow:var(--card-shadow,0 0 0 transparent)}
+.project-gallery .project-card.spatial-surface{translate:0 calc((1 - var(--arrival)) * 65px)}
+.project-gallery .project-card:nth-child(even).spatial-surface{translate:0 calc((1 - var(--arrival)) * 110px)}
+.project-index a{position:relative;isolation:isolate;overflow:hidden}
+.project-index a::before{content:'';position:absolute;inset:0;background:var(--surface);z-index:-1;transform:translateY(101%);transition:transform .4s var(--motion-ease)}
+.project-index a:hover::before,.project-index a:focus-visible::before{transform:none}
+.about-origin>.eyebrow,.case-story>dl{align-self:start;position:sticky;top:110px}
+.about-portrait.spatial-surface{transform:perspective(1200px) rotateY(calc((1 - var(--arrival)) * -16deg)) rotateZ(calc(var(--travel) * -3deg));transform-origin:left;box-shadow:22px 30px 0 -10px var(--surface)}
+.about-thinking.spatial-surface{position:relative;isolation:isolate;overflow:hidden}
+.about-thinking.spatial-surface::before{content:'?';position:absolute;font-family:var(--font-serif);font-style:italic;font-size:clamp(320px,42vw,650px);line-height:1;right:5%;top:-15%;color:var(--accent);opacity:.12;z-index:-1;transform:translateY(calc(var(--travel) * 130px)) rotate(-12deg)}
+.about-credential-list article.spatial-surface{animation:none;transform:translateX(calc((1 - var(--arrival)) * 70px));border-top-color:color-mix(in srgb,var(--accent) 35%,var(--rule))}
+.about-credential-list article.spatial-surface:nth-child(2){transform:translateX(calc((1 - var(--arrival)) * -70px))}
+.contact-page .contact-form.spatial-surface{transform:perspective(1400px) rotateY(calc((1 - var(--arrival)) * -8deg));transform-origin:left;border-top:2px solid var(--accent)}
+@media(hover:hover) and (pointer:fine){.case-page .palette>div:hover>span:first-child{transform:rotateX(-18deg) translateY(-10px);box-shadow:0 18px 22px -14px rgba(0,0,0,.5)}}
+@media(max-width:700px){
+ .identity-sculpture{width:140px;height:140px;right:0;top:-5px;opacity:1}
+ .identity-sculpture .sculpture-shadow{display:none}
+ .home-hero .hero-title h1{text-shadow:0 2px 12px var(--paper),0 0 30px var(--paper)}
+ .case-rail{padding-top:15px;padding-bottom:25px}
+ .case-gallery figure.spatial-surface{transform:perspective(1000px) translateY(calc((1 - var(--arrival)) * 35px)) rotateX(calc((1 - var(--arrival)) * 6deg)) scale(calc(.97 + var(--arrival) * .03))}
+ .case-story>dl,.about-origin>.eyebrow{position:static}
+ .about-credential-list article.spatial-surface{transform:translateX(calc((1 - var(--arrival)) * 25px))}
+ .about-credential-list article.spatial-surface:nth-child(2){transform:translateX(calc((1 - var(--arrival)) * -25px))}
+}
+@media(prefers-reduced-motion:reduce){
+ .identity-sculpture canvas,.home-hero .hero-line:nth-child(2),.case-rail .rail-frame,.case-gallery figure.spatial-surface,.case-gallery figcaption,.about-portrait.spatial-surface,.about-credential-list article.spatial-surface,.about-credential-list article.spatial-surface:nth-child(2),.contact-page .contact-form.spatial-surface,.about-thinking.spatial-surface::before,.project-card .project-media{transform:none!important}
+ .project-gallery .project-card.spatial-surface{translate:none!important}
+ .case-gallery .gallery-image{clip-path:none!important}
+}
+/* Case openings have their own scale, rather than repeating the home cadence. */
+.case-page .case-heading{grid-template-columns:22% 1fr;align-items:end;padding-top:90px;padding-bottom:30px}
+.case-page .case-heading h1{font-size:clamp(64px,9vw,145px);line-height:.95;letter-spacing:-.045em;text-wrap:balance}
+.case-page .case-heading p{max-width:560px;font-size:17px;margin-top:24px}
+.case-page .rail-frame{border-radius:2px}
+.case-rail .rail-frame:first-child{transform:perspective(1600px) rotateY(calc((1 - var(--arrival)) * -14deg + var(--travel) * 9deg)) rotateZ(calc(var(--travel) * -4deg)) scale(calc(.92 + var(--arrival) * .08))}
+.about-credential-list article>span{font-family:var(--font-serif);font-size:clamp(38px,5vw,70px);line-height:1;color:var(--accent);padding-top:0}
+@media(max-width:700px){.case-page .case-heading{display:block;padding-top:60px}.case-page .case-heading h1{font-size:clamp(52px,14vw,85px)}.case-page .case-heading p{font-size:15px}.about-credential-list article>span{font-size:30px}}
+@media(prefers-reduced-motion:reduce){.case-rail .rail-frame:first-child{transform:none}}
+.home-feature.spatial-surface .feature-media{transform:perspective(1400px) rotateX(calc((1 - var(--arrival)) * 8deg)) scale(calc(.94 + var(--arrival) * .06));transform-origin:center bottom}
+@media(prefers-reduced-motion:reduce){.home-feature.spatial-surface .feature-media{transform:none}}
+/* Journal: an editorial wipe and sequential rows; reading text stays stationary. */
+.journal-hero-copy h1{animation:chapter-title-in 850ms var(--motion-ease) both}
+.journal-list>li.spatial-surface{transform:translateX(calc((1 - var(--arrival)) * 45px))}
+.journal-list>li:nth-child(even).spatial-surface{transform:translateX(calc((1 - var(--arrival)) * -45px))}
+.journal-cover.spatial-surface img{clip-path:inset(0 calc((1 - var(--arrival)) * 8%));transform:perspective(1400px) rotateX(calc((1 - var(--arrival)) * 5deg));transform-origin:center top}
+@media(prefers-reduced-motion:reduce){.journal-list>li.spatial-surface,.journal-list>li:nth-child(even).spatial-surface,.journal-cover.spatial-surface img{transform:none;clip-path:none}}
