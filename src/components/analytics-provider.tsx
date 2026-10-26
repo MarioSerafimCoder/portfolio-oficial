@@ -3,9 +3,7 @@
 import {useEffect,useState} from 'react';
 import {usePathname} from 'next/navigation';
 import Script from 'next/script';
-
-const plausibleDomain=process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN?.trim();
-const ga4Id=plausibleDomain?'':process.env.NEXT_PUBLIC_GA4_ID?.trim();
+import {googleAnalyticsId as ga4Id,plausibleDomain} from '@/lib/analytics-config';
 
 export function AnalyticsProvider(){
   const path=usePathname();
