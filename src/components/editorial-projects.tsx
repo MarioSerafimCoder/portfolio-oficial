@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {projects} from '@/content/projects';
 import {AmazonitaExperience} from './amazonita-experience';
+import {ProjectChoreography} from './project-choreography';
 
 const rooftop=projects.find(project=>project.slug==='rooftop')!;
 const simetria=projects.find(project=>project.slug==='simetria')!;
@@ -10,7 +11,7 @@ const closing=projects.filter(project=>['eduardo-noronha','amanda-araujo'].inclu
 function Visit(){return <span className="editorial-visit">Explorar projeto <span aria-hidden="true">↗</span></span>}
 
 export function EditorialProjects(){
-  return <div className="editorial-projects" data-motion-owner="editorial">
+  return <ProjectChoreography>
     <AmazonitaExperience>
       <Link href="/projetos/amazonita" className="material-link">
         <div className="material-stage">
@@ -39,5 +40,5 @@ export function EditorialProjects(){
     </article>
 
     <div className="editorial-closing">{closing.map((project,index)=><article key={project.slug} aria-labelledby={`${project.slug}-feature-title`}><Link href={`/projetos/${project.slug}`}><div className="editorial-image"><Image src={project.cover} alt={project.coverAlt} fill sizes="(max-width: 700px) 90vw, 44vw"/></div><div className="editorial-closing-caption"><div><span className="editorial-index">0{index+4} / {project.discipline}</span><h3 id={`${project.slug}-feature-title`}>{project.name}</h3></div><span aria-hidden="true">↗</span></div><p>{index===0?'Uma identidade sóbria e contemporânea para a comunicação jurídica.':'Uma linguagem visual que aproxima, acolhe e transmite confiança.'}</p><Visit/></Link></article>)}</div>
-  </div>;
+  </ProjectChoreography>;
 }

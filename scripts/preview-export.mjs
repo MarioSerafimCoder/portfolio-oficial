@@ -20,6 +20,9 @@ http.createServer(async(req,res)=>{
     let body=await readFile(file);
     const extension=path.extname(file);
     if(extension==='.html'&&url.searchParams.has('review-no-js'))body=Buffer.from(body.toString().replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,''));
+    // Local-only fault injection; this server and its controls are never exported.
+    if(extension==='.html'&&url.searchParams.has('review-no-webgl'))body=Buffer.from(body.toString().replace('<head>',`<head><script>{const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/.test(type)?null:get.call(this,type,...args)}}<\/script>`));
+    if(extension==='.html'&&url.searchParams.has('review-context'))body=Buffer.from(body.toString().replace('</body>',`<div style="position:fixed;bottom:8px;left:8px;z-index:99999;background:white;color:black;padding:8px"><button id="review-lose">Perder contexto WebGL</button><button id="review-restore">Restaurar contexto WebGL</button><output id="review-status">Pronto</output></div><script>{let extension;document.getElementById('review-lose').onclick=()=>{extension=document.querySelector('.ribbon-scene canvas')?.getContext('webgl2')?.getExtension('WEBGL_lose_context');extension?.loseContext();document.getElementById('review-status').textContent=extension?'Contexto perdido':'Canvas indisponível'};document.getElementById('review-restore').onclick=()=>{extension?.restoreContext();document.getElementById('review-status').textContent='Restauração solicitada'}}<\/script></body>`));
     const compressed=/\b(gzip)\b/.test(req.headers['accept-encoding']||'')&&['.html','.js','.css','.json','.xml','.txt','.svg'].includes(extension);
     if(compressed)body=gzipSync(body);
     res.writeHead(200,{'Content-Type':types[extension]||'application/octet-stream','Cache-Control':'no-store',...(compressed?{'Content-Encoding':'gzip','Vary':'Accept-Encoding'}:{})});res.end(body);

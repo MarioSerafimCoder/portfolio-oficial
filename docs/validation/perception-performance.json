@@ -1,0 +1,65 @@
+{
+  "note": "Single-run lab samples. Baseline production; optimized local gzip export. Final production comparison recorded separately. TBT is not INP.",
+  "reports": [
+    {
+      "name": "before-mobile",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-26T15:08:38.992Z",
+      "performance": 0.84,
+      "accessibility": 0.96,
+      "lcpMs": 3959.0955000000013,
+      "cls": 0,
+      "tbtMs": 63,
+      "transferBytes": 663871
+    },
+    {
+      "name": "before-desktop",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-26T19:43:12.864Z",
+      "performance": 0.99,
+      "accessibility": 1,
+      "lcpMs": 778.06,
+      "cls": 0,
+      "tbtMs": 0,
+      "transferBytes": 679440
+    },
+    {
+      "name": "optimized-mobile",
+      "url": "http://127.0.0.1:3003/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-26T19:43:57.004Z",
+      "performance": 0.87,
+      "accessibility": 1,
+      "lcpMs": 3844.611999999999,
+      "cls": 0,
+      "tbtMs": 76.49999999999977,
+      "transferBytes": 649780
+    },
+    {
+      "name": "optimized-desktop",
+      "url": "http://127.0.0.1:3003/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-26T19:44:59.875Z",
+      "performance": 1,
+      "accessibility": 1,
+      "lcpMs": 757.1741999999999,
+      "cls": 0,
+      "tbtMs": 16.5,
+      "transferBytes": 788021
+    },
+    {
+      "name": "reduced-motion",
+      "url": "http://127.0.0.1:3003/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-26T19:47:49.961Z",
+      "performance": 1,
+      "accessibility": 1,
+      "lcpMs": 748.5727999999999,
+      "cls": 0,
+      "tbtMs": 0,
+      "transferBytes": 654504
+    }
+  ]
+}
