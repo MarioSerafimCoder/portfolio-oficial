@@ -76,6 +76,6 @@
 .spatial-surface[data-reveal-kind=ledger][data-reveal-state=entering]{animation:chapter-ledger 1000ms var(--reveal-ease) var(--reveal-delay) both}
 .spatial-surface[data-reveal-kind=ledger]:nth-child(even)[data-reveal-state=entering]{animation-name:chapter-ledger-reverse}
 .thinking-section .scroll-highlight>span,.thinking-section .scroll-highlight>em{display:inline-block;overflow:clip;padding-bottom:.15em;margin-bottom:-.15em;perspective:1000px}
-.thinking-section [data-highlight-word]{display:inline-block;white-space:pre;transform-origin:left bottom;transform:translateY(calc((1 - var(--word-progress,1)) * 75%)) rotateX(calc((1 - var(--word-progress,1)) * 35deg));opacity:calc(.4 + var(--word-progress,1) * .6)}
+.thinking-section [data-highlight-word]{display:inline-block;white-space:pre;transform-origin:left bottom;transform:translateY(calc((1 - var(--word-progress,1)) * 75%)) rotateX(calc((1 - var(--word-progress,1)) * 35deg));opacity:1}
 @media(prefers-reduced-motion:reduce){.thinking-section [data-highlight-word]{transform:none;opacity:1}}
 @media print{.thinking-section [data-highlight-word]{transform:none;opacity:1}}

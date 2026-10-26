@@ -23,3 +23,5 @@ Rolagem nativa, HTML sem JavaScript visível, foco e âncoras expõem imediatame
 - Estados finais sem elementos aguardando reveal dentro da área visível; sem overflow nas verificações responsivas.
 - Foco de teclado nos cards expõe também suas imagens.
 - Lighthouse local desktop com movimento reduzido: performance 97, acessibilidade 100, boas práticas 100, SEO 100. Medição de laboratório, não dados reais de visitantes.
+
+- Auditoria pública mobile inicial: performance 92, LCP 3,1 s, TBT 140 ms e CLS 0. Contraste intermediário das palavras corrigido preservando a máscara e a rotação; nova auditoria local de acessibilidade: 100, contraste aprovado.
