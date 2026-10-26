@@ -9,6 +9,7 @@ import './evolution.css';
 import './motion.css';
 import './spatial.css';
 import './reveals.css';
+import './editorial.css';
 import {ChapterReveals} from '@/components/chapter-reveals';
 import {SpatialMotion} from '@/components/spatial-motion';
 import {AnalyticsProvider} from '@/components/analytics-provider';

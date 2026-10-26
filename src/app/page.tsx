@@ -1,28 +1,19 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import {ProjectCard} from '@/components/project-card';
 import {Services} from '@/components/services';
 import {ProcessSteps} from '@/components/process-steps';
-import {projects} from '@/content/projects';
 import {Arrow} from '@/components/shell';
 import './home.css';
 import type {Metadata} from 'next';
 import {site,generalFaq} from '@/content/site';
 import {socialLinks} from '@/lib/site-links';
 import {TrackedLink} from '@/components/tracked-link';
-import {HeroDepth} from '@/components/hero-depth';
+import {PerceptionHero} from '@/components/perception-hero';
+import {EditorialProjects} from '@/components/editorial-projects';
 import {ScrollHighlight} from '@/components/scroll-highlight';
 
 const origin=(process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br').replace(/\/$/,'');
 export const metadata:Metadata={title:'Direção de arte, identidade visual e branding em Fortaleza',description:'Portfólio de Mário Serafim: direção de arte, identidade visual, branding e experiências digitais desenvolvidas com clareza e personalidade.',alternates:{canonical:'/'},openGraph:{title:'Mário Serafim — Direção de arte e identidade visual',description:site.description,url:'/'}};
 
-const featured=['rooftop','simetria','eduardo-noronha','amanda-araujo'].map(slug=>projects.find(project=>project.slug===slug)!);
-const featuredDescriptions:Record<string,string>={
-  rooftop:'Uma identidade que explora precisão, presença e a linguagem visual da arquitetura.',
-  simetria:'Equilíbrio, leveza e uma linguagem visual pensada para transmitir confiança sem parecer distante.',
-  'eduardo-noronha':'Uma identidade sóbria e contemporânea para a comunicação jurídica.',
-  'amanda-araujo':'Uma linguagem visual que aproxima, acolhe e transmite confiança.',
-};
 const steps=[
   {title:'Entender',body:'Você me conta o que está acontecendo com a marca. Eu faço perguntas para entender o negócio, as pessoas e o que precisa mudar.'},
   {title:'Definir',body:'Alinhamos a direção visual e o escopo. As escolhas são discutidas antes de avançar, com motivos que façam sentido para a marca.'},
@@ -36,11 +27,10 @@ export default function Home(){
     {'@context':'https://schema.org','@type':'FAQPage',mainEntity:generalFaq.map(item=>({'@type':'Question',name:item.question,acceptedAnswer:{'@type':'Answer',text:item.answer}}))},
   ];
   return <main id="conteudo"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData).replace(/</g,'\\u003c')}}/>
-  <HeroDepth><div className="hero-title"><h1><span className="hero-line"><span>Identidade</span></span> <span className="hero-line"><span>é <em>percepção.</em></span></span></h1></div><div className="hero-bottom"><span>Direção de arte.<br/>Identidade visual. Branding.</span><div className="hero-action"><p>Sou Mário Serafim, diretor de arte. Ajudo negócios a construir uma identidade visual que represente melhor o que fazem, com personalidade, clareza e sem fórmulas prontas.</p><a className="pill hero-cta" href="#contato">Vamos falar da sua marca <Arrow/></a></div><a className="hero-down" href="#selecionados" aria-label="Ver projetos selecionados">↓</a></div></HeroDepth>
+  <PerceptionHero><div className="perception-heading"><span className="perception-label">Mário Serafim / Direção de arte & identidade visual</span><h1 id="perception-title"><span className="perception-line"><span data-perception-line>Identidade</span></span> <span className="perception-line"><span data-perception-line>é <em>percepção.</em></span></span></h1></div><div className="perception-support"><span>Direção de arte.<br/>Identidade visual. Branding.</span><div><p>Sou Mário Serafim, diretor de arte. Ajudo negócios a construir uma identidade visual que represente melhor o que fazem, com personalidade, clareza e sem fórmulas prontas.</p><a className="pill" href="#contato">Vamos falar da sua marca <Arrow/></a></div><a className="hero-down" href="#selecionados" aria-label="Ver projetos selecionados">↓</a></div></PerceptionHero>
 
   <section className="selected-section" id="selecionados"><div className="section-heading section-wrap" data-reveal><div><h2>Não existe uma <em>estética</em> que sirva para todo mundo.</h2><p className="home-section-intro">Cada projeto traz um contexto diferente. Aqui estão alguns trabalhos e estudos que mostram como gosto de explorar essas diferenças.</p></div><TrackedLink className="pill" href="/projetos" event="all_projects_click">Ver todos os projetos <Arrow/></TrackedLink></div>
-    <div className="home-feature" aria-label="Projeto Amazonita"><Link href="/projetos/amazonita" className="feature-link"><div className="feature-media"><Image src="/media/amazonita-cover.webp" alt="Amazonita: apresentação visual da rocha natural em tons verde-azulados" fill loading="lazy" sizes="(max-width: 700px) 90vw, 86vw"/></div><div className="feature-overlay"><span>Amazonita / Direção de arte · Digital · Editorial</span><div><span>A matéria-prima como protagonista.</span><Arrow/></div></div></Link><p className="home-feature-note">Uma linguagem visual que valoriza a presença e a textura da Amazonita.</p></div>
-    <div className="home-projects section-wrap">{featured.map((project,index)=><ProjectCard project={{slug:project.slug,name:project.name,palette:project.palette,cover:project.cover,cardCover:project.cardCover,coverAlt:project.coverAlt,discipline:project.discipline,headline:project.headline}} key={project.slug} index={index} homeDescription={featuredDescriptions[project.slug]} homeLabel={['rooftop','simetria'].includes(project.slug)?'Identidade visual · Estudo conceitual':undefined}/>)}</div>
+    <EditorialProjects/>
   </section>
 
   <section className="section-wrap services-section" id="atuacao"><div className="section-heading" data-reveal><div><span className="eyebrow">O que eu faço</span><h2><span className="editorial-line"><span>Uma boa identidade vai</span></span><span className="editorial-line"><span>muito além do logo.</span></span></h2><p className="home-section-intro">Uma marca aparece em muitos lugares. E precisa fazer sentido em todos eles. Meu trabalho é cuidar para que cada ponto de contato faça parte da mesma história.</p></div><Link className="pill" href="/sobre#processo">Conheça minha abordagem <Arrow/></Link></div><Services/><div className="services-contact"><p>Começando do zero ou sentindo que sua marca já não representa o que você faz?</p><a className="text-link" href="#contato">Vamos conversar ↗</a></div></section>

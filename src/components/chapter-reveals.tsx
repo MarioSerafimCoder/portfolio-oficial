@@ -31,7 +31,7 @@ export function ChapterReveals(){
   const schedule=()=>{if(!frame&&pending.size)frame=requestAnimationFrame(scan)};
   const register=()=>{
    for(const [kind,selector] of Object.entries(groups))document.querySelectorAll<HTMLElement>(selector).forEach((el,index)=>{
-    if(registered.has(el)||el.closest('.site-header,.menu-dialog,.home-hero'))return;
+    if(registered.has(el)||el.closest('.site-header,.menu-dialog,.home-hero,[data-motion-owner]'))return;
     registered.add(el);el.dataset.revealKind=kind==='image'?(index%3===0?'image-rise':index%3===1?'image-left':'image-center'):kind;
     // Bound the stagger to avoid long waits even in a large gallery.
     const siblings=el.parentElement?Array.from(el.parentElement.children):[];
