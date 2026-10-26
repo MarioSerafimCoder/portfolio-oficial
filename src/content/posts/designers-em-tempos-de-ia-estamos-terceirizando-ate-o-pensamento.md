@@ -1,11 +1,8 @@
 ---
 title: "Designers em tempos de IA: estamos terceirizando até o pensamento?"
-summary: "A inteligência artificial está transformando o trabalho dos designers,
-  mas será que estamos evoluindo junto com ela? Entre a desvalorização da
-  profissão, a pressão por produtividade e a automação do processo criativo,
-  surge uma preocupação: a terceirização do pensamento crítico. Uma reflexão
-  sobre o futuro do design e a importância de continuar questionando, criando e
-  valorizando o que existe por trás de cada projeto."
+summary: A IA está transformando o design, mas será que estamos deixando de
+  pensar por conta própria? Uma reflexão sobre criatividade, desvalorização
+  profissional e o papel do pensamento crítico no futuro da profissão.
 category: direcao-de-arte
 status: published
 publish_at: 2026-10-26T12:18
