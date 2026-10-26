@@ -1,5 +1,5 @@
 {
-  "note": "Single-run lab samples. Baseline production; optimized local gzip export. Final production comparison recorded separately. TBT is not INP.",
+  "note": "Single-run lab samples. Before measurements use the prior production release; optimized measurements use the local gzip export. Final measurements use the published production release. TBT is not INP.",
   "reports": [
     {
       "name": "before-mobile",
@@ -60,6 +60,30 @@
       "cls": 0,
       "tbtMs": 0,
       "transferBytes": 654504
+    },
+    {
+      "name": "production-desktop",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-26T19:57:34.795Z",
+      "performance": 0.99,
+      "accessibility": 1,
+      "lcpMs": 828.3955000000001,
+      "cls": 0,
+      "tbtMs": 16.5,
+      "transferBytes": 818587
+    },
+    {
+      "name": "production-mobile",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-26T19:57:58.761Z",
+      "performance": 0.89,
+      "accessibility": 1,
+      "lcpMs": 3487.312499999999,
+      "cls": 0.00005766287201181879,
+      "tbtMs": 137,
+      "transferBytes": 717294
     }
   ]
 }
