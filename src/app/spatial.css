@@ -18,7 +18,7 @@
 .case-gallery figure:nth-child(3n+2) .gallery-image{clip-path:inset(calc((1 - var(--arrival)) * 12%) 0 0 0)}
 .case-gallery figure:nth-child(3n) .gallery-image{clip-path:inset(0 calc((1 - var(--arrival)) * 12%) 0 0)}
 .case-gallery figcaption{transform:translateY(calc((1 - var(--arrival)) * 18px))}
-.case-page .case-heading h1.motion-seen,.editorial-about .about-opening h1.motion-seen,.page-heading h1{animation:chapter-title-in 950ms cubic-bezier(.16,1,.3,1) both;transform-origin:0 100%}
+.case-page .case-heading h1,.editorial-about .about-opening h1,.page-heading h1{animation:chapter-title-in 950ms cubic-bezier(.16,1,.3,1) both;transform-origin:0 100%}
 @keyframes chapter-title-in{from{clip-path:inset(0 0 100%);transform:perspective(1200px) translateY(65px) rotateX(14deg)}to{clip-path:inset(0);transform:none}}
 .case-page .palette>div{perspective:800px}
 .case-page .palette>div>span:first-child{transform-origin:bottom;transition:transform .5s var(--motion-ease),box-shadow .5s var(--motion-ease)}

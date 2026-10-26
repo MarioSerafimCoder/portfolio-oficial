@@ -15,14 +15,15 @@ export function ScrollHighlight() {
     let frame = 0;
     const update = () => {
       frame = 0;
-      if (preference.matches) { spans.forEach(span => span.style.setProperty('--word-mix', '100%')); return; }
+      if (preference.matches) { spans.forEach(span => {span.style.setProperty('--word-mix','100%');span.style.setProperty('--word-progress','1')}); return; }
       const rect = element.getBoundingClientRect();
       const distance = Math.min(innerHeight * .48, 360);
       const start = innerHeight * .78;
       const progress = Math.max(0, Math.min(1, (start - rect.top) / distance));
       spans.forEach((span, index) => {
         const amount = Math.max(0, Math.min(1, progress * words.length - index));
-        span.style.setProperty('--word-mix', `${Math.round(90 + amount * 10)}%`);
+        span.style.setProperty('--word-mix', `${Math.round(55 + amount * 45)}%`);
+        span.style.setProperty('--word-progress',String(amount));
       });
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };

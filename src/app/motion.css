@@ -15,33 +15,14 @@
 @keyframes hero-line-enter { from { transform:translateY(.16em);opacity:.4 } to { transform:none;opacity:1 } }
 @keyframes hero-support-enter { from { opacity:.65;transform:translateY(7px) } to { opacity:1;transform:none } }
 @keyframes motion-title-enter { from { opacity:.6;transform:translateY(var(--motion-shift)) } to { opacity:1;transform:none } }
-.section-heading.motion-seen h2,.how-section h2.motion-seen,.case-heading h1.motion-seen,
-.about-opening h1.motion-seen,.about-origin h2.motion-seen,.about-credentials h2.motion-seen,
-.about-ending h2.motion-seen,.journal-post-hero h1.motion-seen,.journal-article-content h2.motion-seen,
-.case-story h2.motion-seen,.case-decisions h2.motion-seen {
-  animation:motion-title-enter var(--motion-text) var(--motion-ease) both;
-}
-.section-heading.motion-seen h2:has(.editorial-line) { animation:none }
 .editorial-line { display:block;overflow:clip;padding-bottom:.09em;margin-bottom:-.09em }
-.section-heading.motion-seen .editorial-line>span { display:inline-block;animation:hero-line-enter var(--motion-text) var(--motion-ease) both }
-.section-heading.motion-seen .editorial-line:nth-child(2)>span { animation-delay:60ms }
-.section-heading.motion-seen>div>p,.case-heading:has(h1.motion-seen) p { animation:hero-support-enter 360ms var(--motion-ease) 80ms both }
 .journal-hero-copy h1 em { color:var(--accent);font-style:italic;font-weight:400 }
 
 .project-card,.home-feature { opacity:1;translate:none }
 /* JS springs own card image transforms; no competing CSS interpolation. */
 .project-card .project-media>img { transition:none;scale:1 }
-.project-card.motion-seen .project-caption h2 { animation:hero-support-enter 400ms var(--motion-ease) both }
-.project-card.motion-seen .project-caption p { animation:hero-support-enter 400ms var(--motion-ease) 45ms both }
-.case-gallery figure.motion-seen { animation:image-window-enter var(--motion-image) var(--motion-ease) both }
-.case-facts>div.motion-seen,.case-result p.motion-seen,.about-prose p.motion-seen,
-.about-credential-list article.motion-seen,.how-grid article.motion-seen { animation:hero-support-enter var(--motion-text) var(--motion-ease) both }
 .about-typewriter { position:relative!important }
 .about-sentence { animation:none }
-.about-typewriter.motion-seen .about-sentence { animation:hero-support-enter 480ms var(--motion-ease) both }
-.about-typewriter.motion-seen .about-sentence:nth-child(2) { animation-delay:45ms }
-.about-typewriter.motion-seen .about-sentence:nth-child(3) { animation-delay:90ms }
-.about-typewriter.motion-seen .about-sentence:nth-child(4) { animation-delay:135ms }
 .thinking-section .scroll-highlight [data-highlight-word] { color:color-mix(in srgb,var(--ink) var(--word-mix,70%),var(--paper));transition:color 80ms linear }
 .thinking-section .scroll-highlight em [data-highlight-word] { color:color-mix(in srgb,var(--accent) var(--word-mix,70%),var(--paper)) }
 
@@ -91,12 +72,3 @@ html[data-input=keyboard] { scroll-behavior:auto }
 @keyframes image-window-enter { from { clip-path:inset(7% 0 7% 0);scale:.985 } to { clip-path:inset(0);scale:1 } }
 @keyframes service-line-enter { from { transform:translateX(-14px);opacity:.6 } to { transform:none;opacity:1 } }
 @keyframes rule-enter { from { transform:scaleX(0) } to { transform:scaleX(1) } }
-.project-card.motion-seen .project-media,.home-feature.motion-seen .feature-media { animation:image-window-enter var(--motion-image) var(--motion-ease) both }
-.project-card:nth-child(even).motion-seen .project-media { animation-delay:60ms }
-.service-row.motion-seen h3 { animation:service-line-enter var(--motion-text) var(--motion-ease) both }
-.service-row.motion-seen .service-line { animation:hero-support-enter 420ms var(--motion-ease) 65ms both }
-.process-steps li.motion-seen::after { animation:rule-enter 650ms var(--motion-ease) both }
-.process-steps li.motion-seen h3 { animation:service-line-enter 480ms var(--motion-ease) both }
-.process-steps li.motion-seen p { animation:hero-support-enter 480ms var(--motion-ease) 70ms both }
-.faq-section h2.motion-seen,.contact-invitation h2.motion-seen { animation:motion-title-enter var(--motion-text) var(--motion-ease) both }
-.faq-section details.motion-seen { animation:hero-support-enter 320ms var(--motion-ease) both }

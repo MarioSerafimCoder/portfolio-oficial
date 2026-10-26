@@ -65,7 +65,6 @@ export function Footer(){
 }
 
 export function MotionObserver(){
-  const path=usePathname();
   useEffect(()=>{
     const keyboard=()=>{document.documentElement.dataset.input='keyboard'};
     const pointer=()=>{document.documentElement.dataset.input='pointer'};
@@ -74,42 +73,5 @@ export function MotionObserver(){
     document.addEventListener('pointermove',pointer,{passive:true});
     return()=>{document.removeEventListener('keydown',keyboard,true);document.removeEventListener('pointerdown',pointer,true);document.removeEventListener('pointermove',pointer)};
   },[]);
-  useEffect(()=>{
-    const preference=matchMedia('(prefers-reduced-motion: reduce)');
-    if(preference.matches)return;
-    const selector='[data-reveal],[data-motion],.faq-section h2,.faq-section details,.contact-invitation h2,.case-heading h1,.case-gallery figure,.case-story h2,.case-decisions h2,.case-facts>div,.case-result p,.about-opening h1,.about-origin h2,.about-prose p,.about-credential-list article,.about-credentials h2,.about-ending h2,.journal-post-hero h1,.journal-article-content h2,.home-feature,.project-card,.process-steps li';
-    const registered=new Set<HTMLElement>();
-    const reveal=(element:HTMLElement)=>{
-      element.classList.remove('motion-pending');
-      element.classList.add('motion-seen');
-      if(element.hasAttribute('data-reveal'))element.classList.add('revealed');
-    };
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(!entry.isIntersecting)return;
-        reveal(entry.target as HTMLElement);
-        observer.unobserve(entry.target);
-      });
-    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
-    const register=()=>document.querySelectorAll<HTMLElement>(selector).forEach(element=>{
-      if(registered.has(element))return;
-      registered.add(element);
-      // Only defer below-the-fold projects: SSR and restored scroll positions stay readable.
-      if(element.matches('.project-card,.home-feature')&&element.getBoundingClientRect().top>innerHeight*.92)element.classList.add('motion-pending');
-      observer.observe(element);
-    });
-    register();
-    // Filtering the gallery mounts new cards without changing the route.
-    const mutations=new MutationObserver(register);
-    mutations.observe(document.getElementById('conteudo')||document.body,{childList:true,subtree:true});
-    const onFocus=(event:FocusEvent)=>{
-      const card=(event.target as HTMLElement).closest<HTMLElement>('.motion-pending');
-      if(card){card.classList.add('motion-instant');reveal(card);observer.unobserve(card)}
-    };
-    const onPreference=()=>{if(preference.matches){registered.forEach(reveal);observer.disconnect()}};
-    document.addEventListener('focusin',onFocus);
-    preference.addEventListener('change',onPreference);
-    return()=>{observer.disconnect();mutations.disconnect();registered.forEach(element=>element.classList.remove('motion-pending'));document.removeEventListener('focusin',onFocus);preference.removeEventListener('change',onPreference)};
-  },[path]);
   return null;
 }
