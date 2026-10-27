@@ -5,9 +5,10 @@
       "id": "site",
       "sourceLanguage": "pt-BR",
       "targetLanguage": "en",
-      "sourceHash": "cda2153ccc43f87ea033da01a5e84b4af624b69e18f0250c0c8361582bd84f36",
-      "version": 1,
-      "translatedAt": "2026-10-27T17:43:09.639Z",
+      "sourceHash": "1744944eeebbb0f5195fe7618fdeb63ffb29df12b54bd37fee63fea07b18bd94",
+      "version": 2,
+      "renderVersion": 2,
+      "translatedAt": "2026-10-27T18:08:15.656Z",
       "status": "translated",
       "review": {
         "approved": false
@@ -71,12 +72,14 @@
         "Aa": "Aa",
         "About": "About",
         "Abre em nova aba": "Opens in a new tab.",
+        "Abrir menu": "Open menu",
         "Aceitar": "To accept",
         "Aceito receber os textos por e-mail e li a": "I agree to receive the texts by email and I have read the",
         "Acessos rápidos": "Quick access",
         "Acima de R$ 10.000": "Above R$10,000",
         "Advocacia": "Advocacy",
         "Agendar uma conversa de 20 min": "Schedule a 20-minute conversation.",
+        "Agora, vamos nos conhecer.": "Now, let's get to know each other.",
         "Ainda estou definindo": "I'm still deciding.",
         "Ainda não tenho certeza": "I'm still not sure.",
         "Algo interrompeu a leitura": "Something interrupted the reading.",
@@ -88,6 +91,7 @@
         "Amazonita / Direção de arte · Digital · Editorial": "Amazonita / Art Direction · Digital · Editorial",
         "Amazonita / Experiência digital": "Amazonita / Digital Experience",
         "Amazonita: rocha verde-azulada em uma composição de direção de arte e design digital": "Amazonita: blue-green rock in a composition of art direction and digital design.",
+        "An idea starts with a conversation.": "An idea starts with a conversation.",
         "Ano do material": "Year of the material",
         "Antes de começar.": "Before we begin.",
         "Antes de decidir como sua marca vai parecer, precisamos entender o que ela tem a dizer.": "Before deciding what your brand will look like, we need to understand what it has to say.",
@@ -99,6 +103,8 @@
         "Armazenamento e seus direitos": "Storage and your rights",
         "Arquitetura": "Architecture",
         "Arquitetura do acervo do escritório.": "Architecture of the firm's collection.",
+        "Art direction & visual identity · Fortaleza, Brazil": "Art direction & visual identity · Fortaleza, Brazil",
+        "Art director": "Art director",
         "As condições de pagamento são apresentadas na proposta, junto com o escopo e as etapas do projeto.": "The payment terms are presented in the proposal, along with the scope and stages of the project.",
         "As preferências essenciais do site, como tema, idioma e sua escolha de privacidade, ficam guardadas no navegador e permanecem sempre ativas.": "Essential site preferences, such as theme, language, and your privacy settings, are saved in your browser and remain active at all times.",
         "Assinatura Eduardo Noronha em branco sobre fundo azul profundo": "Eduardo Noronha's signature in white on a deep blue background.",
@@ -115,11 +121,13 @@
         "Branding": "Branding",
         "Branding · Identidade visual": "Branding · Visual Identity",
         "Breve descrição do projeto": "Brief project description",
+        "Briefing copiado. Cole na sua mensagem.": "Brief copied. Paste it into your message.",
         "Cada projeto traz um contexto diferente. Aqui estão alguns trabalhos e estudos que mostram como gosto de explorar essas diferenças.": "Each project brings a different context. Here are some works and studies that show how I like to explore these differences.",
         "Campanhas, imagens e materiais que conversam entre si. Porque consistência também é uma escolha criativa.": "Campaigns, images, and materials that speak to each other. Because consistency is also a creative choice.",
         "Capa da apresentação de projetos arquitetônicos da Rooftop": "Cover of the Rooftop architectural project presentation.",
         "Checklist de identidade visual:": "Visual identity checklist:",
         "Clareza para uma advocacia contemporânea.": "Clarity for contemporary legal practice.",
+        "Close menu": "Close menu",
         "Com sua permissão, o Google Analytics 4 é carregado e pode usar cookies analíticos para medir visitas e interações.": "With your permission, Google Analytics 4 is loaded and may use analytical cookies to measure visits and interactions.",
         "Com sua permissão, o Plausible é carregado para medir visitas e interações.": "With your permission, Plausible is loaded to measure visits and interactions.",
         "Comecei pelo marketing e, aos poucos, fui me aproximando cada vez mais do design. Passei por agências, trabalhei com educação, esporte e hoje estou no setor de rochas naturais. São universos bem diferentes, e talvez seja justamente isso que mais tenha acrescentado à minha maneira de trabalhar.": "I started in marketing and gradually moved closer to design. I worked in agencies, in education, sports, and today I'm in the natural stone sector. They are very different worlds, and perhaps that's precisely what has added the most to my way of working.",
@@ -133,6 +141,7 @@
         "Conceito visual · Direção estética · Composição · Campanhas · Peças editoriais": "Visual concept · Aesthetic direction · Composition · Campaigns · Editorial pieces",
         "Conectar a presença marcante da matéria-prima a uma comunicação clara, sem deixar que o excesso de elementos dispute atenção com a rocha.": "Connecting the striking presence of the raw material to clear communication, without allowing an excess of elements to compete for attention with the rock.",
         "Confiança com uma expressão mais próxima.": "Trust expressed more closely.",
+        "Confira o e-mail e o consentimento. Se estiverem corretos, tente novamente mais tarde.": "Check your email address and consent. If they're correct, try again later.",
         "Confirmação do envio": "Confirmation of shipment",
         "Conheça Mário Serafim, diretor de arte em Fortaleza. Seu caminho pelo marketing, design e tecnologia e sua maneira de trabalhar.": "Meet Mário Serafim, an art director in Fortaleza. Learn about his journey through marketing, design, and technology, and his way of working.",
         "Conheça minha abordagem": "Get to know my approach.",
@@ -148,6 +157,7 @@
         "Conte um pouco sobre o que você está construindo. O resto começa com uma conversa.": "Tell me a little about what you're building. The rest starts with a conversation.",
         "Contexto": "Context",
         "Continuar": "Continue",
+        "Conversar pelo WhatsApp": "Chat on WhatsApp",
         "Converse com Mário Serafim sobre identidade visual, branding, direção de arte ou uma experiência digital.": "Talk to Mário Serafim about visual identity, branding, art direction, or a digital experience.",
         "Cookies, métricas e preferências": "Cookies, metrics and preferences",
         "Copiar briefing": "Copy briefing",
@@ -173,6 +183,7 @@
         "Diagramação da apresentação Rooftop com arquitetura do acervo do escritório": "Layout design for the Rooftop presentation featuring architecture from the firm's collection.",
         "Diagramação de visualização arquitetônica na apresentação da Rooftop": "Architectural visualization layout for the Rooftop presentation.",
         "Direto, se preferir": "Direct, if you prefer.",
+        "Diretor de arte": "Art director",
         "Diretriz tipográfica Switzer no manual de Eduardo Noronha": "Switzer typographic guideline in Eduardo Noronha's manual.",
         "Direção de Arte": "Art Direction",
         "Direção de arte": "Art direction",
@@ -191,8 +202,9 @@
         "EN": "EN",
         "ESTUDO / 01": "STUDY / 01",
         "Eduardo Noronha": "Eduardo Noronha",
+        "Em foco": "Featured",
         "Email Mário Serafim": "Email Mário Serafim",
-        "Entender": "To understand",
+        "Entender": "Understand",
         "Entrar em contato ↗": "Contact us ↗",
         "Enviando sua solicitação…": "Sending your request…",
         "Enviar e-mail para Mário Serafim": "Send email to Mário Serafim",
@@ -219,8 +231,11 @@
         "Explore the context, decisions and applications behind this project by Mário Serafim.": "Explore the context, decisions and applications behind this project by Mário Serafim.",
         "Expressar cuidado e profissionalismo com uma marca acessível e equilibrada, sem recorrer a clichês visuais do setor.": "Expressing care and professionalism with an accessible and balanced brand, without resorting to visual clichés of the sector.",
         "Falei um pouco sobre mim. Mas acho que a melhor maneira de entender meu trabalho é conhecer os projetos, as escolhas que fiz e os problemas que tentei resolver.": "I talked a little about myself. But I think the best way to understand my work is to learn about the projects, the choices I made, and the problems I tried to solve.",
+        "Fechar menu": "Close menu",
         "Ferramentas de Pausa do café": "Coffee Break Tools",
         "Filtrar projetos": "Filter projects",
+        "Fortaleza, Brasil": "Fortaleza, Brazil",
+        "Fortaleza, Brazil": "Fortaleza, Brazil",
         "Fundamentos antes da expressão": "Fundamentals before expression",
         "Galeria": "Gallery",
         "Gosto da parte visual, claro.": "I like the visual aspect, of course.",
@@ -230,7 +245,7 @@
         "Graduação pela Wyden/Fanor. Foi onde minha formação profissional começou.": "I graduated from Wyden/Fanor. That's where my professional training began.",
         "Hoje me interessa menos encontrar uma estética bonita logo de cara e mais descobrir qual direção realmente combina com o projeto.": "Today I'm less interested in finding a beautiful aesthetic right away and more interested in discovering which direction truly suits the project.",
         "Identidade": "Identity",
-        "Identidade Amanda Araújo, consultoria financeira, sobre fundo terracota": "Identity of Amanda Araújo, financial consultant, regarding the Terracotta fund.",
+        "Identidade Amanda Araújo, consultoria financeira, sobre fundo terracota": "Amanda Araújo's financial consulting identity on a terracotta background",
         "Identidade Rooftop Arquitetura em azul e violeta, com símbolo vertical": "Identity Rooftop Arquitetura in blue and violet, with a vertical symbol.",
         "Identidade Simetria Estética em verde fosco, milho fosco e branco oliva": "Identity Simetria Estética in matte green, matte corn, and olive white.",
         "Identidade e apresentação editorial.": "Identity and editorial presentation.",
@@ -241,21 +256,25 @@
         "Identidade visual · Editorial": "Visual identity · Editorial",
         "Identidade visual · Sistema gráfico": "Visual identity · Graphic system",
         "Identidade visual. Branding.": "Visual identity. Branding.",
-        "Identidade visual: Mário Serafim. Marca: Amanda Araújo Consultoria Financeira. Aplicações exibidas em mockups.": "Visual identity: Mário Serafim. Brand: Amanda Araújo Financial Consulting. Applications shown in mockups.",
-        "Identidade visual: Mário Serafim. Marca: Eduardo Noronha Advocacia. Aplicações exibidas em mockups.": "Visual identity: Mário Serafim. Brand: Eduardo Noronha Law Firm. Applications shown in mockups.",
+        "Identidade visual: Mário Serafim. Marca: Amanda Araújo Consultoria Financeira. Aplicações exibidas em mockups.": "Visual identity: Mário Serafim. Brand: Amanda Araújo Consultoria Financeira. Applications shown in mockups.",
+        "Identidade visual: Mário Serafim. Marca: Eduardo Noronha Advocacia. Aplicações exibidas em mockups.": "Visual identity: Mário Serafim. Brand: Eduardo Noronha Advocacia. Applications shown in mockups.",
         "Identidades visuais, direção de arte e experiências digitais.": "Visual identities, art direction, and digital experiences.",
         "Identidades, linguagens e experiências.": "Identities, languages, and experiences.",
         "Imagem anterior": "Previous image",
         "Indústria e materiais": "Industry and materials",
+        "Informe seu nome com pelo menos 2 caracteres.": "Please enter your name using at least 2 characters.",
         "Informe um e-mail válido, como voce@empresa.com.br.": "Please provide a valid email address, such as you@company.com.br.",
+        "Informe um telefone com DDD ou deixe este campo vazio.": "Enter a phone number with its area code, or leave this field empty.",
         "Inscrição recebida. Obrigado por acompanhar Pausa do café.": "Registration received. Thank you for following Coffee Break.",
         "Interface da experiência digital Amazonita": "Amazonita Digital Experience Interface",
         "Interface · Website · UX/UI · Comunicação digital": "Interface · Website · UX/UI · Digital Communication",
         "Interfaces digitais que conectam linguagem visual, clareza de navegação e experiência de uso.": "Digital interfaces that connect visual language, clarity of navigation, and user experience.",
         "Início": "Start",
         "Ir à Pausa do café ↗": "Go to Coffee Break ↗",
+        "JournalPreferencesProvider ausente": "JournalPreferencesProvider is missing",
         "Landing page Amazonita completa": "Landing page Amazonita complete",
         "Ler esta página em português": "Read this page in Portuguese.",
+        "Main navigation": "Main navigation",
         "Marketing": "Marketing",
         "Mas gosto principalmente de entender o que existe por trás de cada projeto.": "But what I especially enjoy is understanding what's behind each project.",
         "Materiais": "Materials",
@@ -270,7 +289,7 @@
         "Minha trajetória, formação e maneira de trabalhar com direção de arte e identidade visual.": "My background, training, and approach to working with art direction and visual identity.",
         "Mockup da identidade Amanda Araújo gravada sobre superfície de couro": "Mockup of Amanda Araújo's identity engraved on a leather surface.",
         "Mockup de caneca laranja com o símbolo de Amanda Araújo": "Mockup of an orange mug with Amanda Araújo's logo.",
-        "Mockups de sinalização e papelaria de Eduardo Noronha": "Signage and stationery mockups by Eduardo Noronha",
+        "Mockups de sinalização e papelaria de Eduardo Noronha": "Mockups of signage and stationery for Eduardo Noronha",
         "Motion original do projeto Amazonita": "Original motion graphics for the Amazonita project.",
         "MÁRIO SERAFIM": "MÁRIO SERAFIM",
         "Mário": "Mário",
@@ -313,13 +332,14 @@
         "Objetivo": "Objective",
         "Obrigado por compartilhar seu projeto.": "Thank you for sharing your project.",
         "Olhar & processo": "Look & process",
+        "Open menu": "Open menu",
         "Organizar assinatura, cores, tipografia e grafismos em um sistema reconhecível para comunicações e aplicações de apresentação.": "Organize signatures, colors, typography, and graphics into a recognizable system for communication and presentation applications.",
         "Organizar uma presença visual reconhecível que acompanhe diferentes escalas: da assinatura à apresentação de arquitetura.": "To organize a recognizable visual presence that spans different scales: from signature to architectural presentation.",
         "Os eventos não incluem nome, e-mail, telefone nem o texto enviado pelo formulário.": "The events do not include name, email, phone number, or the text submitted through the form.",
         "Os tons verde-azulados da Amazonita orientam a expressão visual. A Cormorant aparece de forma pontual e expressiva; a Inter organiza a leitura funcional. O movimento valoriza textura e profundidade, com transições sutis.": "The blue-green tones of Amazonita guide the visual expression. Cormorant appears in a punctual and expressive way; Inter organizes the functional reading. The movement emphasizes texture and depth, with subtle transitions.",
         "PAUSA DO CAFÉ": "PAUSA DO CAFÉ",
         "PT": "PT",
-        "Paleta Simetria com verde, milho, branco oliva e preto fosco": "Symmetry palette with green, corn, olive white and matte black.",
+        "Paleta Simetria com verde, milho, branco oliva e preto fosco": "Simetria colour palette with green, maize, olive white and matte black",
         "Paleta azul noturno, laranja, branco gelo e preto grafite": "Palette: midnight blue, orange, ice white, and graphite black.",
         "Paleta cromática quente do sistema Amanda Araújo": "Warm color palette of the Amanda Araújo system",
         "Paleta de cores da Rooftop: Oceano Noturno, Orquídea Real, azul e branco gelo": "Rooftop color palette: Night Ocean, Royal Orchid, ice blue and white.",
@@ -335,7 +355,7 @@
         "Pausar vídeo": "Pause video",
         "Perguntas frequentes": "Frequently Asked Questions",
         "Peça editorial Amazonita, com apresentação da rocha e aplicações": "Editorial piece Amazonita, featuring a presentation of the rock and its applications.",
-        "Peças digitais e padrão modular da identidade Simetria": "Digital components and modular identity pattern of Symmetry.",
+        "Peças digitais e padrão modular da identidade Simetria": "Digital assets and modular pattern for the Simetria identity",
         "Photoshop.": "Photoshop.",
         "Pode parecer óbvio, mas nem sempre essas perguntas recebem a atenção que merecem.": "It might sound obvious, but those questions don't always get the attention they deserve.",
         "Pode ser uma marca começando agora, um negócio que cresceu ou uma identidade que já não acompanha o seu trabalho. Não precisa chegar com tudo resolvido. Me conte um pouco sobre o projeto e a gente descobre por onde começar.": "It could be a brand that's just starting out, a business that has grown, or an identity that no longer reflects your work. You don't need to have everything figured out. Tell me a little about the project and we can figure out where to begin.",
@@ -345,6 +365,7 @@
         "Português; tradução inglesa ainda não disponível": "Portuguese; English translation not yet available.",
         "Possíveis entregas": "Possible deliveries",
         "Preferências do site": "Site preferences",
+        "Prefiro fazer boas perguntas": "I'd rather ask good questions",
         "Privacidade": "Privacy",
         "Privacidade / Atualizada em 27 de outubro de 2026": "Privacy / Updated October 27, 2026",
         "Privacidade e cookies": "Privacy and cookies",
@@ -363,6 +384,8 @@
         "Quando houver um texto novo, posso te avisar por e-mail. Sem frequência prometida.": "When there's a new text, I can let you know by email. No frequency promised.",
         "R$ 2.000 a R$ 5.000": "R$ 2,000 to R$ 5,000",
         "R$ 5.000 a R$ 10.000": "R$ 5,000 to R$ 10,000",
+        "Rascunho preparado para abrir e enviar no seu aplicativo de e-mail.": "Your draft is ready to open and send in your email app.",
+        "Read this page in English": "Read this page in English",
         "Recusar": "Refuse",
         "Reflexões de Mário Serafim sobre design, direção de arte, branding, processos criativos, tecnologia e referências.": "Reflections by Mário Serafim on design, art direction, branding, creative processes, technology, and references.",
         "Reflexões sobre design e direção de arte.": "Reflections on design and art direction.",
@@ -390,6 +413,7 @@
         "Sistema visual Amazonita: paleta, tipografia e estados dos botões": "Amazonita visual system: palette, typography, and button states.",
         "Site ou experiência digital": "Website or digital experience",
         "Sites e interfaces em que identidade visual e facilidade de uso trabalham juntas.": "Websites and interfaces where visual identity and ease of use work together.",
+        "Skip to content": "Skip to content",
         "Sobre": "About",
         "Sobre Mário Serafim": "About Mário Serafim",
         "Sobre Mário Serafim | Diretor de Arte e Designer": "About Mário Serafim | Art Director and Designer",
@@ -397,6 +421,7 @@
         "Sou Mário Serafim, diretor de arte em Fortaleza.": "I'm Mário Serafim, an art director in Fortaleza.",
         "Sou Mário Serafim, diretor de arte. Ajudo negócios a construir uma identidade visual que represente melhor o que fazem, com personalidade, clareza e sem fórmulas prontas.": "I'm Mário Serafim, an art director. I help businesses build visual identities that better reflect what they do, with personality, clarity and no ready-made formulas.",
         "Sua marca também.": "Your brand too.",
+        "Sua mensagem chegou.": "Your message is here.",
         "Também fui estudar UX e desenvolvimento web. Não para abandonar a direção de arte, mas para entender melhor o que acontece depois que uma ideia sai da apresentação e precisa funcionar de verdade.": "I also went to study UX and web development. Not to abandon art direction, but to better understand what happens after an idea leaves the presentation phase and needs to actually work.",
         "Tem uma ideia em mente?": "Do you have an idea in mind?",
         "Tentar novamente ↗": "Try again ↗",
@@ -411,7 +436,7 @@
         "Um pouco mais sobre como penso": "A little more about how I think.",
         "Uma boa identidade vai": "A good identity goes",
         "Uma conversa": "A conversation",
-        "Uma ideia ainda não precisa": "An idea doesn't need to be...",
+        "Uma ideia ainda não precisa": "An idea doesn't need",
         "Uma ideia começa com uma conversa.": "An idea begins with a conversation.",
         "Uma ideia só ganha força": "An idea gains strength",
         "Uma identidade para Rooftop Arquitetura, acompanhada por manual de marca e uma apresentação editorial dos projetos do escritório.": "An identity for Rooftop Arquitetura, accompanied by a brand manual and an editorial presentation of the firm's projects.",
@@ -429,6 +454,7 @@
         "Usarei seus dados apenas para responder e conversar sobre o projeto.": "I will only use your information to respond to and discuss the project.",
         "Uso as informações do contato para responder, entender o projeto e dar continuidade à conversa. A mensagem é encaminhada por Google Apps Script e recebida no Zoho Mail. O Google processa o envio conforme sua": "I use the contact information to respond, understand the project, and continue the conversation. The message is forwarded via Google Apps Script and received at Zoho Mail. Google processes the delivery according to its...",
         "Vamos começar": "Let's begin.",
+        "Vamos conversar": "Let's talk",
         "Vamos conversar sobre o seu projeto.": "Let's talk about your project.",
         "Vamos conversar sobre seu próximo projeto.": "Let's talk about your next project.",
         "Vamos conversar ↗": "Let's talk ↗",
@@ -437,7 +463,7 @@
         "Variações de assinatura da identidade Rooftop": "Variations in the Rooftop Identity Signature",
         "Variações vertical e horizontal da assinatura Amanda Araújo": "Vertical and horizontal variations of the Amanda Araújo signature.",
         "Ver a apresentação editorial da Rooftop": "See Rooftop's editorial presentation.",
-        "Ver aplicação da identidade Simetria": "See the application of the Symmetry identity.",
+        "Ver aplicação da identidade Simetria": "See the Simetria identity in use",
         "Ver meus projetos": "View my projects",
         "Ver projeto ↗": "View project ↗",
         "Ver projetos selecionados": "View selected projects",
@@ -445,8 +471,8 @@
         "Ver todos os projetos": "View all projects",
         "Visualização audiovisual da identidade Rooftop a partir da capa do manual": "Audiovisual visualization of the Rooftop identity based on the manual cover.",
         "Visualização audiovisual da identidade Simetria baseada no manual da marca": "Audiovisual visualization of the Simetria identity based on the brand manual.",
-        "Visualização conceitual da marca Simetria aplicada a uma bolsa": "Conceptual visualization of the Symmetry brand applied to a bag.",
-        "Visualização da identidade Simetria em mobiliário urbano": "Visualizing the Symmetry identity in urban furniture.",
+        "Visualização conceitual da marca Simetria aplicada a uma bolsa": "Conceptual mockup of the Simetria brand on a bag",
+        "Visualização da identidade Simetria em mobiliário urbano": "Mockup of the Simetria identity on street furniture",
         "Visualização da marca Simetria em camiseta": "Visualization of the Simetria brand on a t-shirt.",
         "Visualização da marca Simetria em uma bolsa": "Visualization of the Simetria brand on a bag.",
         "Visualização dos projetos": "Project visualization",
@@ -454,7 +480,9 @@
         "Você me conta um pouco sobre o negócio e o que precisa resolver. Depois conversamos para entender o contexto e definir os próximos passos.": "Tell me a little about the business and what needs to be resolved. Then we can talk to understand the context and define the next steps.",
         "Voltar ao início": "Back to top",
         "Voltar ao início ↗": "Back to top ↗",
+        "Vou responder assim que puder.": "I'll reply as soon as I can.",
         "WhatsApp": "WhatsApp",
+        "WhatsApp opcional": "WhatsApp (optional)",
         "a marca?": "The brand?",
         "a página Sobre": "the About page",
         "a página de contato": "the contact page",
@@ -467,7 +495,7 @@
         "expressão.": "expression.",
         "ficou pelo caminho.": "lost its way.",
         "mais uma vez.": "once more.",
-        "move": "move",
+        "move": "moves",
         "muito além do logo.": "well beyond the logo.",
         "nos projetos.": "in the projects.",
         "não informada": "not informed",
@@ -482,9 +510,8 @@
         "respeito.": "respect.",
         "sua marca está pronta?": "is your brand ready?",
         "tem em mente.": "have in mind.",
-        "ter todas as respostas.": "to have all the answers.",
+        "ter todas as respostas.": "all the answers yet.",
         "uma linha do tempo.": "a timeline.",
-        "visual": "visual",
         "Área": "Area",
         "Índice": "Index",
         "×": "×",
@@ -499,8 +526,9 @@
       "sourceLanguage": "pt-BR",
       "targetLanguage": "en",
       "sourceHash": "e07f6cbb05708e50b980e22043eba04bed2f6827b2ee41f8a097d0fa3d923df3",
-      "version": 1,
-      "translatedAt": "2026-10-27T17:43:09.655Z",
+      "version": 2,
+      "renderVersion": 2,
+      "translatedAt": "2026-10-27T18:08:15.665Z",
       "status": "translated",
       "review": {
         "approved": false
@@ -516,7 +544,7 @@
         "seo_title": "Design beyond aesthetics: identity and perception",
         "seo_description": "What transforms a visual identity into a brand experience? A reflection on art direction, strategy, and perception."
       },
-      "body": "# Design is not just what you see.\n\nThere's something curious about design: many people only notice it when something is wrong.\n\nA typography that doesn't match. A color that seems out of place. A brand that tries to appear sophisticated, but fails to maintain that impression.\n\nAnd sometimes, everything looks beautiful visually. It just doesn't communicate anything at all.\n\nThat's where the conversation gets interesting.\n\n## Beautiful doesn't mean well-resolved\n\nAesthetics matter. Of course it matters.\n\nBut it's a part of the job, not the whole job.\n\nA visual identity needs to answer questions that go far beyond choosing a font or a color combination.\n\nWho is this brand? What does it represent? Who is it talking to? Why should anyone pay attention to it?\n\nWithout these answers, even the best visual composition risks becoming mere decoration.\n\n## What exists before the first layout?\n\nI like to think that a project begins long before you even open any software.\n\nIt starts with conversation, research, references, and, most importantly, asking the right questions.\n\nHere are some points that I consider essential in this process:\n\n* **Context:**&#x55;nderstanding the business, its market, and the people it interacts with.\n* **Intention:**&#x54;o define what the communication needs to convey.\n* **Consistency:**&#x74;o build a language that makes sense in different applications.\n* **Perception:**&#x4F;bserve how visual choices influence the way the brand is interpreted.\n\nNone of this guarantees a perfect solution. But it helps to build decisions that can be explained and defended.\n\n## Identity is perception.\n\nA brand doesn't exist solely in the final file delivered to the client.\n\nIt's present in the packaging, the customer service, the website, the sales presentation, and even in the way a message is responded to.\n\nEvery interaction creates an impression.\n\n> A visual identity doesn't need to say everything. It needs to communicate what really matters.\n\nTherefore, art direction is also an exercise in choice. What to highlight, what to reduce, what to repeat and, above all, what to leave out.\n\n## Less special effects, more intention.\n\nNot every project needs elaborate animation, experimental typography, or a striking composition.\n\nSometimes, the best decision is precisely the most discreet one.\n\nThe challenge lies in understanding when each resource contributes to the message and when it exists solely to attract attention.\n\nUltimately, the job isn't to make everything seem interesting.\n\nIt's about making sure the right things are noticed.\n\n***\n\n*This is a demonstration article created to test the editorial system of Pausa do Café.*\n",
+      "body": "# Design is not just what you see.\n\nThere's something curious about design: many people only notice it when something is wrong.\n\nA typography that doesn't match. A color that seems out of place. A brand that tries to appear sophisticated, but fails to maintain that impression.\n\nAnd sometimes, everything looks beautiful visually. It just doesn't communicate anything at all.\n\nThat's where the conversation gets interesting.\n\n## Beautiful doesn't mean well-resolved\n\nAesthetics matter. Of course it matters.\n\nBut it's a part of the job, not the whole job.\n\nA visual identity needs to answer questions that go far beyond choosing a font or a color combination.\n\nWho is this brand? What does it represent? Who is it talking to? Why should anyone pay attention to it?\n\nWithout these answers, even the best visual composition risks becoming mere decoration.\n\n## What exists before the first layout?\n\nI like to think that a project begins long before you even open any software.\n\nIt starts with conversation, research, references, and, most importantly, asking the right questions.\n\nHere are some points that I consider essential in this process:\n\n* **Context:** Understanding the business, its market, and the people it interacts with.\n* **Intention:** To define what the communication needs to convey.\n* **Consistency:** to build a language that makes sense in different applications.\n* **Perception:** Observe how visual choices influence the way the brand is interpreted.\n\nNone of this guarantees a perfect solution. But it helps to build decisions that can be explained and defended.\n\n## Identity is perception.\n\nA brand doesn't exist solely in the final file delivered to the client.\n\nIt's present in the packaging, the customer service, the website, the sales presentation, and even in the way a message is responded to.\n\nEvery interaction creates an impression.\n\n> A visual identity doesn't need to say everything. It needs to communicate what really matters.\n\nTherefore, art direction is also an exercise in choice. What to highlight, what to reduce, what to repeat and, above all, what to leave out.\n\n## Less special effects, more intention.\n\nNot every project needs elaborate animation, experimental typography, or a striking composition.\n\nSometimes, the best decision is precisely the most discreet one.\n\nThe challenge lies in understanding when each resource contributes to the message and when it exists solely to attract attention.\n\nUltimately, the job isn't to make everything seem interesting.\n\nIt's about making sure the right things are noticed.\n\n***\n\n*This is a demonstration article created to test the editorial system of Pausa do Café.*\n",
       "requiresReview": false
     },
     "post:designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento": {
@@ -524,8 +552,9 @@
       "sourceLanguage": "pt-BR",
       "targetLanguage": "en",
       "sourceHash": "8ace91c62834f3f3880840d8a8c80536cb3044ecf17b87f84573b25e877c6999",
-      "version": 1,
-      "translatedAt": "2026-10-27T17:43:09.660Z",
+      "version": 2,
+      "renderVersion": 2,
+      "translatedAt": "2026-10-27T18:08:15.667Z",
       "status": "translated",
       "review": {
         "approved": false
@@ -540,7 +569,7 @@
         "seo_title": "Designers in the age of AI: the future of the profession",
         "seo_description": "How is artificial intelligence changing the work of designers? A reflection on creativity, the market, critical thinking, and the future of the profession."
       },
-      "body": "To inaugurate this blog, I decided to talk about a subject that has been keeping many people in our profession awake at night:**The future of design in the age of artificial intelligence.**&#x42;ut before we talk about AI, it's worth remembering that our problems didn't start with ChatGPT.\n\n## Even before AI, things weren't easy.\n\nI'm from Fortaleza, in Ceará, and I've always had the impression that the profession of designer has never received the recognition it deserves here. When I started in a quick-print shop, it was common to find people who thought our work was easy; after all, we just sat in front of a computer. As if all it took was opening Photoshop, pressing a few buttons, and that's it: the artwork was done.\n\nThen came the social media boom. Suddenly, in addition to being a designer, you had to be an influencer, produce content, sell courses, and build an audience. Within agencies, the demand only increased, while the space to explore ideas decreased.**The creative department has turned into a veritable pastry shop of carousels, posts, and stories.**&#x49;t's not that this work doesn't require creativity, but when everything becomes urgent and focused on quantity, there's little time left to think. I know professionals who gave up on the field during that period. And, honestly, little has improved since then.\n\n## And then came artificial intelligence.\n\nAs if the scenario wasn't complicated enough, along came generative AI. First, the concern reached writers and journalists. Soon after, image generation placed designers and art directors at the center of the discussion. At first, the technology seemed like just another support tool: generate an image, process the result, and incorporate it into the composition. But the change was rapid.**Today, we are already seeing entire pieces being generated by AI, with the designer only stepping in to make adjustments and finalize files.**&#x49;n some companies, what was once a possibility has become a requirement.\n\nThe problem isn't using artificial intelligence. I myself recognize its potential. The issue is when productivity starts replacing the creative process and, worse, professional judgment itself.\n\n## Are we outsourcing even our thinking?\n\nI've seen managers and creative professionals asking AI to evaluate visual identities, logos, and graphic pieces. The tool points out possible improvements, and these recommendations reach the designer as changes to be made, often without any questioning. A second opinion is valid, but**When a machine's answer becomes absolute truth, we are outsourcing not only the execution but also the critical thinking.**\n\nA visual identity doesn't appear out of thin air. There's research, briefing, strategy, repertoire, and a series of decisions behind each project. AI can analyze an image, but that doesn't mean it understands all the choices that led to that result. And when we have to justify our work in the face of an automated evaluation, without anyone questioning its criteria, something is amiss.\n\n## What's left for the designer?\n\nAlexandre Wollner, one of the pioneers of Brazilian design, argued that design is a project, not just illustration or decoration. It's curious to think about that now, when we can generate dozens of visual alternatives in seconds.**If design is a project, it cannot be reduced to the final image.**\n\nI don't believe we should fight against AI. The technology is here to stay, and we need to learn how to work with it. But perhaps the greatest challenge of our profession isn't mastering the next tool or writing better prompts. Perhaps it's something more important:**not to give up our ability to think, question, and create intentionally.**\n\nBecause, ultimately, if we start outsourcing our critical thinking as well,**What exactly will remain of our work?**\n",
+      "body": "To inaugurate this blog, I decided to talk about a subject that has been keeping many people in our profession awake at night: **The future of design in the age of artificial intelligence.**&#x42;ut before we talk about AI, it's worth remembering that our problems didn't start with ChatGPT.\n\n## Even before AI, things weren't easy.\n\nI'm from Fortaleza, in Ceará, and I've always had the impression that the profession of designer has never received the recognition it deserves here. When I started in a quick-print shop, it was common to find people who thought our work was easy; after all, we just sat in front of a computer. As if all it took was opening Photoshop, pressing a few buttons, and that's it: the artwork was done.\n\nThen came the social media boom. Suddenly, in addition to being a designer, you had to be an influencer, produce content, sell courses, and build an audience. Within agencies, the demand only increased, while the space to explore ideas decreased. **The creative department has turned into a veritable pastry shop of carousels, posts, and stories.** It's not that this work doesn't require creativity, but when everything becomes urgent and focused on quantity, there's little time left to think. I know professionals who gave up on the field during that period. And, honestly, little has improved since then.\n\n## And then came artificial intelligence.\n\nAs if the scenario wasn't complicated enough, along came generative AI. First, the concern reached writers and journalists. Soon after, image generation placed designers and art directors at the center of the discussion. At first, the technology seemed like just another support tool: generate an image, process the result, and incorporate it into the composition. But the change was rapid. **Today, we are already seeing entire pieces being generated by AI, with the designer only stepping in to make adjustments and finalize files.** In some companies, what was once a possibility has become a requirement.\n\nThe problem isn't using artificial intelligence. I myself recognize its potential. The issue is when productivity starts replacing the creative process and, worse, professional judgment itself.\n\n## Are we outsourcing even our thinking?\n\nI've seen managers and creative professionals asking AI to evaluate visual identities, logos, and graphic pieces. The tool points out possible improvements, and these recommendations reach the designer as changes to be made, often without any questioning. A second opinion is valid, but **When a machine's answer becomes absolute truth, we are outsourcing not only the execution but also the critical thinking.**\n\nA visual identity doesn't appear out of thin air. There's research, briefing, strategy, repertoire, and a series of decisions behind each project. AI can analyze an image, but that doesn't mean it understands all the choices that led to that result. And when we have to justify our work in the face of an automated evaluation, without anyone questioning its criteria, something is amiss.\n\n## What's left for the designer?\n\nAlexandre Wollner, one of the pioneers of Brazilian design, argued that design is a project, not just illustration or decoration. It's curious to think about that now, when we can generate dozens of visual alternatives in seconds. **If design is a project, it cannot be reduced to the final image.**\n\nI don't believe we should fight against AI. The technology is here to stay, and we need to learn how to work with it. But perhaps the greatest challenge of our profession isn't mastering the next tool or writing better prompts. Perhaps it's something more important: **not to give up our ability to think, question, and create intentionally.**\n\nBecause, ultimately, if we start outsourcing our critical thinking as well, **What exactly will remain of our work?**\n",
       "requiresReview": false
     },
     "post:o-futuro-da-criatividade-comeca-com-uma-pausa": {
@@ -548,8 +577,9 @@
       "sourceLanguage": "pt-BR",
       "targetLanguage": "en",
       "sourceHash": "0178a87e45f7c4a142d848d4b3868308185837c8cfe509deb793d11b09bb5b2b",
-      "version": 1,
-      "translatedAt": "2026-10-27T17:43:09.662Z",
+      "version": 2,
+      "renderVersion": 2,
+      "translatedAt": "2026-10-27T18:08:15.669Z",
       "status": "translated",
       "review": {
         "approved": false
@@ -1650,7 +1680,8 @@
     "16345800c37dd4f17ec1569b86e69f4b37af3c9f7f9e190b5f68db5e7615f3ed": {
       "text": "Build",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:49.983Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "4bf45fdf4316f4946915a2cf296003e7c85cda6aed8ed040098ab314ed2891ec": {
       "text": "To build a brand that communicates trust and expertise, using modern, engaging, and direct language.",
@@ -1740,7 +1771,8 @@
     "2b9b46edfa1bd08b2ad4858c2fbf02b6f357b7f2a136c84c4ac250c2f6b36b5f": {
       "text": "Define",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:49.983Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "876faf2d2c0ec742180df91c9e9ef0a73dff227dae01c464ef8d4efa1b858c13": {
       "text": "To define a signature and usage rules that support consistent communication across physical and digital media.",
@@ -1883,9 +1915,10 @@
       "date": "2026-10-27T17:42:49.983Z"
     },
     "052810e9ef8721c4886faa55844f88288f5645194229e70af61aa0bd4cafa513": {
-      "text": "To understand",
+      "text": "Understand",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:49.983Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "447c8be7d4ca37ff3c92ef0fef98b94384e884af023d834469d3a43d2b8b06f8": {
       "text": "Contact us ↗",
@@ -2038,9 +2071,10 @@
       "date": "2026-10-27T17:42:53.264Z"
     },
     "ec9940a2947b5fa4ff6c17248fb17a31567468b7f07b9e7cfd2af8f49cc00a39": {
-      "text": "Identity of Amanda Araújo, financial consultant, regarding the Terracotta fund.",
+      "text": "Amanda Araújo's financial consulting identity on a terracotta background",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:53.264Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "1790fb4355797e58ca269d6b529897ba224dd8cd969bb833e75b3058384e7344": {
       "text": "Identity Rooftop Arquitetura in blue and violet, with a vertical symbol.",
@@ -2093,14 +2127,16 @@
       "date": "2026-10-27T17:42:53.264Z"
     },
     "1e6c0ae3aca022512c83adcbf9c477c0a6ad0f2ecabe11ea28c6d2cc3da7c523": {
-      "text": "Visual identity: Mário Serafim. Brand: Amanda Araújo Financial Consulting. Applications shown in mockups.",
+      "text": "Visual identity: Mário Serafim. Brand: Amanda Araújo Consultoria Financeira. Applications shown in mockups.",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:53.264Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "56fe30234f21634fa9b845f0d90370f56f9f25e5428cf420fa6912ee45ae705b": {
-      "text": "Visual identity: Mário Serafim. Brand: Eduardo Noronha Law Firm. Applications shown in mockups.",
+      "text": "Visual identity: Mário Serafim. Brand: Eduardo Noronha Advocacia. Applications shown in mockups.",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:53.264Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "0a1aaae2d3e981691139c0b6e4c5a7bfef1f0098289bfde803141efce5762857": {
       "text": "Visual identities, art direction, and digital experiences.",
@@ -2218,9 +2254,10 @@
       "date": "2026-10-27T17:42:53.264Z"
     },
     "200525beb8cb8d5a9cf40f303aeec124928de58a6af2de5c752f89865438cae1": {
-      "text": "Signage and stationery mockups by Eduardo Noronha",
+      "text": "Mockups of signage and stationery for Eduardo Noronha",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:53.264Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "49993fb0bbe8d05bc7fb43d3aba2ee78570f9b4455a76090962113b7dce3357e": {
       "text": "Original motion graphics for the Amazonita project.",
@@ -2320,7 +2357,8 @@
     "54b2bc9421b798261eeaeb0ff6e6e3a6c6d95ecacddb9cd3439b8ef021be0993": {
       "text": "What",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:56.115Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "04355ae2ca8f13b31e32f70368deefd36cc7f5804fef1a3d040649368e05ab24": {
       "text": "What is included in a project?",
@@ -2408,9 +2446,10 @@
       "date": "2026-10-27T17:42:56.115Z"
     },
     "f53ca5f2fb6ad090af99c9427eed0084c63266af3891e79803a8be62774c76ea": {
-      "text": "Symmetry palette with green, corn, olive white and matte black.",
+      "text": "Simetria colour palette with green, maize, olive white and matte black",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:56.115Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "e51b16a843ce8396b4d5366fd5edf69d53aedbe551f30c79ffc5ff4fe2696782": {
       "text": "Palette: midnight blue, orange, ice white, and graphite black.",
@@ -2468,9 +2507,10 @@
       "date": "2026-10-27T17:42:56.115Z"
     },
     "a7801c4315e9f6e769d75e78c2360b8badc134f1a0f59f94ac9f67f1c420ce18": {
-      "text": "Digital components and modular identity pattern of Symmetry.",
+      "text": "Digital assets and modular pattern for the Simetria identity",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:56.115Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "32c6d87f61f470b88eed65c1166391717b6838a92247dbcf5124de5767c18e79": {
       "text": "It could be a brand that's just starting out, a business that has grown, or an identity that no longer reflects your work. You don't need to have everything figured out. Tell me a little about the project and we can figure out where to begin.",
@@ -2763,9 +2803,10 @@
       "date": "2026-10-27T17:42:59.808Z"
     },
     "2e4913389e8489530b8929ea4dd8a202010f205b3efbd7b5391143e5703499d4": {
-      "text": "An idea doesn't need to be...",
+      "text": "An idea doesn't need",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:59.808Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "d36e1cb5bb396bd9b024258b09e32a10c5953ec9e2b52e9ec664df0d69b5dbc1": {
       "text": "An idea begins with a conversation.",
@@ -2883,9 +2924,10 @@
       "date": "2026-10-27T17:42:59.808Z"
     },
     "9b0b315471c365caa8b2372c4ebfdbd27db7dd3ebbfffc4c3e9737841fe2ae74": {
-      "text": "See the application of the Symmetry identity.",
+      "text": "See the Simetria identity in use",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:59.808Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "e3d3af8996d8d5773c3a59ddf69b5b82e19d5e0ec3d083d15271de460267d3f2": {
       "text": "View my projects",
@@ -2923,14 +2965,16 @@
       "date": "2026-10-27T17:42:59.808Z"
     },
     "40a6377fced62638fbd2bbeacfc93865f4b5bc11d904837ef9bcc7e3e415b911": {
-      "text": "Conceptual visualization of the Symmetry brand applied to a bag.",
+      "text": "Conceptual mockup of the Simetria brand on a bag",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:59.808Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "fb19b72c27d173271b5d83d8b410be237566342f1366e71fcfb5ea516b5a79f3": {
-      "text": "Visualizing the Symmetry identity in urban furniture.",
+      "text": "Mockup of the Simetria identity on street furniture",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:59.808Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "778e23ee25dbebaf0d54f2d39ea3fabdc9a7344a4f75cd2c25fdb9acd842ef5e": {
       "text": "Visualization of the Simetria brand on a t-shirt.",
@@ -2983,9 +3027,10 @@
       "date": "2026-10-27T17:42:59.808Z"
     },
     "6a3bcafb23a950cf216238776f3803eb924f837804618f9404840ba68eb22dc7": {
-      "text": "move",
+      "text": "moves",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:59.808Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "28d6bd8b264b0f56d416bae4b173f4091fb602f0dc5ca2e8160335d7f1b0cbc5": {
       "text": "not informed",
@@ -3008,9 +3053,10 @@
       "date": "2026-10-27T17:42:59.808Z"
     },
     "9c797a7e9d4610ddf3858434990186ab5278559a7cd5ace7927622edceb2bc2f": {
-      "text": "to have all the answers.",
+      "text": "all the answers yet.",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
-      "date": "2026-10-27T17:42:59.808Z"
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     },
     "5858b8747956d6276b467638f8fc4656d3a2799e0eb6f49a4453b96071b90ea5": {
       "text": "visual",
@@ -3486,6 +3532,168 @@
       "text": "This is a demonstration article for validating the scheduled publication system of Pausa do Café.",
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
       "date": "2026-10-27T17:43:08.188Z"
+    },
+    "a84b4f08bba75ffaf03e914fa911da02ea9e3a44446ed0697645a068d7ac5b7d": {
+      "text": "Open menu",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "ed0684b41868d0b121079ac5070c46b12d2554971951e538db65054b9699c3f9": {
+      "text": "Now, let's get to know each other.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "7fa4614407626dc1722a8d6805d5a97e6b8609c3404a4715b7a6d867e2e7de6f": {
+      "text": "An idea starts with a conversation.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "e6819ad506545afd44bbe6d1d29a6733b190f08fbe74fd1c32c9279a3f9e6e5a": {
+      "text": "Art direction & visual identity · Fortaleza, Brazil",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "f630766af545fa56727b46cd85c30af604df41fa1dcd0c70a8ce43a1c3750dae": {
+      "text": "Art director",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "350f128cc6e1830c14687acf7c2fbe2fe594e5bd9f5ae5284cbdbe69c86e1c7a": {
+      "text": "Brief copied. Paste it into your message.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "d2da5a3e672e03dfcfbce3a4fc075c902504c14be532329cc6c4ae027a6687a1": {
+      "text": "Close menu",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "fbd89be80f138cb29f0da2239656e772f1d481b8d6abdec73d0b57d401b08219": {
+      "text": "Check your email address and consent. If they're correct, try again later.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "d6ff980357b998d3530136de5caea771f7cf66aa971fdf001eac0fc8e3955993": {
+      "text": "Chat on WhatsApp",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "5d0cf364e248ab071ab56f04db4bf24ffcdbf4a9b56a6a74a4727134615f72e5": {
+      "text": "Art director",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "0a9b84191d49db4d00898d3c1a36976f671af81c235936755f46cf56b2735659": {
+      "text": "Featured",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "1a10f68f8b3414921e12c031ed9ea98a90dcb6dd00078f9aa336c8fa9dd6cc0a": {
+      "text": "Close menu",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "4963dd1011dd481a3789587522c6213be01cc37c662053aae83cacc36a48505c": {
+      "text": "Fortaleza, Brazil",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "1419f0c19e6bad88217f9d3f8938bd4ebe5418847bc11397b360779df4b7f1a1": {
+      "text": "Fortaleza, Brazil",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "29f04bd307584f031c81aaa83d7581293411f207cdf279eaf057e29ce50fd338": {
+      "text": "Please enter your name using at least 2 characters.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "b37717c20b3f7f8eb869d651ba289bfbfcbfc7382dff3066e1de51d4ea6b46f1": {
+      "text": "Enter a phone number with its area code, or leave this field empty.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "6c6d81bf32a4a09f393c5469763f52101e11f5e8682025c847d87216434be6d5": {
+      "text": "JournalPreferencesProvider is missing",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "1527b0ddeba6c14f5d4e5baf2fb3335d58287a3df3f510323123af476d96f7d5": {
+      "text": "Main navigation",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "e02a96dee17c035edbe167bbc4be07218e3737ebd547019e40196f2993abb793": {
+      "text": "Open menu",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "c0f3ddb604bb57b8509a1d4cc087e3199177bf46edb9274fa1dae3fa49bc9a85": {
+      "text": "I'd rather ask good questions",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "eb8faf816fd92a976194de4cf9cda81af765a992be3d7e18da82fcac965c0f37": {
+      "text": "Your draft is ready to open and send in your email app.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "398085346d6a701698baccd40d8485cd450ef325a6712676ec3c969c190d81ed": {
+      "text": "Read this page in English",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "866a9872a412bba25ca7f06e03150cd8ee2afffa6293eadc53dc5ad21377af9f": {
+      "text": "Skip to content",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "0606bf12bcd218e64531f48d5a6a23b8c0771de911592cb90008254b43a66f91": {
+      "text": "Your message is here.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "e5539aacb5f64b2bd9a2f2c4ee2bd8c03028c435439f70f933fbecee452f7cdc": {
+      "text": "Let's talk",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "d2788c265559372e6213e777fd3bc2f04027fa9aba1a6a1af242f75fc7885bff": {
+      "text": "I'll reply as soon as I can.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "af270b9544421e52651a50ead49c13eed9bc621bb2aff7247e82a1727b64fb99": {
+      "text": "WhatsApp (optional)",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
     }
   },
   "months": {
@@ -3546,5 +3754,5 @@
     }
   },
   "failures": [],
-  "lastSync": "2026-10-27T17:43:09.663Z"
+  "lastSync": "2026-10-27T18:08:15.669Z"
 }
