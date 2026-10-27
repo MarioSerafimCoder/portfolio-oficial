@@ -87,9 +87,12 @@
 .journal-share [role="status"]{color:var(--muted);font-size:12px}
 .journal-share-compact{flex:0 0 auto;margin-left:auto}
 .journal-share-compact details{position:relative}
-.journal-share-compact summary{display:flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:0 13px;border:1px solid var(--control);border-radius:999px;cursor:pointer;font-size:12px;list-style:none;white-space:nowrap}
+.journal-share-compact summary{display:flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:0 13px;border:1px solid var(--control);border-radius:999px;cursor:pointer;font-size:12px;list-style:none;white-space:nowrap;transition:background-color 220ms var(--ease),border-color 220ms var(--ease),color 220ms var(--ease)}
 .journal-share-compact summary::-webkit-details-marker{display:none}
-.journal-share-compact details[open]>summary{border-color:var(--accent);color:var(--accent-text)}
+.journal-share-compact summary>span[aria-hidden=true]{display:inline-block;transition:transform 220ms var(--ease)}
+.journal-share-compact details[open]>summary,.journal-share-compact summary:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+@media(hover:hover) and (pointer:fine){.journal-share-compact summary:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}.journal-share-compact summary:hover>span[aria-hidden=true]{transform:translate(2px,-2px)}}
+@media(prefers-reduced-motion:reduce){.journal-share-compact summary>span[aria-hidden=true]{transition:none;transform:none!important}}
 .journal-share-options{position:absolute;z-index:5;top:calc(100% + 8px);right:0;display:grid;min-width:205px;gap:1px;padding:8px;border:1px solid var(--rule);background:var(--surface);box-shadow:0 12px 30px rgba(0,0,0,.12)}
 .journal-share-options button,.journal-share-options a{justify-content:flex-start;padding:0 10px;text-align:left;text-decoration:none;white-space:nowrap}
 .journal-share-options button:hover,.journal-share-options a:hover{background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
