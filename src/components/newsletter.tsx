@@ -59,28 +59,33 @@ function ArticleNewsletter() {
     }
   }
 
-  return <section className="journal-newsletter section-wrap" aria-labelledby="newsletter-title">
-    <span className="eyebrow">{copy?.newsletterEyebrow}</span>
-    <h2 id="newsletter-title">{copy?.newsletterTitle}</h2>
-    <p className="journal-newsletter-description">{copy?.newsletterDescription}</p>
-    {state === 'checking' && <p className="newsletter-feedback" role="status">{copy?.newsletterChecking}</p>}
-    {state === 'unavailable' && <p className="newsletter-feedback" role="status">{copy?.newsletterUnavailable}</p>}
-    {state === 'pending' && <p className="newsletter-feedback" role="status">{copy?.newsletterPending}</p>}
-    {state === 'duplicate' && <div className="journal-newsletter-result"><p className="newsletter-feedback" role="status">{copy.newsletterDuplicate}</p><button type="button" className="journal-newsletter-retry" onClick={() => {setEmail('');setState('ready');}}>{copy.newsletterTryAnother}</button></div>}
-    {(state === 'ready' || state === 'sending' || state === 'error') && <form className="journal-newsletter-form" onSubmit={submit}>
+  return <section className="journal-newsletter journal-newsletter-article section-wrap" aria-labelledby="newsletter-title">
+    <div className="journal-newsletter-copy">
+      <span className="eyebrow">{copy?.newsletterEyebrow}</span>
+      <h2 id="newsletter-title">{copy?.newsletterTitle}</h2>
+      <p className="journal-newsletter-description">{copy?.newsletterDescription}</p>
+      {copy?.newsletterClosing && <p className="journal-newsletter-closing">{copy.newsletterClosing}</p>}
+    </div>
+    <div className="journal-newsletter-action">
+      {state === 'checking' && <p className="newsletter-feedback" role="status">{copy?.newsletterChecking}</p>}
+      {state === 'unavailable' && <p className="newsletter-feedback" role="status">{copy?.newsletterUnavailable}</p>}
+      {state === 'pending' && <p className="newsletter-feedback" role="status">{copy?.newsletterPending}</p>}
+      {state === 'duplicate' && <div className="journal-newsletter-result"><p className="newsletter-feedback" role="status">{copy.newsletterDuplicate}</p><button type="button" className="journal-newsletter-retry" onClick={() => {setEmail('');setState('ready');}}>{copy.newsletterTryAnother}</button></div>}
+      {(state === 'ready' || state === 'sending' || state === 'error') && <form className="journal-newsletter-form" onSubmit={submit}>
       <label className="journal-newsletter-email" htmlFor={`${id}-email`}>
         <span className="sr-only">{copy?.newsletterEmail}</span>
         <input id={`${id}-email`} name="email" type="email" value={email} onChange={event => setEmail(event.target.value)} autoComplete="email" placeholder={copy?.newsletterEmail} required maxLength={254} aria-invalid={state === 'error'} />
       </label>
       <label className="contact-honeypot" aria-hidden="true" htmlFor={`${id}-website`}>Deixe este campo vazio<input id={`${id}-website`} name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={event => setWebsite(event.target.value)} /></label>
+      <button className="journal-newsletter-submit" type="submit" disabled={state === 'sending'}>{state === 'sending' ? copy?.newsletterSending : copy?.newsletterButton} <span aria-hidden="true">↗</span></button>
       <label className="newsletter-consent" htmlFor={`${id}-consent`}>
         <input id={`${id}-consent`} type="checkbox" checked={consent} onChange={event => setConsent(event.target.checked)} required />
         <span>{copy?.newsletterConsent} <Link href="/privacidade">{copy?.newsletterPrivacy}</Link>.</span>
       </label>
-      <button className="journal-newsletter-submit" type="submit" disabled={state === 'sending'}>{state === 'sending' ? copy?.newsletterSending : copy?.newsletterButton} <span aria-hidden="true">↗</span></button>
       <p className="journal-newsletter-promise">{copy?.newsletterOnly}</p>
       {state === 'error' && <p className="newsletter-feedback" role="status">{copy?.newsletterError}</p>}
-    </form>}
+      </form>}
+    </div>
   </section>;
 }
 
