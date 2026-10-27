@@ -70,18 +70,31 @@ Com movimento reduzido, as timelines de scroll são dispensadas, as descrições
 
 ## Performance
 
-O arquivo `spatial-refinement-performance.json` registra as medições, inclusive as iterações intermediárias. São amostras únicas de laboratório; infraestrutura e origem do preview local diferem das do domínio público. TBT não representa INP.
+O arquivo `spatial-refinement-performance.json` registra as medições de laboratório e de produção. As amostras são pontuais; TBT não representa INP.
 
-| Métrica | Antes, publicado desktop | Export final desktop | Antes, publicado celular | Export final celular |
-|---|---:|---:|---:|---:|
-| Performance | 0,99 | 1,00 | 0,87 | 0,86 |
-| Acessibilidade | 1,00 | 1,00 | 1,00 | 1,00 |
-| LCP | 802 ms | 692 ms | 3.303 ms | 4.006 ms |
-| CLS | 0 | 0 | 0 | 0 |
-| TBT | 8 ms | 58 ms | 237 ms | 45 ms |
-| Transferência | 819 KB | 773 KB | 682 KB | 634 KB |
+| Desktop | Release anterior | Export local final | Produção final |
+|---|---:|---:|---:|
+| Performance Lighthouse | 0,99 | 1,00 | 1,00 |
+| Acessibilidade | 1,00 | 1,00 | 1,00 |
+| LCP | 802 ms | 692 ms | 672 ms |
+| CLS | 0 | 0 | 0 |
+| TBT | 8 ms | 58 ms | 6 ms |
+| Transferência | 819 KB | 773 KB | 784 KB |
 
-O preview final transfere aproximadamente 46 KB a menos no desktop e 48 KB a menos no celular. O LCP de celular aumentou na comparação entre as duas origens. A investigação levou à remoção da entrada animada dos textos e à priorização das fontes; o LCP do preview caiu de 4.265 ms para 4.006 ms. Essa comparação não permite atribuir toda a diferença ao código, e não foi tratada como uma melhoria de LCP mobile. A leitura e os controles permanecem imediatamente disponíveis, e o bloqueio total medido caiu. A confirmação no domínio público será anexada após a implantação.
+| Mobile | Release anterior | Export local final | Produção final |
+|---|---:|---:|---:|
+| Performance Lighthouse | 0,87 | 0,86 | 0,79 |
+| Acessibilidade | 1,00 | 1,00 | 1,00 |
+| LCP | 3.303 ms | 4.006 ms | 2.622 ms |
+| CLS | 0 | 0 | < 0,001 |
+| TBT | 237 ms | 45 ms | 623 ms |
+| Transferência | 682 KB | 634 KB | 637 KB |
+
+No domínio público, a amostra desktop subiu para 1,00, com LCP de 672 ms. No celular, três medições no release final ficaram em 0,79, LCP de 2.608–2.646 ms e TBT de 585–623 ms. Em relação à versão anterior, LCP e transferência mobile melhoraram, mas o score caiu e o TBT aumentou; por isso não classifico o desempenho mobile geral como uma melhoria. Uma tentativa de adiar a cena Three no celular não trouxe ganho consistente e foi revertida para preservar sua interação 3D. A comparação de produção está em `spatial-refinement-performance.json`; a origem local e a pública têm infraestruturas distintas.
+
+## Implantação pública
+
+Na validação, o Cloudflare Pages confirmou o release `a010b51` ativo em `main`; a implementação visual está no commit `98b728b`. A home e as rotas de Rooftop, Simetria e contato, além de `perception-curves.svg` e `rooftop-home.webp`, responderam com HTTP 200. Acessibilidade Lighthouse ficou em 1,00 em desktop e mobile.
 
 ## Evidências e limites
 

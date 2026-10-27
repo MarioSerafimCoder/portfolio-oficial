@@ -1,5 +1,5 @@
 {
-  "note": "Single-run Lighthouse lab samples. Baseline from the prior production release; local iterations from the gzip static preview. Origin and infrastructure differ. Final published measurements will be added after deployment. TBT is not INP. Reduced-motion sample predates the sans font preload optimization.",
+  "note": "Lighthouse 13.5.0 lab samples. Baseline from the prior production release; local iterations from the gzip static preview; final entries from marioserafim.com.br. Three final-code mobile samples are recorded. TBT is not INP and no field INP was measured. Reduced-motion sample predates the sans font preload optimization.",
   "reports": [
     {
       "name": "spatial-before-desktop",
@@ -96,6 +96,66 @@
       "cls": 0,
       "tbtMs": 0.5000000000000568,
       "transferBytes": 658994
+    },
+    {
+      "name": "spatial-published-desktop",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T12:39:33.123Z",
+      "performance": 0.99,
+      "accessibility": 1,
+      "lcpMs": 942.668,
+      "cls": 0,
+      "tbtMs": 15,
+      "transferBytes": 802952
+    },
+    {
+      "name": "spatial-published-desktop-final",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T12:51:58.395Z",
+      "performance": 1,
+      "accessibility": 1,
+      "lcpMs": 672.4305,
+      "cls": 0,
+      "tbtMs": 6,
+      "transferBytes": 802922
+    },
+    {
+      "name": "spatial-published-mobile-1",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T12:39:59.321Z",
+      "performance": 0.79,
+      "accessibility": 1,
+      "lcpMs": 2646.447,
+      "cls": 0.0000576628720118188,
+      "tbtMs": 610.722,
+      "transferBytes": 652122
+    },
+    {
+      "name": "spatial-published-mobile-2",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T12:40:59.411Z",
+      "performance": 0.79,
+      "accessibility": 1,
+      "lcpMs": 2607.964,
+      "cls": 0.000178090125767709,
+      "tbtMs": 585.315,
+      "transferBytes": 652177
+    },
+    {
+      "name": "spatial-published-mobile-final",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T12:50:26.418Z",
+      "performance": 0.79,
+      "accessibility": 1,
+      "lcpMs": 2621.964,
+      "cls": 0.000001875439771729294,
+      "tbtMs": 623.0369998779297,
+      "transferBytes": 652128
     }
   ]
 }
