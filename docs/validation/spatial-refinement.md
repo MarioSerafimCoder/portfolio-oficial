@@ -27,7 +27,7 @@ Não foram adicionadas dependências. A implementação usa Three.js, GSAP/Scrol
 | Rooftop | Eixos, moldura estrutural, marca e aplicação organizam-se horizontalmente | Nova capa mostra a assinatura real, sem cabeçalhos e rodapés do manual. A aplicação não cobre a marca; crédito de arquitetura permanece |
 | Simetria | Retrato e aplicação seguem deslocamentos opostos e pequenos; círculo estrutural e sobreposição controlada | Rosto, marca, texto e CTA preservados |
 | Eduardo e Amanda | Dupla coordenada com tempos ligeiramente diferentes; ajustes discretos de escala e orientação | Hover e foco individuais já existentes foram preservados; menor intensidade que os projetos principais |
-| Serviços | Seleção expande a descrição e troca uma prévia. No celular, a prévia fica dentro do item aberto | Imagens reais de Rooftop/Amazonita; Branding usa composição tipográfica e vetorial, sem atribuir um trabalho fictício |
+| Serviços | Seleção expande a descrição e troca uma prévia. No celular, a prévia fica dentro do item aberto | A prévia de Identidade visual agora é um estudo tipográfico próprio, sem repetir Rooftop ou sugerir um case de cliente; Branding mantém composição vetorial e Direção de arte/Digital usam Amazonita |
 | Processo | Linha conecta Entender, Definir e Construir e o scroll destaca uma etapa | Todos os textos permanecem visíveis. Três colunas no desktop e sequência vertical compacta no celular |
 | FAQ | Altura e ícone acompanham abertura/fechamento; perguntas seguintes se reposicionam | Área de leitura tranquila, sem entrada decorativa em cada pergunta |
 | Contato e rodapé | Mudança de atmosfera, tipografia maior e fragmento vetorial da linguagem da fita | Formulário em superfície estável, sem canvas ou renderização pesada por trás |
@@ -40,6 +40,7 @@ Com movimento reduzido, as timelines de scroll são dispensadas, as descrições
 - A identificação pequena ganhou área própria acima da fita, sem sobreposição.
 - Escala e enquadramento mudam por breakpoint. A página foi inspecionada em 390 × 844, 768 × 1024, 1366 × 768 e 1440 × 900, em viewport emulada.
 - O WhatsApp flutuante deixa de aparecer no celular. Os links de contato continuam no hero e no rodapé. Em desktop, a regra também considera hero, Amazonita, FAQ, formulário e banner de consentimento.
+- A prévia de Rooftop foi removida de Serviços; Identidade visual agora mostra um estudo tipográfico conceitual, enquanto Rooftop permanece na seção de projetos.
 - A capa `rooftop-home.webp` foi criada por recorte do asset real existente com Sharp; o case mantém as páginas completas. Variantes responsivas são geradas pelo script de imagens já existente.
 - `perception-curves.svg`, gesto da palavra “estética”, composição de Branding e fragmento de encerramento foram construídos em SVG/CSS. Não foi necessário vídeo opcional nem ferramenta generativa.
 
