@@ -1,10 +1,10 @@
 'use client';
 import {useSiteTranslation} from '@/i18n/use-translation';
 const sentences = [
-    'Sou Mário Serafim, diretor de arte em Fortaleza.',
+    'Sou Mário Serafim, diretor de arte.',
     'Trabalho com identidade visual, campanhas e projetos digitais.',
-    'Gosto da parte visual, claro.',
-    'Mas gosto principalmente de entender o que existe por trás de cada projeto.',
+    'Gosto de criar, experimentar e descobrir soluções visuais.',
+    'Mas gosto ainda mais de entender por que elas precisam existir.',
 ];
 export function AboutTypewriter() {
     const { i18nText, i18nHref } = useSiteTranslation();

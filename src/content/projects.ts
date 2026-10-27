@@ -3,7 +3,7 @@ export type Project = { slug:string; name:string; discipline:string; industry:st
 export const projects:Project[] = [
   {
     slug:'amazonita', name:'Amazonita', discipline:'Direção de arte · Digital · Editorial', industry:'Rochas naturais', year:'2025',
-    headline:'A força da natureza. Uma expressão à altura.', cover:'/media/amazonita-cover.webp', cardCover:'/media/amazonita-poster.webp', coverAlt:'Amazonita: rocha verde-azulada em uma composição de direção de arte e design digital',
+    headline:'A Amazonita já chama atenção sozinha. Meu trabalho era criar uma linguagem visual à altura, sem disputar com a protagonista.', cover:'/media/amazonita-cover.webp', cardCover:'/media/amazonita-poster.webp', coverAlt:'Amazonita: rocha verde-azulada em uma composição de direção de arte e design digital',
     context:'A Amazonita tem uma textura e uma cor que já chamam atenção. Meu trabalho foi criar uma apresentação para a Granistone em que a rocha continuasse no centro, do editorial à experiência digital.',
     challenge:'Conectar a presença marcante da matéria-prima a uma comunicação clara, sem deixar que o excesso de elementos dispute atenção com a rocha.',
     objective:'Dar unidade à apresentação da Amazonita em movimento, editorial e experiência digital, mantendo a rocha como protagonista.',
@@ -25,7 +25,7 @@ export const projects:Project[] = [
   },
   {
     slug:'rooftop',name:'Rooftop Arquitetura',discipline:'Identidade visual · Editorial',industry:'Arquitetura',year:'2024',
-    headline:'Uma identidade que encontra seu próprio espaço.',cover:'/media/rooftop-cover.webp',coverAlt:'Identidade Rooftop Arquitetura em azul e violeta, com símbolo vertical',
+    headline:'Quando o assunto é arquitetura, cada detalhe importa. A identidade precisava ter presença, mas também saber a hora de sair de cena.',cover:'/media/rooftop-cover.webp',coverAlt:'Identidade Rooftop Arquitetura em azul e violeta, com símbolo vertical',
     context:'Uma identidade para Rooftop Arquitetura, acompanhada por manual de marca e uma apresentação editorial dos projetos do escritório.',
     challenge:'Organizar uma presença visual reconhecível que acompanhe diferentes escalas: da assinatura à apresentação de arquitetura.',
     objective:'Criar uma identidade consistente para o escritório e uma linguagem editorial capaz de apresentar projetos arquitetônicos sem confundir a autoria da arquitetura com a do design.',
@@ -49,7 +49,7 @@ export const projects:Project[] = [
   },
   {
     slug:'simetria',name:'Simetria Estética',discipline:'Identidade visual · Sistema gráfico',industry:'Estética e bem-estar',year:'Ano não informado',
-    headline:'Equilíbrio que se torna linguagem.',cover:'/media/simetria/cover.webp',cardCover:'/media/simetria/portrait.webp',coverAlt:'Identidade Simetria Estética em verde fosco, milho fosco e branco oliva',
+    headline:'Uma identidade para transmitir cuidado, equilíbrio e confiança. Sem recorrer à primeira solução visual que todo mundo já viu.',cover:'/media/simetria/cover.webp',cardCover:'/media/simetria/portrait.webp',coverAlt:'Identidade Simetria Estética em verde fosco, milho fosco e branco oliva',
     context:'Simetria Estética precisava de uma linguagem que aproximasse cuidado e confiança, sem perder leveza. A identidade parte dessa ideia de equilíbrio.',
     challenge:'Expressar cuidado e profissionalismo com uma marca acessível e equilibrada, sem recorrer a clichês visuais do setor.',
     objective:'Organizar assinatura, cores, tipografia e grafismos em um sistema reconhecível para comunicações e aplicações de apresentação.',
