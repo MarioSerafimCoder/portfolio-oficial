@@ -1,7 +1,12 @@
 {
-  "site": false,
+  "site": true,
   "posts": [
+    "design-nao-e-so-o-que-voce-ve",
+    "designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento",
+    "o-futuro-da-criatividade-comeca-com-uma-pausa",
     "exemplo-de-leitura"
   ],
-  "categories": []
+  "categories": [
+    "direcao-de-arte"
+  ]
 }
