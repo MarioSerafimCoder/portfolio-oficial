@@ -64,7 +64,6 @@ function ArticleNewsletter() {
       <span className="eyebrow">{copy?.newsletterEyebrow}</span>
       <h2 id="newsletter-title">{copy?.newsletterTitle}</h2>
       <p className="journal-newsletter-description">{copy?.newsletterDescription}</p>
-      {copy?.newsletterClosing && <p className="journal-newsletter-closing">{copy.newsletterClosing}</p>}
     </div>
     <div className="journal-newsletter-action">
       {state === 'checking' && <p className="newsletter-feedback" role="status">{copy?.newsletterChecking}</p>}

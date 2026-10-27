@@ -131,8 +131,7 @@
 .journal-newsletter-article{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:clamp(32px,5vw,72px);align-items:center}
 .journal-newsletter-copy,.journal-newsletter-action{min-width:0;width:100%}
 .journal-newsletter-copy>.eyebrow{font-size:10px;letter-spacing:.11em}
-.journal-newsletter-article .journal-newsletter-description,.journal-newsletter-article .journal-newsletter-closing{max-width:620px;color:var(--muted);font-size:16px;line-height:1.65}
-.journal-newsletter-article .journal-newsletter-closing{margin-top:14px}
+.journal-newsletter-article .journal-newsletter-description{max-width:620px;color:var(--muted);font-size:16px;line-height:1.65}
 .journal-newsletter-article form.journal-newsletter-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:16px 14px;width:100%;max-width:none;margin:0}
 .journal-newsletter-email input{width:100%;min-width:0;min-height:50px;padding:10px 12px;border:1px solid var(--control);border-radius:2px;background:transparent;font-size:15px}
 .journal-newsletter-email input::placeholder{color:var(--muted);opacity:1}
@@ -189,7 +188,7 @@
   .journal-newsletter{padding-top:48px;padding-bottom:58px}
   .journal-newsletter-article{grid-template-columns:minmax(0,1fr);gap:26px}
   .journal-newsletter h2{font-size:clamp(39px,10vw,55px)}
-  .journal-newsletter-article .journal-newsletter-description,.journal-newsletter-article .journal-newsletter-closing{font-size:15px}
+  .journal-newsletter-article .journal-newsletter-description{font-size:15px}
   .journal-newsletter-article form.journal-newsletter-form{grid-template-columns:minmax(0,1fr);gap:14px}
   .journal-newsletter-article .journal-newsletter-submit{grid-column:1;grid-row:auto;width:100%}
   .journal-post-next-empty{padding-top:20px;padding-bottom:45px}
