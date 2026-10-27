@@ -11,6 +11,8 @@ function setup(posts = [['published', '2026-10-22T17:20']]) {
   const calls = [];
   let hookStatus = 200;
   let failWrite = false;
+  let publicPage = {status: 404, html: ''};
+  let publicIndex = {status: 404, html: ''};
   const env = {GITHUB_TOKEN: 'test-token-not-real', CLOUDFLARE_PAGES_DEPLOY_HOOK: 'https://example.invalid/test-hook', BLOG_SCHEDULER_KV: {
     get: async key => kv.get(key),
     put: async (key, value) => {if (failWrite) throw Error('storage failure'); kv.set(key, value);},
@@ -19,7 +21,8 @@ function setup(posts = [['published', '2026-10-22T17:20']]) {
   const request = async (url, options) => {
     calls.push({url, options});
     if (url === env.CLOUDFLARE_PAGES_DEPLOY_HOOK) return new Response('', {status: hookStatus});
-    if (url.startsWith('https://marioserafim.com.br/')) return new Response('', {status: 404});
+    if (url === 'https://marioserafim.com.br/blog') return new Response(publicIndex.html, {status: publicIndex.status});
+    if (url.startsWith('https://marioserafim.com.br/blog/')) return new Response(publicPage.html, {status: publicPage.status});
     if (url.endsWith('/commits/main')) return Response.json({sha: 'a'.repeat(40)});
     if (url.includes('/contents/')) return Response.json(files);
     const index = Number(url.split('/').at(-1));
@@ -27,7 +30,9 @@ function setup(posts = [['published', '2026-10-22T17:20']]) {
     return Response.json({encoding: 'base64', content: Buffer.from(`---\ntitle: Café\nstatus: ${status}\npublish_at: ${publishAt}\n---\nText`).toString('base64')});
   };
   return {env, kv, calls, options: {request, now, log: silent}, hooks: () => calls.filter(call => call.options.method === 'POST').length,
-    setStatus: value => {hookStatus = value;}, failWrite: () => {failWrite = true;}};
+    setStatus: value => {hookStatus = value;}, failWrite: () => {failWrite = true;},
+    setPublicPage: (html, status = 200) => {publicPage = {html, status};},
+    setPublicIndex: (html, status = 200) => {publicIndex = {html, status};}};
 }
 
 test('Fortaleza: YAML sem aspas, segundos, offset e calendário', () => {
@@ -65,6 +70,17 @@ test('hook HTTP falha sem consumir publicações e próximo Cron recupera', asyn
   assert.equal(s.kv.size, 0);
   s.setStatus(200);
   assert.equal(await publishDue(s.env, s.options), 1);
+});
+
+test('falha temporária no GitHub é repetida e a varredura recupera', async () => {
+  const s = setup(); let commitCalls = 0;
+  const request = async (url, options) => {
+    if (url.endsWith('/commits/main') && ++commitCalls === 1) throw Error('temporary network failure');
+    return s.options.request(url, options);
+  };
+  assert.equal(await publishDue(s.env, {...s.options, request, pause: async () => {}}), 1);
+  assert.equal(commitCalls, 2);
+  assert.equal(s.hooks(), 1);
 });
 
 test('timeout do hook não expõe URL e não marca KV', async () => {
@@ -130,14 +146,93 @@ test('401 não repete; 503 repete uma vez; autenticação obrigatória', async (
   await assert.rejects(githubClient({...s.env, GITHUB_TOKEN: undefined}, s.options), /GITHUB_TOKEN/);
 });
 
-test('hook aceito permanece pendente; URL publicada confirma sem outro build', async () => {
+test('resposta JSON inválida do GitHub recebe uma retentativa controlada', async () => {
+  const s = setup(); let calls = 0; let pauses = 0;
+  const github = await githubClient(s.env, {...s.options, pause: async () => {pauses++;}, request: async (url, options) => {
+    calls++;
+    return calls === 1 ? new Response('{', {status: 200}) : s.options.request(url, options);
+  }});
+  assert.deepEqual(await github('commits/main'), {sha: 'a'.repeat(40)});
+  assert.equal(calls, 2);
+  assert.equal(pauses, 1);
+});
+
+test('se o timer de backoff falhar, a segunda tentativa limitada ainda acontece', async () => {
+  const s = setup(); let calls = 0;
+  const github = await githubClient(s.env, {...s.options, pause: async () => {throw Error('timer unavailable');}, request: async (url, options) => {
+    if (++calls === 1) throw Error('temporary network failure');
+    return s.options.request(url, options);
+  }});
+  assert.deepEqual(await github('commits/main'), {sha: 'a'.repeat(40)});
+  assert.equal(calls, 2);
+});
+
+test('falhas na leitura e gravação do cooldown do GitHub são classificadas como KV', async () => {
+  const s = setup();
+  const readFailure = {...s.env, BLOG_SCHEDULER_KV: {get: async () => {throw Error('read failed');}, put: async () => {}}};
+  await assert.rejects(githubClient(readFailure, s.options), /KV: falha ao ler cooldown/);
+  const writeFailure = {...s.env, BLOG_SCHEDULER_KV: {get: async () => null, put: async () => {throw Error('write failed');}}};
+  const github = await githubClient(writeFailure, {...s.options, request: async () => Response.json({message: 'API rate limit exceeded'}, {status: 403})});
+  await assert.rejects(github('commits/main'), /KV: falha ao gravar cooldown/);
+});
+
+test('hook aceito permanece pendente; página e listagem públicas confirmam sem outro build', async () => {
   const s = setup();
   await publishDue(s.env, s.options);
   assert.equal(JSON.parse([...s.kv.values()][0]).status, 'pending');
-  const request = async (url, options) => url.startsWith('https://marioserafim.com.br/') ? new Response('<title>Café — Mário Serafim</title>') : s.options.request(url, options);
+  s.setPublicPage('<title>Café — Mário Serafim</title><meta property="article:published_time" content="2026-10-22T17:20:00-03:00"/>');
+  s.setPublicIndex('<a href="/blog/post-0">Café</a>');
+  const request = async (url, options) => s.options.request(url, options);
   await publishDue(s.env, {...s.options, request});
   assert.equal(JSON.parse([...s.kv.values()][0]).status, 'confirmed');
   assert.equal(s.hooks(), 1);
+  assert.ok(s.calls.filter(call => call.url.includes('/blog')).every(call => call.options.cache === 'no-store'));
+});
+
+test('página antiga com mesmo título e horário diferente não confirma publicação', async () => {
+  const s = setup();
+  s.setPublicPage('<title>Café — Mário Serafim</title><meta property="article:published_time" content="2026-10-22T17:18:00-03:00"/>');
+  s.setPublicIndex('<a href="/blog/post-0">Café</a>');
+  await publishDue(s.env, s.options);
+  assert.equal(s.hooks(), 1);
+  assert.equal(JSON.parse([...s.kv.values()][0]).status, 'pending');
+});
+
+test('estado confirmado antigo é reaberto quando a publicação atual está ausente', async () => {
+  const s = setup();
+  const key = `publication:v1:${encodeURIComponent('src/content/posts/post-0.md')}:${now}`;
+  s.kv.set(key, JSON.stringify({status: 'confirmed', confirmedAt: new Date(now - 60000).toISOString()}));
+  s.setPublicPage('<title>Café — Mário Serafim</title><meta property="article:published_time" content="2026-10-22T17:18:00-03:00"/>');
+  s.setPublicIndex('<a href="/blog/post-0">Café</a>');
+  await publishDue(s.env, s.options);
+  assert.equal(s.hooks(), 1);
+  assert.deepEqual(JSON.parse(s.kv.get(key)), {
+    status: 'pending', attempts: 1, commit: 'a'.repeat(40),
+    requestedAt: new Date(now).toISOString(), publishAt: '2026-10-22T17:20:00-03:00',
+  });
+});
+
+test('página atual sem link no índice público continua pendente e solicita build', async () => {
+  const s = setup();
+  s.setPublicPage('<title>Café — Mário Serafim</title><meta property="article:published_time" content="2026-10-22T17:20:00-03:00"/>');
+  s.setPublicIndex('<main>Sem artigos</main>');
+  await publishDue(s.env, s.options);
+  assert.equal(s.hooks(), 1);
+  assert.equal(JSON.parse([...s.kv.values()][0]).status, 'pending');
+});
+
+test('falha no build público permanece pendente, tenta novamente e confirma após publicar', async () => {
+  const s = setup();
+  await publishDue(s.env, s.options);
+  assert.equal(JSON.parse([...s.kv.values()][0]).status, 'pending');
+  await publishDue(s.env, {...s.options, now: now + 31 * 60000});
+  assert.equal(s.hooks(), 2);
+  assert.equal(JSON.parse([...s.kv.values()][0]).status, 'pending');
+  s.setPublicPage('<title>Café — Mário Serafim</title><meta property="article:published_time" content="2026-10-22T17:20:00-03:00"/>');
+  s.setPublicIndex('<a href="/blog/post-0">Café</a>');
+  await publishDue(s.env, {...s.options, now: now + 32 * 60000});
+  assert.equal(JSON.parse([...s.kv.values()][0]).status, 'confirmed');
+  assert.equal(s.hooks(), 2);
 });
 
 test('deployment ausente limita repetições a 3, com intervalo de 30 minutos', async () => {

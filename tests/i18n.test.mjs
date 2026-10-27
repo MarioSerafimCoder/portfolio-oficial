@@ -6,6 +6,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {emptyState,prepareDocument,planDocuments,syncDocuments,googleTranslate,characters,usage} from '../scripts/i18n/core.mjs';
 import {markdownTree} from '../scripts/i18n/markdown.mjs';
+import {createReviewDraft} from '../scripts/i18n/review-draft.mjs';
 import {extractSiteStrings} from '../scripts/i18n/extract.mjs';
 const now=()=>new Date('2026-10-27T12:00:00Z');
 const document=(body='Um parágrafo.\n\nOutro parágrafo.')=>prepareDocument({id:'post:test',data:{title:'Título',summary:'Resumo',cover:'/media/test.png',category:'processo',publish_at:'2026-10-22T12:00'},body});
@@ -94,16 +95,22 @@ test('catalog includes Portuguese messages without accents and excludes technica
 test('bad protected names response is rejected; invalid result is never published',async()=>{
  const state=emptyState();await assert.rejects(run([document('Mário Serafim trabalha.')],state,{request:async q=>q.map(()=> 'The name was removed')}),/FAILED/);assert.deepEqual(state.documents,{});
 });
-test('Google v2 request uses a private header, NMT, timeout and no key in URL',async()=>{
- let captured;await googleTranslate(['hello'],{key:'not-a-real-key',fetchImpl:async(url,options)=>{captured={url,options};return {ok:true,json:async()=>({data:{translations:[{translatedText:'Olá'}]}})}}});
- assert.ok(!captured.url.includes('key='));assert.equal(captured.options.headers['X-Goog-Api-Key'],'not-a-real-key');assert.equal(JSON.parse(captured.options.body).model,'nmt');assert.ok(captured.options.signal);
+test('paid translation provider is blocked before any network request',async()=>{
+ let calls=0;await assert.rejects(googleTranslate(['hello'],{key:'must-not-be-used',fetchImpl:async()=>{calls++;}}),/PAID_TRANSLATION_DISABLED/);assert.equal(calls,0);
+ const workflow=fs.readFileSync('.github/workflows/translations.yml','utf8');assert.match(workflow,/workflow_dispatch:/);assert.doesNotMatch(workflow,/GOOGLE_TRANSLATE_API_KEY|--apply|on:\s*\n\s*push:/);
+ const sync=fs.readFileSync('scripts/i18n-sync.mjs','utf8');assert.doesNotMatch(sync,/GOOGLE_TRANSLATE_API_KEY|googleTranslate|translation\.googleapis\.com/);assert.match(sync,/TRANSLATION_AUTOMATION_DISABLED/);
+});
+test('manual article review can start from Portuguese source when no English translation exists',()=>{
+ const source=prepareDocument({id:'post:manual',data:{title:'Título original',summary:'Resumo original'},body:'Texto original em português.'});
+ const draft=createReviewDraft('manual',source,undefined);
+ assert.equal(draft.body,'Texto original em português.\n');assert.equal(draft.data.title,'Título original');assert.equal(draft.data.summary,'Resumo original');assert.equal(draft.data.source_hash,source.sourceHash);assert.equal(draft.data.review_status,'draft');
 });
 test('file lock rejects a concurrent sync process before it can consume anything',()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'i18n-lock-'));fs.writeFileSync(path.join(dir,'.i18n-sync.lock'),'locked');
  const script=path.resolve('scripts/i18n-sync.mjs');const result=spawnSync(process.execPath,[script],{cwd:dir,encoding:'utf8'});
  assert.notEqual(result.status,0);assert.match(result.stderr,/ALREADY_RUNNING/);fs.unlinkSync(path.join(dir,'.i18n-sync.lock'));fs.rmdirSync(dir);
 });
-test('GitHub workflow serializes runs and does not translate on normal build',()=>{
- const workflow=fs.readFileSync('.github/workflows/translations.yml','utf8');assert.match(workflow,/portfolio-translation-budget-main/);assert.match(workflow,/cancel-in-progress: false/);
+test('GitHub workflow is manual and validates saved translations offline',()=>{
+ const workflow=fs.readFileSync('.github/workflows/translations.yml','utf8');assert.match(workflow,/workflow_dispatch:/);assert.match(workflow,/contents: read/);assert.match(workflow,/pnpm i18n:sync/);assert.doesNotMatch(workflow,/portfolio-translation-budget-main|cancel-in-progress|GOOGLE_TRANSLATE_API_KEY|--apply|on:\s*\n\s*push:/);
  const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));assert.ok(!pkg.scripts.build.includes('--apply'));assert.ok(!fs.readFileSync('src/components/journal-article.tsx','utf8').includes('googleapis'));
 });

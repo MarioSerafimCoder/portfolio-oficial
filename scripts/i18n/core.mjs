@@ -152,12 +152,6 @@ export async function syncDocuments({documents,state,request,persist,limit=DEFAU
   return {plan,usage:usage(state,limit,now())};
 }
 
-export async function googleTranslate(q,{key,fetchImpl=fetch,timeout=20000}={}){
-  if(!key)throw new Error('GOOGLE_TRANSLATE_API_KEY_MISSING');
-  let response;
-  try{response=await fetchImpl('https://translation.googleapis.com/language/translate/v2',{method:'POST',headers:{'Content-Type':'application/json','X-Goog-Api-Key':key},body:JSON.stringify({q,source:'pt',target:'en',format:'text',model:'nmt'}),signal:AbortSignal.timeout(timeout)});}
-  catch{throw new Error('TRANSLATION_NETWORK_ERROR');}
-  if(!response.ok)throw Object.assign(new Error('TRANSLATION_HTTP_ERROR'),{status:response.status});
-  const result=await response.json().catch(()=>null);
-  return result?.data?.translations?.map(item=>item.translatedText);
+export async function googleTranslate(){
+  throw new Error('PAID_TRANSLATION_DISABLED: use an approved manual translation.');
 }

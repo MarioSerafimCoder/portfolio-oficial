@@ -1,8 +1,21 @@
 const cooldownKey = 'scheduler:github:retry-after';
 
-export async function githubClient(env, {request, now, log, pause = ms => new Promise(resolve => setTimeout(resolve, ms))}) {
+const defaultPause = ms => globalThis.scheduler?.wait
+  ? globalThis.scheduler.wait(ms)
+  : new Promise(resolve => setTimeout(resolve, ms));
+
+async function pauseBeforeRetry(pause, setPhase) {
+  setPhase('aguardar retentativa GitHub');
+  try { await pause(1000); }
+  catch { /* Keep the retry bounded; if timers are unavailable, retry immediately. */ }
+}
+
+export async function githubClient(env, {request, now, log, pause = defaultPause, setPhase = () => {}}) {
   if (!env.GITHUB_TOKEN) throw new Error('GitHub: configurar Secret GITHUB_TOKEN (Contents: read-only)');
-  const blockedUntil = Number(await env.BLOG_SCHEDULER_KV.get(cooldownKey));
+  setPhase('ler cooldown GitHub no KV');
+  let blockedUntil;
+  try { blockedUntil = Number(await env.BLOG_SCHEDULER_KV.get(cooldownKey)); }
+  catch { throw new Error('KV: falha ao ler cooldown do GitHub'); }
   if (blockedUntil > now) throw new Error(`GitHub: cooldown até ${new Date(blockedUntil).toISOString()}`);
   let requests = 0;
   return async path => {
@@ -10,16 +23,28 @@ export async function githubClient(env, {request, now, log, pause = ms => new Pr
       if (++requests > 16) throw new Error('GitHub: orçamento de 16 requisições por execução esgotado');
       let response;
       try {
+        setPhase('enviar requisição HTTP ao GitHub');
         response = await request(`https://api.github.com/repos/MarioSerafimCoder/portfolio-oficial/${path}`, {
           headers: {'User-Agent': 'portfolio-blog-publisher', Accept: 'application/vnd.github+json',
             'X-GitHub-Api-Version': '2022-11-28', Authorization: `Bearer ${env.GITHUB_TOKEN}`},
-          signal: AbortSignal.timeout(10000), redirect: 'error',
+          signal: AbortSignal.timeout(10000), redirect: 'manual',
         });
-      } catch {
-        if (attempt === 0) { await pause(1000); continue; }
+      } catch (error) {
+        const causeCode = /^[A-Z0-9_]+$/.test(error?.cause?.code || '') ? error.cause.code : undefined;
+        log.error(JSON.stringify({service: 'github', kind: 'request-failure', attempt: attempt + 1,
+          errorName: typeof error?.name === 'string' ? error.name : 'Error', causeCode}));
+        if (attempt === 0) { await pauseBeforeRetry(pause, setPhase); continue; }
         throw new Error('GitHub: rede indisponível após 2 tentativas');
       }
-      if (response.ok) return response.json();
+      if (response.ok) {
+        try {
+          setPhase('ler JSON da API do GitHub');
+          return await response.json();
+        } catch {
+          if (attempt === 0) { await pauseBeforeRetry(pause, setPhase); continue; }
+          throw new Error('GitHub: resposta JSON inválida após 2 tentativas');
+        }
+      }
       if (response.status === 403 || response.status === 429) {
         const body = await response.json().catch(() => ({}));
         const remaining = response.headers.get('x-ratelimit-remaining');
@@ -31,10 +56,12 @@ export async function githubClient(env, {request, now, log, pause = ms => new Pr
         log.error(JSON.stringify({service: 'github', status: response.status, kind, remaining,
           limit: response.headers.get('x-ratelimit-limit'), reset: response.headers.get('x-ratelimit-reset'),
           requestId: response.headers.get('x-github-request-id'), retryAt: new Date(until).toISOString()}));
-        await env.BLOG_SCHEDULER_KV.put(cooldownKey, String(until));
+        setPhase('gravar cooldown GitHub no KV');
+        try { await env.BLOG_SCHEDULER_KV.put(cooldownKey, String(until)); }
+        catch { throw new Error('KV: falha ao gravar cooldown do GitHub'); }
         throw new Error(`GitHub HTTP ${response.status}: ${kind}; aguardar cooldown`);
       }
-      if (response.status >= 500 && attempt === 0) { await pause(1000); continue; }
+      if (response.status >= 500 && attempt === 0) { await pauseBeforeRetry(pause, setPhase); continue; }
       throw new Error(`GitHub HTTP ${response.status}${response.status === 401 ? ': token inválido ou expirado' : ''}`);
     }
   };

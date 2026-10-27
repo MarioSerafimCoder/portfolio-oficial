@@ -1,13 +1,15 @@
 import fs from 'node:fs';
 import matter from 'gray-matter';
 import {sourceDocuments} from './i18n-sync.mjs';
+import {createReviewDraft} from './i18n/review-draft.mjs';
 const slug=process.argv[2];
 if(!slug||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))throw Error('Informe o slug: pnpm i18n:review slug-do-artigo');
 const state=JSON.parse(fs.readFileSync('src/i18n/state.json','utf8'));const translation=state.documents[`post:${slug}`];
 const source=sourceDocuments().find(document=>document.id===`post:${slug}`);
-if(!translation||!source)throw Error('Tradução ainda não disponível. Execute a sincronização no Actions.');
+if(!source)throw Error('Artigo-fonte não encontrado ou não publicado.');
 const file=`src/i18n/reviews/${slug}.md`;
 if(fs.existsSync(file))throw Error('A revisão já existe; edite o arquivo preservado.');
 fs.mkdirSync('src/i18n/reviews',{recursive:true});
-fs.writeFileSync(file,matter.stringify(translation.body,{slug,title:translation.data.title,summary:translation.data.summary,seo_title:translation.data.seo_title||translation.data.title,seo_description:translation.data.seo_description||translation.data.summary,cover_alt:translation.data.cover_alt||'',source_hash:source.sourceHash,review_status:'draft'}));
-console.log(`Revisão criada: ${file}. Edite e marque review_status: reviewed para aprovar.`);
+const draft=createReviewDraft(slug,source,translation);
+fs.writeFileSync(file,matter.stringify(draft.body,draft.data));
+console.log(`Rascunho criado: ${file}. Traduza os campos e o corpo, então marque review_status: reviewed.`);

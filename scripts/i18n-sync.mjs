@@ -1,11 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import {execFileSync} from 'node:child_process';
 import matter from 'gray-matter';
 import {fileURLToPath} from 'node:url';
 import {parseYaml} from '../cloudflare/publication.mjs';
 import {extractSiteStrings} from './i18n/extract.mjs';
-import {emptyState,prepareDocument,planDocuments,syncDocuments,googleTranslate,usage,DEFAULT_LIMIT,ENGINE} from './i18n/core.mjs';
+import {emptyState,prepareDocument,planDocuments,syncDocuments,usage,DEFAULT_LIMIT,ENGINE} from './i18n/core.mjs';
 
 const root=process.cwd();
 const stateFile=path.join(root,'src/i18n/state.json');
@@ -81,26 +80,13 @@ export async function main(){
  try{handle=fs.openSync(lock,'wx');}catch{throw new Error('TRANSLATION_SYNC_ALREADY_RUNNING');}
  const state=json(stateFile,emptyState());const limit=Number(process.env.TRANSLATION_MONTHLY_LIMIT||DEFAULT_LIMIT);
  let documents=[];
- const git=(...args)=>execFileSync('git',args,{stdio:'pipe',encoding:'utf8'});
  const apply=process.argv.includes('--apply');
  try{
   documents=sourceDocuments();
   applyReviews(state,documents);
   applyEditorial(state,documents);
   if(apply){
-   if(process.env.GITHUB_ACTIONS!=='true'||process.env.I18N_PERSIST_GIT!=='1')throw new Error('TRANSLATION_DURABLE_CI_REQUIRED: use the serialized GitHub Actions workflow; local runs are estimates only.');
-   if(planDocuments(documents,state).segments.length&&!process.env.GOOGLE_TRANSLATE_API_KEY)throw new Error('GOOGLE_TRANSLATE_API_KEY_MISSING');
-   if(git('status','--porcelain','--untracked-files=no').trim() && !process.argv.includes('--ci-extracted'))throw new Error('TRANSLATION_DIRTY_CHECKOUT');
-   const persist=async stage=>{
-    write(stateFile,state);
-    // Commit only translation state; never stage owner edits or source content.
-    git('add','--','src/i18n');
-    if(!git('diff','--cached','--name-only').trim())return;
-    git('commit','-m',stage==='complete'?'i18n: publish saved translations':'[skip ci] i18n: persist budget and translation memory');
-    // A rejected push aborts before the API. No automatic rebase of financial reservations.
-    git('push','origin','HEAD:main');
-   };
-   await syncDocuments({documents,state,limit,request:q=>googleTranslate(q,{key:process.env.GOOGLE_TRANSLATE_API_KEY}),persist:async stage=>{if(stage==='complete')exportTranslations(state,documents,{writeReviewDrafts:true});await persist(stage);}});
+   throw new Error('TRANSLATION_AUTOMATION_DISABLED: --apply cannot call a paid translation provider.');
   }else{
    // Public artifacts derive from versioned state and require no API or credentials.
    if(planDocuments(documents,state).estimatedCharacters===0)await syncDocuments({documents,state,limit,request:async()=>{throw new Error('OFFLINE_BUILD_API_FORBIDDEN');},persist:async()=>{}});
