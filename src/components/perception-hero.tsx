@@ -20,7 +20,7 @@ export function PerceptionHero({children}: {children: ReactNode}) {
     const mobile = matchMedia('(max-width: 700px)');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const load = () => {
-      if (started || cancelled || reduced.matches) return;
+      if (mobile.matches || started || cancelled || reduced.matches) return;
       const rect = root.current?.getBoundingClientRect();
       if (!rect || rect.bottom < 0 || rect.top > innerHeight) return;
       started = true;
@@ -33,12 +33,15 @@ export function PerceptionHero({children}: {children: ReactNode}) {
     const observer = new IntersectionObserver(entries => {
       if (!entries[0].isIntersecting) return;
       observer.disconnect();
-      // Mobile starts from the composed fallback, upgrading on scroll or touch.
-      if (!mobile.matches) load();
+      load();
     }, {rootMargin:'100px'});
-    if (root.current) observer.observe(root.current);
-    window.addEventListener('scroll',load,{passive:true});
-    root.current?.addEventListener('pointerdown',load,{passive:true});
+    // The SVG and DOM composition keep their scroll treatment on mobile;
+    // loading Three there adds startup work without improving touch interaction.
+    if (!mobile.matches) {
+      if (root.current) observer.observe(root.current);
+      window.addEventListener('scroll',load,{passive:true});
+      root.current?.addEventListener('pointerdown',load,{passive:true});
+    }
     reduced.addEventListener('change',load);
     const hero = root.current;
     return () => {cancelled = true; observer.disconnect(); window.removeEventListener('scroll',load);hero?.removeEventListener('pointerdown',load);reduced.removeEventListener('change',load);scene.current?.dispose(); scene.current = null;};
@@ -68,8 +71,8 @@ export function PerceptionHero({children}: {children: ReactNode}) {
         id:'perception-handoff', trigger:hero, start:'top top', endTrigger:first,
         end:'top 30%', scrub:perceptionMotion.scrub, invalidateOnRefresh:true,
       }});
-      timeline.to(progress.current,{value:1, onUpdate:() => scene.current?.progress(progress.current.value), duration:1},0)
-        .to('.perception-line',{y:desktop ? -62 : -20, duration:.7},0)
+      if (desktop) timeline.to(progress.current,{value:1, onUpdate:() => scene.current?.progress(progress.current.value), duration:1},0);
+      timeline.to('.perception-line',{y:desktop ? -62 : -20, duration:.7},0)
         .to('.ribbon-composition',{xPercent:desktop ? 7 : 2, y:desktop ? 100 : 18, rotation:desktop ? 12 : 4, duration:1},0);
       if (first) timeline.fromTo(first,{scale:desktop ? .94 : .985},{scale:1,duration:.55},.45);
       // Typography and useful controls paint immediately. Only the sculpture
