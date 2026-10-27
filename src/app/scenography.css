@@ -103,7 +103,7 @@
 .closing-ribbon{position:absolute;width:140%;height:430px;left:-27%;top:-20px;z-index:-1;fill:none;stroke:var(--accent);stroke-width:14;opacity:.12;transform:rotate(-12deg);pointer-events:none}
 .home-atmosphere .contact-invitation h2{font-size:clamp(52px,5.7vw,84px);max-width:650px}
 .home-atmosphere .contact-invitation h2 em{color:var(--accent)}
-.home-atmosphere .contact-form{position:relative;z-index:2;background:var(--paper)}
+.home-atmosphere .contact-form{position:relative;z-index:2;background:var(--surface)}
 .home-atmosphere .footer-base>.wordmark{font-family:var(--font-serif);font-size:clamp(45px,8vw,120px);font-weight:400;letter-spacing:-.05em;text-transform:none}
 .home-atmosphere .project-option input:checked+span{color:var(--paper);background:var(--ink)}
 .menu-preview img{transition:opacity .3s,transform .7s var(--motion-ease);transform:scale(1.055) translateY(8px)}
