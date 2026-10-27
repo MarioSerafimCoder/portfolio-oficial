@@ -1357,7 +1357,7 @@
   },
   "months": {
     "2026-10": {
-      "used": 9727,
+      "used": 14628,
       "requests": [
         {
           "id": "977e47e5-c45e-4f87-8d16-9451258e8292",
@@ -1371,6 +1371,13 @@
           "characters": 4770,
           "date": "2026-10-27T17:42:48.341Z",
           "status": "received",
+          "attempt": 1
+        },
+        {
+          "id": "7cadb084-e70d-47e4-957c-c2670d528457",
+          "characters": 4901,
+          "date": "2026-10-27T17:42:51.782Z",
+          "status": "reserved",
           "attempt": 1
         }
       ],
