@@ -18,6 +18,7 @@ import {SpatialMotion} from '@/components/spatial-motion';
 import {AnalyticsProvider} from '@/components/analytics-provider';
 const serif=localFont({src:[{path:'../../public/fonts/instrument-serif-regular.woff2',weight:'400',style:'normal'},{path:'../../public/fonts/instrument-serif-italic.woff2',weight:'400',style:'italic'}],variable:'--font-serif',display:'swap'});
 const sans=localFont({src:[{path:'../../public/fonts/dm-sans-regular.woff2',weight:'400',style:'normal'},{path:'../../public/fonts/dm-sans-medium.woff2',weight:'500',style:'normal'},{path:'../../public/fonts/dm-sans-semibold.woff2',weight:'600',style:'normal'}],variable:'--font-sans',display:'swap',preload:false});
+export const fontClassName=`${serif.variable} ${sans.variable}`;
 const configuredUrl=process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br';
 export const metadata:Metadata={
  metadataBase:new URL(configuredUrl||'http://localhost:3000'),
@@ -29,4 +30,5 @@ export const metadata:Metadata={
 };
 export const viewport:Viewport={width:'device-width',initialScale:1,themeColor:[{media:'(prefers-color-scheme: light)',color:'#F8F9FA'},{media:'(prefers-color-scheme: dark)',color:'#121212'}]};
 const themeScript=`(()=>{try{const v=localStorage.getItem('ms-theme');document.documentElement.dataset.theme=v==='dark'||v==='light'?v:matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}})();`;
-export default function SiteLayout({children,locale}:{children:React.ReactNode;locale:'pt'|'en'}){return <html lang={locale==='en'?'en':'pt-BR'} data-scroll-behavior="smooth" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning><body><Script id="site-theme" strategy="beforeInteractive" dangerouslySetInnerHTML={{__html:themeScript}}/><JournalPreferencesProvider><SiteSkipLink/><Header/>{children}<Footer/><MotionObserver/><SpatialMotion/><ChapterReveals/><AnalyticsProvider/></JournalPreferencesProvider></body></html>}
+/** Shared body content only. Every root layout owns its document elements directly. */
+export default function SiteLayout({children}:{children:React.ReactNode}){return <><Script id="site-theme" strategy="beforeInteractive" dangerouslySetInnerHTML={{__html:themeScript}}/><JournalPreferencesProvider><SiteSkipLink/><Header/>{children}<Footer/><MotionObserver/><SpatialMotion/><ChapterReveals/><AnalyticsProvider/></JournalPreferencesProvider></>}
