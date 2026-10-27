@@ -21,7 +21,7 @@ export function MarkdownContent({tree,title}:{tree:MarkdownNode;title:string}){
     if(node.depth===1&&text(node)===title)return null;
     const base=text(node).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'section';
     const count=(headings.get(base)||0)+1;headings.set(base,count);
-    return createElement(`h${Math.min(6,node.depth||2)}`,{key,id:count===1?base:`${base}-${count}`},children);
+    return createElement(`h${Math.min(6,node.depth||2)}`,{key,id:node.id||(count===1?base:`${base}-${count}`)},children);
    }
    case 'strong':return <strong key={key}>{children}</strong>;
    case 'emphasis':return <em key={key}>{children}</em>;

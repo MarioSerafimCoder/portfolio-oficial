@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import {marked} from 'marked';
 import {parseYaml, publicationTime} from '../cloudflare/publication.mjs';
 import {prepareDocument} from './i18n/core.mjs';
-import {fromMarkdown} from 'mdast-util-from-markdown';
+import {markdownTree} from './i18n/markdown.mjs';
 
 const root=path.join(process.cwd(),'src/content/posts');
 const categories=new Set(['identidade-visual','branding','direcao-de-arte','processo','tecnologia','referencias']);
@@ -43,7 +43,7 @@ for(const filename of fs.readdirSync(root).filter(name=>name.endsWith('.md')).so
   if(coverPosition&&!/^(?:(?:left|center|right|\d{1,3}%)(?:\s+(?:top|center|bottom|\d{1,3}%))?|(?:top|center|bottom))$/.test(coverPosition))throw Error(`cover_position inválido: ${filename}`);
   const translation=translations[slug];
   const validTranslation=translation&&translation.sourceHash===prepareDocument({id:`post:${slug}`,data,body:content}).sourceHash;
-  posts.push({slug,title:data.title,summary:data.summary,category:data.category,status:'published',date,publishAt,seo:{title:data.seo_title||undefined,description:data.seo_description||undefined},cover:data.cover?{src:data.cover,alt:data.cover_alt||data.title,width:1200,height:800,position:coverPosition||undefined}:undefined,content:blocksFrom(marked.lexer(content)),markdownTree:fromMarkdown(content),...(validTranslation?{translations:{en:{title:translation.title,summary:translation.summary,seo:{title:translation.seo_title||translation.title,description:translation.seo_description||translation.summary},coverAlt:translation.cover_alt||translation.title,content:blocksFrom(marked.lexer(translation.body)),markdownTree:fromMarkdown(translation.body)}}}:{})});
+  posts.push({slug,title:data.title,summary:data.summary,category:data.category,status:'published',date,publishAt,seo:{title:data.seo_title||undefined,description:data.seo_description||undefined},cover:data.cover?{src:data.cover,alt:data.cover_alt||data.title,width:1200,height:800,position:coverPosition||undefined}:undefined,content:blocksFrom(marked.lexer(content)),markdownTree:markdownTree(content),...(validTranslation?{translations:{en:{title:translation.title,summary:translation.summary,seo:{title:translation.seo_title||translation.title,description:translation.seo_description||translation.summary},coverAlt:translation.cover_alt||translation.title,content:blocksFrom(marked.lexer(translation.body)),markdownTree:markdownTree(translation.body,content)}}}:{})});
 }
 fs.writeFileSync('src/content/journal-generated.json',JSON.stringify(posts,null,2)+'\n');
 console.log(`Posts publicados no build: ${posts.length}`);

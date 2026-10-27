@@ -3,13 +3,14 @@ import {fromMarkdown} from 'mdast-util-from-markdown';
 import {toMarkdown} from 'mdast-util-to-markdown';
 
 export const ENGINE = 'google-basic-v2:nmt:pt-en:text:ast-v1';
+export const RENDER_VERSION=2;
 export const DEFAULT_LIMIT = 400000;
 export const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export const characters = text => [...text].length;
 export const monthKey = (now = new Date()) => now.toISOString().slice(0, 7);
 export const emptyState = () => ({schemaVersion: 1, documents: {}, memory: {}, months: {}, failures: []});
 const translatedFields = new Set(['title','subtitle','summary','description','seo_title','seo_description','cover_alt']);
-const protectedNames = ['Mário Serafim','Granistone','Amazonita','Rooftop Arquitetura','Simetria Estética','Adobe','Photoshop','Google Flow','LinkedIn','Instagram','Buttondown','Zoho Mail','Pages CMS','Cloudflare','GitHub'];
+const protectedNames = ['Mário Serafim','Granistone','Amazonita','Rooftop Arquitetura','Simetria Estética','Amanda Araújo Consultoria Financeira','Eduardo Noronha Advocacia','Amanda Araújo','Eduardo Noronha','Simetria','Rooftop','Anhanguera','Wyden','Fanor','Adobe','Photoshop','Google Flow','ChatGPT','LinkedIn','Instagram','Buttondown','Zoho Mail','Pages CMS','Cloudflare','GitHub'];
 
 function walk(node, visit, parents = []) {
   visit(node, parents);
@@ -21,15 +22,18 @@ function skeleton(tree) {
   return copy;
 }
 export function prepareDocument({id, data = {}, body, strings}) {
+  if(typeof body==='string')body=body.replace(/\r\n?/g,'\n');
   const tree = body === undefined ? undefined : fromMarkdown(body);
   const segments = [];
   const add = (key, value, assign) => {
     if (typeof value !== 'string' || !value.trim()) return;
-    segments.push({key, source: value, hash: hash({engine: ENGINE, value}), assign});
+    const leading=value.match(/^\s*/)[0],trailing=value.match(/\s*$/)[0];
+    segments.push({key, source: value, hash: hash({engine: ENGINE, value}), assign:text=>assign(leading+text.trim()+trailing)});
   };
   const fields = structuredClone(data);
   if (strings) for (const [key,value] of Object.entries(strings)) add(key, value, text => {fields[key] = text;});
   else for (const [key,value] of Object.entries(data)) if (translatedFields.has(key)) add(key,value,text => {fields[key]=text;});
+  if(!strings&&Array.isArray(data.tags))data.tags.forEach((value,index)=>add(`tags:${index}`,value,text=>{fields.tags[index]=text;}));
   let index = 0;
   let requiresReview=false;
   const bibliography=new Set();let inBibliography=false;
@@ -59,7 +63,7 @@ export function planDocuments(documents,state){
   const needed=new Map(); const pending=[]; const stale=[];
   for(const document of documents){
     const existing=state.documents[document.id];
-    if(existing?.sourceHash===document.sourceHash && ['reviewed','translated','pending-review'].includes(existing.status))continue;
+    if(existing?.sourceHash===document.sourceHash && (['reviewed','pending-review'].includes(existing.status)||(existing.status==='translated'&&existing.renderVersion===RENDER_VERSION)))continue;
     if(existing?.status==='reviewed' || existing?.status==='stale') {stale.push(document.id);continue;}
     pending.push(document.id);
     for(const segment of document.segments)if(!state.memory[segment.hash])needed.set(segment.hash,segment);
@@ -141,7 +145,7 @@ export async function syncDocuments({documents,state,request,persist,limit=DEFAU
     if(!plan.pending.includes(document.id))continue;
     for(const segment of document.segments){const cached=state.memory[segment.hash];if(!cached)throw new Error('TRANSLATION_MEMORY_INCOMPLETE');segment.assign(cached.text);}
     const content=document.render();const old=state.documents[document.id];
-    state.documents[document.id]={id:document.id,sourceLanguage:'pt-BR',targetLanguage:'en',sourceHash:document.sourceHash,version:(old?.version||0)+1,translatedAt:now().toISOString(),status:content.requiresReview?'pending-review':'translated',review:{approved:false},engine:ENGINE,...content};
+    state.documents[document.id]={id:document.id,sourceLanguage:'pt-BR',targetLanguage:'en',sourceHash:document.sourceHash,version:(old?.version||0)+1,renderVersion:RENDER_VERSION,translatedAt:now().toISOString(),status:content.requiresReview?'pending-review':'translated',review:{approved:false},engine:ENGINE,...content};
   }
   if(plan.pending.length||plan.stale.length)state.lastSync=now().toISOString();delete state.lastBlock;
   await persist('complete');

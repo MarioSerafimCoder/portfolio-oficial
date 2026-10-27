@@ -52,7 +52,7 @@ export function JournalIndex({ posts, activeCategory }: {
                 const view = journalPostForLocale(post, locale);
                 return <li key={post.slug}><article><Link href={i18nHref(`/blog/${post.slug}`)}>
             <span className="journal-list-meta"><time dateTime={post.date}>{i18nText(formatJournalDateLocale(post.date, locale))}</time><span>{i18nText(journalCategoryLabels[locale][post.category])}</span>{i18nText(post.demo && <span className="journal-demo-label">{i18nText(copy.preview)}</span>)}</span>
-            <span className="journal-list-main"><strong lang={view.translated ? undefined : 'pt-BR'}>{i18nText(view.title)}</strong><span className="journal-list-excerpt" lang={view.translated ? undefined : 'pt-BR'}>{i18nText(view.summary)}</span>{i18nText(locale === 'en' && !view.translated && <span className="journal-translation-note">{i18nText(copy.unavailableShort)}</span>)}<span className="journal-reading-time">{i18nText(copy.reading(readingMinutes(post)))}</span></span>
+            <span className="journal-list-main"><strong lang={view.translated ? undefined : 'pt-BR'}>{i18nText(view.title)}</strong><span className="journal-list-excerpt" lang={view.translated ? undefined : 'pt-BR'}>{i18nText(view.summary)}</span>{i18nText(locale === 'en' && !view.translated && <span className="journal-translation-note">{i18nText(copy.unavailableShort)}</span>)}<span className="journal-reading-time">{i18nText(copy.reading(readingMinutes({...post,content:view.content})))}</span></span>
             <span className="journal-list-arrow" aria-hidden="true">{i18nText("\u2197")}</span>
           </Link></article></li>;
             }))}</ol>

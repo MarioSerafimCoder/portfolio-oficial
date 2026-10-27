@@ -63,7 +63,7 @@ export default async function Case({ params, locale = "pt" }: Props & {
     }>)[media.src].width} height={(dimensions as Record<string, {
         width: number;
         height: number;
-    }>)[media.src].height} sizes={media.layout === 'half' ? '(max-width: 700px) 90vw, 45vw' : '90vw'} style={{ height: 'auto', width: '100%' }} loading="lazy"/></div>)}<figcaption><span>{i18nText(media.caption.replace(/^\d{2} — /, ''))}</span><span>{i18nText(String(index + 1).padStart(2, '0'))}{i18nText(" / ")}{i18nText(String(project.gallery.length).padStart(2, '0'))}</span></figcaption></figure>))}</section>
+    }>)[media.src].height} sizes={media.layout === 'half' ? '(max-width: 700px) 90vw, 45vw' : '90vw'} style={{ height: 'auto', width: '100%' }} loading="lazy"/></div>)}<figcaption><span>{i18nText(media.caption).replace(/^\d{2}\s*[—–-]\s*/, '')}</span><span>{i18nText(String(index + 1).padStart(2, '0'))}{i18nText(" / ")}{i18nText(String(project.gallery.length).padStart(2, '0'))}</span></figcaption></figure>))}</section>
     <section className="case-result section-wrap"><span className="eyebrow">{i18nText("Resultado")}</span><p>{i18nText(project.result)}</p></section>
     {i18nText(project.testimonial && <section className="case-testimonial section-wrap"><span className="eyebrow">{i18nText("Depoimento")}</span><blockquote><p>{i18nText(project.testimonial.quote)}</p><cite>{i18nText(project.testimonial.author)}</cite></blockquote></section>)}
     <section className="case-credits section-wrap"><span className="eyebrow">{i18nText("Cr\u00E9ditos")}</span><p>{i18nText(project.credits)}</p></section>

@@ -19,6 +19,8 @@ pnpm run build
 
 O resultado fica em `out/`. A produção usa Cloudflare Pages, projeto `portfolio-oficial`, branch `main`. `.openai/hosting.json` é um registro da hospedagem anterior.
 
+As versões em português e inglês usam traduções estáticas e um pipeline editorial com cache e teto mensal de consumo. Veja [internacionalização, revisão no CMS e proteção de orçamento](docs/INTERNATIONALIZATION.md). `pnpm i18n:sync` mostra a estimativa/diagnóstico sem chamar a API; a sincronização com o Google roda no workflow **Static English translations**.
+
 ## Verificar
 
 ```sh

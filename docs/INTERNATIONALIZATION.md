@@ -81,7 +81,7 @@ O relatório informa artigos existentes/traduzidos/pendentes/desatualizados, has
 pnpm i18n:review design-nao-e-so-o-que-voce-ve
 ```
 
-O comando cria um Markdown inglês com o texto salvo, o `source_hash` correspondente e `review_status: draft`. Edite o texto no arquivo ou no Pages CMS. Marque `review_status: reviewed` após a revisão, preservando o slug/filename e o hash do original efetivamente revisado. Faça commit.
+A sincronização real cria automaticamente um rascunho de revisão no CMS para cada artigo traduzido. O comando acima também permite criar um arquivo que ainda não exista e recusa sobrescrever trabalho anterior. O Markdown contém o texto salvo, o `source_hash` correspondente e `review_status: draft`. Edite no arquivo ou no Pages CMS. Marque `review_status: reviewed` após a revisão, preservando o slug/filename e o hash do original efetivamente revisado. Faça commit.
 
 Uma revisão aprovada nunca é sobrescrita automaticamente. Quando o original muda, a revisão é marcada **stale/desatualizada**, o arquivo permanece intacto e a rota inglesa deixa de ser anunciada até ser atualizada e aprovada com o novo hash. Para retomar a geração automática intencionalmente, remova a aprovação no arquivo e redefina explicitamente o estado do documento de `reviewed/stale` para `pending`, sem alterar o contador mensal. Isso é uma decisão editorial, não uma consequência automática do build.
 

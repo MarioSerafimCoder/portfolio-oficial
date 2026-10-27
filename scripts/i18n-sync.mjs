@@ -41,7 +41,7 @@ export function applyEditorial(state,documents){
   if(state.documents.site?.strings)state.documents.site.strings[segment.source]=text;
  }
 }
-export function exportTranslations(state,documents){
+export function exportTranslations(state,documents,{writeReviewDrafts=false}={}){
  const site=state.documents.site;
  write('src/i18n/en/site.json',site&&['translated','reviewed'].includes(site.status)&&site.sourceHash===documents.find(d=>d.id==='site')?.sourceHash?site.strings:{});
  const posts={};const statuses={};
@@ -49,7 +49,14 @@ export function exportTranslations(state,documents){
   const entry=state.documents[document.id];
   const current=entry?.sourceHash===document.sourceHash;
   statuses[document.id]=!entry?'pending':!current?'stale':entry.status;
-  if(document.id.startsWith('post:')&&current&&['translated','reviewed'].includes(entry.status))posts[document.id.slice(5)]={...entry.data,body:entry.body,sourceHash:entry.sourceHash,status:entry.status};
+  if(document.id.startsWith('post:')&&current&&['translated','reviewed'].includes(entry.status)){
+   const slug=document.id.slice(5);posts[slug]={...entry.data,body:entry.body,sourceHash:entry.sourceHash,status:entry.status};
+   const file=`src/i18n/reviews/${slug}.md`;
+   if(writeReviewDrafts&&entry.status==='translated'&&!fs.existsSync(file)){
+    fs.mkdirSync(path.dirname(file),{recursive:true});
+    fs.writeFileSync(file,matter.stringify(entry.body,{slug,title:entry.data.title,summary:entry.data.summary,seo_title:entry.data.seo_title||entry.data.title,seo_description:entry.data.seo_description||entry.data.summary,cover_alt:entry.data.cover_alt||'',source_hash:entry.sourceHash,review_status:'draft'}));
+   }
+  }
  }
  write('src/i18n/en/posts.json',posts);
  write('src/i18n/status.json',statuses);
@@ -90,9 +97,10 @@ export async function main(){
     // A rejected push aborts before the API. No automatic rebase of financial reservations.
     git('push','origin','HEAD:main');
    };
-   await syncDocuments({documents,state,limit,request:q=>googleTranslate(q,{key:process.env.GOOGLE_TRANSLATE_API_KEY}),persist:async stage=>{if(stage==='complete')exportTranslations(state,documents);await persist(stage);}});
+   await syncDocuments({documents,state,limit,request:q=>googleTranslate(q,{key:process.env.GOOGLE_TRANSLATE_API_KEY}),persist:async stage=>{if(stage==='complete')exportTranslations(state,documents,{writeReviewDrafts:true});await persist(stage);}});
   }else{
    // Public artifacts derive from versioned state and require no API or credentials.
+   if(planDocuments(documents,state).estimatedCharacters===0)await syncDocuments({documents,state,limit,request:async()=>{throw new Error('OFFLINE_BUILD_API_FORBIDDEN');},persist:async()=>{}});
    exportTranslations(state,documents);
   }
  }finally{

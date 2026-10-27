@@ -9,7 +9,7 @@ export const journalCategories = {
 
 export type JournalCategory = keyof typeof journalCategories;
 export type JournalInline = {text: string; href?: string};
-export type MarkdownNode={type:string;value?:string;depth?:number;url?:string;alt?:string|null;title?:string|null;lang?:string|null;ordered?:boolean;start?:number|null;identifier?:string;label?:string;children?:MarkdownNode[]};
+export type MarkdownNode={type:string;value?:string;depth?:number;id?:string;url?:string;alt?:string|null;title?:string|null;lang?:string|null;ordered?:boolean;start?:number|null;identifier?:string;label?:string;children?:MarkdownNode[]};
 export type JournalBlock =
   | {type: 'paragraph'; text: string; segments?: never}
   | {type: 'paragraph'; segments: JournalInline[]; text?: never}

@@ -19,7 +19,7 @@ export function extractSiteStrings(root=process.cwd()){
    if(ts.isStringLiteralLike(node)){
     const parent=node.parent;
     if(ts.isJsxAttribute(parent)){if(publicAttributes.has(parent.name.getText()))add(node.text);}
-    else if((ts.isCallExpression(parent)&&parent.expression.getText(source)==='i18nText') || (ts.isArrayLiteralExpression(parent)&&/^[A-ZÀ-Ý]/.test(node.text)) || (!ts.isImportDeclaration(parent)&&!ts.isExportDeclaration(parent)&&!ts.isImportSpecifier(parent)&&!ts.isLiteralTypeNode(parent)&&!ts.isPropertyAssignment(parent)&&(/[áàâãéêíóôõúç]/i.test(node.text))) || (ts.isPropertyAssignment(parent)&&['title','description','text','line','scope','question','answer','label','body','name','discipline','industry','headline','coverAlt','context','challenge','objective','role','decisions','system','result','nature','credits','alt','caption'].includes(parent.name.getText().replace(/['"]/g,'')))){
+    else if((ts.isCallExpression(parent)&&parent.expression.getText(source)==='i18nText') || (ts.isArrayLiteralExpression(parent)&&/^[A-ZÀ-Ý]/.test(node.text)) || (!ts.isImportDeclaration(parent)&&!ts.isExportDeclaration(parent)&&!ts.isImportSpecifier(parent)&&!ts.isLiteralTypeNode(parent)&&!ts.isPropertyAssignment(parent)&&(/[áàâãéêíóôõúç]/i.test(node.text)||/^[A-ZÀ-Ý][\s\S]*\s[A-Za-zÀ-ÿ]/.test(node.text))) || (ts.isPropertyAssignment(parent)&&['title','description','text','line','scope','question','answer','label','body','name','discipline','industry','headline','coverAlt','context','challenge','objective','role','decisions','system','result','nature','credits','alt','caption'].includes(parent.name.getText().replace(/['"]/g,'')))){
      add(node.text);
     }
    }

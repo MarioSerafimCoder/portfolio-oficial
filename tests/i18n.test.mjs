@@ -5,6 +5,8 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {emptyState,prepareDocument,planDocuments,syncDocuments,googleTranslate,characters,usage} from '../scripts/i18n/core.mjs';
+import {markdownTree} from '../scripts/i18n/markdown.mjs';
+import {extractSiteStrings} from '../scripts/i18n/extract.mjs';
 const now=()=>new Date('2026-10-27T12:00:00Z');
 const document=(body='Um parágrafo.\n\nOutro parágrafo.')=>prepareDocument({id:'post:test',data:{title:'Título',summary:'Resumo',cover:'/media/test.png',category:'processo',publish_at:'2026-10-22T12:00'},body});
 async function run(documents,state=emptyState(),extra={}){
@@ -19,8 +21,16 @@ test('new article translates all textual fields, preserving factual metadata',as
  assert.equal(state.documents['post:test'].targetLanguage,'en');assert.equal(state.documents['post:test'].status,'translated');
 });
 test('identical article and repeated build cause zero translation requests',async()=>{
- const {state}=await run([document()]);const {requests}=await run([document()],state);assert.equal(requests.length,0);
+ const {state}=await run([document()]);const before=JSON.stringify(state);const {requests}=await run([document()],state,{now:()=>new Date('2026-10-28T12:00:00Z')});assert.equal(requests.length,0);assert.equal(JSON.stringify(state),before);
  assert.equal(state.documents['post:test'].version,1);
+});
+test('Windows CRLF and Linux LF produce the same source hash and translation cache',async()=>{
+ const a=document('Um parágrafo.\r\n\r\nOutro parágrafo.\r\n');const b=document('Um parágrafo.\n\nOutro parágrafo.\n');assert.equal(a.sourceHash,b.sourceHash);
+ const {state}=await run([a]);assert.equal((await run([b],state)).requests.length,0);
+});
+test('trimmed provider results retain spaces around emphasis and links',async()=>{
+ const {state}=await run([document('Uma **palavra** e um [link](https://example.com).')],emptyState(),{request:async q=>q.map(text=>text.trim())});
+ assert.match(state.documents['post:test'].body,/Uma \*\*palavra\*\* e um \[link\]/);
 });
 test('one changed paragraph translates only that segment, reusing all others',async()=>{
  const {state}=await run([document()]);const {requests}=await run([document('Um parágrafo.\n\nParágrafo alterado.')],state);
@@ -70,6 +80,17 @@ test('progressive alerts are emitted once per threshold per month',async()=>{
  assert.equal(state.alerts.length,1);assert.equal(state.alerts[0].level,50);await run([document()],state);assert.equal(state.alerts.length,1);
 });
 test('character accounting includes spaces and counts Unicode code points',()=>{assert.equal(characters('a 😀 b'),5);});
+test('translated headings retain original fragment identifiers and destinations',()=>{
+ const original='## Antes da primeira frase\n\n[Voltar](#antes-da-primeira-frase)\n\n## Antes da primeira frase\n';
+ const translated='## Before the first sentence\n\n[Back](#antes-da-primeira-frase)\n\n## Before the first sentence\n';
+ const tree=markdownTree(translated,original);assert.deepEqual(tree.children.filter(n=>n.type==='heading').map(n=>n.id),['antes-da-primeira-frase','antes-da-primeira-frase-2']);assert.equal(tree.children[1].children[0].url,'#antes-da-primeira-frase');
+});
+test('catalog includes Portuguese messages without accents and excludes technical JSX attributes',()=>{
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'i18n-extract-'));const folder=path.join(dir,'src/components');fs.mkdirSync(folder,{recursive:true});const file=path.join(folder,'sample.tsx');
+ fs.writeFileSync(file,'function error(){return "Informe seu nome com pelo menos 2 caracteres.";} export function Sample(){return <input type="text" placeholder="Seu nome" fetchPriority="high"/>;}');
+ const messages=extractSiteStrings(dir);assert.equal(messages['Informe seu nome com pelo menos 2 caracteres.'],'Informe seu nome com pelo menos 2 caracteres.');assert.equal(messages['Seu nome'],'Seu nome');assert.equal(messages.high,undefined);assert.equal(messages.text,undefined);
+ fs.unlinkSync(file);fs.rmdirSync(folder);fs.rmdirSync(path.dirname(folder));fs.rmdirSync(dir);
+});
 test('bad protected names response is rejected; invalid result is never published',async()=>{
  const state=emptyState();await assert.rejects(run([document('Mário Serafim trabalha.')],state,{request:async q=>q.map(()=> 'The name was removed')}),/FAILED/);assert.deepEqual(state.documents,{});
 });
