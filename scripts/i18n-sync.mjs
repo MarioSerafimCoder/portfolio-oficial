@@ -36,6 +36,9 @@ export function applyReviews(state,documents){
 export function applyEditorial(state,documents){
  const file='src/i18n/editorial/site.json';if(!fs.existsSync(file))return;
  const approved=JSON.parse(fs.readFileSync(file,'utf8'));const site=documents.find(document=>document.id==='site');
+ // Reviewed phrases can include composed labels that static extraction cannot
+ // discover. Export them too; they require no provider request.
+ for(const [source,text] of Object.entries(approved))if(typeof text==='string'&&text.trim()&&state.documents.site?.strings)state.documents.site.strings[source]=text;
  for(const segment of site?.segments||[]){const text=approved[segment.source];if(typeof text!=='string'||!text.trim())continue;
   state.memory[segment.hash]={text,engine:ENGINE,reviewed:true,provenance:'manual-editorial-v1'};
   if(state.documents.site?.strings)state.documents.site.strings[segment.source]=text;
