@@ -90,3 +90,29 @@ content:
       - name: body
         label: Conteúdo do artigo
         type: rich-text
+
+  - name: translations_en
+    label: Revisões em inglês
+    type: collection
+    path: src/i18n/reviews
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: slug
+      fields: [title, review_status, source_hash]
+    fields:
+      - {name: slug, label: Slug original do artigo, type: string, required: true}
+      - {name: title, label: Título em inglês, type: string, required: true}
+      - {name: summary, label: Resumo em inglês, type: text, required: true}
+      - {name: seo_title, label: SEO title, type: string}
+      - {name: seo_description, label: Meta description, type: text}
+      - {name: cover_alt, label: Descrição da imagem, type: string}
+      - {name: source_hash, label: Hash do original revisado, type: string, required: true}
+      - name: review_status
+        label: Revisão editorial
+        type: select
+        options:
+          values:
+            - {name: draft, label: Em revisão}
+            - {name: reviewed, label: Revisada e aprovada}
+      - {name: body, label: Conteúdo em inglês, type: rich-text}

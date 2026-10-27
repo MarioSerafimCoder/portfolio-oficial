@@ -3,6 +3,8 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import {marked} from 'marked';
 import {parseYaml, publicationTime} from '../cloudflare/publication.mjs';
+import {prepareDocument} from './i18n/core.mjs';
+import {fromMarkdown} from 'mdast-util-from-markdown';
 
 const root=path.join(process.cwd(),'src/content/posts');
 const categories=new Set(['identidade-visual','branding','direcao-de-arte','processo','tecnologia','referencias']);
@@ -21,6 +23,8 @@ const blocksFrom=(tokens)=>tokens.flatMap(token=>{
 });
 function imageFrom(token){return {type:'image',src:token.href,alt:token.text||'',width:1200,height:800,caption:token.title||undefined};}
 const posts=[];
+const translationFile=path.join(process.cwd(),'src/i18n/en/posts.json');
+const translations=fs.existsSync(translationFile)?JSON.parse(fs.readFileSync(translationFile,'utf8')):{};
 for(const filename of fs.readdirSync(root).filter(name=>name.endsWith('.md')).sort()){
   const slug=filename.slice(0,-3);
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)||slug==='exemplo-de-leitura')throw Error(`Slug inválido ou reservado: ${slug}`);
@@ -37,7 +41,9 @@ for(const filename of fs.readdirSync(root).filter(name=>name.endsWith('.md')).so
   if(data.cover && !String(data.cover).startsWith('/media/blog/'))throw Error(`Imagem de capa inválida: ${filename}`);
   const coverPosition=String(data.cover_position||'').trim();
   if(coverPosition&&!/^(?:(?:left|center|right|\d{1,3}%)(?:\s+(?:top|center|bottom|\d{1,3}%))?|(?:top|center|bottom))$/.test(coverPosition))throw Error(`cover_position inválido: ${filename}`);
-  posts.push({slug,title:data.title,summary:data.summary,category:data.category,status:'published',date,publishAt,seo:{title:data.seo_title||undefined,description:data.seo_description||undefined},cover:data.cover?{src:data.cover,alt:data.cover_alt||data.title,width:1200,height:800,position:coverPosition||undefined}:undefined,content:blocksFrom(marked.lexer(content))});
+  const translation=translations[slug];
+  const validTranslation=translation&&translation.sourceHash===prepareDocument({id:`post:${slug}`,data,body:content}).sourceHash;
+  posts.push({slug,title:data.title,summary:data.summary,category:data.category,status:'published',date,publishAt,seo:{title:data.seo_title||undefined,description:data.seo_description||undefined},cover:data.cover?{src:data.cover,alt:data.cover_alt||data.title,width:1200,height:800,position:coverPosition||undefined}:undefined,content:blocksFrom(marked.lexer(content)),markdownTree:fromMarkdown(content),...(validTranslation?{translations:{en:{title:translation.title,summary:translation.summary,seo:{title:translation.seo_title||translation.title,description:translation.seo_description||translation.summary},coverAlt:translation.cover_alt||translation.title,content:blocksFrom(marked.lexer(translation.body)),markdownTree:fromMarkdown(translation.body)}}}:{})});
 }
 fs.writeFileSync('src/content/journal-generated.json',JSON.stringify(posts,null,2)+'\n');
 console.log(`Posts publicados no build: ${posts.length}`);

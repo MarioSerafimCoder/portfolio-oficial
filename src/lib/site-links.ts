@@ -6,8 +6,8 @@ export const socialLinks = [
   {name: 'LinkedIn', url: site.linkedin, key: 'linkedin'},
 ].filter(item => item.url.trim());
 
-export function whatsappLink(context: string) {
+export function whatsappLink(context: string,locale:'pt'|'en'='pt') {
   const number = site.whatsapp.replace(/\D/g, '');
   if (!number) return '';
-  return `https://wa.me/${number}?text=${encodeURIComponent(`Olá, Mário! Vi ${context} no seu portfólio e gostaria de conversar sobre um projeto.`)}`;
+  return `https://wa.me/${number}?text=${encodeURIComponent(locale==='en'?`Hi, Mário! I saw ${context} in your portfolio and would like to discuss a project.`:`Olá, Mário! Vi ${context} no seu portfólio e gostaria de conversar sobre um projeto.`)}`;
 }

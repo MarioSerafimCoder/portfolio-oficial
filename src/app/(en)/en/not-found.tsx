@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <main id="conteudo" className="section-wrap page-heading"><span className="eyebrow">404 / A page still to come</span><h1>This page is<br/><em>not available.</em></h1><p>The English translation may still be pending. You can explore the blog or read the original Portuguese version.</p><Link className="text-link" href="/en/blog">Explore the blog ↗</Link><br/><Link className="text-link" href="/blog" hrefLang="pt-BR">Read in Portuguese ↗</Link></main>;}

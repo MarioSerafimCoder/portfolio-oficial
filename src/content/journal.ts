@@ -9,6 +9,7 @@ export const journalCategories = {
 
 export type JournalCategory = keyof typeof journalCategories;
 export type JournalInline = {text: string; href?: string};
+export type MarkdownNode={type:string;value?:string;depth?:number;url?:string;alt?:string|null;title?:string|null;lang?:string|null;ordered?:boolean;start?:number|null;identifier?:string;label?:string;children?:MarkdownNode[]};
 export type JournalBlock =
   | {type: 'paragraph'; text: string; segments?: never}
   | {type: 'paragraph'; segments: JournalInline[]; text?: never}
@@ -27,7 +28,8 @@ export type JournalPost = {
   demo?: boolean; // Exemplo visível em Pausa do café, rotulado como teste e excluído da indexação.
   sources?: {label: string; url: string}[];
   seo?: {title?: string; description?: string};
-  translations?: {en?: {title: string; summary: string; content: JournalBlock[]}};
+  markdownTree?:MarkdownNode;
+  translations?: {en?: {title: string; summary: string; content: JournalBlock[];markdownTree?:MarkdownNode;seo?:{title?:string;description?:string};coverAlt?:string}};
 };
 
 // O exemplo permite avaliar o template; aparece com aviso de teste e não é uma publicação.

@@ -8,6 +8,8 @@ tmp/
 .wrangler/
 .dev.vars*
 *.tsbuildinfo
+.i18n-sync.lock
+i18n-reports/
 next-env.d.ts
 docs/screenshots/evolution/
 docs/validation/lighthouse-before-*.json

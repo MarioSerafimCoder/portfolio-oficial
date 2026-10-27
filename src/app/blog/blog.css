@@ -64,6 +64,8 @@
 .journal-article-body blockquote p{line-height:1.32}
 .journal-article-body ul{margin:0 0 2em}
 .journal-article-body figure{margin:3em 0}
+.journal-article-body pre{max-width:100%;overflow:auto;padding:20px;background:var(--surface);border:1px solid var(--rule);font-size:14px;line-height:1.65}
+.journal-article-body :not(pre)>code{overflow-wrap:anywhere;font-size:.9em}
 .journal-article-body figure img{display:block;max-width:100%;height:auto}
 .journal-article-body figure.journal-figure-wide{width:min(1080px,calc(100vw - 2 * var(--gutter)));max-width:none;position:relative;left:50%;transform:translateX(-50%)}
 .journal-article-body figcaption{max-width:72ch;line-height:1.6}
@@ -228,6 +230,7 @@
 .journal-header-theme{width:44px;justify-content:center;padding:0}
 .journal-header-theme .theme-orbit{width:17px;height:17px}
 .journal-language-toggle{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:0 2px;color:var(--muted);font-size:11px;letter-spacing:.02em;white-space:nowrap}
+.site-header:not(.journal-site-header) .journal-language-toggle{position:static;min-width:48px;height:44px;padding-inline:6px}
 .journal-language-toggle .is-active{color:var(--ink);font-weight:600}
 .journal-header-tools button:hover{color:var(--accent-text)}
 .journal-header-search input:focus-visible{outline:0}

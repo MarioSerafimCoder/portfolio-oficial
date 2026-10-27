@@ -2,4 +2,14 @@ import type {MetadataRoute} from 'next';
 export const dynamic='force-static';
 import {projects} from '@/content/projects';
 import {publishedJournalPosts,indexJournal} from '@/content/journal';
-export default function sitemap():MetadataRoute.Sitemap{const url=(process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br').replace(/\/$/,'');const categories=[...new Set(publishedJournalPosts.map(post=>post.category))];return ['','/projetos','/sobre','/contato','/privacidade',...(indexJournal?['/blog',...categories.map(category=>`/blog/categoria/${category}`)]:[]),...projects.map(p=>`/projetos/${p.slug}`),...publishedJournalPosts.map(p=>`/blog/${p.slug}`)].map(path=>({url:`${url}${path}`,changeFrequency:'monthly',priority:path===''?1:.7}))}
+import {languagePeer} from '@/i18n/routes';
+export default function sitemap():MetadataRoute.Sitemap{
+ const origin=(process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br').replace(/\/$/,'');
+ const categories=[...new Set(publishedJournalPosts.map(post=>post.category))];
+ const paths=['/','/projetos','/sobre','/contato','/privacidade',...(indexJournal?['/blog',...categories.map(category=>`/blog/categoria/${category}`)]:[]),...projects.map(project=>`/projetos/${project.slug}`),...publishedJournalPosts.map(post=>`/blog/${post.slug}`)];
+ return paths.flatMap(path=>{
+  const en=languagePeer(path,'en');
+  const languages={'pt-BR':origin+(path==='/'?'':path),...(en?{en:origin+en}:{}),'x-default':origin+(path==='/'?'':path)};
+  return [path,...(en?[en]:[])].map(url=>({url:origin+(url==='/'?'':url),changeFrequency:'monthly' as const,priority:path==='/'?1:.7,alternates:{languages}}));
+ });
+}

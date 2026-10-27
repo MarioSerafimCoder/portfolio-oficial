@@ -1,0 +1,59 @@
+name: Static English translations
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/posts/**'
+      - 'src/content/projects.ts'
+      - 'src/content/site.ts'
+      - 'src/views/**'
+      - 'src/i18n/reviews/**'
+      - 'src/i18n/editorial/**'
+      - 'src/app/**'
+      - 'src/components/**'
+      - 'scripts/i18n/**'
+      - 'scripts/i18n-sync.mjs'
+  workflow_dispatch:
+concurrency:
+  group: portfolio-translation-budget-main
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Validate accounting, parser and routes without real API calls
+        run: node --test tests/i18n*.test.mjs
+      - name: Use latest durable budget and sources
+        run: |
+          git pull --ff-only origin main
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Translate only changed content
+        env:
+          GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
+          TRANSLATION_MONTHLY_LIMIT: '400000'
+          I18N_PERSIST_GIT: '1'
+        run: pnpm i18n:sync --apply --ci-extracted
+      - name: Keep owner diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-diagnostics
+          path: i18n-reports/
+          retention-days: 90
