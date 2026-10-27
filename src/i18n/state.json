@@ -493,6 +493,446 @@
       "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
       "reviewed": true,
       "provenance": "manual-editorial-v1"
+    },
+    "eca8c771eba9e244b371e893c2e3329e4b3a06f991a1fb6d4662dfbb272ef34c": {
+      "text": "(opens in a new tab)",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "3994d9c095ac96b0738ca9a18bc26919424e15fc95f6dae46bcfb36585b1cbaa": {
+      "text": ", and Zoho stores the received message according to its",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "63a645b1e20a936c08b3664752333caa43f5b2ff43d25be1073b09b595f1a54d": {
+      "text": "Avoid sending sensitive information through the form.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "7ce636f589972ca27549a5459fd54c7f3fb89174bf3594dd0ee81e13fcfc752e": {
+      "text": "To request access or deletion, write to the address below.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "9c8e182a4698c8a17580e5f478e74daa30ce844e140863235a25b916797ef61d": {
+      "text": "01 / Context",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "359b078b9adb1e318c53e78a71de92ebf0ac09ab5b4ffbdc446d1b2b91b9e60e": {
+      "text": "01 / Art Direction · Digital · Editorial",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "119b2efd18751abd98a394a47f2a0b5adf46cebc0df5d57b7dc1366c6ad2e885": {
+      "text": "01 / A little about me",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "9acfb18422bb5ba18f420095482fad8eeef96b5bc6ab4d6dc5215413c80d4e70": {
+      "text": "01 — Presentation applications",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "86b942487ca867788304cbc287f156621051cb48cae7180d11f2e6ff90e0f50e": {
+      "text": "01 — Signature and variations",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "01e15ca4adfe8df0187450494ff6a1bfc4d2b1d04ce4c0a8997cee03258000cf": {
+      "text": "01 — Signature in simulated application",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "f183b0b2580118ce923490ec4f2c24b442776c4f07bb6b7b01fd908b685daf7f": {
+      "text": "01 — Symbol and signatures documented in the manual",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "7bae33bef236b5126371335b26f7bc836ffc975d1a8e31c94e74153170ea9541": {
+      "text": "02 / How I work",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "5109aaa50d88f4fbe1d953436408213912e28a39e8677f41ccbe2ef67515438b": {
+      "text": "02 / Direction",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "4a700f18ceb8b891704ec3917e15c68fb183d1b9a5b64ca9558183b31ff83fbf": {
+      "text": "02 / Visual Identity · Conceptual Study",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "4416f9cf5cd81ad8d56cf56ca3c0b7567a8051bbbaa5b0171801cb2c49931b17": {
+      "text": "02 — Raw materials as the protagonist",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "f516d58204faa74ae36b25c81a0a2b77d70dab73c76f14842659e3b73bc821f2": {
+      "text": "02 — Signature and monogram",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "58fc85f210cb53e87ba2d5ff663d1ff9d3e259771804958274c3afedb189e43e": {
+      "text": "02 — Signatures",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "f66836f1337d7343bc43fbaf5e3f3358d49e706da7816e01c09fb7c6ad930eb2": {
+      "text": "02 — Color as recognition",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "d04afbc66acdc37be3b8ef60eff17ab946a2a7b67be5552296a18ebd696a204c": {
+      "text": "02 — Chromatic balance",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "80593ca70a5aa1c409c649b7e2a24854fc5fe81e641674c4f5a3c7e2a9fb2f0e": {
+      "text": "03 / Expression",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "ff575388683b60d03363918336f26b0871124240df57dc552ce81bbdfbaf2c81": {
+      "text": "03 / Visual Identity · Conceptual Study",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "6efca40ccbe356ec22be0dbef0cdee83cc4001ae0490fb1dfd240697b18ac8c5": {
+      "text": "03 — Applications proposed in the manual",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "5366fe63e967179fa7dcc7cb35912681f19bf8e76e5737cd11a01396336b0ba9": {
+      "text": "03 — Continuity in the digital experience",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "d88d4470ed60917cb29bdb72623903f31a61fb94fe6246a5841ff3bfcdce1a77": {
+      "text": "03 — Contrast and precision",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "70e0944e47b7140e15827cf01e173429ccc7381a324fbb8d81933c9581f32959": {
+      "text": "03 — Typography and hierarchy",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "ef8fadf9572105bc5d3678cb1266e1979b6550ef2963dbc98fdf39c7a7d837eb": {
+      "text": "03 — A language of color",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "6e75939781d56e99915444c7660984508efea0459d74832bae9d5914b5630e4c": {
+      "text": "04 — The typographical voice",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "0c5389eaba5d47d0197ef9a01e22b4778450b253177980c845f2aa465c86d8c7": {
+      "text": "04 — Graphic expression and presented pieces",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "8eb37a68062f8669ddcb0decd3fb8d2104d71aba97cd3343148ef65bd67045c9": {
+      "text": "04 — Mockup provided in the project's collection.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "1454a5a378f3c62d46c7210cd86b2d8a5685354f178ba4757badf30dd83ac183": {
+      "text": "04 — A consistent system of expression",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "0151a4f726b8fecbe90aff043e1e9987382d36c0b6b75a0a61a1780548ca49f5": {
+      "text": "04 — A language for presenting projects",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "65ab44a7c4bc161f929b513496bd52e7701880500823ee41e78dab43bbfce0dc": {
+      "text": "05 — Editorial design; architecture of the client's collection",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "40bb36c9b5dd67c41e5867cb50810a6b1e17ffdc9be67623fa6b86921762a4f3": {
+      "text": "05 — Expression in motion",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "7ee69891d0f8de4f93055f955d08e127d2c85d1beff12c5eb5ef53236d9c5c30": {
+      "text": "05 — System applied in mockups",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "6729ab8dd333f3cf50ed2e2a07812c82f7a85877bb2f1415cb343fc1836462c9": {
+      "text": "05 — Viewing the application on external media",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "569561f09128b1e65bb41a5edeafd6bd4747eee31eb85a5220e2a8163a5fc7b6": {
+      "text": "06 — Audiovisual study with Google Flow based on the original photograph",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "caaac7766962ec3fd805f6853e46d453a4b4e5eb5c641733541433109481f99f": {
+      "text": "06 — Rhythm and editorial continuity",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "335c2405ac4bbd2c7d34b2086e72a29e3bffcb88189fd2832011b93b694129af": {
+      "text": "06 — Viewing stock market application",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "39fee3fe56ceb0bf03eb5b26520668a90ba087039a9b75fb3cc54f35679d1613": {
+      "text": "07 — Audiovisual study with Google Flow",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "67da023bca8585b677c091db268e9252122698f176c7cc52787503e9dc6a8adf": {
+      "text": "07 — Visualization of application in clothing",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "7da24578555a4ee74aee0e146f660521ca6889bdafb79e64dc19710eace8aebd": {
+      "text": "08 — Audiovisual study with Google Flow",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "120c8ce72f1cb6192d69e3ba8667e2c9be4b060dd84110e02946407ff4efced4": {
+      "text": "404 / An open path",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "30acabc9a4491953ebdfc51b23247c09442d7c7ef4471ef179cdfe01c73cc85e": {
+      "text": "Amazonita has a texture and color that immediately draw attention. My job was to create a presentation for Granistone where the rock remained central, from the editorial design to the digital experience.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "5ad7831a897ced1a8dd496e155d788cd9f35e91aa7372de61adf37fb0561ea19": {
+      "text": "The signature uses Tenor Sans and the supporting text uses Nexa, as per the manual. Warm tones—from terracotta to orange—accompany dark and light neutrals. The symbol brings together ascending strokes in a compact composition.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "d266f24d23d026685344db9113fe3e7a0d1cf68a0111eb3f3c250b1e33ce2857": {
+      "text": "The signature style, color palette, and application guidelines create a consistent visual presence, showcased in examples of brand usage.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "46f4adbf75e9bb68cac20bec50f1f6536865c0c9c66df7a78735dc666b5f521d": {
+      "text": "Confirmation is taking some time. Your data is still here. You can wait, try again, or use direct email.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "9a50f725d9cd20d55a112a4d7fad1f1bc8af05d33036b661cfc9426a415b86d7": {
+      "text": "The force of nature. A fitting expression.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "24a4ff194e8aeb413c6378f1b06153b89c6c6ef4afa6f0f63afc1d3da92236d0": {
+      "text": "Amanda Araújo's brand identity seeks to convey trust and approachability in a financial consulting firm. This manual outlines the choices that underpin this image.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "f3be5f9ce2044427101231bf293cb24d178459f5eb85ecdcfa9424670ddecb5f": {
+      "text": "The identity brings together the manual, variations of the signature, and an editorial presentation that organizes the projects without competing for attention with the architecture.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "606b24de1138b4eef4ab73016745b3727408475dc2b0a2b21729f4478996eb86": {
+      "text": "Identity takes shape in combined applications. We review how it works and prepare the expected deliverables.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "c41d5d6dfc5e3597f81a511deddc9990690f3a012ae1767abedc79847305d4de": {
+      "text": "The language gained expression in motion graphics, editorial pieces, landing pages, and interface guidelines. In each format, Amazonita continues to be the protagonist.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "3a0d5b602a7074a944a83ff57ff8169ffdf07976e907c526c573d20f85bcb97d": {
+      "text": "Raw materials as the main focus.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "53f4d9302b4eda264976138c074a832bade08bc0b31252f35d51091ba43228d7": {
+      "text": "The neutral palette creates space for the raw material. Typographic hierarchy, buttons, and interface states establish continuity between touchpoints.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "7865477464b50056716cb7a13676af1839f456961dbd139f07c6d4964357b7e6": {
+      "text": "The translation of this page is not yet available.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "94c164403b5ba27da80229107911fca36c72130b0ccbd03c86a6cbe368cb06cc": {
+      "text": "Opens in a new tab.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "b52eb573c23792ba0f671e41ebff8164170d262b5f90bb0a3b63e5fbda35c695": {
+      "text": "To accept",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "a04af5fca94b22772d8ceef74f276991d4f015d7b3be351f41da4b7be4cee584": {
+      "text": "I agree to receive the texts by email and I have read the",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "c9ddf091dff043631cc6fa1ef873f1d670100f5ae901cf6297337e4d7f720e3b": {
+      "text": "Quick access",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "4ecb50de35a34c920efa8ca860ec274ce66c80eaa4190703d3c7d55e6e4ce7a8": {
+      "text": "Above R$10,000",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "d93aff2c6e415927707f9f9814f208443e80a0345829a9004eb29eb20c2c6c72": {
+      "text": "Advocacy",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "167cfa4b640f88664c2e4c4706e9fe9f7fa452307445571373e16fb00e9eeb08": {
+      "text": "Schedule a 20-minute conversation.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "c57ccaa004c328052e93e1f5a59de690bf4c918dafdb4bc48fd429940f365355": {
+      "text": "I'm still deciding.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "aa317fd9f4b4c3443e694555fe308748a9b4b2b5578a474b97105e0bc27ca2e2": {
+      "text": "I'm still not sure.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "56b852d8acb4ab4c6af69800aa2a5185a27a392c9752ae33c6a1c398348584ec": {
+      "text": "Something interrupted the reading.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "eb00040c83414e0b03f3be4b8c3721c210e0786580801297c8dcf4b83bd5cad7": {
+      "text": "Some things along the way",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "856ec46f770ef30d2e17d964762d7b085adb1a4a8c760b7dbe7e75802435030e": {
+      "text": "We aligned the visual direction and scope. Choices are discussed before moving forward, with rationales that make sense for the brand.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "507ceb86b41f8ce7692a2db744315bed670d5c074b48c802222ac8d21c1f372a": {
+      "text": "Amazonita / Art Direction",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "22efc2b4051bd372f6a9eaec1f635f784c9177d63adff3e2ef9f0e75425182e6": {
+      "text": "Amazonita / Art Direction · Digital · Editorial",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "7c58b770982fc190052f92eb224090444f098695d9f7da2ebba2ea8d8fcd856c": {
+      "text": "Amazonita / Digital Experience",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "d0ca32772b703f027840c6c862f8eb79f2b277d9b4ab6fb1d81f2138848bdb47": {
+      "text": "Amazonita: blue-green rock in a composition of art direction and digital design.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "827d1a2332b3596e83e22d2fed72000e99323169592bf2b8fc916ac11400b6d0": {
+      "text": "Year of the material",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "6b884705dbfdff6a746dcbd9bd9068a18bee6bd09d0e65e89c64319e542c6cc9": {
+      "text": "Before we begin.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "9404b02c8383368836de126e3bd98f189ff6fcfb5dc1b2a1313a8da0dfcff891": {
+      "text": "Before deciding what your brand will look like, we need to understand what it has to say.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "be40435aa6feaa3fa27e571cdad346d38d8b7e04f92f08212754ee980fa0e02b": {
+      "text": "Before thinking about colors, fonts, or references, I like to understand the problem. Who is the brand? Who does it want to communicate with? What needs to change? What already works?",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "cfd892b8fd66021fd61f3ce6e67f094f97d19050a23203134cadeba3f04cac25": {
+      "text": "Application of the Amazonita art direction in the opening of the digital experience.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "6db021e5d7f53400925a05a857b7f587dd4a9afc4267b5b55f9c2a286c612e0d": {
+      "text": "Applications of the brand presented in the Rooftop manual.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "fcd6bd86ff3ccb2b7e83df32b0455056f39f43685a9f70c660fcea2c3f7939f6": {
+      "text": "Suggested applications for the Eduardo Noronha brand on mugs, cards, and stationery.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "2d05c9321e415b69622bd6c44ac9a1ac65b0e454199a95039c1426cced425280": {
+      "text": "I learned that not every brand needs to look modern, minimalist, or follow the latest trends. Sometimes, the best decision is to do the exact opposite.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "01ecd648a9bf9f1b9f52ba7fb4de38066058f0cecaff1da0ec0354eab545f036": {
+      "text": "Storage and your rights",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "9402c02eac46cfe4462c514edfed511b8d410b884d5dbdd05f8c3f3ef3f05cbb": {
+      "text": "Architecture of the firm's collection.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "f840695f99c8eb01ff30408af247d924c43c49406bfbe345837af732b2d82976": {
+      "text": "The payment terms are presented in the proposal, along with the scope and stages of the project.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "09598d306b3af59981a372f11130705f0927630e5b39301b470cb2ae2584b755": {
+      "text": "Essential site preferences, such as theme, language, and your privacy settings, are saved in your browser and remain active at all times.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "68b65238f1fccea848be91d9d7245695f81951f714194b913bb1e454fd2f4fa3": {
+      "text": "Eduardo Noronha's signature in white on a deep blue background.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "ba101d61373a86b2ffee274f7ea3d95b901e2b38df6b82d342499466a131fc7c": {
+      "text": "Actual signature of Rooftop Arquitetura, cut out for the homepage design.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "001749b123ee0b02e2d9481d0365620a5e3c760073bf70ce2c45a988a9ba6a81": {
+      "text": "Visual signature and variations of the EN monogram",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "5e649b2e7d659808061cce64a75cc89242f31e1808edd0c5a9ba094678664e81": {
+      "text": "Visual identity · Graphic system · Color palette · Typography · Applications · Usage guidelines",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "da46debcb050365706a96127faf0086b4a473138eba3c52fe8a1224a041614eb": {
+      "text": "Signature, monogram, color palette, and typography form a clear whole, with applications that showcase the identity across various touchpoints.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
+    },
+    "7b54104e2531e756269f124bdffa07073e162554219331420a4ba8824a5668bc": {
+      "text": "Signature, symbol and color variations of Simetria Estética",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "date": "2026-10-27T17:42:47.067Z"
     }
   },
   "months": {
@@ -503,7 +943,7 @@
           "id": "977e47e5-c45e-4f87-8d16-9451258e8292",
           "characters": 4957,
           "date": "2026-10-27T17:42:44.729Z",
-          "status": "reserved",
+          "status": "received",
           "attempt": 1
         }
       ],
