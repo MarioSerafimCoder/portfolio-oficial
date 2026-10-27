@@ -35,7 +35,9 @@ for(const filename of fs.readdirSync(root).filter(name=>name.endsWith('.md')).so
   if(data.status==='published'&&!publishAt)throw Error(`Artigo publicado sem publish_at: ${filename}`);
   if(data.status!=='published'||Date.parse(publishAt)>Date.now())continue;
   if(data.cover && !String(data.cover).startsWith('/media/blog/'))throw Error(`Imagem de capa inválida: ${filename}`);
-  posts.push({slug,title:data.title,summary:data.summary,category:data.category,status:'published',date,publishAt,seo:{title:data.seo_title||undefined,description:data.seo_description||undefined},cover:data.cover?{src:data.cover,alt:data.cover_alt||data.title,width:1200,height:800}:undefined,content:blocksFrom(marked.lexer(content))});
+  const coverPosition=String(data.cover_position||'').trim();
+  if(coverPosition&&!/^(?:(?:left|center|right|\d{1,3}%)(?:\s+(?:top|center|bottom|\d{1,3}%))?|(?:top|center|bottom))$/.test(coverPosition))throw Error(`cover_position inválido: ${filename}`);
+  posts.push({slug,title:data.title,summary:data.summary,category:data.category,status:'published',date,publishAt,seo:{title:data.seo_title||undefined,description:data.seo_description||undefined},cover:data.cover?{src:data.cover,alt:data.cover_alt||data.title,width:1200,height:800,position:coverPosition||undefined}:undefined,content:blocksFrom(marked.lexer(content))});
 }
 fs.writeFileSync('src/content/journal-generated.json',JSON.stringify(posts,null,2)+'\n');
 console.log(`Posts publicados no build: ${posts.length}`);

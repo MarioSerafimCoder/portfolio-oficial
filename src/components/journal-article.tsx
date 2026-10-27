@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {journalHeadings} from '@/lib/journal-headings';
 import {readingMinutes, type JournalBlock, type JournalPost} from '@/content/journal';
-import {formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPostForLocale} from '@/content/journal-i18n';
+import {journalCategoryLabels, journalCopy, journalPostForLocale} from '@/content/journal-i18n';
 import {useJournalPreferences} from './journal-preferences';
 import {JournalShare} from './journal-share';
+import {JournalAuthorSignature} from './journal-author-signature';
 import {Newsletter} from './newsletter';
-import {site} from '@/content/site';
 import {ReadingProgress} from './reading-progress';
 
 function ArticleBlock({block, id, sourceLabel}: {block: JournalBlock; id?: string; sourceLabel: string}) {
@@ -35,18 +35,25 @@ export function JournalArticle({post, related, canonicalUrl, authorPhoto}: {post
       <div className="journal-post-meta"><span>{journalCategoryLabels[locale][post.category]}</span></div>
       <h1 lang={textLanguage}>{view.title}</h1>{view.summary && <p lang={textLanguage}>{view.summary}</p>}
       {locale === 'en' && !view.translated && <p className="journal-language-note">{copy.unavailable}</p>}
-      <div className="journal-post-byline"><span>{post.demo ? copy.demoAuthor : 'Mário Serafim'}</span><time dateTime={post.date}>{formatJournalDateLocale(post.date, locale, true)}</time><span>{copy.reading(readingMinutes({...post, content: view.content}))}</span></div>
+      <JournalAuthorSignature variant="compact" photo={authorPhoto} date={(post.publishAt || post.date).slice(0, 10)} readingTime={readingMinutes({...post, content: view.content})} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined} demo={post.demo}/>
     </div></header>{post.cover&&<figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={post.cover.alt} width={post.cover.width} height={post.cover.height} priority sizes="(max-width: 700px) 100vw, 1100px"/></figure>}<div className="journal-article-wrap section-wrap"><div className="journal-article-body">
-      {headings.length >= 3 && <nav className="journal-toc" aria-label={copy.tocLabel}><details><summary>{copy.toc} <span aria-hidden="true">⌄</span></summary><ol>{headings.map(heading => <li key={heading.id} className={heading.level === 3 ? 'journal-toc-sub' : undefined}><a href={`#${heading.id}`} lang={textLanguage}>{heading.text}</a></li>)}</ol></details></nav>}
       <div className="journal-article-content" lang={textLanguage}>{view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>)}</div>
       {post.sources && post.sources.length > 0 && <section className="journal-sources" aria-labelledby="journal-sources-title"><h2 id="journal-sources-title">{copy.references}</h2><ul>{post.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul></section>}
-      <JournalShare url={post.status === 'published' && !post.demo ? canonicalUrl : undefined}/>
-      <aside className="journal-author" aria-label={locale==='en'?'About the author':'Sobre o autor'}>{authorPhoto&&<Image src={authorPhoto} alt="Retrato de Mário Serafim" width={72} height={72}/>}<div><strong>{site.name}</strong><p>{copy.authorBio}</p></div></aside>
+      <JournalShare variant="end" url={post.status === 'published' && !post.demo ? canonicalUrl : undefined}/>
+      <JournalAuthorSignature variant="expanded" photo={authorPhoto} demo={post.demo}/>
     </div></div></article>
     {related.length ? <nav className="journal-post-next section-wrap" aria-label={copy.relatedLabel}><h2>{copy.related}</h2><div className="journal-related">{related.map(item => {
       const suggestion = journalPostForLocale(item, locale);
-      return <Link key={item.slug} href={`/blog/${item.slug}`}><span>{journalCategoryLabels[locale][item.category]}</span><strong lang={suggestion.translated ? undefined : 'pt-BR'}>{suggestion.title}</strong><small lang={suggestion.translated ? undefined : 'pt-BR'}>{suggestion.summary}</small><span aria-hidden="true">{copy.readArticle}</span></Link>;
+      return <Link className="journal-related-card" key={item.slug} href={`/blog/${item.slug}`}>
+        <span className="journal-related-image">
+          {item.cover ? <Image src={item.cover.src} alt={item.cover.alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 48vw, 620px" style={{objectPosition: item.cover.position || 'center'}}/> : <span className="journal-related-cover-fallback" aria-hidden="true"><small>PAUSA DO CAFÉ</small><span>{journalCategoryLabels[locale][item.category]}</span><strong>{suggestion.title}</strong></span>}
+        </span>
+        <span className="journal-related-category">{journalCategoryLabels[locale][item.category]}</span>
+        <h3 lang={suggestion.translated ? undefined : 'pt-BR'}>{suggestion.title}</h3>
+        <span className="journal-related-summary" lang={suggestion.translated ? undefined : 'pt-BR'}>{suggestion.summary}</span>
+        <span className="journal-related-meta"><span>{copy.reading(readingMinutes({...item, content: suggestion.content}))}</span><span className="journal-related-arrow" aria-hidden="true">↗</span></span>
+      </Link>;
     })}</div></nav> : <nav className="journal-post-next journal-post-next-empty section-wrap" aria-label={copy.backFull}><Link href="/blog">{copy.backFull}</Link></nav>}
-    <Newsletter/>
+    <Newsletter variant="article"/>
   </main>;
 }

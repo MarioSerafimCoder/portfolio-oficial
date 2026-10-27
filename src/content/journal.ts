@@ -23,7 +23,7 @@ export type JournalPost = {
   updatedAt?: string; // YYYY-MM-DD; somente quando o artigo tiver sido atualizado.
   publishAt?: string; // Horário absoluto gerado de publish_at em America/Fortaleza.
   status: 'draft' | 'published'; content: JournalBlock[];
-  cover?: {src: string; alt: string; width: number; height: number};
+  cover?: {src: string; alt: string; width: number; height: number; position?: string};
   demo?: boolean; // Exemplo visível em Pausa do café, rotulado como teste e excluído da indexação.
   sources?: {label: string; url: string}[];
   seo?: {title?: string; description?: string};

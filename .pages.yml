@@ -75,6 +75,10 @@ content:
         label: Texto alternativo da capa
         type: string
 
+      - name: cover_position
+        label: Enquadramento da capa (ex.: 50% 35%)
+        type: string
+
       - name: seo_title
         label: Título para SEO
         type: string
