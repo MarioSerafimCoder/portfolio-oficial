@@ -1,1 +1,514 @@
-{"schemaVersion":1,"documents":{},"memory":{},"months":{},"failures":[]}
+{
+  "schemaVersion": 1,
+  "documents": {},
+  "memory": {
+    "8f1d990122121d79ba3e444dcc267c67a9e8886fa8bbcdedd3bcae6a96e5d19b": {
+      "text": "Aa",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "16e08a815e8e3a92da360eebea2cfbf6deeb79b30e0844c98fd3f4503ac07566": {
+      "text": "About",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "b4f235006fa16a2be6861e3b5d12d8b7efbe9e916e1b596a07a1649ed1e0ea80": {
+      "text": "Amanda Araújo",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "c3c9de63e8dab4c129ecb31aac11426b457995f82f8e6226c961d9eb93caa02f": {
+      "text": "Amazonita",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "4e7a31451e4054d5569757723da9c9b873115c21ca1555acf42b2b21aea7cd2a": {
+      "text": "Architecture",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "c63f3067820723a5d2429b73fe3e5a7abcd587712d3ce34fe8947b3a1cb4200e": {
+      "text": "Branding",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "d3c71fe607361938bfe3cda86080bf059ba039320e04d6c136db1288f5f3d306": {
+      "text": "Visual identity checklist:",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "9730094ffb42e1fea7e418f47f0e9e2ced8f7de636ac63cbaf2894f3a6069634": {
+      "text": "Contact",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "35fbd37fc290c6e2de665431dad1afc2f14d024fbb48b291f4b9b66cb4afa827": {
+      "text": "Contact",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "5404123f901638165ebd9778e39998f4ab120fe69b653d9a9c5a6465b5d6ca7e": {
+      "text": "Continue",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "6f343e69db27827664d4de3dcd50cb057a14a220c2c313daad75a6d7a026f387": {
+      "text": "Email",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "64afe8f06ac32a47460b40f9620ea43c5671f06dada4f04a88db46d9dd412599": {
+      "text": "EN",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "f56a50a0c7dec629091164b0fe0a3f20fdc62d564c1540434355b33963b998ed": {
+      "text": "Eduardo Noronha",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "3bf2ccf7e23776c221df1491275e69aa5629aadd0cb2c1f2635f9da83b027613": {
+      "text": "Email Mário Serafim",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "6bbd7766007930a083f0af0426c9163f02abc13b6f80b8c84b94c35659017355": {
+      "text": "This page",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "c33a83268e45cf1b85faf58a7d97b41a5f95f002d53f0e4f656288133f546159": {
+      "text": "Aesthetics",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "e3931d0aee4b60ece365e5146cc981f546529ab2f54dee267267700e8c8c4484": {
+      "text": "Gallery",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "3699048cde233c210312379b152a3271227a6e1a78c4846faedf80fa2eb2a7e2": {
+      "text": "I like to understand",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "8a070f8397da0adcf97a42e8aa4a123ce6213eed7aab1b9e844375b00922709d": {
+      "text": "I like to understand those things before thinking about colours, typefaces or references. Not because there's some foolproof formula, but because creating without understanding the problem usually takes the long way round.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "d52b07aed818f8dfac55860a8b03197590b253d1d169a88ea998ef2de33d65e9": {
+      "text": "I like experimenting, testing possibilities and questioning my own choices. The first solution isn't always the best one. And that's fine.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "034d8ccd5bc8cf5749a0fa2f96953b306cad7217eb710b592e418db27c5a50c1": {
+      "text": "Identity",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "2801ad3d767db5af70e77e5cb83beb55a77891600cc1a2da8f97b7fd44910aa4": {
+      "text": "Marketing",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "0b446a9a5665af1a08aa87d5b59264bf554169accd510ccbabc9a569052eeb24": {
+      "text": "Tell me what you",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "54560fcc8576085fafc473778fd28ca4c54951bce89ddc2581b3f4d213186b26": {
+      "text": "Menu",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "d18b23f7cd699a9847eec0b9ad319bc140124b22b542f86783c6b3d37d5cf94e": {
+      "text": "How I got",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "06610bde926aa522ab5f3993e2846ad4f8803f6350117eb3baf157a3cb5070fd": {
+      "text": "MÁRIO SERAFIM",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "13c75b06bff65a13a3929b046c8a164868eb6941ecef2306d71124998f70b50c": {
+      "text": "Mário",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "24e74c4bd29a0d9f2ded1d6e4cff8c51979346421cae8243dea5e02d5402e658": {
+      "text": "Mário Serafim",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "b5a28e84491010891cca950cbce75b62db7343b1c602079451b3864fd47dec92": {
+      "text": "Not everything needs",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "6d1639e5fc3933291fae21678d1b6e67d6687b5cda4e69c1a62c2f980fdf6607": {
+      "text": "Newsletter",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "27ec565c78bd4ca1377dcfd28f3a944fc2ee0790d08190ba1ac896febd246d64": {
+      "text": "Name",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "1c65a8df9c8354ed430e80a16d495fba2de1e91746270a56d92cb0e1b60f1bd7": {
+      "text": "I don't start with",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "287954d38a4b904366ec123d5755b9a159b011e3741e19ffd68d1debc6ce643c": {
+      "text": "There's no single",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "417a60b721b92665c51919b5f1b9c6c22258165f20914a27f2b469ccca5dc3ba": {
+      "text": "The rest is",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "c2de1c038fb0500870ade933ed906f7e426c51d503f13d37860a42660198c2db": {
+      "text": "PAUSA DO CAFÉ",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "e5bfb899a843d1c327742a7ebb5652f9cedc1de130f9e4a9596ad3a7840183ba": {
+      "text": "PT",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "558ec0ea76d2f57efc6dee611af3da50daf0d37a7f6f31d2b3da0509f562ec94": {
+      "text": "Pausa do",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "0626e1e498c37af1db15f254726a909fc411cadebc743bfd5c5bbf93d8f540c8": {
+      "text": "Pausa do café",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "2b5aa45aecf3657a4d64c9bfdb88abedbae38887fecf91aa71efb4dc8908855c": {
+      "text": "Pausa do café tools",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "28a27c03a6f4d5425f7a4b2e955908821f3b9c725373bac14ed0d80859f9a69e": {
+      "text": "Pausa do café ↗",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "05ecf3d716ab86ad4c1cdf556e27cc7fdfe55736122fac2d738fd7531472e677": {
+      "text": "Photoshop.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "1a07f08244450c22915537d23d3f509ab0a19e849fea73eadc69f8c0a580e9ac": {
+      "text": "It might sound obvious, but those questions don't always get the attention they deserve.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "df78938d5f9cd66c6c14565bd889e136bdaf6971c19c28f08ac96e5c8e0bad43": {
+      "text": "Portrait of Mário Serafim",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "215c9e46eac40898201e383ac336bf9d67cc2723ed70a078976ed49be7d2951d": {
+      "text": "Privacy",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "8bc60d9bfb18a885f91ac412b0e98e3f41a2ddc7fddfe02025980069a15210cb": {
+      "text": "Projects",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "4c6f6e996a3deeb59340a385002106c715ed29938ee4f2519a6570085f70f625": {
+      "text": "Projects",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "3037bbb94a8d3716ea74644f8e6ee5532ae117aa2569aca5fad32b996874e7a1": {
+      "text": "Rooftop",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "2d708e64aae647896b0bd5215acf74edc12f200846e27c603c6e1f535c0a01f4": {
+      "text": "Rooftop Arquitetura",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "45a4fb88d6dd5cae6d8d06582488c2b2c82f49d0c1ccf0639af92742b3848131": {
+      "text": "Serafim",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "7048d072037d6767da24e88c4527ccd91f9ec448cc6cd184b351d6712d2e7deb": {
+      "text": "Simetria",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "389c19679e9aef819ac9dc856e353107baceafc86d3640b857357baf9f875630": {
+      "text": "Simetria Estética",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "80a92b64678995d1c51950f719489c39a5c4c067cace6b7121c8481404358ef0": {
+      "text": "About",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "8b25b7fb3aa4d9b7c5903e16ae7bfbdb8dd92936a04911345e5ed4cc35e9bdb1": {
+      "text": "I'm Mário Serafim, an art director. I help businesses build visual identities that better reflect what they do, with personality, clarity and no ready-made formulas.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "f3e2e9a2621636614ba35069008d3f6c80304ecc8eeb88490a67450307071714": {
+      "text": "Every brand has a",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "c0d04fc5341cc84d6198f7abdd5a42c4192d806a146b169638195d2b537e4736": {
+      "text": "All",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "92ec19b048fb11a4c2a7c2c70b673ee4b55f4e39aec41b120fdbf7ddd5fc1f39": {
+      "text": "A good identity goes",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "4a57b725e48bc6d8d64f68fb957c6511d6653e595f76ed11961af8c23f63bce6": {
+      "text": "A conversation",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "9f46ede3ad0eb48e6b2f527bb204579b6970c4ec89220595d0c346bf31914f09": {
+      "text": "An idea gains strength",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "3ee87030b2f7d7a7d5580e14f091695686d40cc3067ebfab74c738b1fec6dda8": {
+      "text": "Let's try",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "b52f926cf58dfb455afbfe470a4588d9b93387ba087687ffd580d9806147ab17": {
+      "text": "WhatsApp",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "7f0f4d2b2e0a4bd5acc109b22c4af8515c10779d2a36203013fc1d331d4d5747": {
+      "text": "before I",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "5a3a059d31a14e4d687a91ff3704eaa3c6934e534fea43e210a310f76417becf": {
+      "text": "here.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "09386d56c0e0241556a9f5e563529a561af2629e34c67a24df6fb0230002fe8d": {
+      "text": "café",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "bb6e123038e6abd1e92f75e3bce89b60ac0066dab80f8d2d968c39aeca7b32f9": {
+      "text": "with",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "02a0506c61ad0190c0b4abb8d64c9114ec111fc50fa208a2b4bdd07347a21fbc": {
+      "text": "design.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "9d7de87fc3470ee698f3dee8ce944cb234a3e552f8a3820eba107b6a48bb74f6": {
+      "text": "aesthetic",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "23d61faf0a513693dd116d3a1cfc3be6df0b1d48a3af84d7e02088aeb3ed1530": {
+      "text": "expression.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "261ba2cfbbb56f94d67fff3a539d8aedd9c944fe10618e2037246efbc97e77ac": {
+      "text": "lost its way.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "09f35f7fd203ba16c3bda1dac469f223c36726f05962cff4ef599e468ffce82b": {
+      "text": "once more.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "a116cd5e14a3074eb380750f0c4de51cf82101993b516a848fa94857fcf0dca4": {
+      "text": "well beyond the logo.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "4e380239b3f9971beb2ee9a2ad03ef07c2b4b3b5250834d667bd4e674a6069ce": {
+      "text": "in the projects.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "f767fef148644f123b51c792da9c1c4faa6a72677e29b1f8d8cceead89fe07cd": {
+      "text": "optional",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "50b4369a85a17ee2b542dd25eb928b247c223507773d301415620b8ee906ef11": {
+      "text": "perception.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "46e5b0a1bf95d77ed549dfc4edd3097092d5bb4c6b5ebf518a441b1a9251f0eb": {
+      "text": "next chapter.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "9acca83b8e8911d103d5a65b8e4ba30bbae3873771ff4915a135392c2d0c207d": {
+      "text": "when it finds",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "87a5e93e95705bf3ba93628b93a2b138c548ea50f9a5226de2b1b77a3b96edab": {
+      "text": "that works for everyone.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "cc25790b28b58e12cafe8d87c6ad78ef27807f185ffe8597679e1333a520ef3d": {
+      "text": "respect.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "96925d9a573e8d84bee8b5482609b04ddcd706d7ef30ddd44a29b7866869ba9b": {
+      "text": "is your brand ready?",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "bcb372f57ce88da037a978891caed9b61d306b47dd592c8aaa36668c9a823b27": {
+      "text": "have in mind.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "b7999ff053d121a6a284dad9a7cd8685c4b3ab76f8346bc5c9610e3c321ac48d": {
+      "text": "a timeline.",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "66e15526cbee1abe4bd663f0bb29508d21127114d74cc1a3944d4aef5de21e7d": {
+      "text": "Index",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    },
+    "1ce3d66f92d70bf469cab43406e254ac5f77fb1abf1e332491c604e2c1f2fc95": {
+      "text": "is",
+      "engine": "google-basic-v2:nmt:pt-en:text:ast-v1",
+      "reviewed": true,
+      "provenance": "manual-editorial-v1"
+    }
+  },
+  "months": {
+    "2026-10": {
+      "used": 4957,
+      "requests": [
+        {
+          "id": "977e47e5-c45e-4f87-8d16-9451258e8292",
+          "characters": 4957,
+          "date": "2026-10-27T17:42:44.729Z",
+          "status": "reserved",
+          "attempt": 1
+        }
+      ],
+      "alerted": []
+    }
+  },
+  "failures": []
+}
