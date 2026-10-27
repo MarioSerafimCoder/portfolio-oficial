@@ -5,7 +5,7 @@ export const site = {
   instagram: 'https://www.instagram.com/marioserafims/',
   behance: 'https://www.behance.net/mario-serafim',
   whatsapp: '5585981866552',
-  authorPhoto: '/media/mario-serafim.webp', // Só aparece quando o arquivo for incluído.
+  authorPhoto: '/media/mario-serafim.webp',
   bookingUrl: '', // TODO(Mário): informar o link da agenda para ativar o botão.
   responseBusinessDays: null as number | null, // TODO(Mário): definir prazo real de resposta.
   investmentRanges: [

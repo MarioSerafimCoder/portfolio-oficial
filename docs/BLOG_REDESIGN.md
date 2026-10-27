@@ -2,7 +2,7 @@
 
 ## Entrega
 
-- Assinatura compacta sob o resumo, com data, tempo de leitura e botão de compartilhamento. Não há retrato no acervo; o componente usa um monograma tipográfico até uma fotografia real ser adicionada.
+- Assinatura compacta sob o resumo, com retrato real do autor, data, tempo de leitura e botão de compartilhamento. O retrato também aparece na assinatura expandida ao fim dos artigos publicados; o artigo demonstrativo mantém seu avatar próprio para continuar identificado como amostra.
 - Assinatura expandida no fim do artigo, com biografia e links para o portfólio e o LinkedIn.
 - Índice obrigatório removido. H2 e H3 continuam com IDs gerados a partir dos títulos.
 - Cards relacionados em duas colunas no desktop e empilhados no celular, com capa, categoria, título, resumo, tempo de leitura e seta. O CMS agora aceita `cover_position` para ajustar o recorte; artigos sem capa recebem um fallback tipográfico.
