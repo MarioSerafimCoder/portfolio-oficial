@@ -97,12 +97,12 @@
 .quiet-disclosures details[data-expanding=false] summary>span:last-child{transform:rotate(0)}
 .quiet-disclosures details[data-expanding=true] summary>span:last-child{transform:rotate(45deg)}
 .quiet-disclosures details p{animation:none}
-.home-atmosphere{--paper:#202824;--surface:#28322d;--ink:#f7f5ee;--muted:#bec8c1;--rule:#4d5b53;--control:#81958a;--accent:#ff7278;--accent-text:#ff9297;--focus:#ff9297;--error:#ff9297;background:var(--paper);color:var(--ink);position:relative;isolation:isolate;overflow:clip;padding-top:100px}
+.home-atmosphere{background:var(--surface);color:var(--ink);position:relative;isolation:isolate;overflow:clip;padding-top:100px}
 .home-atmosphere .footer-conversion{position:relative;gap:7vw}
 .home-atmosphere .contact-invitation{position:relative;isolation:isolate;min-width:0;padding-top:30px}
 .closing-ribbon{position:absolute;width:140%;height:430px;left:-27%;top:-20px;z-index:-1;fill:none;stroke:var(--accent);stroke-width:14;opacity:.12;transform:rotate(-12deg);pointer-events:none}
 .home-atmosphere .contact-invitation h2{font-size:clamp(52px,5.7vw,84px);max-width:650px}
-.home-atmosphere .contact-invitation h2 em{color:var(--accent-text)}
+.home-atmosphere .contact-invitation h2 em{color:var(--accent)}
 .home-atmosphere .contact-form{position:relative;z-index:2;background:var(--paper)}
 .home-atmosphere .footer-base>.wordmark{font-family:var(--font-serif);font-size:clamp(45px,8vw,120px);font-weight:400;letter-spacing:-.05em;text-transform:none}
 .home-atmosphere .project-option input:checked+span{color:var(--paper);background:var(--ink)}

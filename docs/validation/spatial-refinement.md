@@ -2,7 +2,7 @@
 
 ## Resultado visual
 
-A fita vermelha agora participa de uma composição maior, com tipografia em planos diferentes, material acetinado e curvas discretas que continuam até os projetos. Amazonita, Rooftop, Simetria e os projetos de encerramento recebem tratamentos distintos. Serviços respondem à seleção, o processo ganhou um percurso e o contato encerra a página em uma atmosfera verde profunda, retomando a curva da abertura.
+A fita vermelha agora participa de uma composição maior, com tipografia em planos diferentes, material acetinado e curvas discretas que continuam até os projetos. Amazonita, Rooftop, Simetria e os projetos de encerramento recebem tratamentos distintos. Serviços respondem à seleção, o processo ganhou um percurso e o contato encerra a página sobre a superfície neutra do tema, com o vermelho da identidade retomando a curva da abertura.
 
 Não foram adicionadas dependências. A implementação usa Three.js, GSAP/ScrollTrigger, SVG, CSS e Web Animations API já disponíveis no navegador. O scroll continua nativo, sem pinning. Não houve geração paga, envio de assets privados para ferramentas externas ou criação de versões fictícias dos projetos.
 
@@ -30,7 +30,7 @@ Não foram adicionadas dependências. A implementação usa Three.js, GSAP/Scrol
 | Serviços | Seleção expande a descrição e troca uma prévia. No celular, a prévia fica dentro do item aberto | A prévia de Identidade visual agora é um estudo tipográfico próprio, sem repetir Rooftop ou sugerir um case de cliente; Branding mantém composição vetorial e Direção de arte/Digital usam Amazonita |
 | Processo | Linha conecta Entender, Definir e Construir e o scroll destaca uma etapa | Todos os textos permanecem visíveis. Três colunas no desktop e sequência vertical compacta no celular |
 | FAQ | Altura e ícone acompanham abertura/fechamento; perguntas seguintes se reposicionam | Área de leitura tranquila, sem entrada decorativa em cada pergunta |
-| Contato e rodapé | Mudança de atmosfera, tipografia maior e fragmento vetorial da linguagem da fita | Formulário em superfície estável, sem canvas ou renderização pesada por trás |
+| Contato e rodapé | Superfície neutra do tema, acento vermelho, tipografia maior e fragmento vetorial da linguagem da fita | Formulário em superfície estável, sem canvas ou renderização pesada por trás |
 | Header/menu | Compactação preservada, fundo refinado e transição suave das prévias; Rooftop usa a capa nova | Destinos, Escape e retorno de foco preservados |
 
 Com movimento reduzido, as timelines de scroll são dispensadas, as descrições usam o comportamento nativo e o hero conserva a escultura estática. Textos e CTAs permanecem disponíveis.
@@ -41,6 +41,7 @@ Com movimento reduzido, as timelines de scroll são dispensadas, as descrições
 - Escala e enquadramento mudam por breakpoint. A página foi inspecionada em 390 × 844, 768 × 1024, 1366 × 768 e 1440 × 900, em viewport emulada.
 - O WhatsApp flutuante deixa de aparecer no celular. Os links de contato continuam no hero e no rodapé. Em desktop, a regra também considera hero, Amazonita, FAQ, formulário e banner de consentimento.
 - A prévia de Rooftop foi removida de Serviços; Identidade visual agora mostra um estudo tipográfico conceitual, enquanto Rooftop permanece na seção de projetos.
+- O verde fora da paleta no encerramento foi substituído pelos neutros vinculados ao tema e pelo vermelho principal da identidade.
 - A capa `rooftop-home.webp` foi criada por recorte do asset real existente com Sharp; o case mantém as páginas completas. Variantes responsivas são geradas pelo script de imagens já existente.
 - `perception-curves.svg`, gesto da palavra “estética”, composição de Branding e fragmento de encerramento foram construídos em SVG/CSS. Não foi necessário vídeo opcional nem ferramenta generativa.
 
