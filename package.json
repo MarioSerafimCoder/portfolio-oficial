@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/build-images.mjs && next dev --hostname 127.0.0.1",
-    "build": "node scripts/i18n-sync.mjs && node scripts/build-posts.mjs && node scripts/build-images.mjs && next build",
+    "build": "node scripts/i18n-sync.mjs && node scripts/build-posts.mjs && node scripts/build-images.mjs && next build && node scripts/validate-export.mjs",
     "i18n:sync": "node scripts/i18n-sync.mjs",
     "i18n:review": "node scripts/i18n-review.mjs",
     "i18n:extract": "node scripts/i18n/extract.mjs",
