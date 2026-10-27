@@ -38,7 +38,7 @@ export function Header(){
     motion.current=createSpring(value=>{if(dialog.current){dialog.current.style.setProperty('--menu-progress',String(value));dialog.current.style.opacity=String(value);dialog.current.style.transform=`translateY(${(1-value)*-12}px)`}});
     const preference=matchMedia('(prefers-reduced-motion: reduce)');
     const settle=()=>{if(preference.matches)motion.current?.to(destination.current,true,destination.current===0?finishClose:undefined)};
-    const keyboard=()=>motion.current?.to(destination.current,true,destination.current===0?finishClose:undefined);
+    const keyboard=()=>{if(dialog.current?.open)motion.current?.to(destination.current,true,destination.current===0?finishClose:undefined)};
     preference.addEventListener('change',settle);document.addEventListener('keydown',keyboard);
     return()=>{motion.current?.stop();preference.removeEventListener('change',settle);document.removeEventListener('keydown',keyboard)};
   },[]);
