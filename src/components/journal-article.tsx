@@ -40,7 +40,6 @@ export function JournalArticle({post, related, canonicalUrl, authorPhoto}: {post
       <div className="journal-article-content" lang={textLanguage}>{view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>)}</div>
       {post.sources && post.sources.length > 0 && <section className="journal-sources" aria-labelledby="journal-sources-title"><h2 id="journal-sources-title">{copy.references}</h2><ul>{post.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul></section>}
       <JournalShare variant="end" url={post.status === 'published' && !post.demo ? canonicalUrl : undefined}/>
-      <JournalAuthorSignature variant="expanded" photo={authorPhoto} demo={post.demo}/>
     </div></div></article>
     {related.length ? <nav className="journal-post-next section-wrap" aria-label={copy.relatedLabel}><h2>{copy.related}</h2><div className="journal-related">{related.map(item => {
       const suggestion = journalPostForLocale(item, locale);
