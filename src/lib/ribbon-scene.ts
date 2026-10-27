@@ -57,12 +57,12 @@ export function createRibbonScene(host: HTMLElement, hero: HTMLElement) {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(36, 1, .1, 30); camera.position.z = 7.2;
   const geometry = ribbonGeometry(mobile ? 128 : 200);
-  const material = new THREE.MeshStandardMaterial({color: 0xd70918, metalness: .25, roughness: .34, side: THREE.DoubleSide});
+  const material = new THREE.MeshStandardMaterial({color: 0xd70918, metalness: .12, roughness: .61, side: THREE.DoubleSide});
   const ribbon = new THREE.Mesh(geometry, material); scene.add(ribbon);
-  scene.add(new THREE.HemisphereLight(0xfff5ed, 0x42121b, 2.7));
-  const key = new THREE.DirectionalLight(0xfff7f0, 4.2); key.position.set(-3, 4, 5); scene.add(key);
-  const fill = new THREE.DirectionalLight(0xffa7a2, 1.5); fill.position.set(4, -1, 2); scene.add(fill);
-  const rim = new THREE.DirectionalLight(0xffffff, 3); rim.position.set(1, 3, -4); scene.add(rim);
+  scene.add(new THREE.HemisphereLight(0xfff5ed, 0x42121b, 3.1));
+  const key = new THREE.DirectionalLight(0xfff7f0, 3.4); key.position.set(-3, 4, 5); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xffa7a2, 1.8); fill.position.set(4, -1, 2); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffe4d8, 2.2); rim.position.set(1, 3, -4); scene.add(rim);
   let visible = false, lost = false, disposed = false, compiled = false, frame = 0, last = 0;
   let progress = 0, x = 0, y = 0, tx = 0, ty = 0, currentProgress = 0;
   function stop() {cancelAnimationFrame(frame); frame = 0;}

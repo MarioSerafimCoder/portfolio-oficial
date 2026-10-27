@@ -11,11 +11,12 @@ import './spatial.css';
 import './reveals.css';
 import './editorial.css';
 import './perception.css';
+import './scenography.css';
 import {ChapterReveals} from '@/components/chapter-reveals';
 import {SpatialMotion} from '@/components/spatial-motion';
 import {AnalyticsProvider} from '@/components/analytics-provider';
 const serif=localFont({src:[{path:'../../public/fonts/instrument-serif-regular.woff2',weight:'400',style:'normal'},{path:'../../public/fonts/instrument-serif-italic.woff2',weight:'400',style:'italic'}],variable:'--font-serif',display:'swap'});
-const sans=localFont({src:[{path:'../../public/fonts/dm-sans-regular.woff2',weight:'400',style:'normal'},{path:'../../public/fonts/dm-sans-medium.woff2',weight:'500',style:'normal'},{path:'../../public/fonts/dm-sans-semibold.woff2',weight:'600',style:'normal'}],variable:'--font-sans',display:'swap'});
+const sans=localFont({src:[{path:'../../public/fonts/dm-sans-regular.woff2',weight:'400',style:'normal'},{path:'../../public/fonts/dm-sans-medium.woff2',weight:'500',style:'normal'},{path:'../../public/fonts/dm-sans-semibold.woff2',weight:'600',style:'normal'}],variable:'--font-sans',display:'swap',preload:false});
 const configuredUrl=process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br';
 export const metadata:Metadata={
  metadataBase:new URL(configuredUrl||'http://localhost:3000'),

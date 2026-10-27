@@ -69,14 +69,11 @@ export function PerceptionHero({children}: {children: ReactNode}) {
         end:'top 30%', scrub:perceptionMotion.scrub, invalidateOnRefresh:true,
       }});
       timeline.to(progress.current,{value:1, onUpdate:() => scene.current?.progress(progress.current.value), duration:1},0)
-        .to('.perception-heading',{y:desktop ? -62 : -20, duration:.7},0)
-        .to('.ribbon-composition',{y:desktop ? 115 : 35, rotation:desktop ? 8 : 3, duration:1},0);
-      if (first) timeline.fromTo(first,{scale:desktop ? .91 : .97},{scale:1,duration:.55},.45);
-      if (window.scrollY < 80) {
-        gsap.timeline({defaults:{ease:'power3.out'}})
-          .from('[data-perception-line]',{y:20,opacity:.75,duration:.65,stagger:.09,clearProps:'transform,opacity'},0)
-          .from('.perception-label,.perception-support',{y:9,opacity:.7,duration:.6,clearProps:'transform,opacity'},.12);
-      }
+        .to('.perception-line',{y:desktop ? -62 : -20, duration:.7},0)
+        .to('.ribbon-composition',{xPercent:desktop ? 7 : 2, y:desktop ? 100 : 18, rotation:desktop ? 12 : 4, duration:1},0);
+      if (first) timeline.fromTo(first,{scale:desktop ? .94 : .985},{scale:1,duration:.55},.45);
+      // Typography and useful controls paint immediately. Only the sculpture
+      // crossfades when ready; the scroll timeline takes over after the first fold.
     });
     return () => media.revert();
   }, {scope:root});

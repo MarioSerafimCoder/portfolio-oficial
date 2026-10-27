@@ -1,0 +1,101 @@
+{
+  "note": "Single-run Lighthouse lab samples. Baseline from the prior production release; local iterations from the gzip static preview. Origin and infrastructure differ. Final published measurements will be added after deployment. TBT is not INP. Reduced-motion sample predates the sans font preload optimization.",
+  "reports": [
+    {
+      "name": "spatial-before-desktop",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T11:30:18.030Z",
+      "performance": 0.99,
+      "accessibility": 1,
+      "lcpMs": 801.8585000000003,
+      "cls": 0,
+      "tbtMs": 8,
+      "transferBytes": 818623
+    },
+    {
+      "name": "spatial-before-mobile",
+      "url": "https://marioserafim.com.br/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T11:38:25.809Z",
+      "performance": 0.87,
+      "accessibility": 1,
+      "lcpMs": 3302.689,
+      "cls": 0,
+      "tbtMs": 236.5,
+      "transferBytes": 682276
+    },
+    {
+      "name": "spatial-after-desktop",
+      "url": "http://127.0.0.1:3003/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T11:42:04.000Z",
+      "performance": 0.97,
+      "accessibility": 1,
+      "lcpMs": 1193.164275,
+      "cls": 0,
+      "tbtMs": 70.5,
+      "transferBytes": 792662
+    },
+    {
+      "name": "spatial-after-mobile",
+      "url": "http://127.0.0.1:3003/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T11:43:12.729Z",
+      "performance": 0.83,
+      "accessibility": 1,
+      "lcpMs": 4264.697900000001,
+      "cls": 0,
+      "tbtMs": 88.50000000000091,
+      "transferBytes": 654341
+    },
+    {
+      "name": "spatial-final-mobile",
+      "url": "http://127.0.0.1:3003/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T11:46:22.175Z",
+      "performance": 0.86,
+      "accessibility": 1,
+      "lcpMs": 4229.265074999998,
+      "cls": 0,
+      "tbtMs": 59,
+      "transferBytes": 654253
+    },
+    {
+      "name": "spatial-fonts-mobile",
+      "url": "http://127.0.0.1:3003/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T11:51:14.521Z",
+      "performance": 0.86,
+      "accessibility": 1,
+      "lcpMs": 4006.4444999999996,
+      "cls": 0,
+      "tbtMs": 44.5,
+      "transferBytes": 634289
+    },
+    {
+      "name": "spatial-final-desktop",
+      "url": "http://127.0.0.1:3003/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T11:55:10.461Z",
+      "performance": 1,
+      "accessibility": 1,
+      "lcpMs": 692.484525,
+      "cls": 0,
+      "tbtMs": 58,
+      "transferBytes": 772655
+    },
+    {
+      "name": "spatial-reduced-motion",
+      "url": "http://127.0.0.1:3003/",
+      "version": "13.5.0",
+      "fetchTime": "2026-10-27T11:48:22.819Z",
+      "performance": 1,
+      "accessibility": 1,
+      "lcpMs": 765.1858,
+      "cls": 0,
+      "tbtMs": 0.5000000000000568,
+      "transferBytes": 658994
+    }
+  ]
+}

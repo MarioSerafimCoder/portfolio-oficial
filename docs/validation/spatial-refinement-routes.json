@@ -1,0 +1,3200 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/sobre",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/blog",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/blog/exemplo-de-leitura",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/blog/feed.xml",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/feed.xml",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/contato",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/privacidade",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/materiais",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/amazonita",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/rooftop",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/simetria",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/eduardo-noronha",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/projetos/amanda-araujo",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/opengraph-image",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-caneca.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-couro.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-cover.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-1.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-11.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-12.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-4.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-6.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amanda-manual-9.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-cover.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-editorial-1.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-motion.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-poster.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-system.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-video-poster.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/amazonita-web.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-cover.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-1.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-12.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-13.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-14.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-15.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-6.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-8.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/eduardo-manual-9.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/perception-curves.svg",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/perception-ribbon.svg",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-01.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-02.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-03.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-cover.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-home.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-1.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-10.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-12.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-14.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-4.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-6.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-7.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-8.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/rooftop-manual-9.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/applications.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/cover.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/environment.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/graphics.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/mark.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/outdoor.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/palette.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/portrait.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/shirt.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/tote.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/simetria/typography.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/typography.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/typography.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/typography.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/typography.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/typography.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/typography.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/typography.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/typography.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/tote.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/tote.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/tote.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/tote.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/tote.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/tote.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/tote.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/tote.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/shirt.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/shirt.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/shirt.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/shirt.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/shirt.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/shirt.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/shirt.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/shirt.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/portrait.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/portrait.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/portrait.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/portrait.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/portrait.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/portrait.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/portrait.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/portrait.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/palette.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/palette.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/palette.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/palette.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/palette.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/palette.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/palette.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/palette.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/outdoor.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/outdoor.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/outdoor.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/outdoor.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/outdoor.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/outdoor.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/outdoor.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/outdoor.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/mark.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/mark.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/mark.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/mark.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/mark.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/mark.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/mark.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/mark.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/graphics.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/graphics.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/graphics.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/graphics.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/graphics.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/graphics.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/graphics.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/graphics.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/environment.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/environment.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/environment.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/environment.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/environment.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/environment.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/environment.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/environment.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/cover.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/cover.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/cover.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/cover.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/cover.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/cover.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/cover.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/cover.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/applications.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/applications.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/applications.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/applications.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/applications.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/applications.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/applications.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/simetria/applications.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-9.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-9.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-9.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-9.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-9.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-9.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-9.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-9.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-8.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-8.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-8.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-8.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-8.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-8.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-8.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-8.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-7.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-7.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-7.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-7.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-7.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-7.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-7.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-7.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-6.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-6.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-6.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-6.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-6.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-6.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-6.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-6.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-4.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-4.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-4.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-4.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-4.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-4.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-4.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-4.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-14.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-14.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-14.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-14.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-14.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-14.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-14.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-14.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-12.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-12.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-12.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-12.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-12.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-12.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-12.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-12.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-10.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-10.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-10.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-10.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-10.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-10.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-10.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-10.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-1.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-1.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-1.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-1.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-1.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-1.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-1.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-manual-1.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-home.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-home.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-home.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-home.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-home.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-home.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-home.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-home.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-cover.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-cover.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-cover.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-cover.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-cover.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-cover.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-cover.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-cover.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-03.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-03.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-03.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-03.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-03.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-03.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-03.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-03.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-02.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-02.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-02.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-02.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-02.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-02.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-02.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-02.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-01.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-01.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-01.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-01.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-01.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-01.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-01.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/rooftop-01.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/simetria-poster.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/simetria-poster.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/simetria-poster.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/simetria-poster.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/simetria-poster.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/simetria-poster.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/simetria-poster.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/simetria-poster.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/rooftop-poster.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/rooftop-poster.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/rooftop-poster.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/rooftop-poster.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/rooftop-poster.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/rooftop-poster.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/rooftop-poster.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/rooftop-poster.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/home-showreel-poster.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/home-showreel-poster.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/home-showreel-poster.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/home-showreel-poster.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/home-showreel-poster.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/home-showreel-poster.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/home-showreel-poster.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/home-showreel-poster.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/amazonita-poster.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/amazonita-poster.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/amazonita-poster.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/amazonita-poster.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/amazonita-poster.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/amazonita-poster.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/amazonita-poster.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/motion/amazonita-poster.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-9.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-9.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-9.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-9.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-9.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-9.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-9.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-9.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-8.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-8.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-8.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-8.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-8.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-8.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-8.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-8.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-6.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-6.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-6.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-6.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-6.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-6.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-6.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-6.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-15.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-15.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-15.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-15.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-15.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-15.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-15.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-15.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-14.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-14.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-14.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-14.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-14.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-14.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-14.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-14.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-13.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-13.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-13.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-13.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-13.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-13.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-13.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-13.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-12.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-12.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-12.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-12.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-12.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-12.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-12.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-12.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-1.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-1.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-1.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-1.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-1.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-1.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-1.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-manual-1.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-cover.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-cover.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-cover.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-cover.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-cover.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-cover.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-cover.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/eduardo-cover.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/sodalita0.png/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/sodalita0.png/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/sodalita0.png/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/sodalita0.png/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/sodalita0.png/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/sodalita0.png/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/sodalita0.png/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/sodalita0.png/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/geminigeneratedimagelarixhlarixhlari.jpg/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/geminigeneratedimagelarixhlarixhlari.jpg/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/geminigeneratedimagelarixhlarixhlari.jpg/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/geminigeneratedimagelarixhlarixhlari.jpg/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/geminigeneratedimagelarixhlarixhlari.jpg/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/geminigeneratedimagelarixhlarixhlari.jpg/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/geminigeneratedimagelarixhlarixhlari.jpg/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/blog/geminigeneratedimagelarixhlarixhlari.jpg/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-web.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-web.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-web.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-web.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-web.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-web.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-web.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-web.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-video-poster.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-video-poster.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-video-poster.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-video-poster.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-video-poster.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-video-poster.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-video-poster.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-video-poster.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-system.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-system.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-system.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-system.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-system.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-system.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-system.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-system.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-poster.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-poster.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-poster.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-poster.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-poster.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-poster.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-poster.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-poster.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-editorial-1.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-editorial-1.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-editorial-1.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-editorial-1.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-editorial-1.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-editorial-1.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-editorial-1.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-editorial-1.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-cover.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-cover.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-cover.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-cover.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-cover.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-cover.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-cover.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amazonita-cover.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-9.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-9.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-9.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-9.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-9.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-9.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-9.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-9.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-6.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-6.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-6.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-6.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-6.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-6.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-6.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-6.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-4.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-4.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-4.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-4.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-4.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-4.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-4.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-4.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-12.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-12.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-12.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-12.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-12.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-12.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-12.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-12.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-11.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-11.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-11.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-11.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-11.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-11.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-11.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-11.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-1.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-1.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-1.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-1.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-1.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-1.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-1.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-manual-1.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-cover.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-cover.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-cover.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-cover.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-cover.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-cover.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-cover.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-cover.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-couro.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-couro.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-couro.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-couro.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-couro.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-couro.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-couro.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-couro.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-caneca.webp/.source",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-caneca.webp/1440.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-caneca.webp/160.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-caneca.webp/1920.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-caneca.webp/320.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-caneca.webp/640.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-caneca.webp/96.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/responsive/amanda-caneca.webp/960.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/motion/amazonita-poster.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/motion/amazonita.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/motion/home-showreel-poster.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/motion/home-showreel.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/motion/rooftop-poster.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/motion/rooftop.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/motion/simetria-poster.webp",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/motion/simetria.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/mobile/amazonita-motion.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/mobile/amazonita.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/mobile/rooftop.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/mobile/simetria.mp4",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/blog/.gitkeep",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/blog/geminigeneratedimagelarixhlarixhlari.jpg",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/media/blog/sodalita0.png",
+    "status": 200,
+    "expected": 200,
+    "pass": true
+  },
+  {
+    "path": "/blog/inexistente",
+    "status": "absent",
+    "expected": "absent",
+    "pass": true
+  },
+  {
+    "path": "/blog/nota-01",
+    "status": "absent",
+    "expected": "absent",
+    "pass": true
+  },
+  {
+    "path": "/blog/nota-02",
+    "status": "absent",
+    "expected": "absent",
+    "pass": true
+  },
+  {
+    "path": "/blog/nota-03",
+    "status": "absent",
+    "expected": "absent",
+    "pass": true
+  },
+  {
+    "path": "/blog/nota-04",
+    "status": "absent",
+    "expected": "absent",
+    "pass": true
+  },
+  {
+    "path": "/blog/nota-05",
+    "status": "absent",
+    "expected": "absent",
+    "pass": true
+  },
+  {
+    "path": "/blog/feed.xml",
+    "status": "publicado-sem-demo",
+    "expected": "publicado-sem-demo",
+    "pass": true
+  },
+  {
+    "path": "/blog/exemplo-de-leitura",
+    "status": "teste-sem-indexacao",
+    "expected": "teste-sem-indexacao",
+    "pass": true
+  }
+]

@@ -4,7 +4,6 @@ import {projects} from '@/content/projects';
 import {AmazonitaExperience} from './amazonita-experience';
 import {ProjectChoreography} from './project-choreography';
 
-const rooftop=projects.find(project=>project.slug==='rooftop')!;
 const simetria=projects.find(project=>project.slug==='simetria')!;
 const closing=projects.filter(project=>['eduardo-noronha','amanda-araujo'].includes(project.slug));
 
@@ -21,14 +20,14 @@ export function EditorialProjects(){
           <h3 id="amazonita-feature-title">Amazonita</h3>
           <span className="material-subtitle">A matéria-prima como protagonista.</span>
         </div>
-        <div className="material-caption"><p>Uma linguagem visual que valoriza a presença e a textura da Amazonita.</p><Visit/></div>
+
       </Link>
-      <div className="material-application"><div className="editorial-image"><Image src="/media/amazonita-cover.webp" alt="Aplicação da direção de arte Amazonita na abertura da experiência digital" fill sizes="(max-width: 700px) 78vw, 42vw"/></div><p>Amazonita / Direção de arte · Digital · Editorial</p></div>
+      <div className="material-application"><div className="editorial-image"><Image src="/media/amazonita-cover.webp" alt="Aplicação da direção de arte Amazonita na abertura da experiência digital" fill sizes="(max-width: 700px) 78vw, 42vw"/></div><p>Amazonita / Direção de arte · Digital · Editorial</p></div><div className="material-caption"><p>Uma linguagem visual que valoriza a presença e a textura da Amazonita.</p><Link href="/projetos/amazonita"><Visit/></Link></div>
     </AmazonitaExperience>
 
     <article className="editorial-rooftop" aria-labelledby="rooftop-feature-title">
       <div className="editorial-intro"><span className="editorial-index">02 / Identidade visual · Estudo conceitual</span><h3 id="rooftop-feature-title">Rooftop<br/>{' '}Arquitetura</h3><p>Uma identidade que explora precisão, presença e a linguagem visual da arquitetura.</p><Link href="/projetos/rooftop"><Visit/></Link></div>
-      <Link href="/projetos/rooftop" className="editorial-rooftop-mark editorial-image" aria-label="Explorar projeto Rooftop Arquitetura"><Image src={rooftop.cover} alt={rooftop.coverAlt} fill sizes="(max-width: 700px) 90vw, 54vw"/></Link>
+      <Link href="/projetos/rooftop" className="editorial-rooftop-mark editorial-image" aria-label="Explorar projeto Rooftop Arquitetura"><Image src="/media/rooftop-home.webp" alt="Assinatura real da Rooftop Arquitetura, recortada para a composição da home" fill sizes="(max-width: 700px) 90vw, 54vw"/></Link>
       <Link href="/projetos/rooftop" className="editorial-rooftop-application editorial-image" aria-label="Ver a apresentação editorial da Rooftop"><Image src="/media/rooftop-02.webp" alt="Diagramação da apresentação Rooftop com arquitetura do acervo do escritório" fill sizes="(max-width: 700px) 72vw, 38vw"/></Link>
       <p className="editorial-image-note">Identidade e apresentação editorial.<br/>Arquitetura do acervo do escritório.</p>
     </article>
