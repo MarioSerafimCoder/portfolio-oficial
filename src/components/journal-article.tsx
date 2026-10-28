@@ -1,7 +1,6 @@
 'use client';
 import {useSiteTranslation} from '@/i18n/use-translation';
 import Image from 'next/image';
-import Link from 'next/link';
 import { journalHeadings } from '@/lib/journal-headings';
 import { readingMinutes, type JournalBlock, type JournalPost } from '@/content/journal';
 import { journalCategoryLabels, journalCopy, journalPostForLocale } from '@/content/journal-i18n';
@@ -45,7 +44,7 @@ export function JournalArticle({ post, related, canonicalUrl, authorPhoto }: {
     const textLanguage = view.translated ? undefined : 'pt-BR';
     return <main id="conteudo" className="journal-post-page"><ReadingProgress />
     <article><header className="journal-post-hero section-wrap"><div className="journal-post-head-inner">
-      <Link className="journal-back" href={i18nHref("/blog")}>{i18nText(copy.back)}</Link>
+      <a className="journal-back" href={i18nHref("/blog")}>{i18nText(copy.back)}</a>
       {i18nText(post.demo && <div className="journal-post-demo" role="note">{i18nText(copy.demo)}</div>)}
       <div className="journal-post-meta"><span>{i18nText(journalCategoryLabels[locale][post.category])}</span></div>
       <h1 lang={textLanguage}>{i18nText(view.title)}</h1>{i18nText(view.summary && <p lang={textLanguage}>{i18nText(view.summary)}</p>)}
@@ -59,7 +58,7 @@ export function JournalArticle({ post, related, canonicalUrl, authorPhoto }: {
     </div></div></article>
     {i18nText(related.length ? <nav className="journal-post-next section-wrap" aria-label={i18nText(copy.relatedLabel)}><h2>{i18nText(copy.related)}</h2><div className="journal-related">{i18nText(related.map(item => {
                 const suggestion = journalPostForLocale(item, locale);
-                return <Link className="journal-related-card" key={item.slug} href={i18nHref(`/blog/${item.slug}`)} onClick={() => trackEvent('journal_related_click', {from_slug: post.slug, to_slug: item.slug, category: item.category})}>
+                return <a className="journal-related-card" key={item.slug} href={i18nHref(`/blog/${item.slug}`)} onClick={() => trackEvent('journal_related_click', {from_slug: post.slug, to_slug: item.slug, category: item.category})}>
         <span className="journal-related-image">
           {i18nText(item.cover ? <Image src={item.cover.src} alt={suggestion.coverAlt||item.cover.alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 48vw, 620px" style={{ objectPosition: item.cover.position || 'center' }}/> : <span className="journal-related-cover-fallback" aria-hidden="true"><small>{i18nText("PAUSA DO CAF\u00C9")}</small><span>{i18nText(journalCategoryLabels[locale][item.category])}</span><strong>{i18nText(suggestion.title)}</strong></span>)}
         </span>
@@ -67,8 +66,8 @@ export function JournalArticle({ post, related, canonicalUrl, authorPhoto }: {
         <h3 lang={suggestion.translated ? undefined : 'pt-BR'}>{i18nText(suggestion.title)}</h3>
         <span className="journal-related-summary" lang={suggestion.translated ? undefined : 'pt-BR'}>{i18nText(suggestion.summary)}</span>
         <span className="journal-related-meta"><span>{i18nText(copy.reading(readingMinutes({ ...item, content: suggestion.content })))}</span><span className="journal-related-arrow" aria-hidden="true">{i18nText("\u2197")}</span></span>
-      </Link>;
-            }))}</div></nav> : <nav className="journal-post-next journal-post-next-empty section-wrap" aria-label={i18nText(copy.relatedLabel)}><p>{i18nText(copy.relatedEmpty)}</p><Link href={i18nHref("/blog")}>{i18nText(copy.backFull)}</Link></nav>)}
+      </a>;
+            }))}</div></nav> : <nav className="journal-post-next journal-post-next-empty section-wrap" aria-label={i18nText(copy.relatedLabel)}><p>{i18nText(copy.relatedEmpty)}</p><a href={i18nHref("/blog")}>{i18nText(copy.backFull)}</a></nav>)}
     <Newsletter variant="article"/>
   </main>;
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useSiteTranslation } from '@/i18n/use-translation';
 import { formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPostForLocale } from '@/content/journal-i18n';
@@ -49,7 +48,7 @@ function EditorialCard({ post, index, locale, featuredLabel, readLabel, variant 
   const readTime = readingMinutes({ ...post, content: view.content });
 
   return <article className={`journal-editorial-card journal-editorial-card-${variant}`}>
-    <Link href={i18nHref(`/blog/${post.slug}`)} onClick={() => trackEvent('journal_article_open', { placement: 'index', slug: post.slug, category: post.category })}>
+    <a href={i18nHref(`/blog/${post.slug}`)} onClick={() => trackEvent('journal_article_open', { placement: 'index', slug: post.slug, category: post.category })}>
       <span className="journal-editorial-cover">
         {post.cover ? <Image src={post.cover.src} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
           sizes={variant === 'featured' ? '(max-width: 700px) calc(100vw - 2 * var(--gutter)), (max-width: 1100px) 52vw, 760px' : '(max-width: 700px) calc(100vw - 2 * var(--gutter)), (max-width: 1100px) 48vw, 620px'}
@@ -69,7 +68,7 @@ function EditorialCard({ post, index, locale, featuredLabel, readLabel, variant 
           <span className="journal-editorial-action">{i18nText(readLabel)} <span aria-hidden="true">↗</span></span>
         </span>
       </span>
-    </Link>
+    </a>
   </article>;
 }
 
@@ -108,7 +107,7 @@ export function JournalIndex({ posts, activeCategory }: {
       <div className="journal-masthead-inner">
         <nav className="journal-masthead-nav" aria-label={i18nText(copy.categoryFilter)}>
           <a href="#journal-feature" aria-current={!activeCategory ? 'page' : undefined}>{i18nText(copy.index)}</a>
-          {categories.map(category => <Link key={category} href={i18nHref(`/blog/categoria/${category}`)} aria-current={activeCategory === category ? 'page' : undefined} onClick={() => trackEvent('journal_filter', { filter: 'category', category })}>{i18nText(journalCategoryLabels[locale][category])}</Link>)}
+          {categories.map(category => <a key={category} href={i18nHref(`/blog/categoria/${category}`)} aria-current={activeCategory === category ? 'page' : undefined} onClick={() => trackEvent('journal_filter', { filter: 'category', category })}>{i18nText(journalCategoryLabels[locale][category])}</a>)}
           <a href={i18nHref('/feed.xml')}>RSS <span aria-hidden="true">↗</span></a>
         </nav>
 
