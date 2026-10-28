@@ -8,6 +8,7 @@ import { formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPos
 import { readingMinutes, type JournalCategory, type JournalPost } from '@/content/journal';
 import { trackEvent } from '@/lib/analytics';
 import { useJournalPreferences } from './journal-preferences';
+import { Newsletter } from './newsletter';
 
 function normalize(value: string) {
   return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase().trim();
@@ -121,6 +122,8 @@ export function JournalIndex({ posts, activeCategory }: {
             <span>{i18nText(copy.publishedCount(publishedPosts.length, demoCount))}</span>
           </div>
         </div>
+
+        <Newsletter variant="blog" />
 
         {featured && <section className="journal-feature" id="journal-feature" aria-label={i18nText(copy.featured)}>
           <EditorialCard post={featured} index={0} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant="featured" />

@@ -7,12 +7,12 @@ import { journalCopy } from '@/content/journal-i18n';
 import { trackEvent } from '@/lib/analytics';
 const legacyEndpoint = process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT?.trim();
 export function Newsletter({ variant = 'legacy' }: {
-    variant?: 'legacy' | 'home' | 'article';
+    variant?: 'legacy' | 'home' | 'article' | 'blog';
 }) {
     const { i18nText, i18nHref } = useSiteTranslation();
-    return variant === 'home' || variant === 'article' ? <ArticleNewsletter variant={variant} /> : <LegacyNewsletter />;
+    return variant === 'home' || variant === 'article' || variant === 'blog' ? <ArticleNewsletter variant={variant} /> : <LegacyNewsletter />;
 }
-function ArticleNewsletter({variant}: {variant: 'home' | 'article'}) {
+function ArticleNewsletter({variant}: {variant: 'home' | 'article' | 'blog'}) {
     const { i18nText, i18nHref } = useSiteTranslation();
     const { locale } = useJournalPreferences();
     const copy = journalCopy[locale];
@@ -60,11 +60,11 @@ function ArticleNewsletter({variant}: {variant: 'home' | 'article'}) {
             setState('error');
         }
     }
-    return <section className={`journal-newsletter journal-newsletter-article journal-newsletter-${variant} section-wrap`} aria-labelledby={`newsletter-title-${id}`}>
+    return <section className={`journal-newsletter journal-newsletter-article journal-newsletter-${variant}${variant === 'blog' ? '' : ' section-wrap'}`} aria-labelledby={`newsletter-title-${id}`}>
     <div className="journal-newsletter-copy">
       <span className="eyebrow">{i18nText(copy?.newsletterEyebrow)}</span>
-      <h2 id={`newsletter-title-${id}`}>{i18nText(copy?.newsletterTitle)}</h2>
-      <p className="journal-newsletter-description">{i18nText(copy?.newsletterDescription)}</p>
+      <h2 id={`newsletter-title-${id}`}>{i18nText(variant === 'blog' ? copy?.newsletterBlogTitle : copy?.newsletterTitle)}</h2>
+      <p className="journal-newsletter-description">{i18nText(variant === 'blog' ? copy?.newsletterBlogDescription : copy?.newsletterDescription)}</p>
     </div>
     <div className="journal-newsletter-action">
       {i18nText(state === 'checking' && <p className="newsletter-feedback" role="status">{i18nText(copy?.newsletterChecking)}</p>)}
@@ -77,7 +77,7 @@ function ArticleNewsletter({variant}: {variant: 'home' | 'article'}) {
         <input id={`${id}-email`} name="email" type="email" value={email} onChange={event => {setEmail(event.target.value); if (state === 'invalid' || state === 'validation' || state === 'error') setState('ready');}} autoComplete="email" placeholder={i18nText(copy?.newsletterEmail)} required maxLength={254} aria-invalid={state === 'invalid'} disabled={state === 'unavailable' || state === 'sending'}/>
       </label>
       <label className="contact-honeypot" aria-hidden="true" htmlFor={`${id}-website`}>{i18nText("Deixe este campo vazio")}<input id={`${id}-website`} name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={event => setWebsite(event.target.value)}/></label>
-      <button className="journal-newsletter-submit" type="submit" disabled={state !== 'ready' && state !== 'invalid' && state !== 'validation' && state !== 'error'}>{i18nText(state === 'sending' ? copy?.newsletterSending : copy?.newsletterButton)} <span aria-hidden="true">{i18nText("\u2197")}</span></button>
+      <button className="journal-newsletter-submit" type="submit" disabled={state !== 'ready' && state !== 'invalid' && state !== 'validation' && state !== 'error'}>{i18nText(state === 'sending' ? copy?.newsletterSending : variant === 'blog' ? copy?.newsletterBlogButton : copy?.newsletterButton)} <span aria-hidden="true">{i18nText("\u2197")}</span></button>
       <label className="newsletter-consent" htmlFor={`${id}-consent`}>
         <input id={`${id}-consent`} type="checkbox" checked={consent} onChange={event => {setConsent(event.target.checked); if (state === 'validation' || state === 'invalid') setState('ready');}} required aria-invalid={state === 'validation'} disabled={state === 'unavailable' || state === 'sending'}/>
         <span>{i18nText(copy?.newsletterConsent)} <Link href={i18nHref("/privacidade")}>{i18nText(copy?.newsletterPrivacy)}</Link>{i18nText(".")}</span>
