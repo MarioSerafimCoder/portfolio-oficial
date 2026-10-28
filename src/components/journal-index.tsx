@@ -24,22 +24,6 @@ function searchableText(post: JournalPost) {
   return normalize([post.title, post.summary, localized.title, localized.summary, journalCategoryLabels.pt[post.category], journalCategoryLabels.en[post.category], ...blocks].join(' '));
 }
 
-function headingId(value: string) {
-  return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
-}
-
-function articleOutline(post: JournalPost, locale: 'pt' | 'en') {
-  const view = journalPostForLocale(post, locale);
-  const counts = new Map<string, number>();
-  return view.content.flatMap(block => {
-    if (block.type !== 'heading') return [];
-    const base = headingId(block.text);
-    const count = (counts.get(base) || 0) + 1;
-    counts.set(base, count);
-    return block.level === 2 ? [{ text: block.text, id: count === 1 ? base : `${base}-${count}` }] : [];
-  }).slice(0, 3);
-}
-
 function EditorialArtwork({ index }: { index: number }) {
   const { i18nText } = useSiteTranslation();
   return <span className="journal-editorial-art" aria-hidden="true">
@@ -111,7 +95,6 @@ export function JournalIndex({ posts, activeCategory }: {
   const pageItems = filtered.slice((page - 1) * pageSize, page * pageSize);
   const featured = page === 1 ? pageItems[0] : undefined;
   const remaining = page === 1 ? pageItems.slice(1) : pageItems;
-  const outline = featured ? articleOutline(featured, locale) : [];
 
   function clearSearch() {
     setQuery('');
@@ -152,24 +135,6 @@ export function JournalIndex({ posts, activeCategory }: {
       {i18nText(terms.length > 0 && <p className="journal-search-count section-wrap" role="status">{i18nText(copy.results(filtered.length))}</p>)}
 
     </>)}
-
-    {featured && outline.length > 0 && <section className="journal-reading-guide section-wrap" aria-labelledby="journal-reading-title">
-      <div className="journal-reading-heading">
-        <span className="eyebrow">{i18nText(copy.readingKicker)}</span>
-        <h2 id="journal-reading-title">{i18nText(copy.readingTitle)}</h2>
-        <p>{i18nText(copy.readingDescription)}</p>
-        <Link href={i18nHref(`/blog/${featured.slug}`)} className="journal-reading-link">{i18nText(copy.readArticle)} <span aria-hidden="true">↗</span></Link>
-      </div>
-      <nav className="journal-reading-outline" aria-label={i18nText(copy.tocLabel)}>
-        <ol>
-          {outline.map((item, index) => <li key={item.id}>
-            <Link href={`${i18nHref(`/blog/${featured.slug}`)}#${item.id}`}>
-              <span>0{index + 1}</span><strong>{i18nText(item.text)}</strong><span aria-hidden="true">↗</span>
-            </Link>
-          </li>)}
-        </ol>
-      </nav>
-    </section>}
 
     {filtered.length > 0 && <section className="journal-archive section-wrap" id="journal-articles" aria-labelledby="journal-archive-title">
       <div className="journal-archive-heading">
