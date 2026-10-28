@@ -9,7 +9,7 @@ seo_description: >-
   Creating also requires observation, research, and reflection. Understand why
   taking breaks can contribute to more conscious creative decisions.
 cover_alt: ''
-source_hash: 0178a87e45f7c4a142d848d4b3868308185837c8cfe509deb793d11b09bb5b2b
+source_hash: 8a5b10545c1a64145b70574f2ce033caa479ea753a58766c8c6e111449468f80
 review_status: reviewed
 ---
 # The future of creativity begins with a pause

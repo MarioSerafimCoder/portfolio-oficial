@@ -5,6 +5,7 @@ import {useSiteTranslation} from '@/i18n/use-translation';
 import { usePathname, useRouter } from 'next/navigation';
 import { useJournalPreferences } from './journal-preferences';
 import { journalCopy } from '@/content/journal-i18n';
+import { trackEvent } from '@/lib/analytics';
 export function JournalHeaderTools() {
     const { i18nText, i18nHref } = useSiteTranslation();
     const pathname = originalPath(usePathname());
@@ -20,6 +21,7 @@ export function JournalHeaderTools() {
     }
     function submit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
+        trackEvent('journal_search', {has_query: query.trim() ? 'true' : 'false'});
         if (pathname === '/blog') {
             document.getElementById('journal-index-title')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
         }

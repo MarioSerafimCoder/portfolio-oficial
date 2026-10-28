@@ -13,7 +13,7 @@ content:
     filename: "{primary}.md"
     view:
       primary: title
-      fields: [title, category, status, publish_at]
+      fields: [title, category, status, demo, publish_at]
       sort: [publish_at, title]
       default:
         sort: publish_at
@@ -58,6 +58,11 @@ content:
               label: Rascunho
             - name: published
               label: Publicar ou agendar
+
+      - name: demo
+        label: Conteúdo demonstrativo (não listar publicamente)
+        type: boolean
+        default: false
 
       - name: publish_at
         label: Data e hora da publicação

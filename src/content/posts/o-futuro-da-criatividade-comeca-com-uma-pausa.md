@@ -4,6 +4,7 @@ summary: Uma reflexão sobre criatividade, repertório e a importância de reser
   tempo para pensar antes de criar.
 category: direcao-de-arte
 status: published
+demo: true
 publish_at: 2026-10-22T17:20
 cover: /media/blog/geminigeneratedimagelarixhlarixhlari.jpg
 seo_title: "Criatividade e repertório: a importância de fazer pausas"

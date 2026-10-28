@@ -2,11 +2,13 @@
 import {createElement,type ReactNode} from 'react';
 import Image from 'next/image';
 import type {MarkdownNode} from '@/content/journal';
+import {journalCopy} from '@/content/journal-i18n';
 import {useSiteTranslation} from '@/i18n/use-translation';
+import {useJournalPreferences} from './journal-preferences';
 
 /** Render the parsed source tree: formatting and code never pass through string substitution. */
 export function MarkdownContent({tree,title}:{tree:MarkdownNode;title:string}){
- const {i18nHref}=useSiteTranslation();const headings=new Map<string,number>();
+ const {i18nHref}=useSiteTranslation();const {locale}=useJournalPreferences();const copy=journalCopy[locale];const headings=new Map<string,number>();
  const text=(node:MarkdownNode):string=>node.value||node.children?.map(text).join('')||'';
  const definitions=new Map<string,MarkdownNode>();
  for(const node of tree.children||[])if(node.type==='definition'&&node.identifier)definitions.set(node.identifier.toLowerCase(),node);
@@ -27,7 +29,11 @@ export function MarkdownContent({tree,title}:{tree:MarkdownNode;title:string}){
    case 'emphasis':return <em key={key}>{children}</em>;
    case 'inlineCode':return <code key={key}>{node.value}</code>;
    case 'code':return <pre key={key}><code data-language={node.lang||undefined}>{node.value}</code></pre>;
-   case 'blockquote':return <blockquote key={key}>{children}</blockquote>;
+   case 'blockquote':{
+    const marker=node.children?.[0]?text(node.children[0]).trim():'';
+    if(/^\[!(?:reflection|reflexão|nota)\]$/i.test(marker))return <aside className="journal-reflection" role="note" aria-label={copy.reflectionAria} key={key}><span className="journal-reflection-label">{copy.reflectionLabel}</span>{children?.slice(1)}</aside>;
+    return <blockquote key={key}>{children}</blockquote>;
+   }
    case 'list':return node.ordered?<ol key={key} start={node.start||undefined}>{children}</ol>:<ul key={key}>{children}</ul>;
    case 'listItem':return <li key={key}>{children}</li>;
    case 'break':return <br key={key}/>;

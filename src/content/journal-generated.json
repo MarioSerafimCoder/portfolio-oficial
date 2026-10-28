@@ -7,6 +7,7 @@
     "status": "published",
     "date": "2026-10-22",
     "publishAt": "2026-10-22T10:06:00-03:00",
+    "demo": true,
     "seo": {
       "title": "Design além da estética: identidade e percepção",
       "description": "O que transforma uma identidade visual em uma experiência de marca? Uma reflexão sobre direção de arte, estratégia e percepção."
@@ -1623,9 +1624,9 @@
           "offset": 0
         },
         "end": {
-          "line": 64,
-          "column": 90,
-          "offset": 2679
+          "line": 65,
+          "column": 1,
+          "offset": 2681
         }
       }
     },
@@ -5081,6 +5082,7 @@
     "status": "published",
     "date": "2026-10-22",
     "publishAt": "2026-10-22T17:20:00-03:00",
+    "demo": true,
     "seo": {
       "title": "Criatividade e repertório: a importância de fazer pausas",
       "description": "Criar também exige observar, pesquisar e refletir. Entenda por que fazer pausas pode contribuir para decisões criativas mais conscientes."
@@ -5878,9 +5880,9 @@
           "offset": 0
         },
         "end": {
-          "line": 37,
-          "column": 92,
-          "offset": 1447
+          "line": 38,
+          "column": 1,
+          "offset": 1449
         }
       }
     },

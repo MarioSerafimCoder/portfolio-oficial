@@ -30,6 +30,8 @@ for(const filename of fs.readdirSync(root).filter(name=>name.endsWith('.md')).so
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)||slug==='exemplo-de-leitura')throw Error(`Slug inválido ou reservado: ${slug}`);
   const {data,content}=matter(fs.readFileSync(path.join(root,filename),'utf8'), {engines: {yaml: parseYaml}});
   if(!data.title||!data.summary||!categories.has(data.category)||!['draft','published'].includes(data.status))throw Error(`Metadados inválidos: ${filename}`);
+  if(data.demo!==undefined&&typeof data.demo!=='boolean')throw Error(`demo deve ser true ou false: ${filename}`);
+  if(data.tags!==undefined&&(!Array.isArray(data.tags)||data.tags.some(tag=>typeof tag!=='string'||!tag.trim())))throw Error(`tags deve ser uma lista de textos: ${filename}`);
   let date='';let publishAt;
   if(data.publish_at){
     try { publishAt=publicationTime(data.publish_at); }
@@ -43,7 +45,7 @@ for(const filename of fs.readdirSync(root).filter(name=>name.endsWith('.md')).so
   if(coverPosition&&!/^(?:(?:left|center|right|\d{1,3}%)(?:\s+(?:top|center|bottom|\d{1,3}%))?|(?:top|center|bottom))$/.test(coverPosition))throw Error(`cover_position inválido: ${filename}`);
   const translation=translations[slug];
   const validTranslation=translation&&translation.sourceHash===prepareDocument({id:`post:${slug}`,data,body:content}).sourceHash;
-  posts.push({slug,title:data.title,summary:data.summary,category:data.category,status:'published',date,publishAt,seo:{title:data.seo_title||undefined,description:data.seo_description||undefined},cover:data.cover?{src:data.cover,alt:data.cover_alt||data.title,width:1200,height:800,position:coverPosition||undefined}:undefined,content:blocksFrom(marked.lexer(content)),markdownTree:markdownTree(content),...(validTranslation?{translations:{en:{title:translation.title,summary:translation.summary,seo:{title:translation.seo_title||translation.title,description:translation.seo_description||translation.summary},coverAlt:translation.cover_alt||translation.title,content:blocksFrom(marked.lexer(translation.body)),markdownTree:markdownTree(translation.body,content)}}}:{})});
+  posts.push({slug,title:data.title,summary:data.summary,category:data.category,status:'published',date,publishAt,...(data.demo?{demo:true}:{}),...(data.tags?.length?{tags:data.tags.map(tag=>tag.trim())}:{}),seo:{title:data.seo_title||undefined,description:data.seo_description||undefined},cover:data.cover?{src:data.cover,alt:data.cover_alt||data.title,width:1200,height:800,position:coverPosition||undefined}:undefined,content:blocksFrom(marked.lexer(content)),markdownTree:markdownTree(content),...(validTranslation?{translations:{en:{title:translation.title,summary:translation.summary,seo:{title:translation.seo_title||translation.title,description:translation.seo_description||translation.summary},coverAlt:translation.cover_alt||translation.title,...(translation.tags?.length?{tags:translation.tags}:{}),content:blocksFrom(marked.lexer(translation.body)),markdownTree:markdownTree(translation.body,content)}}}:{})});
 }
 fs.writeFileSync('src/content/journal-generated.json',JSON.stringify(posts,null,2)+'\n');
 console.log(`Posts publicados no build: ${posts.length}`);

@@ -9,7 +9,7 @@ seo_description: >-
   What transforms a visual identity into a brand experience? A reflection on art
   direction, strategy, and perception.
 cover_alt: ''
-source_hash: e07f6cbb05708e50b980e22043eba04bed2f6827b2ee41f8a097d0fa3d923df3
+source_hash: 98d71ae3ac16f74dd7ea4b0c661e8e951a98b135d377b41b09d6227bd80dba5d
 review_status: reviewed
 ---
 # Design is not just what you see

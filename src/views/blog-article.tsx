@@ -2,7 +2,7 @@ import {createTranslator} from '@/i18n/translate';
 import type {SiteLocale} from '@/i18n/routes';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getVisibleJournalPost, publishedJournalPosts, visibleJournalPosts } from '@/content/journal';
+import { getVisibleJournalPost, publishedJournalPosts, relatedJournalPosts, visibleJournalPosts } from '@/content/journal';
 import { JournalArticle } from '@/components/journal-article';
 import '@/app/blog/blog.css';
 import { existsSync } from 'node:fs';
@@ -46,7 +46,8 @@ export default async function JournalPost({ params, locale = "pt" }: Props & {
         notFound();
     if(locale==='en'&&!post.translations?.en)notFound();
     const view=journalPostForLocale(post,locale);
-    const related = publishedJournalPosts.filter(item => item.slug !== slug&&(locale==='pt'||item.translations?.en)).sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category)).slice(0, 2);
+    const candidates = publishedJournalPosts.filter(item => locale === 'pt' || item.translations?.en);
+    const related = relatedJournalPosts(post, candidates);
     const canonicalUrl = `${(process.env.NEXT_PUBLIC_SITE_URL || 'https://marioserafim.com.br').replace(/\/$/, '')}${localizedHref(`/blog/${post.slug}`,locale)}`;
     const structuredData = [{ '@context': 'https://schema.org', '@type': 'Article', headline: view.title, description: view.summary, datePublished: post.publishAt || post.date, ...(post.updatedAt ? { dateModified: post.updatedAt } : {}), ...(post.cover ? { image: `${(process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br').replace(/\/$/,'')}${post.cover.src}` } : {}), inLanguage: locale==='en'?'en':'pt-BR', author: { '@type': 'Person', name: site.name, jobTitle: locale==='en'?'Art director':'Diretor de arte', url: canonicalUrl.replace(/\/blog\/[^/]+$/, ''), sameAs: [site.linkedin] }, mainEntityOfPage: canonicalUrl }, { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: locale==='en'?'Home':'Início', item: canonicalUrl.replace(/\/blog\/[^/]+$/, '') }, { '@type': 'ListItem', position: 2, name: 'Pausa do café', item: canonicalUrl.replace(/\/[^/]+$/, '') }, { '@type': 'ListItem', position: 3, name: view.title, item: canonicalUrl }] }];
     const authorPhoto = existsSync(join(process.cwd(), 'public', site.authorPhoto.replace(/^\//, ''))) ? site.authorPhoto : undefined;

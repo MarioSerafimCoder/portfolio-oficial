@@ -11,6 +11,7 @@ import {MarkdownContent} from './markdown-content';
 import { JournalAuthorSignature } from './journal-author-signature';
 import { Newsletter } from './newsletter';
 import { ReadingProgress } from './reading-progress';
+import { trackEvent } from '@/lib/analytics';
 function ArticleBlock({ block, id, sourceLabel }: {
     block: JournalBlock;
     id?: string;
@@ -50,14 +51,15 @@ export function JournalArticle({ post, related, canonicalUrl, authorPhoto }: {
       <h1 lang={textLanguage}>{i18nText(view.title)}</h1>{i18nText(view.summary && <p lang={textLanguage}>{i18nText(view.summary)}</p>)}
       {i18nText(locale === 'en' && !view.translated && <p className="journal-language-note">{i18nText(copy.unavailable)}</p>)}
       <JournalAuthorSignature variant="compact" photo={authorPhoto} date={(post.publishAt || post.date).slice(0, 10)} readingTime={readingMinutes({ ...post, content: view.content })} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined} demo={post.demo}/>
-    </div></header>{i18nText(post.cover && <figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={view.coverAlt||post.cover.alt} width={post.cover.width} height={post.cover.height} priority sizes="(max-width: 700px) 100vw, 1100px"/></figure>)}<div className="journal-article-wrap section-wrap"><div className="journal-article-body">
+    </div></header>{i18nText(post.cover && <figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={view.coverAlt||post.cover.alt} width={post.cover.width} height={post.cover.height} preload sizes="(max-width: 700px) 100vw, 1100px"/></figure>)}<div className="journal-article-wrap section-wrap"><div className="journal-article-body">
       <div className="journal-article-content" lang={textLanguage}>{view.markdownTree?<MarkdownContent tree={view.markdownTree} title={view.title}/>:i18nText(view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>))}</div>
       {i18nText(post.sources && post.sources.length > 0 && <section className="journal-sources" aria-labelledby="journal-sources-title"><h2 id="journal-sources-title">{i18nText(copy.references)}</h2><ul>{i18nText(post.sources.map(source => <li key={source.url}><a href={i18nHref(source.url)} target="_blank" rel="noopener noreferrer">{i18nText(source.label)}</a></li>))}</ul></section>)}
       <JournalShare variant="end" url={post.status === 'published' && !post.demo ? canonicalUrl : undefined}/>
+      <JournalAuthorSignature variant="expanded" photo={authorPhoto} demo={post.demo}/>
     </div></div></article>
     {i18nText(related.length ? <nav className="journal-post-next section-wrap" aria-label={i18nText(copy.relatedLabel)}><h2>{i18nText(copy.related)}</h2><div className="journal-related">{i18nText(related.map(item => {
                 const suggestion = journalPostForLocale(item, locale);
-                return <Link className="journal-related-card" key={item.slug} href={i18nHref(`/blog/${item.slug}`)}>
+                return <Link className="journal-related-card" key={item.slug} href={i18nHref(`/blog/${item.slug}`)} onClick={() => trackEvent('journal_related_click', {from_slug: post.slug, to_slug: item.slug, category: item.category})}>
         <span className="journal-related-image">
           {i18nText(item.cover ? <Image src={item.cover.src} alt={suggestion.coverAlt||item.cover.alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 48vw, 620px" style={{ objectPosition: item.cover.position || 'center' }}/> : <span className="journal-related-cover-fallback" aria-hidden="true"><small>{i18nText("PAUSA DO CAF\u00C9")}</small><span>{i18nText(journalCategoryLabels[locale][item.category])}</span><strong>{i18nText(suggestion.title)}</strong></span>)}
         </span>
@@ -66,7 +68,7 @@ export function JournalArticle({ post, related, canonicalUrl, authorPhoto }: {
         <span className="journal-related-summary" lang={suggestion.translated ? undefined : 'pt-BR'}>{i18nText(suggestion.summary)}</span>
         <span className="journal-related-meta"><span>{i18nText(copy.reading(readingMinutes({ ...item, content: suggestion.content })))}</span><span className="journal-related-arrow" aria-hidden="true">{i18nText("\u2197")}</span></span>
       </Link>;
-            }))}</div></nav> : <nav className="journal-post-next journal-post-next-empty section-wrap" aria-label={i18nText(copy.backFull)}><Link href={i18nHref("/blog")}>{i18nText(copy.backFull)}</Link></nav>)}
+            }))}</div></nav> : <nav className="journal-post-next journal-post-next-empty section-wrap" aria-label={i18nText(copy.relatedLabel)}><p>{i18nText(copy.relatedEmpty)}</p><Link href={i18nHref("/blog")}>{i18nText(copy.backFull)}</Link></nav>)}
     <Newsletter variant="article"/>
   </main>;
 }

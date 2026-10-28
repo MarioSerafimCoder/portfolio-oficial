@@ -4,6 +4,7 @@
     "summary": "Between aesthetics, strategy, and perception, a reflection on what truly makes a visual identity work.",
     "category": "direcao-de-arte",
     "status": "reviewed",
+    "demo": true,
     "publish_at": "2026-10-22T10:06",
     "cover": "/media/blog/sodalita0.png",
     "seo_title": "Design beyond aesthetics: identity and perception",
@@ -11,7 +12,7 @@
     "slug": "design-nao-e-so-o-que-voce-ve",
     "cover_alt": "",
     "body": "# Design is not just what you see\r\n\r\nThere's something curious about design: many people only notice it when something is wrong.\r\n\r\nA typeface that doesn't fit. A color that seems out of place. A brand that tries to appear sophisticated, but fails to maintain that impression.\r\n\r\nAnd sometimes, everything looks beautiful. It just doesn't communicate anything at all.\r\n\r\nThat's where the conversation gets interesting.\r\n\r\n## Looking good doesn't mean it works\r\n\r\nAesthetics matter. Of course they do.\r\n\r\nBut it's a part of the job, not the whole job.\r\n\r\nA visual identity needs to answer questions that go far beyond choosing a font or a color combination.\r\n\r\nWho is this brand? What does it represent? Who is it speaking to? Why should anyone pay attention to it?\r\n\r\nWithout these answers, even the best visual composition risks becoming mere decoration.\r\n\r\n## What exists before the first layout?\r\n\r\nI like to think that a project begins long before you even open any software.\r\n\r\nIt starts with conversation, research, references, and, most importantly, asking the right questions.\r\n\r\nHere are some points that I consider essential in this process:\r\n\r\n* **Context:** understand the business, its market, and the people it interacts with.\r\n* **Intention:** define what the communication needs to convey.\r\n* **Consistency:** build a visual language that works across different applications.\r\n* **Perception:** observe how visual choices influence how the brand is perceived.\r\n\r\nNone of this guarantees a perfect solution. But it helps us make decisions we can explain and defend.\r\n\r\n## Identity is perception\r\n\r\nA brand doesn't exist solely in the final file delivered to the client.\r\n\r\nIt's present in the packaging, the customer service, the website, the sales presentation, and even in the way it replies to a message.\r\n\r\nEvery interaction creates an impression.\r\n\r\n> A visual identity doesn't need to say everything. It needs to communicate what really matters.\r\n\r\nTherefore, art direction is also an exercise in choice. What to highlight, what to reduce, what to repeat and, above all, what to leave out.\r\n\r\n## Fewer effects, more intention\r\n\r\nNot every project needs elaborate animation, experimental typography, or a striking composition.\r\n\r\nSometimes, the best decision is precisely the most discreet one.\r\n\r\nThe challenge lies in understanding when each visual choice contributes to the message and when it exists solely to attract attention.\r\n\r\nUltimately, the job isn't to make everything seem interesting.\r\n\r\nIt's about making sure the right things are noticed.\r\n\r\n***\r\n\r\n*This is a demonstration article created to test the editorial system of Pausa do café.*\r\n",
-    "sourceHash": "e07f6cbb05708e50b980e22043eba04bed2f6827b2ee41f8a097d0fa3d923df3"
+    "sourceHash": "98d71ae3ac16f74dd7ea4b0c661e8e951a98b135d377b41b09d6227bd80dba5d"
   },
   "designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento": {
     "title": "Designers in the age of AI: are we outsourcing even our thinking?",
@@ -31,6 +32,7 @@
     "summary": "A reflection on creativity, creative references, and the importance of taking time to think before creating.",
     "category": "direcao-de-arte",
     "status": "reviewed",
+    "demo": true,
     "publish_at": "2026-10-22T17:20",
     "cover": "/media/blog/geminigeneratedimagelarixhlarixhlari.jpg",
     "seo_title": "Creativity and references: the importance of taking breaks",
@@ -38,6 +40,6 @@
     "slug": "o-futuro-da-criatividade-comeca-com-uma-pausa",
     "cover_alt": "",
     "body": "# The future of creativity begins with a pause\r\n\r\nWe spend a good part of the day producing. Creating layouts, searching for references, solving problems, and trying to find the next good idea.\r\n\r\nBut there's a question we rarely ask ourselves: are we dedicating enough time to thinking?\r\n\r\n## Creating is not just producing\r\n\r\nThe creative industry constantly demands speed. We need to deliver more, adapt more, and learn more.\r\n\r\nBut creativity doesn't depend exclusively on how much we produce.\r\n\r\nIt also depends on what we observe, study, and are able to connect.\r\n\r\n## Building a body of references\r\n\r\nA good idea can be born from a conversation, a book, an exhibition, or something seemingly unrelated to design.\r\n\r\nThe more references we have, the more possibilities we can see.\r\n\r\nBuilding that body of references is also part of an art director's job.\r\n\r\n> Not every pause is an interruption. Some are an essential part of the creative process.\r\n\r\n## What do we take from this?\r\n\r\nPerhaps the challenge isn't finding ways to produce more and more.\r\n\r\nPerhaps it's about learning to produce with more intention.\r\n\r\nCreating requires technical skill, sensitivity, research, and time to transform information into something relevant.\r\n\r\nAnd sometimes, it all starts with a pause.\r\n\r\n***\r\n\r\n*This is a demonstration article for validating the scheduled publication system of Pausa do café.*\r\n",
-    "sourceHash": "0178a87e45f7c4a142d848d4b3868308185837c8cfe509deb793d11b09bb5b2b"
+    "sourceHash": "8a5b10545c1a64145b70574f2ce033caa479ea753a58766c8c6e111449468f80"
   }
 }

@@ -4,6 +4,7 @@ summary: Entre estética, estratégia e percepção, uma reflexão sobre o que
   realmente faz uma identidade visual funcionar.
 category: direcao-de-arte
 status: published
+demo: true
 publish_at: 2026-10-22T10:06
 cover: /media/blog/sodalita0.png
 seo_title: "Design além da estética: identidade e percepção"

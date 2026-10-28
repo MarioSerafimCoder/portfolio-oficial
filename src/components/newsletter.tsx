@@ -7,12 +7,12 @@ import { journalCopy } from '@/content/journal-i18n';
 import { trackEvent } from '@/lib/analytics';
 const legacyEndpoint = process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT?.trim();
 export function Newsletter({ variant = 'legacy' }: {
-    variant?: 'legacy' | 'article';
+    variant?: 'legacy' | 'home' | 'article';
 }) {
     const { i18nText, i18nHref } = useSiteTranslation();
-    return variant === 'article' ? <ArticleNewsletter /> : <LegacyNewsletter />;
+    return variant === 'home' || variant === 'article' ? <ArticleNewsletter variant={variant} /> : <LegacyNewsletter />;
 }
-function ArticleNewsletter() {
+function ArticleNewsletter({variant}: {variant: 'home' | 'article'}) {
     const { i18nText, i18nHref } = useSiteTranslation();
     const { locale } = useJournalPreferences();
     const copy = journalCopy[locale];
@@ -20,7 +20,7 @@ function ArticleNewsletter() {
     const [email, setEmail] = useState('');
     const [consent, setConsent] = useState(false);
     const [website, setWebsite] = useState('');
-    const [state, setState] = useState<'checking' | 'ready' | 'unavailable' | 'sending' | 'pending' | 'error' | 'duplicate'>('checking');
+    const [state, setState] = useState<'checking' | 'ready' | 'unavailable' | 'sending' | 'pending' | 'validation' | 'invalid' | 'error' | 'duplicate'>('checking');
     useEffect(() => {
         const controller = new AbortController();
         fetch('/api/newsletter', { cache: 'no-store', signal: controller.signal })
@@ -31,10 +31,10 @@ function ArticleNewsletter() {
     }, []);
     async function submit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        if (state !== 'ready' || !consent || website.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-            setState(website.trim() ? 'error' : state === 'ready' ? 'error' : 'unavailable');
-            return;
-        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) { setState('invalid'); return; }
+        if (!consent) { setState('validation'); return; }
+        if (website.trim()) { setState('error'); return; }
+        if (state !== 'ready' && state !== 'invalid' && state !== 'validation' && state !== 'error') return;
         setState('sending');
         try {
             const response = await fetch('/api/newsletter', {
@@ -45,7 +45,6 @@ function ArticleNewsletter() {
             const result = await response.json().catch(() => ({}));
             if (response.status === 202 && result?.status === 'pending_confirmation') {
                 setState('pending');
-                trackEvent('newsletter_signup');
             }
             else if (response.status === 409) {
                 setState('duplicate');
@@ -61,10 +60,10 @@ function ArticleNewsletter() {
             setState('error');
         }
     }
-    return <section className="journal-newsletter journal-newsletter-article section-wrap" aria-labelledby="newsletter-title">
+    return <section className={`journal-newsletter journal-newsletter-article journal-newsletter-${variant} section-wrap`} aria-labelledby={`newsletter-title-${id}`}>
     <div className="journal-newsletter-copy">
       <span className="eyebrow">{i18nText(copy?.newsletterEyebrow)}</span>
-      <h2 id="newsletter-title">{i18nText(copy?.newsletterTitle)}</h2>
+      <h2 id={`newsletter-title-${id}`}>{i18nText(copy?.newsletterTitle)}</h2>
       <p className="journal-newsletter-description">{i18nText(copy?.newsletterDescription)}</p>
     </div>
     <div className="journal-newsletter-action">
@@ -72,18 +71,20 @@ function ArticleNewsletter() {
       {i18nText(state === 'unavailable' && <p className="newsletter-feedback" role="status">{i18nText(copy?.newsletterUnavailable)}</p>)}
       {i18nText(state === 'pending' && <p className="newsletter-feedback" role="status">{i18nText(copy?.newsletterPending)}</p>)}
       {i18nText(state === 'duplicate' && <div className="journal-newsletter-result"><p className="newsletter-feedback" role="status">{i18nText(copy.newsletterDuplicate)}</p><button type="button" className="journal-newsletter-retry" onClick={() => { setEmail(''); setState('ready'); }}>{i18nText(copy.newsletterTryAnother)}</button></div>)}
-      {i18nText((state === 'ready' || state === 'sending' || state === 'error') && <form className="journal-newsletter-form" onSubmit={submit}>
+      {i18nText(state !== 'pending' && state !== 'duplicate' && <form className="journal-newsletter-form" onSubmit={submit} noValidate>
       <label className="journal-newsletter-email" htmlFor={`${id}-email`}>
         <span className="sr-only">{i18nText(copy?.newsletterEmail)}</span>
-        <input id={`${id}-email`} name="email" type="email" value={email} onChange={event => setEmail(event.target.value)} autoComplete="email" placeholder={i18nText(copy?.newsletterEmail)} required maxLength={254} aria-invalid={state === 'error'}/>
+        <input id={`${id}-email`} name="email" type="email" value={email} onChange={event => {setEmail(event.target.value); if (state === 'invalid' || state === 'validation' || state === 'error') setState('ready');}} autoComplete="email" placeholder={i18nText(copy?.newsletterEmail)} required maxLength={254} aria-invalid={state === 'invalid'} disabled={state === 'unavailable' || state === 'sending'}/>
       </label>
       <label className="contact-honeypot" aria-hidden="true" htmlFor={`${id}-website`}>{i18nText("Deixe este campo vazio")}<input id={`${id}-website`} name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={event => setWebsite(event.target.value)}/></label>
-      <button className="journal-newsletter-submit" type="submit" disabled={state === 'sending'}>{i18nText(state === 'sending' ? copy?.newsletterSending : copy?.newsletterButton)} <span aria-hidden="true">{i18nText("\u2197")}</span></button>
+      <button className="journal-newsletter-submit" type="submit" disabled={state !== 'ready' && state !== 'invalid' && state !== 'validation' && state !== 'error'}>{i18nText(state === 'sending' ? copy?.newsletterSending : copy?.newsletterButton)} <span aria-hidden="true">{i18nText("\u2197")}</span></button>
       <label className="newsletter-consent" htmlFor={`${id}-consent`}>
-        <input id={`${id}-consent`} type="checkbox" checked={consent} onChange={event => setConsent(event.target.checked)} required/>
+        <input id={`${id}-consent`} type="checkbox" checked={consent} onChange={event => {setConsent(event.target.checked); if (state === 'validation' || state === 'invalid') setState('ready');}} required aria-invalid={state === 'validation'} disabled={state === 'unavailable' || state === 'sending'}/>
         <span>{i18nText(copy?.newsletterConsent)} <Link href={i18nHref("/privacidade")}>{i18nText(copy?.newsletterPrivacy)}</Link>{i18nText(".")}</span>
       </label>
       <p className="journal-newsletter-promise">{i18nText(copy?.newsletterOnly)}</p>
+      {i18nText(state === 'invalid' && <p className="newsletter-feedback" role="status">{i18nText(copy.newsletterInvalidEmail)}</p>)}
+      {i18nText(state === 'validation' && <p className="newsletter-feedback" role="status">{i18nText(copy.newsletterValidation)}</p>)}
       {i18nText(state === 'error' && <p className="newsletter-feedback" role="status">{i18nText(copy?.newsletterError)}</p>)}
       </form>)}
     </div>

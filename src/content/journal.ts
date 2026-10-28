@@ -25,7 +25,8 @@ export type JournalPost = {
   publishAt?: string; // Horário absoluto gerado de publish_at em America/Fortaleza.
   status: 'draft' | 'published'; content: JournalBlock[];
   cover?: {src: string; alt: string; width: number; height: number; position?: string};
-  demo?: boolean; // Exemplo visível em Pausa do café, rotulado como teste e excluído da indexação.
+  tags?: string[];
+  demo?: boolean; // Conteúdo de teste preservado para revisão, mas fora das listagens públicas.
   sources?: {label: string; url: string}[];
   seo?: {title?: string; description?: string};
   markdownTree?:MarkdownNode;
@@ -103,10 +104,27 @@ export const journalPosts: JournalPost[] = [...generatedPosts as JournalPost[], 
 export const publishedJournalPosts = journalPosts.filter(post => post.status === 'published' && !post.demo).sort((a, b) => b.date.localeCompare(a.date));
 export const showJournalNavigation = true;
 export const indexJournal = publishedJournalPosts.length >= 3;
+// This set also feeds static route generation so old demo URLs remain available
+// with noindex metadata. Public listings, feeds and recommendations use only
+// publishedJournalPosts above.
 export const visibleJournalPosts = journalPosts
   .filter(post => post.status === 'published' || post.demo)
   .sort((a, b) => b.date.localeCompare(a.date));
 export const getVisibleJournalPost = (slug: string) => visibleJournalPosts.find(post => post.slug === slug);
+
+export function relatedJournalPosts(post: JournalPost, candidates = publishedJournalPosts, limit = 2) {
+  const eligible = candidates.filter(item => item.slug !== post.slug && item.status === 'published' && !item.demo);
+  const tags = new Set((post.tags || []).map(tag => tag.trim().toLocaleLowerCase()).filter(Boolean));
+  const ranked = eligible.map(item => {
+    const sharedTags = (item.tags || []).filter(tag => tags.has(tag.trim().toLocaleLowerCase())).length;
+    return {item, score: (item.category === post.category ? 2 : 0) + sharedTags * 3};
+  });
+  const contextual = ranked.filter(entry => entry.score > 0)
+    .sort((a, b) => b.score - a.score || b.item.date.localeCompare(a.item.date))
+    .map(entry => entry.item);
+  const recent = eligible.slice().sort((a, b) => b.date.localeCompare(a.date));
+  return (contextual.length ? contextual : recent).slice(0, limit);
+}
 export function readingMinutes(post: JournalPost) {
   const words = post.content.flatMap(block => {
     if (block.type === 'paragraph') return [block.text ?? block.segments.map(segment => segment.text).join(' ')];
