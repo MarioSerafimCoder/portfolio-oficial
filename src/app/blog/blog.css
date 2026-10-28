@@ -321,3 +321,166 @@
   .journal-newsletter-home h2{max-width:15ch}
 }
 @media(prefers-reduced-motion:reduce){.journal-editorial-cover img,.journal-editorial-action>span{transition:none}.journal-editorial-card>a:hover .journal-editorial-cover img,.journal-editorial-card>a:hover .journal-editorial-action>span{transform:none}}
+
+/* Pausa do café: magazine blockout */
+body:has(.journal-masthead) .site-header.journal-site-header,
+.journal-masthead{
+  --paper:#121212;--surface:#1A1A1A;--ink:#F3F4F6;--muted:#ADB5BD;--rule:#333333;--control:#7B828B;
+  --accent:#E50914;--accent-text:#F3F4F6;--on-accent:#F8F9FA;--focus:#E50914;
+}
+body:has(.journal-masthead) .site-header.journal-site-header{background:#121212;color:#F3F4F6;border-bottom:1px solid #333}
+body:has(.journal-masthead) .journal-site-header .journal-header-search{border-color:#7B828B}
+body:has(.journal-masthead) .journal-site-header .journal-header-search input{color:#F3F4F6}
+body:has(.journal-masthead) .journal-site-header .journal-header-search input::placeholder,
+body:has(.journal-masthead) .journal-site-header .journal-language-toggle{color:#ADB5BD}
+body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-active{color:#F3F4F6}
+
+.journal-masthead{background:#121212;color:#F3F4F6}
+.journal-page{--paper:#F8F9FA;--surface:#FAF9F6;--ink:#212529;--muted:#4B5563;--rule:#E5E7EB;--control:#747B85;--accent:#E50914;--accent-text:#E50914;--on-accent:#F8F9FA;--focus:#E50914;background:#FAF9F6;color:#212529}
+.journal-masthead-inner{width:min(100%,1600px);margin:0 auto;padding:0 var(--gutter)}
+.journal-masthead-nav{display:flex;align-items:center;gap:clamp(18px,3vw,42px);min-height:54px;overflow-x:auto;border-bottom:1px solid #333;scrollbar-width:none}
+.journal-masthead-nav::-webkit-scrollbar{display:none}
+.journal-masthead-nav a{flex:none;min-height:44px;display:inline-flex;align-items:center;gap:7px;color:#ADB5BD;font-size:11px;font-weight:500;white-space:nowrap;transition:color .2s ease}
+.journal-masthead-nav a:first-child{margin-right:auto;text-transform:uppercase;letter-spacing:.1em}
+.journal-masthead-nav a[aria-current=page],.journal-masthead-nav a:hover{color:#F3F4F6}
+.journal-masthead-nav a[aria-current=page]::after{content:'';width:5px;height:5px;border-radius:50%;background:#E50914}
+.journal-masthead-title{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(250px,.55fr);align-items:end;gap:clamp(30px,5vw,72px);padding:clamp(42px,5vw,72px) 0 34px}
+.journal-masthead-title .eyebrow{color:#ADB5BD;font-size:10px;letter-spacing:.12em}
+.journal-masthead-title h1{max-width:100%;margin:16px 0 0;font-family:var(--font-sans);font-size:clamp(58px,7.8vw,112px);font-weight:700;line-height:.88;letter-spacing:-.085em;text-transform:uppercase;white-space:nowrap}
+.journal-masthead-title h1 em{color:#E50914;font-style:italic;font-weight:600}
+.journal-masthead-description{max-width:410px;padding-bottom:4px}
+.journal-masthead-description p{margin:0;color:#D1D5DB;font-size:clamp(15px,1.35vw,18px);line-height:1.65}
+.journal-masthead-description>span{display:block;margin-top:20px;padding-top:12px;border-top:1px solid #444;color:#ADB5BD;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.journal-feature{padding:0 0 clamp(52px,7vw,92px)}
+.journal-editorial-card-featured{overflow:hidden;background:#F8F9FA;color:#212529;border:1px solid #D1D5DB;border-radius:2px}
+.journal-editorial-card-featured>a{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);min-height:clamp(330px,34vw,470px);align-items:stretch;gap:0;color:inherit}
+.journal-editorial-card-featured .journal-editorial-cover{grid-column:2;grid-row:1;min-width:0;aspect-ratio:auto;min-height:100%;background:#121212}
+.journal-editorial-card-featured .journal-editorial-cover img{width:100%;height:100%;object-fit:cover}
+.journal-editorial-card-featured .journal-editorial-copy{grid-column:1;grid-row:1;min-width:0;padding:clamp(24px,4vw,54px);color:#212529}
+.journal-editorial-card-featured .journal-editorial-meta{color:#5B626B}
+.journal-editorial-card-featured .journal-editorial-featured-label{padding:4px 8px;border:0;background:#E50914;color:#F8F9FA;letter-spacing:.07em}
+.journal-editorial-card-featured .journal-editorial-title{max-width:14ch;margin-top:20px;color:#212529;font-family:var(--font-sans);font-size:clamp(37px,4.35vw,62px);font-weight:700;line-height:.98;letter-spacing:-.06em}
+.journal-editorial-card-featured .journal-editorial-summary{display:-webkit-box;max-width:49ch;margin-top:15px;color:#4B5563;font-size:14px;line-height:1.65;-webkit-line-clamp:4}
+.journal-editorial-card-featured .journal-editorial-footer{padding-top:20px;color:#5B626B}
+.journal-editorial-card-featured .journal-editorial-action{color:#212529}
+.journal-editorial-art{position:relative;isolation:isolate;display:flex;width:100%;height:100%;min-height:330px;flex-direction:column;justify-content:space-between;overflow:hidden;padding:clamp(22px,4vw,54px);background:#1A1A1A;color:#F3F4F6}
+.journal-editorial-art::before{position:absolute;z-index:-1;inset:0;content:'';background:linear-gradient(90deg,transparent 49.85%,#ffffff14 50%,transparent 50.15%),linear-gradient(0deg,transparent 49.85%,#ffffff14 50%,transparent 50.15%);background-size:25% 25%}
+.journal-editorial-art::after{position:absolute;z-index:-1;right:-14%;top:9%;width:70%;aspect-ratio:1;content:'';border:1px solid #F3F4F633;border-radius:50%;box-shadow:0 0 0 25px #E5091426,0 0 0 85px #F3F4F614,0 0 0 145px #E5091417}
+.journal-editorial-art-index,.journal-editorial-art-caption{font-size:10px;font-weight:600;letter-spacing:.14em}
+.journal-editorial-art strong{font-family:var(--font-sans);font-size:clamp(120px,20vw,250px);font-weight:700;line-height:.72;letter-spacing:-.1em}
+.journal-editorial-art-caption{color:#ADB5BD}
+.journal-editorial-art-caption i{color:#E50914;font-style:normal}
+.journal-home-content{background:var(--surface);color:var(--ink)}
+.journal-reading-guide{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(40px,8vw,120px);padding-top:clamp(58px,8vw,104px);padding-bottom:clamp(62px,8vw,110px)}
+.journal-reading-heading .eyebrow,.journal-project-heading .eyebrow{color:var(--accent-text)}
+.journal-reading-heading h2,.journal-project-heading h2{max-width:13ch;margin:20px 0 16px;font-family:var(--font-sans);font-size:clamp(34px,4.2vw,58px);font-weight:700;line-height:.98;letter-spacing:-.055em;text-wrap:balance}
+.journal-reading-heading>p,.journal-project-heading>p{max-width:43ch;color:var(--muted);font-size:14px;line-height:1.7}
+.journal-reading-link{display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:17px;border-bottom:1px solid var(--accent);font-size:12px;font-weight:600}
+.journal-reading-outline ol{list-style:none;padding:0;margin:0;border-top:1px solid var(--rule)}
+.journal-reading-outline li{border-bottom:1px solid var(--rule)}
+.journal-reading-outline a{display:grid;grid-template-columns:38px minmax(0,1fr) 20px;gap:15px;align-items:center;min-height:77px;padding:14px 0}
+.journal-reading-outline a>span:first-child{color:var(--accent);font-size:11px;font-weight:600}
+.journal-reading-outline a>strong{font-family:var(--font-sans);font-size:clamp(16px,1.7vw,22px);font-weight:600;line-height:1.2;letter-spacing:-.025em}
+.journal-reading-outline a>span:last-child{color:var(--muted);font-size:18px;transition:transform .2s ease,color .2s ease}
+.journal-reading-outline a:hover>strong,.journal-reading-outline a:hover>span:last-child{color:var(--accent-text)}
+.journal-reading-outline a:hover>span:last-child{transform:translate(2px,-2px)}
+.journal-newsletter-home.section-wrap{width:min(calc(100% - 2 * var(--gutter)),1380px);max-width:none;margin:0 auto;padding:clamp(28px,5vw,62px);background:#121212;color:#F3F4F6;border:1px solid #333}
+.journal-newsletter-home .journal-newsletter-copy .eyebrow{color:#ADB5BD}
+.journal-newsletter-home h2{max-width:12ch;color:#F3F4F6;font-family:var(--font-sans);font-size:clamp(36px,4.5vw,62px);font-weight:700;line-height:.98;letter-spacing:-.06em}
+.journal-newsletter-home .journal-newsletter-description{max-width:54ch;color:#ADB5BD;font-size:14px;line-height:1.7}
+.journal-newsletter-home .journal-newsletter-form{align-content:center}
+.journal-newsletter-home .journal-newsletter-email input{min-height:48px;padding:12px 16px;border:1px solid #7B828B;border-radius:2px;background:#F8F9FA;color:#212529}
+.journal-newsletter-home .journal-newsletter-email input:focus{border-color:#E50914;outline:2px solid #E50914;outline-offset:2px}
+.journal-newsletter-home .journal-newsletter-submit{min-height:48px;padding:12px 20px;border:1px solid #E50914;border-radius:999px;background:#E50914;color:#F8F9FA;font-size:12px;font-weight:600}
+.journal-newsletter-home .journal-newsletter-submit:hover{background:#F8F9FA;color:#121212}
+.journal-newsletter-home .newsletter-consent,.journal-newsletter-home .journal-newsletter-promise,.journal-newsletter-home .newsletter-feedback{color:#ADB5BD}
+.journal-newsletter-home .newsletter-consent a{color:#F3F4F6}
+.journal-project-spotlight{padding-top:clamp(66px,8vw,108px);padding-bottom:clamp(74px,9vw,128px)}
+.journal-project-heading{display:flex;align-items:end;justify-content:space-between;gap:34px;margin-bottom:34px}
+.journal-project-heading h2{max-width:10ch;margin-bottom:0}
+.journal-project-heading>p{max-width:34ch;margin:0 0 5px}
+.journal-project-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px);list-style:none;padding:0;margin:0}
+.journal-project-card{min-width:0;border:1px solid var(--rule);background:var(--paper)}
+.journal-project-card>a{display:block;min-width:0}
+.journal-project-image{position:relative;display:block;overflow:hidden;aspect-ratio:1.42;background:var(--contrast-surface)}
+.journal-project-image img{object-fit:cover;transition:transform .35s var(--ease)}
+.journal-project-number{position:absolute;right:12px;top:12px;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#E50914;color:#F8F9FA;font-size:10px;font-weight:600}
+.journal-project-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;align-items:end;padding:18px 18px 20px}
+.journal-project-kicker{grid-column:1/-1;color:var(--muted);font-size:9px;font-weight:600;letter-spacing:.12em}
+.journal-project-copy strong{font-family:var(--font-sans);font-size:clamp(16px,1.7vw,22px);font-weight:600;line-height:1.15;letter-spacing:-.03em}
+.journal-project-link{display:inline-flex;align-items:center;gap:7px;color:var(--ink);font-size:10px;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;white-space:nowrap}
+.journal-project-link span{font-size:15px;transition:transform .2s var(--ease)}
+.journal-project-card:focus-within{outline:2px solid var(--focus);outline-offset:4px}
+@media(hover:hover) and (pointer:fine){.journal-project-card:hover .journal-project-image img{transform:scale(1.035)}.journal-project-card:hover .journal-project-link span{transform:translate(2px,-2px)}}
+body:has(.journal-masthead) .site-footer{background:#121212;color:#F3F4F6;border-top:1px solid #333}
+body:has(.journal-masthead) .site-footer .eyebrow,body:has(.journal-masthead) .site-footer .footer-base>span{color:#ADB5BD}
+body:has(.journal-masthead) .site-footer .footer-base{border-color:#333}
+.journal-index{padding-top:76px;padding-bottom:78px}
+.journal-index-heading{display:flex;align-items:baseline;justify-content:space-between;gap:28px;margin-bottom:28px}
+.journal-index-heading h2{font-family:var(--font-sans);font-size:clamp(30px,4vw,50px);font-weight:700;letter-spacing:-.055em}
+.journal-editorial-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;list-style:none;padding:0;margin:0}
+.journal-editorial-list>li{min-width:0}
+.journal-editorial-list .journal-editorial-card{height:100%;border:1px solid var(--rule);background:var(--paper)}
+.journal-editorial-list .journal-editorial-card>a{display:flex;height:100%;flex-direction:column}
+.journal-editorial-list .journal-editorial-cover{aspect-ratio:1.6}
+.journal-editorial-list .journal-editorial-cover img{width:100%;height:100%;object-fit:cover}
+.journal-editorial-list .journal-editorial-art{min-height:210px}
+.journal-editorial-list .journal-editorial-art strong{font-size:clamp(46px,7vw,82px)}
+.journal-editorial-list .journal-editorial-copy{padding:20px}
+.journal-editorial-list .journal-editorial-title{font-family:var(--font-sans);font-size:clamp(24px,2.7vw,36px);font-weight:600;letter-spacing:-.045em}
+.journal-search-count{padding-top:24px;font-size:13px;color:var(--muted)}
+.journal-empty{max-width:1380px;margin:0 auto;padding:45px var(--gutter);border:0;align-items:flex-start}
+.journal-empty>span{color:var(--accent);font-size:22px}
+.journal-empty p{color:var(--muted)}
+.journal-empty button{min-height:44px;margin-top:12px;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:5px}
+.journal-pagination{display:flex;justify-content:space-between;align-items:center;gap:22px;margin-top:30px;padding-top:20px;border-top:1px solid var(--rule)}
+@media(max-width:900px){
+  .journal-masthead-title{grid-template-columns:minmax(0,1fr);gap:25px;padding-top:54px}
+  .journal-masthead-description{max-width:620px}
+  .journal-editorial-card-featured>a{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+  .journal-reading-guide{grid-template-columns:minmax(0,1fr);gap:30px}
+  .journal-reading-heading h2{max-width:16ch}
+  .journal-project-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .journal-project-card:last-child{display:none}
+}
+@media(max-width:700px){
+  .journal-masthead-inner{padding-inline:var(--gutter)}
+  .journal-masthead-nav{gap:19px;min-height:50px}
+  .journal-masthead-nav a{font-size:10px}
+  .journal-masthead-nav a:first-child{margin-right:0}
+  .journal-masthead-title{gap:22px;padding:48px 0 28px}
+  .journal-masthead-title h1{margin-top:15px;font-size:clamp(52px,12.3vw,78px);line-height:.88;letter-spacing:-.075em;white-space:normal}
+  .journal-masthead-description p{font-size:15px;line-height:1.6}
+  .journal-masthead-description>span{margin-top:14px}
+  .journal-feature{padding-bottom:54px}
+  .journal-editorial-card-featured>a{display:flex;flex-direction:column;min-height:0}
+  .journal-editorial-card-featured .journal-editorial-cover{order:0;min-height:0;aspect-ratio:1.35}
+  .journal-editorial-card-featured .journal-editorial-copy{order:1;padding:22px}
+  .journal-editorial-card-featured .journal-editorial-title{max-width:18ch;margin-top:13px;font-size:clamp(36px,9.4vw,52px)}
+  .journal-editorial-card-featured .journal-editorial-summary{font-size:13px;-webkit-line-clamp:4}
+  .journal-editorial-art{min-height:0;padding:20px}
+  .journal-editorial-art-index,.journal-editorial-art-caption{font-size:8px}
+  .journal-editorial-art strong{font-size:clamp(112px,35vw,170px)}
+  .journal-reading-guide{gap:22px;padding-top:54px;padding-bottom:56px}
+  .journal-reading-heading h2,.journal-project-heading h2{font-size:clamp(34px,9.5vw,48px)}
+  .journal-reading-heading>p,.journal-project-heading>p{font-size:13px}
+  .journal-reading-outline a{grid-template-columns:32px minmax(0,1fr) 18px;gap:11px;min-height:68px}
+  .journal-reading-outline a>strong{font-size:16px}
+  .journal-newsletter-home.section-wrap{width:calc(100% - 2 * var(--gutter));padding:26px 21px}
+  .journal-newsletter-home h2{max-width:13ch;font-size:clamp(37px,10vw,50px)}
+  .journal-newsletter-home .journal-newsletter-description{font-size:13px}
+  .journal-newsletter-home form.journal-newsletter-form{grid-template-columns:minmax(0,1fr);gap:12px}
+  .journal-newsletter-home .journal-newsletter-submit{grid-column:1;grid-row:auto;width:100%}
+  .journal-project-spotlight{padding-top:62px;padding-bottom:70px}
+  .journal-project-heading{display:block;margin-bottom:25px}
+  .journal-project-heading>p{margin-top:15px}
+  .journal-project-list{grid-template-columns:minmax(0,1fr);gap:16px}
+  .journal-project-card:last-child{display:block}
+  .journal-project-image{aspect-ratio:1.55}
+  .journal-project-copy strong{font-size:20px}
+  .journal-index{padding-top:55px;padding-bottom:62px}
+  .journal-editorial-list{grid-template-columns:minmax(0,1fr);gap:18px}
+  .journal-index-heading{display:block;margin-bottom:22px}
+  .journal-index-heading h2{margin-top:14px}
+}
+@media(prefers-reduced-motion:reduce){.journal-project-image img,.journal-project-link span,.journal-reading-outline a>span:last-child{transition:none}.journal-project-card:hover .journal-project-image img,.journal-project-card:hover .journal-project-link span,.journal-reading-outline a:hover>span:last-child{transform:none}}

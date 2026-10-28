@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useSiteTranslation } from '@/i18n/use-translation';
 import { formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPostForLocale } from '@/content/journal-i18n';
 import { readingMinutes, type JournalCategory, type JournalPost } from '@/content/journal';
+import { projects } from '@/content/projects';
 import { trackEvent } from '@/lib/analytics';
 import { useJournalPreferences } from './journal-preferences';
 import { Newsletter } from './newsletter';
@@ -25,31 +26,55 @@ function searchableText(post: JournalPost) {
   return normalize([post.title, post.summary, localized.title, localized.summary, journalCategoryLabels.pt[post.category], journalCategoryLabels.en[post.category], ...blocks].join(' '));
 }
 
-function EditorialCard({ post, index, locale, featuredLabel, readLabel }: {
+function headingId(value: string) {
+  return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
+}
+
+function articleOutline(post: JournalPost, locale: 'pt' | 'en') {
+  const view = journalPostForLocale(post, locale);
+  const counts = new Map<string, number>();
+  return view.content.flatMap(block => {
+    if (block.type !== 'heading') return [];
+    const base = headingId(block.text);
+    const count = (counts.get(base) || 0) + 1;
+    counts.set(base, count);
+    return block.level === 2 ? [{ text: block.text, id: count === 1 ? base : `${base}-${count}` }] : [];
+  }).slice(0, 3);
+}
+
+function EditorialArtwork({ index }: { index: number }) {
+  const { i18nText } = useSiteTranslation();
+  return <span className="journal-editorial-art" aria-hidden="true">
+    <span className="journal-editorial-art-index">{i18nText('PAUSA DO CAFÉ · CADERNO')} {String(index + 1).padStart(2, '0')}</span>
+    <span className="journal-editorial-art-orbit" />
+    <strong>{String(index + 1).padStart(2, '0')}</strong>
+    <span className="journal-editorial-art-caption">DESIGN <i>×</i> {i18nText('PENSAMENTO')}</span>
+  </span>;
+}
+
+function EditorialCard({ post, index, locale, featuredLabel, readLabel, variant }: {
   post: JournalPost;
   index: number;
   locale: 'pt' | 'en';
   featuredLabel: string;
   readLabel: string;
+  variant: 'featured' | 'visual' | 'typographic';
 }) {
   const { i18nText, i18nHref } = useSiteTranslation();
   const view = journalPostForLocale(post, locale);
-  const presentation = index === 0 ? 'featured' : post.cover ? 'visual' : 'typographic';
   const date = (post.publishAt || post.date).slice(0, 10);
   const readTime = readingMinutes({ ...post, content: view.content });
 
-  return <li className={`journal-editorial-card journal-editorial-card-${presentation}`}>
-    <Link href={i18nHref(`/blog/${post.slug}`)} onClick={() => trackEvent('journal_article_open', {placement: 'index', slug: post.slug, category: post.category})}>
-      {i18nText(post.cover ? <span className="journal-editorial-cover">
-        <Image src={post.cover.src} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
-          sizes={presentation === 'featured' ? '(max-width: 700px) calc(100vw - 2 * var(--gutter)), (max-width: 1100px) 52vw, 760px' : '(max-width: 700px) calc(100vw - 2 * var(--gutter)), (max-width: 1100px) 48vw, 620px'}
-          style={{objectPosition: post.cover.position || 'center'}} {...(presentation === 'featured' ? {preload: true} : {})}/>
-      </span> : <span className="journal-editorial-type-art" aria-hidden="true">
-        <span>PAUSA DO CAFÉ</span><span className="journal-editorial-type-index">{String(index + 1).padStart(2, '0')}</span>
-      </span>)}
+  return <article className={`journal-editorial-card journal-editorial-card-${variant}`}>
+    <Link href={i18nHref(`/blog/${post.slug}`)} onClick={() => trackEvent('journal_article_open', { placement: 'index', slug: post.slug, category: post.category })}>
+      <span className="journal-editorial-cover">
+        {post.cover ? <Image src={post.cover.src} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
+          sizes={variant === 'featured' ? '(max-width: 700px) calc(100vw - 2 * var(--gutter)), (max-width: 1100px) 52vw, 760px' : '(max-width: 700px) calc(100vw - 2 * var(--gutter)), (max-width: 1100px) 48vw, 620px'}
+          style={{ objectPosition: post.cover.position || 'center' }} {...(variant === 'featured' ? { preload: true } : {})} /> : <EditorialArtwork index={index} />}
+      </span>
       <span className="journal-editorial-copy">
         <span className="journal-editorial-meta">
-          {i18nText(presentation === 'featured' && <span className="journal-editorial-featured-label">{i18nText(featuredLabel)}</span>)}
+          {variant === 'featured' && <span className="journal-editorial-featured-label">{i18nText(featuredLabel)}</span>}
           <span>{i18nText(journalCategoryLabels[locale][post.category])}</span>
           <time dateTime={date}>{i18nText(formatJournalDateLocale(date, locale))}</time>
         </span>
@@ -59,6 +84,26 @@ function EditorialCard({ post, index, locale, featuredLabel, readLabel }: {
           <span>{i18nText(journalCopy[locale].reading(readTime))}</span>
           <span className="journal-editorial-action">{i18nText(readLabel)} <span aria-hidden="true">↗</span></span>
         </span>
+      </span>
+    </Link>
+  </article>;
+}
+
+function JournalProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
+  const { i18nText, i18nHref } = useSiteTranslation();
+  const { locale } = useJournalPreferences();
+  const copy = journalCopy[locale];
+  const image = project.cardCover || project.cover;
+  return <li className="journal-project-card">
+    <Link href={i18nHref(`/projetos/${project.slug}`)}>
+      <span className="journal-project-image">
+        <Image src={image} alt="" fill sizes="(max-width: 700px) 88vw, (max-width: 1100px) 42vw, 27vw" />
+        <span className="journal-project-number" aria-hidden="true">0{index + 1}</span>
+      </span>
+      <span className="journal-project-copy">
+        <span className="journal-project-kicker">{i18nText(copy.projectLabel)}</span>
+        <strong>{i18nText(project.name)}</strong>
+        <span className="journal-project-link">{i18nText(copy.projectLink)} <span aria-hidden="true">↗</span></span>
       </span>
     </Link>
   </li>;
@@ -82,7 +127,10 @@ export function JournalIndex({ posts, activeCategory }: {
   const categories = [...new Set(publicPosts.map(post => post.category))];
   const pageSize = 6;
   const totalPages = Math.ceil(filtered.length / pageSize);
-  const visible = filtered.slice((page - 1) * pageSize, page * pageSize);
+  const pageItems = filtered.slice((page - 1) * pageSize, page * pageSize);
+  const featured = page === 1 ? pageItems[0] : undefined;
+  const remaining = page === 1 ? pageItems.slice(1) : pageItems;
+  const outline = featured ? articleOutline(featured, locale) : [];
 
   function clearSearch() {
     setQuery('');
@@ -91,41 +139,86 @@ export function JournalIndex({ posts, activeCategory }: {
   }
 
   return <main id="conteudo" className="journal-page">
-    <header className="journal-hero section-wrap">
-      <span className="eyebrow">{i18nText(copy.eyebrow)}</span>
-      <div className="journal-hero-copy">
-        <h1>{i18nText('Pausa do ')}<em>{i18nText('café')}</em></h1>
-        <div className="journal-hero-description">
-          <p>{i18nText(copy.intro)}</p>
-          <span>{i18nText(copy.publishedCount(publicPosts.length))}</span>
+    <header className="journal-masthead">
+      <div className="journal-masthead-inner">
+        <nav className="journal-masthead-nav" aria-label={i18nText(copy.categoryFilter)}>
+          <a href="#journal-feature" aria-current={!activeCategory ? 'page' : undefined}>{i18nText(copy.index)}</a>
+          {categories.map(category => <Link key={category} href={i18nHref(`/blog/categoria/${category}`)} aria-current={activeCategory === category ? 'page' : undefined} onClick={() => trackEvent('journal_filter', { filter: 'category', category })}>{i18nText(journalCategoryLabels[locale][category])}</Link>)}
+          <a href={i18nHref('/feed.xml')}>RSS <span aria-hidden="true">↗</span></a>
+        </nav>
+
+        <div className="journal-masthead-title">
+          <div>
+            <span className="eyebrow">{i18nText(copy.eyebrow)} {i18nText(copy.location)}</span>
+            <h1>{i18nText('Pausa do ')}<em>{i18nText('café')}</em></h1>
+          </div>
+          <div className="journal-masthead-description">
+            <p>{i18nText(copy.intro)}</p>
+            <span>{i18nText(copy.publishedCount(publicPosts.length))}</span>
+          </div>
         </div>
+
+        {featured && <section className="journal-feature" id="journal-feature" aria-label={i18nText(copy.featured)}>
+          <EditorialCard post={featured} index={0} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant="featured" />
+        </section>}
       </div>
     </header>
 
-    <section className={`journal-index section-wrap${activeCategory ? '' : ' journal-index-plain'}`} aria-labelledby="journal-index-title">
-      <div className="journal-index-heading">
-        <h2 id="journal-index-title">{i18nText(activeCategory ? journalCategoryLabels[locale][activeCategory] : copy.index)}</h2>
-      </div>
-      {i18nText(categories.length > 1 && <nav className="journal-categories" aria-label={i18nText(copy.categoryFilter)}>
-        <Link href={i18nHref('/blog')} aria-current={!activeCategory ? 'page' : undefined} onClick={() => trackEvent('journal_filter', {filter: 'category', category: 'all'})}>{i18nText(copy.allCategories)}</Link>
-        {categories.map(category => <Link key={category} href={i18nHref(`/blog/categoria/${category}`)} aria-current={activeCategory === category ? 'page' : undefined}
-          onClick={() => trackEvent('journal_filter', {filter: 'category', category})}>{i18nText(journalCategoryLabels[locale][category])}</Link>)}
-      </nav>)}
+    {i18nText(filtered.length === 0 ? <section className="journal-empty section-wrap">
+      <span aria-hidden="true">✳</span>
+      {publicPosts.length === 0 ? <p>{i18nText(copy.empty)}</p> : <div><p role="status">{i18nText(copy.noResults)}</p><button type="button" onClick={clearSearch}>{i18nText(copy.clear)} ↗</button></div>}
+    </section> : <>
+      {i18nText(terms.length > 0 && <p className="journal-search-count section-wrap" role="status">{i18nText(copy.results(filtered.length))}</p>)}
 
-      {i18nText(publicPosts.length === 0 ? <div className="journal-empty"><span aria-hidden="true">✳</span><p>{i18nText(copy.empty)}</p></div> : filtered.length === 0 ? <div className="journal-empty journal-no-results">
-        <span aria-hidden="true">✳</span><div><p role="status">{i18nText(copy.noResults)}</p><button type="button" onClick={clearSearch}>{i18nText(copy.clear)}{i18nText(' ↗')}</button></div>
-      </div> : <>
-        {i18nText(terms.length > 0 && <p className="journal-search-count" role="status">{i18nText(copy.results(filtered.length))}</p>)}
+      {remaining.length > 0 && <section className="journal-index section-wrap" id="journal-articles" aria-labelledby="journal-index-title">
+        <div className="journal-index-heading">
+          <span className="eyebrow">{i18nText(copy.eyebrow)}</span>
+          <h2 id="journal-index-title">{i18nText(copy.index)}</h2>
+        </div>
         <ol className="journal-editorial-list">
-          {visible.map((post, index) => <EditorialCard key={post.slug} post={post} index={(page - 1) * pageSize + index} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle}/>) }
+          {remaining.map((post, index) => <li key={post.slug}>
+            <EditorialCard post={post} index={index + 1} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant={post.cover ? 'visual' : 'typographic'} />
+          </li>)}
         </ol>
-        {i18nText(totalPages > 1 && <nav className="journal-pagination" aria-label={i18nText(locale === 'en' ? 'Pages' : 'Páginas')}>
+        {totalPages > 1 && <nav className="journal-pagination" aria-label={i18nText(locale === 'en' ? 'Pages' : 'Páginas')}>
           <button disabled={page === 1} onClick={() => setPage(value => value - 1)}>{i18nText(copy.previousPage)}</button>
           <span>{i18nText(copy.page(page, totalPages))}</span>
           <button disabled={page === totalPages} onClick={() => setPage(value => value + 1)}>{i18nText(copy.nextPage)}</button>
-        </nav>)}
-      </>)}
+        </nav>}
+      </section>}
+    </>)}
+
+    {featured && outline.length > 0 && <section className="journal-reading-guide section-wrap" aria-labelledby="journal-reading-title">
+      <div className="journal-reading-heading">
+        <span className="eyebrow">{i18nText(copy.readingKicker)}</span>
+        <h2 id="journal-reading-title">{i18nText(copy.readingTitle)}</h2>
+        <p>{i18nText(copy.readingDescription)}</p>
+        <Link href={i18nHref(`/blog/${featured.slug}`)} className="journal-reading-link">{i18nText(copy.readArticle)} <span aria-hidden="true">↗</span></Link>
+      </div>
+      <nav className="journal-reading-outline" aria-label={i18nText(copy.tocLabel)}>
+        <ol>
+          {outline.map((item, index) => <li key={item.id}>
+            <Link href={`${i18nHref(`/blog/${featured.slug}`)}#${item.id}`}>
+              <span>0{index + 1}</span><strong>{i18nText(item.text)}</strong><span aria-hidden="true">↗</span>
+            </Link>
+          </li>)}
+        </ol>
+      </nav>
+    </section>}
+
+    <Newsletter variant="home" />
+
+    <section className="journal-project-spotlight section-wrap" aria-labelledby="journal-project-title">
+      <div className="journal-project-heading">
+        <div>
+          <span className="eyebrow">{i18nText(copy.interludeKicker)}</span>
+          <h2 id="journal-project-title">{i18nText(copy.interludeTitle)}</h2>
+        </div>
+        <p>{i18nText(copy.interludeDescription)}</p>
+      </div>
+      <ol className="journal-project-list">
+        {projects.slice(0, 3).map((project, index) => <JournalProjectCard key={project.slug} project={project} index={index} />)}
+      </ol>
     </section>
-    <Newsletter variant="home"/>
   </main>;
 }
