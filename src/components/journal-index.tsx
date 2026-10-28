@@ -74,6 +74,7 @@ function EditorialCard({ post, index, locale, featuredLabel, readLabel, variant 
         <span className="journal-editorial-meta">
           {variant === 'featured' && <span className="journal-editorial-featured-label">{i18nText(featuredLabel)}</span>}
           <span>{i18nText(journalCategoryLabels[locale][post.category])}</span>
+          {post.demo && <span className="journal-demo-label">{i18nText(journalCopy[locale].preview)}</span>}
           <time dateTime={date}>{i18nText(formatJournalDateLocale(date, locale))}</time>
         </span>
         <strong className="journal-editorial-title" lang={view.translated ? undefined : 'pt-BR'}>{i18nText(view.title)}</strong>
@@ -95,14 +96,16 @@ export function JournalIndex({ posts, activeCategory }: {
   const { locale, query, setQuery } = useJournalPreferences();
   const copy = journalCopy[locale];
   const [page, setPage] = useState(1);
-  const publicPosts = posts.filter(post => post.status === 'published' && !post.demo);
+  const publishedPosts = posts.filter(post => post.status === 'published' && !post.demo);
+  const listedPosts = posts.filter(post => post.status === 'published' || post.demo);
 
   useEffect(() => setPage(1), [query, activeCategory]);
 
   const terms = normalize(query).split(/\s+/).filter(Boolean);
-  const categoryPosts = activeCategory ? publicPosts.filter(post => post.category === activeCategory) : publicPosts;
+  const categoryPosts = activeCategory ? listedPosts.filter(post => post.category === activeCategory) : listedPosts;
   const filtered = terms.length ? categoryPosts.filter(post => terms.every(term => searchableText(post).includes(term))) : categoryPosts;
-  const categories = [...new Set(publicPosts.map(post => post.category))];
+  const categories = [...new Set(listedPosts.map(post => post.category))];
+  const demoCount = listedPosts.filter(post => post.demo).length;
   const pageSize = 6;
   const totalPages = Math.ceil(filtered.length / pageSize);
   const pageItems = filtered.slice((page - 1) * pageSize, page * pageSize);
@@ -132,7 +135,7 @@ export function JournalIndex({ posts, activeCategory }: {
           </div>
           <div className="journal-masthead-description">
             <p>{i18nText(copy.intro)}</p>
-            <span>{i18nText(copy.publishedCount(publicPosts.length))}</span>
+            <span>{i18nText(copy.publishedCount(publishedPosts.length, demoCount))}</span>
           </div>
         </div>
 
@@ -144,7 +147,7 @@ export function JournalIndex({ posts, activeCategory }: {
 
     {i18nText(filtered.length === 0 ? <section className="journal-empty section-wrap">
       <span aria-hidden="true">✳</span>
-      {publicPosts.length === 0 ? <p>{i18nText(copy.empty)}</p> : <div><p role="status">{i18nText(copy.noResults)}</p><button type="button" onClick={clearSearch}>{i18nText(copy.clear)} ↗</button></div>}
+      {listedPosts.length === 0 ? <p>{i18nText(copy.empty)}</p> : <div><p role="status">{i18nText(copy.noResults)}</p><button type="button" onClick={clearSearch}>{i18nText(copy.clear)} ↗</button></div>}
     </section> : <>
       {i18nText(terms.length > 0 && <p className="journal-search-count section-wrap" role="status">{i18nText(copy.results(filtered.length))}</p>)}
 

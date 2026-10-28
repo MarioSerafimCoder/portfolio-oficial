@@ -358,6 +358,7 @@ body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-ac
 .journal-editorial-card-featured .journal-editorial-cover img{width:100%;height:100%;object-fit:cover;transition:transform 600ms cubic-bezier(.2,.8,.2,1)}
 .journal-editorial-card-featured .journal-editorial-copy{grid-column:1;grid-row:1;min-width:0;padding:clamp(24px,4vw,54px);color:#212529}
 .journal-editorial-card-featured .journal-editorial-meta{color:#5B626B}
+.journal-editorial-card-featured .journal-editorial-meta .journal-demo-label{color:#E50914}
 .journal-editorial-card-featured .journal-editorial-featured-label{padding:4px 8px;border:0;background:#E50914;color:#F8F9FA;letter-spacing:.07em}
 .journal-editorial-card-featured .journal-editorial-title{max-width:14ch;margin-top:20px;color:#212529;font-family:var(--font-sans);font-size:clamp(37px,4.35vw,62px);font-weight:700;line-height:.98;letter-spacing:-.06em;transition:color 220ms ease,transform 280ms var(--ease)}
 .journal-editorial-card-featured .journal-editorial-summary{display:-webkit-box;max-width:49ch;margin-top:15px;color:#4B5563;font-size:14px;line-height:1.65;-webkit-line-clamp:4}
