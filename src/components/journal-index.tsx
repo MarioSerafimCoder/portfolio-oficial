@@ -6,10 +6,8 @@ import { useEffect, useState } from 'react';
 import { useSiteTranslation } from '@/i18n/use-translation';
 import { formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPostForLocale } from '@/content/journal-i18n';
 import { readingMinutes, type JournalCategory, type JournalPost } from '@/content/journal';
-import { projects } from '@/content/projects';
 import { trackEvent } from '@/lib/analytics';
 import { useJournalPreferences } from './journal-preferences';
-import { Newsletter } from './newsletter';
 
 function normalize(value: string) {
   return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase().trim();
@@ -89,26 +87,6 @@ function EditorialCard({ post, index, locale, featuredLabel, readLabel, variant 
   </article>;
 }
 
-function JournalProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
-  const { i18nText, i18nHref } = useSiteTranslation();
-  const { locale } = useJournalPreferences();
-  const copy = journalCopy[locale];
-  const image = project.cardCover || project.cover;
-  return <li className="journal-project-card">
-    <Link href={i18nHref(`/projetos/${project.slug}`)}>
-      <span className="journal-project-image">
-        <Image src={image} alt="" fill sizes="(max-width: 700px) 88vw, (max-width: 1100px) 42vw, 27vw" />
-        <span className="journal-project-number" aria-hidden="true">0{index + 1}</span>
-      </span>
-      <span className="journal-project-copy">
-        <span className="journal-project-kicker">{i18nText(copy.projectLabel)}</span>
-        <strong>{i18nText(project.name)}</strong>
-        <span className="journal-project-link">{i18nText(copy.projectLink)} <span aria-hidden="true">↗</span></span>
-      </span>
-    </Link>
-  </li>;
-}
-
 export function JournalIndex({ posts, activeCategory }: {
   posts: JournalPost[];
   activeCategory?: JournalCategory;
@@ -170,22 +148,6 @@ export function JournalIndex({ posts, activeCategory }: {
     </section> : <>
       {i18nText(terms.length > 0 && <p className="journal-search-count section-wrap" role="status">{i18nText(copy.results(filtered.length))}</p>)}
 
-      {remaining.length > 0 && <section className="journal-index section-wrap" id="journal-articles" aria-labelledby="journal-index-title">
-        <div className="journal-index-heading">
-          <span className="eyebrow">{i18nText(copy.eyebrow)}</span>
-          <h2 id="journal-index-title">{i18nText(copy.index)}</h2>
-        </div>
-        <ol className="journal-editorial-list">
-          {remaining.map((post, index) => <li key={post.slug}>
-            <EditorialCard post={post} index={index + 1} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant={post.cover ? 'visual' : 'typographic'} />
-          </li>)}
-        </ol>
-        {totalPages > 1 && <nav className="journal-pagination" aria-label={i18nText(locale === 'en' ? 'Pages' : 'Páginas')}>
-          <button disabled={page === 1} onClick={() => setPage(value => value - 1)}>{i18nText(copy.previousPage)}</button>
-          <span>{i18nText(copy.page(page, totalPages))}</span>
-          <button disabled={page === totalPages} onClick={() => setPage(value => value + 1)}>{i18nText(copy.nextPage)}</button>
-        </nav>}
-      </section>}
     </>)}
 
     {featured && outline.length > 0 && <section className="journal-reading-guide section-wrap" aria-labelledby="journal-reading-title">
@@ -206,19 +168,21 @@ export function JournalIndex({ posts, activeCategory }: {
       </nav>
     </section>}
 
-    <Newsletter variant="home" />
-
-    <section className="journal-project-spotlight section-wrap" aria-labelledby="journal-project-title">
-      <div className="journal-project-heading">
-        <div>
-          <span className="eyebrow">{i18nText(copy.interludeKicker)}</span>
-          <h2 id="journal-project-title">{i18nText(copy.interludeTitle)}</h2>
-        </div>
-        <p>{i18nText(copy.interludeDescription)}</p>
+    {filtered.length > 0 && <section className="journal-archive section-wrap" id="journal-articles" aria-labelledby="journal-archive-title">
+      <div className="journal-archive-heading">
+        <span className="eyebrow">{i18nText(copy.archiveKicker)}</span>
+        <h2 id="journal-archive-title">{i18nText(copy.archiveTitle)}</h2>
       </div>
-      <ol className="journal-project-list">
-        {projects.slice(0, 3).map((project, index) => <JournalProjectCard key={project.slug} project={project} index={index} />)}
-      </ol>
-    </section>
+      {remaining.length > 0 ? <ol className="journal-editorial-list">
+        {remaining.map((post, index) => <li key={post.slug}>
+          <EditorialCard post={post} index={index + 1} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant={post.cover ? 'visual' : 'typographic'} />
+        </li>)}
+      </ol> : <p className="journal-archive-empty">{i18nText(copy.archiveEmpty)}</p>}
+      {totalPages > 1 && <nav className="journal-pagination" aria-label={i18nText(locale === 'en' ? 'Pages' : 'Páginas')}>
+        <button disabled={page === 1} onClick={() => setPage(value => value - 1)}>{i18nText(copy.previousPage)}</button>
+        <span>{i18nText(copy.page(page, totalPages))}</span>
+        <button disabled={page === totalPages} onClick={() => setPage(value => value + 1)}>{i18nText(copy.nextPage)}</button>
+      </nav>}
+    </section>}
   </main>;
 }
