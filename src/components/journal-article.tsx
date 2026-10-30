@@ -1,7 +1,7 @@
 'use client';
 import {useSiteTranslation} from '@/i18n/use-translation';
 import Image from 'next/image';
-import {useEffect, useRef, useState} from 'react';
+import {journalSummary} from '@/lib/journal-summary';
 import { journalHeadings } from '@/lib/journal-headings';
 import { readingMinutes, type JournalBlock, type JournalPost } from '@/content/journal';
 import { formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPostForLocale } from '@/content/journal-i18n';
@@ -37,11 +37,6 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
 }) {
     const { i18nText, i18nHref } = useSiteTranslation();
     const { locale } = useJournalPreferences();
-    const contentRef = useRef<HTMLDivElement>(null);
-    const [contents, setContents] = useState<{id: string; text: string}[]>([]);
-    useEffect(() => {
-      setContents(Array.from(contentRef.current?.querySelectorAll('h2[id]') || []).map(heading => ({id: heading.id, text: heading.textContent || ''})));
-    }, [post.slug, locale]);
     const copy = journalCopy[locale];
     const view = journalPostForLocale(post, locale);
     const headings = journalHeadings(view.content);
@@ -65,11 +60,11 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
       </div>
     </div></header>{i18nText(post.cover && <figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={view.coverAlt||post.cover.alt} width={post.cover.width} height={post.cover.height} preload sizes="(max-width: 700px) 100vw, 1100px"/></figure>)}<div className={`journal-article-wrap section-wrap${latestPosts.length ? '' : ' journal-article-wrap-no-related'}`}>
       <aside className="journal-article-sidebar" aria-label={i18nText(copy.authorKicker)}>
-        <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined} demo={post.demo}/>
-        {contents.length > 1 && <details className="journal-contents"><summary>{locale === 'en' ? 'In this article' : 'Neste texto'}</summary><nav aria-label={locale === 'en' ? 'Article contents' : 'Índice do artigo'}><ol>{contents.map(item => <li key={item.id}><a href={`#${item.id}`}>{item.text}</a></li>)}</ol></nav></details>}
+        <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined}/>
+        <section className="journal-auto-summary" aria-labelledby="journal-summary-title"><h2 id="journal-summary-title">{locale === 'en' ? 'Article summary' : 'Resumo do artigo'}</h2><p lang={textLanguage}>{journalSummary(view.content, view.summary)}</p></section>
       </aside>
       <div className="journal-article-body">
-      <div ref={contentRef} className="journal-article-content" lang={textLanguage}>{view.markdownTree?<MarkdownContent tree={view.markdownTree} title={view.title}/>:i18nText(view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>))}</div>
+      <div className="journal-article-content" lang={textLanguage}>{view.markdownTree?<MarkdownContent tree={view.markdownTree} title={view.title}/>:i18nText(view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>))}</div>
       {i18nText(post.sources && post.sources.length > 0 && <section className="journal-sources" aria-labelledby="journal-sources-title"><h2 id="journal-sources-title">{i18nText(copy.references)}</h2><ul>{i18nText(post.sources.map(source => <li key={source.url}><a href={i18nHref(source.url)} target="_blank" rel="noopener noreferrer">{i18nText(source.label)}</a></li>))}</ul></section>)}
       </div>
     </div></article>
