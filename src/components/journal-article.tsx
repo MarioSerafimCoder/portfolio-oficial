@@ -41,12 +41,13 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
     const view = journalPostForLocale(post, locale);
     const headings = journalHeadings(view.content);
     const headingIds = new Map(headings.map(heading => [heading.index, heading.id]));
+    const backLabel = copy.back.replace(/^[←↵↩]\s*/, '');
     const textLanguage = view.translated ? undefined : 'pt-BR';
     const date = (post.publishAt || post.date).slice(0, 10);
     const readTime = readingMinutes({ ...post, content: view.content });
     return <main id="conteudo" className="journal-post-page"><ReadingProgress />
     <article><header className="journal-post-hero section-wrap"><div className="journal-post-head-inner">
-      <a className="journal-back" href={i18nHref("/blog")}>{i18nText(copy.back)}</a>
+      <a className="journal-back" href={i18nHref("/blog")}>{i18nText(backLabel)}</a>
       {i18nText(post.demo && <div className="journal-post-demo" role="note">{i18nText(copy.demo)}</div>)}
       <div className="journal-post-heading">
         <div className="journal-post-heading-title"><h1 lang={textLanguage}>{i18nText(view.title)}</h1></div>
@@ -56,7 +57,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
           {i18nText(locale === 'en' && !view.translated && <p className="journal-language-note">{i18nText(copy.unavailable)}</p>)}
         </div>
       </div>
-    </div></header>{i18nText(post.cover && <figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={view.coverAlt||post.cover.alt} width={post.cover.width} height={post.cover.height} preload sizes="(max-width: 700px) 100vw, 1100px"/></figure>)}<div className="journal-article-wrap section-wrap">
+    </div></header>{i18nText(post.cover && <figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={view.coverAlt||post.cover.alt} width={post.cover.width} height={post.cover.height} preload sizes="(max-width: 700px) 100vw, 1100px"/></figure>)}<div className={`journal-article-wrap section-wrap${latestPosts.length ? '' : ' journal-article-wrap-no-related'}`}>
       <aside className="journal-article-sidebar" aria-label={i18nText(copy.authorKicker)}>
         <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined} demo={post.demo}/>
       </aside>
@@ -80,7 +81,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
         <span className="journal-related-meta"><span>{locale === 'en' ? 'Text' : 'Texto'} · {i18nText(site.name)} {' '}{i18nText(copy.reading(readingMinutes({ ...item, content: suggestion.content })))}</span><span className="journal-related-arrow" aria-hidden="true">{i18nText("\u2197")}</span></span>
       </a>;
             }))}</div>
-    </section> : <nav className="journal-post-next journal-post-next-empty section-wrap" aria-label={i18nText(copy.relatedLabel)}><p>{i18nText(copy.relatedEmpty)}</p><a href={i18nHref("/blog")}>{i18nText(copy.backFull)}</a></nav>)}
+    </section> : null)}
     <Newsletter variant="article"/>
   </main>;
 }
