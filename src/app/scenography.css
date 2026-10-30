@@ -2,7 +2,7 @@
 .spatial-home{overflow:clip;background:var(--paper)}
 .perception-hero{background:transparent;min-height:690px}
 .perception-hero::before{content:'';position:absolute;inset:-30% -15% -70% 28%;z-index:0;background:url('/media/perception-curves.svg') center/cover no-repeat;opacity:.085;pointer-events:none}
-.perception-hero:has(.living-background)::before{display:none}
+.portfolio-atmosphere .perception-hero::before{display:none}
 .living-background{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;color:rgba(171,41,48,.15)}
 [data-theme=dark] .living-background{color:rgba(222,113,115,.16)}
 @media print{.living-background{display:none}}
@@ -159,3 +159,21 @@
 @media print{.project-current,.closing-ribbon{display:none}.spatial-home,.home-atmosphere{background:white;color:black}.service-preview{display:none}.service-workbench{display:block}.home-atmosphere .contact-form{background:white}}
 .service-inline-preview{display:none}
 @media(max-width:700px){.service-workbench>.service-preview{display:none}.service-inline-preview{display:block;margin:0 0 24px 37px}.service-inline-preview .service-preview-stage{overflow:hidden}.service-inline-preview .service-preview-stage>img{object-fit:contain}.service-inline-preview .brand-foundations{min-height:200px}.identity-study{padding:7%}.identity-study-type{font-size:clamp(78px,25vw,130px)}.identity-study-note{font-size:8px}.identity-study-footer strong{font-size:20px}.identity-study-footer span{font-size:8px}.identity-study-swatches i{height:26px}}
+
+/* One viewport-sized canvas follows the complete portfolio, stopping at its end. */
+.portfolio-atmosphere{position:relative;isolation:isolate}
+.living-background-layer{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:clip}
+.living-background-layer .living-background{position:sticky;top:0;display:block;height:100vh;height:100svh}
+.portfolio-atmosphere .selected-section:has(.editorial-projects){background:transparent}
+.portfolio-atmosphere .project-current{display:none}
+@keyframes study-type-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}
+@keyframes study-orbit{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-14px,12px) scale(.94)}}
+@keyframes study-swatch{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.78)}}
+.identity-study-type{animation:study-type-float 7s ease-in-out infinite paused}
+.identity-study::before{animation:study-orbit 10s ease-in-out infinite paused}
+.identity-study-swatches i{transform-origin:bottom;animation:study-swatch 4s ease-in-out infinite paused}
+.identity-study-swatches i:nth-child(2){animation-delay:-1.3s}
+.identity-study-swatches i:nth-child(3){animation-delay:-2.6s}
+.identity-study[data-animate=true] .identity-study-type,.identity-study[data-animate=true]::before,.identity-study[data-animate=true] .identity-study-swatches i{animation-play-state:running}
+.service-preview figure[data-active=false] .identity-study-type,.service-preview figure[data-active=false] .identity-study::before,.service-preview figure[data-active=false] .identity-study-swatches i{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.identity-study-type,.identity-study::before,.identity-study-swatches i{animation:none!important}}

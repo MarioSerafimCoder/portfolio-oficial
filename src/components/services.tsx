@@ -1,7 +1,7 @@
 'use client';
 import {useSiteTranslation} from '@/i18n/use-translation';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { services } from '@/content/site';
 import { QuietDisclosures } from './quiet-disclosures';
 const previews = [
@@ -12,9 +12,21 @@ const previews = [
 ];
 function Preview({ index }: {
     index: number;
-}) { const { i18nText, i18nHref, locale } = useSiteTranslation(); const preview = previews[index]; if (preview.src)
+}) {
+    const study = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        const element = study.current;
+        if (!element) return;
+        let visible = false;
+        const update = () => { element.dataset.animate = String(visible && !document.hidden); };
+        const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update(); });
+        observer.observe(element);
+        document.addEventListener('visibilitychange', update);
+        return () => { observer.disconnect(); document.removeEventListener('visibilitychange', update); };
+    }, []);
+    const { i18nText, i18nHref, locale } = useSiteTranslation(); const preview = previews[index]; if (preview.src)
     return <Image src={preview.src} alt={i18nText(preview.alt)} fill sizes="(max-width:700px) 86vw, 34vw"/>; if (index === 0)
-    return <div className="identity-study" role="img" aria-label={i18nText(preview.alt)}><span className="identity-study-note">{i18nText("ESTUDO / 01")}</span><span className="identity-study-type">{i18nText("Aa")}</span><div className="identity-study-footer"><div><strong>{i18nText(locale==='en'?'Visual':'Identidade')}<br />{i18nText(locale==='en'?'identity':'visual')}</strong><span>{i18nText("Tipografia / cor / sistema")}</span></div><div className="identity-study-swatches" aria-hidden="true"><i /><i /><i /></div></div></div>; return <div className="brand-foundations" role="img" aria-label={i18nText(preview.alt)}><span>{i18nText("01 / Contexto")}</span><strong>{i18nText("O que")}<br />{i18nText("move")}<br /><em>{i18nText("a marca?")}</em></strong><span>{i18nText("02 / Dire\u00E7\u00E3o")}<br />{i18nText("03 / Express\u00E3o")}</span><svg viewBox="0 0 300 300" aria-hidden="true"><ellipse cx="150" cy="150" rx="128" ry="80" transform="rotate(-30 150 150)"/></svg></div>; }
+    return <div ref={study} className="identity-study" role="img" aria-label={i18nText(preview.alt)}><span className="identity-study-note">{i18nText("ESTUDO / 01")}</span><span className="identity-study-type">{i18nText("Aa")}</span><div className="identity-study-footer"><div><strong>{i18nText(locale==='en'?'Visual':'Identidade')}<br />{i18nText(locale==='en'?'identity':'visual')}</strong><span>{i18nText("Tipografia / cor / sistema")}</span></div><div className="identity-study-swatches" aria-hidden="true"><i /><i /><i /></div></div></div>; return <div className="brand-foundations" role="img" aria-label={i18nText(preview.alt)}><span>{i18nText("01 / Contexto")}</span><strong>{i18nText("O que")}<br />{i18nText("move")}<br /><em>{i18nText("a marca?")}</em></strong><span>{i18nText("02 / Dire\u00E7\u00E3o")}<br />{i18nText("03 / Express\u00E3o")}</span><svg viewBox="0 0 300 300" aria-hidden="true"><ellipse cx="150" cy="150" rx="128" ry="80" transform="rotate(-30 150 150)"/></svg></div>; }
 export function Services() {
     const { i18nText, i18nHref } = useSiteTranslation();
     const [active, setActive] = useState(0);

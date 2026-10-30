@@ -7,7 +7,7 @@ export function LivingBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = canvasRef.current!;
-    const hero = canvas.parentElement!;
+    const hero = canvas.parentElement!.parentElement!;
     const context = canvas.getContext('2d');
     if (!context) return;
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -54,12 +54,13 @@ export function LivingBackground() {
       if (!reduced.matches) request();
     }
     const resize = new ResizeObserver(() => {
-      width = hero.clientWidth; height = hero.clientHeight;
+      width = hero.clientWidth; height = window.innerHeight;
       const dpr = Math.min(devicePixelRatio, 1.5);
       canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
       context.setTransform(dpr, 0, 0, dpr, 0, 0); request();
     });
     resize.observe(hero);
+    resize.observe(document.documentElement);
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting; if (visible) request(); else stop();
     }); observer.observe(hero);
@@ -67,7 +68,7 @@ export function LivingBackground() {
       if (reduced.matches || !fine.matches || event.pointerType === 'touch') return;
       const rect = hero.getBoundingClientRect();
       targetX = (event.clientX - rect.left) / width * 2 - 1;
-      targetY = (event.clientY - rect.top) / height * 2 - 1;
+      targetY = event.clientY / height * 2 - 1;
     };
     const reset = () => { targetX = targetY = 0; request(); };
     const visibility = () => { if (document.hidden) stop(); else request(); };
@@ -83,5 +84,5 @@ export function LivingBackground() {
       reduced.removeEventListener('change', reset); document.removeEventListener('visibilitychange', visibility);
     };
   }, []);
-  return <canvas ref={canvasRef} className="living-background" aria-hidden="true" />;
+  return <div className="living-background-layer" aria-hidden="true"><canvas ref={canvasRef} className="living-background" /></div>;
 }
