@@ -30,3 +30,7 @@ Texto comum com **negrito**, *ênfase* e [link interno](/blog).
 ## Depois dos blocos
 
 Parágrafo final preservado.
+
+Revisão de persistência 2.
+
+Edicao visual 2.
