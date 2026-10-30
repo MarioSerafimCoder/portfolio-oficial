@@ -18,7 +18,6 @@ export function PerceptionHero({ children }: {
     useEffect(() => {
         let cancelled = false;
         let started = false;
-        const mobile = matchMedia('(max-width: 700px)');
         const reduced = matchMedia('(prefers-reduced-motion: reduce)');
         const load = () => {
             if (started || cancelled || reduced.matches)
@@ -38,9 +37,8 @@ export function PerceptionHero({ children }: {
             if (!entries[0].isIntersecting)
                 return;
             observer.disconnect();
-            // Mobile starts from the composed fallback, upgrading on scroll or touch.
-            if (!mobile.matches)
-                load();
+            // Start the living sculpture on entry, including touch devices.
+            load();
         }, { rootMargin: '100px' });
         if (root.current)
             observer.observe(root.current);
