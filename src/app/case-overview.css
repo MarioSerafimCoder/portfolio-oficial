@@ -1,0 +1,30 @@
+/* Local gutters stay inside the capped container, including ultrawide screens. */
+.case-page .case-story.section-wrap{
+  display:grid;grid-template-columns:minmax(0,1fr);gap:40px;
+  width:100%;max-width:1320px;margin-inline:auto;
+  padding:clamp(48px,6vw,88px) clamp(24px,5vw,72px) clamp(64px,7vw,104px);
+}
+.case-page .case-story .case-metadata{
+  position:static;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;margin:0;padding-block:24px;border-block:1px solid var(--rule);
+}
+.case-page .case-metadata>div{margin:0;min-width:0}
+.case-page .case-metadata dt{font-size:13px;line-height:1.5;margin-bottom:8px;color:var(--muted)}
+.case-page .case-metadata dd{font-size:15px;line-height:1.55;max-width:none;color:var(--ink)}
+.case-page .case-overview{min-width:0}
+.case-page .case-overview h2.eyebrow{font-family:var(--font-sans),Arial,sans-serif;font-size:14px;line-height:1.5;letter-spacing:0;margin:0 0 16px;color:var(--muted)}
+.case-page .case-context-lead{max-width:40ch;font-family:var(--font-serif),Georgia,serif;font-size:clamp(28px,3vw,42px);line-height:1.2;letter-spacing:-.02em;text-wrap:pretty}
+.case-page .case-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;max-width:none;margin-top:40px}
+.case-page .case-facts>div{grid-column:auto;min-width:0;margin:0;border-top:1px solid var(--rule);padding-top:20px}
+.case-page .case-facts h3{font-size:15px;line-height:1.5;font-weight:500;margin-bottom:12px;color:var(--ink)}
+.case-page .case-facts p{font-size:16px;line-height:1.65;max-width:42ch;color:var(--muted);overflow-wrap:break-word}
+@media(max-width:800px){
+  .case-page .case-story.section-wrap{gap:32px}
+  .case-page .case-facts{grid-template-columns:minmax(0,1fr);gap:28px;margin-top:32px}
+  .case-page .case-facts p{max-width:65ch}
+}
+@media(max-width:500px){
+  .case-page .case-story .case-metadata{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .case-page .case-metadata>div:first-child{grid-column:1/-1}
+  .case-page .case-metadata dd{font-size:14px}
+}
