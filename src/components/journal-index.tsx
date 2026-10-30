@@ -114,7 +114,7 @@ export function JournalIndex({ posts, activeCategory }: {
         <div className="journal-masthead-title">
           <div>
             <span className="eyebrow">{i18nText(copy.eyebrow)} {i18nText(copy.location)}</span>
-            <h1>{i18nText('Pausa do ')}<em>{i18nText('café')}</em></h1>
+            <h1>{i18nText('Pausa do ')}{i18nText('café')}</h1>
           </div>
           <div className="journal-masthead-description">
             <p>{i18nText(copy.intro)}</p>
@@ -122,7 +122,11 @@ export function JournalIndex({ posts, activeCategory }: {
           </div>
         </div>
 
-        <Newsletter variant="blog" />
+        <div className="journal-ticker">
+          <span>{i18nText(copy.featured)}</span>
+          <p>{categories.map((category, index) => <span key={category}>{index > 0 && <i aria-hidden="true">✳</i>}{i18nText(journalCategoryLabels[locale][category])}</span>)}</p>
+          <a href="#journal-articles">{i18nText(copy.index)} <span aria-hidden="true">↘</span></a>
+        </div>
 
         {featured && <section className="journal-feature" id="journal-feature" aria-label={i18nText(copy.featured)}>
           <EditorialCard post={featured} index={0} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant="featured" />
@@ -130,7 +134,7 @@ export function JournalIndex({ posts, activeCategory }: {
       </div>
     </header>
 
-    {i18nText(filtered.length === 0 ? <section className="journal-empty section-wrap">
+    {i18nText(filtered.length === 0 ? <section className="journal-empty section-wrap" id="journal-articles">
       <span aria-hidden="true">✳</span>
       {listedPosts.length === 0 ? <p>{i18nText(copy.empty)}</p> : <div><p role="status">{i18nText(copy.noResults)}</p><button type="button" onClick={clearSearch}>{i18nText(copy.clear)} ↗</button></div>}
     </section> : <>
@@ -143,16 +147,33 @@ export function JournalIndex({ posts, activeCategory }: {
         <span className="eyebrow">{i18nText(copy.archiveKicker)}</span>
         <h2 id="journal-archive-title">{i18nText(copy.archiveTitle)}</h2>
       </div>
-      {remaining.length > 0 ? <ol className="journal-editorial-list">
-        {remaining.map((post, index) => <li key={post.slug}>
-          <EditorialCard post={post} index={index + 1} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant={post.cover ? 'visual' : 'typographic'} />
-        </li>)}
-      </ol> : <p className="journal-archive-empty">{i18nText(copy.archiveEmpty)}</p>}
-      {totalPages > 1 && <nav className="journal-pagination" aria-label={i18nText(locale === 'en' ? 'Pages' : 'Páginas')}>
-        <button disabled={page === 1} onClick={() => setPage(value => value - 1)}>{i18nText(copy.previousPage)}</button>
-        <span>{i18nText(copy.page(page, totalPages))}</span>
-        <button disabled={page === totalPages} onClick={() => setPage(value => value + 1)}>{i18nText(copy.nextPage)}</button>
-      </nav>}
+      <div className="journal-archive-layout">
+        <div className="journal-archive-feed">
+          {remaining.length > 0 ? <ol className="journal-editorial-list">
+            {remaining.map((post, index) => <li key={post.slug}>
+              <EditorialCard post={post} index={index + 1} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant={post.cover ? 'visual' : 'typographic'} />
+            </li>)}
+          </ol> : <p className="journal-archive-empty">{i18nText(copy.archiveEmpty)}</p>}
+          {totalPages > 1 && <nav className="journal-pagination" aria-label={i18nText(locale === 'en' ? 'Pages' : 'Páginas')}>
+            <button disabled={page === 1} onClick={() => setPage(value => value - 1)}>{i18nText(copy.previousPage)}</button>
+            <span>{i18nText(copy.page(page, totalPages))}</span>
+            <button disabled={page === totalPages} onClick={() => setPage(value => value + 1)}>{i18nText(copy.nextPage)}</button>
+          </nav>}
+        </div>
+        <aside className="journal-print-edition" aria-label={i18nText(copy.archiveKicker)}>
+          <span className="eyebrow">{i18nText(copy.archiveKicker)}</span>
+          <strong className="journal-print-number">01 / 26</strong>
+          <div className="journal-print-cover" aria-hidden="true">
+            <span>{i18nText('Pausa do ')}<br />{i18nText('café')}</span>
+            <strong>{i18nText(copy.archiveTitle)}</strong>
+            <em>{i18nText(copy.location)}</em>
+            <span className="journal-print-mark">01 / 26 <b>↗</b></span>
+          </div>
+        </aside>
+      </div>
     </section>}
+    <section className="journal-newsletter-wrap section-wrap" aria-label={i18nText(copy.newsletterEyebrow)}>
+      <Newsletter variant="blog" />
+    </section>
   </main>;
 }
