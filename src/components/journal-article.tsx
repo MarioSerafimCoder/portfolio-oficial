@@ -64,12 +64,11 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
       </div>
     </div></header>{i18nText(post.cover && <figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={view.coverAlt||post.cover.alt} width={post.cover.width} height={post.cover.height} preload sizes="(max-width: 700px) 100vw, 1100px"/></figure>)}<div className="journal-article-wrap section-wrap">
       <aside className="journal-article-sidebar" aria-label={i18nText(copy.authorKicker)}>
-        <JournalAuthorSignature variant="compact" photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined} demo={post.demo}/>
+        <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined} demo={post.demo}/>
       </aside>
       <div className="journal-article-body">
       <div className="journal-article-content" lang={textLanguage}>{view.markdownTree?<MarkdownContent tree={view.markdownTree} title={view.title}/>:i18nText(view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>))}</div>
       {i18nText(post.sources && post.sources.length > 0 && <section className="journal-sources" aria-labelledby="journal-sources-title"><h2 id="journal-sources-title">{i18nText(copy.references)}</h2><ul>{i18nText(post.sources.map(source => <li key={source.url}><a href={i18nHref(source.url)} target="_blank" rel="noopener noreferrer">{i18nText(source.label)}</a></li>))}</ul></section>)}
-      <JournalAuthorSignature variant="expanded" photo={authorPhoto} demo={post.demo}/>
       </div>
     </div></article>
     {i18nText(latestPosts.length ? <section className="journal-post-next section-wrap" aria-labelledby="journal-latest-title">
