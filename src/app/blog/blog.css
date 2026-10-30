@@ -597,15 +597,20 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 .journal-article-wrap.section-wrap{display:grid;grid-template-columns:minmax(180px,.34fr) minmax(0,1fr);align-items:start;gap:clamp(38px,6vw,90px);width:min(100%,1440px);margin:0 auto;padding-top:clamp(42px,5vw,70px);padding-bottom:clamp(60px,8vw,105px)}
 .journal-article-wrap.section-wrap.journal-article-wrap-no-related{padding-bottom:clamp(36px,5vw,64px)}
 .journal-article-sidebar{position:sticky;top:104px;min-width:0}
-.journal-article-sidebar .journal-author-signature-compact{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:center;gap:14px;margin:0;padding:0;border:0}
-.journal-article-sidebar .journal-author-avatar{width:76px;height:76px;flex-basis:76px}
-.journal-article-sidebar .journal-author-avatar-placeholder{font-size:20px}
-.journal-article-sidebar .journal-author-identity>strong{font-size:20px;line-height:1.2}
-.journal-article-sidebar .journal-author-identity>span{font-size:13px;line-height:1.45}
-.journal-article-sidebar .journal-author-meta{grid-column:1/-1;display:grid;gap:8px;margin:10px 0 0;padding:15px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:13px}
-.journal-article-sidebar .journal-author-meta>span+span::before{content:none}
-.journal-article-sidebar .journal-share-compact{grid-column:1/-1;justify-self:start;margin:0}
-.journal-article-sidebar .journal-share-compact summary{min-height:44px;padding-inline:0;border:0;border-radius:0;font-size:14px;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+.journal-article-sidebar .journal-author-signature-compact{display:block;margin:0;padding:0;border:0}
+.journal-article-sidebar .journal-author-kicker{display:block;margin-bottom:13px;color:var(--muted);font-size:9px;font-weight:650;letter-spacing:.14em;line-height:1.3;text-transform:uppercase}
+.journal-article-sidebar .journal-author-profile{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:center;gap:12px}
+.journal-article-sidebar .journal-author-avatar{width:64px;height:64px;flex-basis:64px}
+.journal-article-sidebar .journal-author-avatar-placeholder{font-size:18px}
+.journal-article-sidebar .journal-author-identity{gap:3px}
+.journal-article-sidebar .journal-author-identity>strong{font-size:18px;line-height:1.2}
+.journal-article-sidebar .journal-author-identity>span{font-size:12px;line-height:1.4}
+.journal-article-sidebar .journal-author-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 0;padding:13px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.journal-article-sidebar .journal-author-meta>div{display:flex;min-width:0;flex-direction:column;gap:4px}
+.journal-article-sidebar .journal-author-meta dt{color:var(--muted);font-size:9px;line-height:1.3}
+.journal-article-sidebar .journal-author-meta dd{margin:0;color:var(--ink);font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+.journal-article-sidebar .journal-share-compact{justify-self:start;margin:5px 0 0}
+.journal-article-sidebar .journal-share-compact summary{min-height:44px;padding-inline:0;border:0;border-radius:0;font-size:13px;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
 .journal-article-body{max-width:72ch;min-width:0;margin:0}
 .journal-article-body p,.journal-article-body li{font-size:clamp(16px,1.15vw,18px);line-height:1.78}
 .journal-article-body p{margin-bottom:1.25em}
@@ -657,7 +662,7 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
   .journal-article-wrap.section-wrap{grid-template-columns:minmax(0,1fr);gap:26px;padding-top:29px;padding-bottom:55px}
   .journal-article-wrap.section-wrap.journal-article-wrap-no-related{padding-bottom:36px}
   .journal-article-sidebar{position:static;padding-bottom:18px;border-bottom:1px solid var(--rule)}
-  .journal-article-sidebar .journal-author-signature-compact{grid-template-columns:64px minmax(0,1fr);gap:10px 13px}
+  .journal-article-sidebar .journal-author-profile{grid-template-columns:64px minmax(0,1fr);gap:10px 13px}
   .journal-article-sidebar .journal-author-avatar{width:64px;height:64px;flex-basis:64px}
   .journal-article-sidebar .journal-author-identity>strong{font-size:18px}
   .journal-article-sidebar .journal-author-identity>span{font-size:12px}

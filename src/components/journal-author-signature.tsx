@@ -27,17 +27,22 @@ export function JournalAuthorSignature({ photo, date, readingTime, url, demo = f
     const copy = journalCopy[locale];
     const name = demo ? copy.demoAuthor : site.name;
     const role = demo ? copy.previewAuthorRole : copy.authorRole;
+    const [authorRole, authorLocation] = role.split(' · ', 2);
 
     return <div className="journal-author-signature journal-author-signature-compact">
-      <Avatar photo={photo} demo={demo}/>
-      <div className="journal-author-identity">
-        <strong>{i18nText(name)}</strong>
-        <span>{i18nText(role)}</span>
-        <div className="journal-author-meta">
-          {i18nText(date && <time dateTime={date}>{i18nText(formatJournalDateLocale(date, locale, true))}</time>)}
-          {i18nText(readingTime !== undefined && <span>{i18nText(copy.reading(readingTime))}</span>)}
+      <span className="journal-author-kicker">{i18nText(copy.authorKicker)}</span>
+      <div className="journal-author-profile">
+        <Avatar photo={photo} demo={demo}/>
+        <div className="journal-author-identity">
+          <strong>{i18nText(name)}</strong>
+          <span>{i18nText(authorRole)}</span>
+          {i18nText(authorLocation && <span>{i18nText(authorLocation)}</span>)}
         </div>
       </div>
+      <dl className="journal-author-meta">
+        {i18nText(date && <div><dt>{i18nText(copy.publishedLabel)}</dt><dd><time dateTime={date}>{i18nText(formatJournalDateLocale(date, locale, true))}</time></dd></div>)}
+        {i18nText(readingTime !== undefined && <div><dt>{i18nText(copy.readingLabel)}</dt><dd>{i18nText(copy.readingValue(readingTime))}</dd></div>)}
+      </dl>
       <JournalShare variant="compact" url={url}/>
     </div>;
 }
