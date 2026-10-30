@@ -20,14 +20,16 @@ import manifest from './manifest.json';
 const pages={
  '':{Component:Home,metadata:homeMetadata},about:{Component:About,metadata:aboutMetadata},projects:{Component:Projects,metadata:projectsMetadata},contact:{Component:Contact,metadata:contactMetadata},privacy:{Component:Privacy,metadata:privacyMetadata},resources:{Component:Resources,metadata:resourcesMetadata},blog:{Component:Blog,metadata:blogMetadata},
 };
+const translatedPublishedPosts=publishedJournalPosts.filter(post=>post.translations?.en);
 export function englishPaths(){
  if(!manifest.site)return [{path:['__translation_pending__']}];
- const categories=[...new Set(publishedJournalPosts.filter(post=>post.translations?.en).map(post=>post.category))];
- return [...Object.keys(pages).map(key=>({path:key?key.split('/'):[]})),...projects.map(project=>({path:['projects',project.slug]})),...visibleJournalPosts.filter(post=>post.translations?.en).map(post=>({path:['blog',post.slug]})),...categories.map(category=>({path:['blog','category',category]}))];
+ const categories=[...new Set(translatedPublishedPosts.map(post=>post.category))];
+ const pagePaths=Object.keys(pages).map(key=>({path:key?key.split('/'):[]}));
+ return [...pagePaths,...projects.map(project=>({path:['projects',project.slug]})),...visibleJournalPosts.filter(post=>post.translations?.en).map(post=>({path:['blog',post.slug]})),...categories.map(category=>({path:['blog','category',category]}))];
 }
 export async function englishMetadata(parts:string[]):Promise<Metadata>{
  const key=parts.join('/');const page=pages[key as keyof typeof pages];const pathname='/en'+(key?'/'+key:'');
- if(page)return localizedMetadata(page.metadata,originalPath(pathname),'en');
+ if(page){const metadata=key==='blog'?{...page.metadata,robots:{index:translatedPublishedPosts.length>0,follow:true}}:page.metadata;return localizedMetadata(metadata,originalPath(pathname),'en');}
  if(parts[0]==='projects'&&parts.length===2)return localizedMetadata(await projectMetadata({params:Promise.resolve({slug:parts[1]}),locale:'en'}),`/projetos/${parts[1]}`,'en');
  if(parts[0]==='blog'&&parts.length===2)return localizedMetadata(await articleMetadata({params:Promise.resolve({slug:parts[1]}),locale:'en'}),`/blog/${parts[1]}`,'en');
  if(parts[0]==='blog'&&parts[1]==='category'&&parts.length===3){const name=journalCategoryLabels.en[parts[2] as JournalCategory];return localizedMetadata({title:`${name} — Pausa do café`,description:`Articles by Mário Serafim about ${name?.toLowerCase()}.`},`/blog/categoria/${parts[2]}`,'en');}

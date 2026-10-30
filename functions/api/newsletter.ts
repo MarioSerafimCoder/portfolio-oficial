@@ -99,10 +99,10 @@ export async function onRequestPost({request, env}: PagesContext) {
       }
       return reply(502, {code: 'provider_unconfirmed'});
     }
-    if (response.status === 400 || response.status === 409) return reply(409, {code: 'already_registered_or_rejected'});
+    if (response.status === 409) return reply(409, {code: 'already_registered'});
     if (response.status === 429) return reply(429, {code: 'rate_limited'});
     if (response.status === 401 || response.status === 403) return reply(503, {code: 'provider_configuration_error'});
-    if (response.status === 422) return reply(400, {code: 'provider_rejected_submission'});
+    if (response.status === 400 || response.status === 422) return reply(502, {code: 'provider_rejected_submission'});
     return reply(502, {code: 'provider_unavailable'});
   } catch {
     return reply(502, {code: 'provider_unavailable'});

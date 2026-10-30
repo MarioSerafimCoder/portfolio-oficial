@@ -1,10 +1,11 @@
 'use client';
 import {useSiteTranslation} from '@/i18n/use-translation';
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useJournalPreferences } from './journal-preferences';
 import { journalCopy } from '@/content/journal-i18n';
 import { trackEvent } from '@/lib/analytics';
+import { beginNewsletterSubmission, resolveNewsletterResponse } from '@/lib/newsletter-response';
 const legacyEndpoint = process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT?.trim();
 export function Newsletter({ variant = 'legacy' }: {
     variant?: 'legacy' | 'home' | 'article' | 'blog';
@@ -20,7 +21,8 @@ function ArticleNewsletter({variant}: {variant: 'home' | 'article' | 'blog'}) {
     const [email, setEmail] = useState('');
     const [consent, setConsent] = useState(false);
     const [website, setWebsite] = useState('');
-    const [state, setState] = useState<'checking' | 'ready' | 'unavailable' | 'sending' | 'pending' | 'validation' | 'invalid' | 'error' | 'duplicate'>('checking');
+    const submissionInFlight = useRef(false);
+    const [state, setState] = useState<'checking' | 'ready' | 'unavailable' | 'sending' | 'pending' | 'success' | 'validation' | 'invalid' | 'error' | 'duplicate'>('checking');
     useEffect(() => {
         const controller = new AbortController();
         fetch('/api/newsletter', { cache: 'no-store', signal: controller.signal })
@@ -35,6 +37,7 @@ function ArticleNewsletter({variant}: {variant: 'home' | 'article' | 'blog'}) {
         if (!consent) { setState('validation'); return; }
         if (website.trim()) { setState('error'); return; }
         if (state !== 'ready' && state !== 'invalid' && state !== 'validation' && state !== 'error') return;
+        if (!beginNewsletterSubmission(submissionInFlight)) return;
         setState('sending');
         try {
             const response = await fetch('/api/newsletter', {
@@ -43,21 +46,14 @@ function ArticleNewsletter({variant}: {variant: 'home' | 'article' | 'blog'}) {
                 body: JSON.stringify({ email: email.trim(), consent: true, website }),
             });
             const result = await response.json().catch(() => ({}));
-            if (response.status === 202 && result?.status === 'pending_confirmation') {
-                setState('pending');
-            }
-            else if (response.status === 409) {
-                setState('duplicate');
-            }
-            else if (response.status === 503 && result?.code === 'not_configured') {
-                setState('unavailable');
-            }
-            else {
-                setState('error');
-            }
+            const resolved = resolveNewsletterResponse(response.status, result);
+            setState(resolved.state);
+            if (resolved.event) trackEvent(resolved.event);
         }
         catch {
             setState('error');
+        } finally {
+            submissionInFlight.current = false;
         }
     }
     return <section className={`journal-newsletter journal-newsletter-article journal-newsletter-${variant}${variant === 'blog' ? '' : ' section-wrap'}`} aria-labelledby={`newsletter-title-${id}`}>
@@ -70,8 +66,9 @@ function ArticleNewsletter({variant}: {variant: 'home' | 'article' | 'blog'}) {
       {i18nText(state === 'checking' && <p className="newsletter-feedback" role="status">{i18nText(copy?.newsletterChecking)}</p>)}
       {i18nText(state === 'unavailable' && <p className="newsletter-feedback" role="status">{i18nText(copy?.newsletterUnavailable)}</p>)}
       {i18nText(state === 'pending' && <p className="newsletter-feedback" role="status">{i18nText(copy?.newsletterPending)}</p>)}
+      {i18nText(state === 'success' && <p className="newsletter-feedback" role="status">{i18nText(copy?.newsletterConfirmed)}</p>)}
       {i18nText(state === 'duplicate' && <div className="journal-newsletter-result"><p className="newsletter-feedback" role="status">{i18nText(copy.newsletterDuplicate)}</p><button type="button" className="journal-newsletter-retry" onClick={() => { setEmail(''); setState('ready'); }}>{i18nText(copy.newsletterTryAnother)}</button></div>)}
-      {i18nText(state !== 'pending' && state !== 'duplicate' && <form className="journal-newsletter-form" onSubmit={submit} noValidate>
+      {i18nText(state !== 'pending' && state !== 'success' && state !== 'duplicate' && <form className="journal-newsletter-form" onSubmit={submit} noValidate>
       <label className="journal-newsletter-email" htmlFor={`${id}-email`}>
         <span className="sr-only">{i18nText(copy?.newsletterEmail)}</span>
         <input id={`${id}-email`} name="email" type="email" value={email} onChange={event => {setEmail(event.target.value); if (state === 'invalid' || state === 'validation' || state === 'error') setState('ready');}} autoComplete="email" placeholder={i18nText(copy?.newsletterEmail)} required maxLength={254} aria-invalid={state === 'invalid'} disabled={state === 'unavailable' || state === 'sending'}/>
@@ -98,6 +95,7 @@ function LegacyNewsletter() {
     const [email, setEmail] = useState('');
     const [consent, setConsent] = useState(false);
     const [website, setWebsite] = useState('');
+    const submissionInFlight = useRef(false);
     const [state, setState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
     if (!legacyEndpoint)
         return null;
@@ -107,16 +105,19 @@ function LegacyNewsletter() {
             setState('error');
             return;
         }
+        if (!beginNewsletterSubmission(submissionInFlight)) return;
         setState('sending');
         try {
             const response = await fetch(legacyEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: name.trim(), email: email.trim(), consent: true, source: 'portfolio-diario' }) });
             if (!response.ok)
                 throw new Error('newsletter');
             setState('success');
-            trackEvent('newsletter_signup');
+            trackEvent('newsletter_signup_requested');
         }
         catch {
             setState('error');
+        } finally {
+            submissionInFlight.current = false;
         }
     }
     return <section className="journal-newsletter section-wrap" aria-labelledby="newsletter-title"><span className="eyebrow">{i18nText("Correspond\u00EAncia")}</span><h2 id="newsletter-title">{i18nText("Uma nota na sua caixa de entrada.")}</h2><p>{i18nText("Quando houver um texto novo, posso te avisar por e-mail. Sem frequ\u00EAncia prometida.")}</p>{i18nText(state === 'success' ? <p className="newsletter-feedback" role="status">{i18nText("Inscri\u00E7\u00E3o recebida. Obrigado por acompanhar Pausa do caf\u00E9.")}</p> : <form onSubmit={submit} noValidate>

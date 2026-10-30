@@ -1,13 +1,13 @@
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
-import {journalCategories,visibleJournalPosts,indexJournal,type JournalCategory} from '@/content/journal';
+import {journalCategories,publishedJournalPosts,publishedJournalCategories,indexJournal,type JournalCategory} from '@/content/journal';
 import {JournalIndex} from '@/components/journal-index';
 import '@/app/blog/blog.css';
 
 type Props={params:Promise<{slug:string}>};
 export const dynamicParams=false;
 export function generateStaticParams(){
-  const categories=[...new Set(visibleJournalPosts.map(post=>post.category))];
+  const categories=publishedJournalCategories;
   return categories.length?categories.map(slug=>({slug})):[{slug:'__sem-publicacoes__'}];
 }
 export async function generateMetadata({params}:Props):Promise<Metadata>{
@@ -20,6 +20,6 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
 }
 export default async function CategoryPage({params,locale='pt'}:Props&{locale?:'pt'|'en'}){
   const {slug}=await params;
-  if(!journalCategories[slug as JournalCategory]||!visibleJournalPosts.some(post=>post.category===slug))notFound();
-  return <JournalIndex posts={visibleJournalPosts.filter(post=>locale==='pt'||post.translations?.en)} activeCategory={slug as JournalCategory}/>;
+  if(!journalCategories[slug as JournalCategory]||!publishedJournalPosts.some(post=>post.category===slug))notFound();
+  return <JournalIndex posts={publishedJournalPosts.filter(post=>locale==='pt'||post.translations?.en)} activeCategory={slug as JournalCategory}/>;
 }

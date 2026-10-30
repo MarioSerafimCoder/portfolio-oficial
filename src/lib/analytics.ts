@@ -1,6 +1,6 @@
 import {parsePrivacyConsent,PRIVACY_CONSENT_KEY} from '@/lib/privacy-consent';
 
-export type AnalyticsEvent = 'contact_form_start' | 'contact_form_submit' | 'whatsapp_click' | 'booking_click' | 'social_click' | 'newsletter_signup' | 'case_view' | 'all_projects_click' | 'journal_article_open' | 'journal_filter' | 'journal_search' | 'journal_related_click' | 'journal_share';
+export type AnalyticsEvent = 'contact_form_start' | 'contact_form_submit' | 'whatsapp_click' | 'booking_click' | 'social_click' | 'newsletter_signup_requested' | 'newsletter_signup_confirmed' | 'case_view' | 'all_projects_click' | 'journal_article_open' | 'journal_filter' | 'journal_search' | 'journal_related_click' | 'journal_share';
 
 export function trackEvent(event: AnalyticsEvent, props: Record<string, string> = {}) {
   if (typeof window === 'undefined') return;

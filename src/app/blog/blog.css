@@ -207,8 +207,6 @@
 .journal-header-tools button:hover{color:var(--accent-text)}
 .journal-header-search input:focus-visible{outline:0}
 .journal-header-tools button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.journal-search-count{font-size:13px;color:var(--muted);margin-top:30px}
-.journal-search-count+.journal-list{margin-top:20px}
 .journal-no-results button{min-height:44px;margin-top:12px;padding:6px 0;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;font-size:14px}
 .journal-translation-note{font-size:11px;color:var(--muted);letter-spacing:.02em}
 .journal-language-note{font-size:13px!important;color:var(--muted)!important;margin-top:18px}
@@ -375,7 +373,6 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:#333}
 .journal-archive{padding-top:clamp(58px,8vw,104px);padding-bottom:clamp(72px,9vw,128px);border-top:1px solid var(--rule)}
 .journal-archive-heading{display:flex;align-items:baseline;justify-content:space-between;gap:28px;margin-bottom:28px}
 .journal-archive-heading h2{margin-top:14px;font-size:clamp(30px,4vw,50px)}
-.journal-archive-empty{padding:26px 0;border-top:1px solid var(--rule);color:var(--muted);font-size:14px;line-height:1.65}
 .journal-editorial-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;list-style:none;padding:0;margin:0}
 .journal-editorial-list>li{min-width:0}
 .journal-editorial-list .journal-editorial-card{height:100%;border:1px solid var(--rule);background:var(--paper)}
@@ -386,7 +383,6 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:#333}
 .journal-editorial-list .journal-editorial-art strong{font-size:clamp(46px,7vw,82px)}
 .journal-editorial-list .journal-editorial-copy{padding:20px}
 .journal-editorial-list .journal-editorial-title{font-family:var(--font-serif),Georgia,serif;font-size:clamp(28px,3.1vw,42px);font-weight:400;line-height:1.06;letter-spacing:-.025em}
-.journal-search-count{padding-top:24px;font-size:13px;color:var(--muted)}
 .journal-empty{max-width:1380px;margin:0 auto;padding:45px var(--gutter);border:0;align-items:flex-start}
 .journal-empty>span{color:var(--accent);font-size:22px}
 .journal-empty p{color:var(--muted)}
@@ -463,7 +459,7 @@ body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-ac
 .journal-masthead-nav a[aria-current=page]::after{background:var(--accent)}
 .journal-masthead-title{grid-template-columns:minmax(0,1fr) minmax(250px,.42fr);align-items:end;gap:clamp(32px,5vw,78px);padding:clamp(35px,4.5vw,64px) 0 27px}
 .journal-masthead-title .eyebrow{color:var(--muted);font-size:10px;letter-spacing:.16em}
-.journal-masthead-title h1{margin:12px 0 0;font-family:var(--font-sans),Arial,sans-serif;font-size:clamp(58px,10.4vw,148px);font-weight:750;line-height:.78;letter-spacing:-.085em;text-transform:uppercase;white-space:nowrap}
+.journal-masthead-title h1{margin:12px 0 0;font-family:var(--font-sans),Arial,sans-serif;font-size:clamp(58px,9.5vw,136px);font-weight:750;line-height:.78;letter-spacing:-.085em;text-transform:uppercase;white-space:nowrap}
 .journal-masthead-description{max-width:370px;padding-bottom:0}
 .journal-masthead-description p{color:var(--ink);font-size:clamp(14px,1.15vw,16px);line-height:1.6}
 .journal-masthead-description>span{margin-top:14px;padding-top:9px;border-color:var(--rule);color:var(--muted);font-size:9px}

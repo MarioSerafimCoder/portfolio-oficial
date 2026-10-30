@@ -102,8 +102,9 @@ const editorialFixtures: JournalPost[] = [{
 ];
 export const journalPosts: JournalPost[] = [...generatedPosts as JournalPost[], ...editorialFixtures];
 export const publishedJournalPosts = journalPosts.filter(post => post.status === 'published' && !post.demo).sort((a, b) => b.date.localeCompare(a.date));
+export const publishedJournalCategories = [...new Set(publishedJournalPosts.map(post => post.category))];
 export const showJournalNavigation = true;
-export const indexJournal = publishedJournalPosts.length >= 3;
+export const indexJournal = publishedJournalPosts.length >= 1;
 // This set also feeds static route generation so old demo URLs remain available
 // with noindex metadata. Public listings, feeds and recommendations use only
 // publishedJournalPosts above.
@@ -122,8 +123,7 @@ export function relatedJournalPosts(post: JournalPost, candidates = publishedJou
   const contextual = ranked.filter(entry => entry.score > 0)
     .sort((a, b) => b.score - a.score || b.item.date.localeCompare(a.item.date))
     .map(entry => entry.item);
-  const recent = eligible.slice().sort((a, b) => b.date.localeCompare(a.date));
-  return (contextual.length ? contextual : recent).slice(0, limit);
+  return contextual.slice(0, limit);
 }
 export function readingMinutes(post: JournalPost) {
   const words = post.content.flatMap(block => {

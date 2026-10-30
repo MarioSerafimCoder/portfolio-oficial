@@ -56,12 +56,6 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
           {i18nText(locale === 'en' && !view.translated && <p className="journal-language-note">{i18nText(copy.unavailable)}</p>)}
         </div>
       </div>
-      <div className="journal-post-meta">
-        <span><b>{locale === 'en' ? 'Text' : 'Texto'}</b> {i18nText(site.name)}</span>
-        <span><b>{locale === 'en' ? 'Date' : 'Data'}</b> <time dateTime={date}>{i18nText(formatJournalDateLocale(date, locale, true))}</time></span>
-        <span><b>{locale === 'en' ? 'Read' : 'Leitura'}</b> {i18nText(copy.reading(readTime))}</span>
-        <span className="journal-post-category">{i18nText(journalCategoryLabels[locale][post.category])}</span>
-      </div>
     </div></header>{i18nText(post.cover && <figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={view.coverAlt||post.cover.alt} width={post.cover.width} height={post.cover.height} preload sizes="(max-width: 700px) 100vw, 1100px"/></figure>)}<div className="journal-article-wrap section-wrap">
       <aside className="journal-article-sidebar" aria-label={i18nText(copy.authorKicker)}>
         <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined} demo={post.demo}/>
