@@ -1,6 +1,7 @@
 'use client';
 import {createElement,type ReactNode} from 'react';
 import Image from 'next/image';
+import {editorialBlock} from '@/lib/editorial-block';
 import type {MarkdownNode} from '@/content/journal';
 import {journalCopy} from '@/content/journal-i18n';
 import {useSiteTranslation} from '@/i18n/use-translation';
@@ -28,8 +29,15 @@ export function MarkdownContent({tree,title}:{tree:MarkdownNode;title:string}){
    case 'strong':return <strong key={key}>{children}</strong>;
    case 'emphasis':return <em key={key}>{children}</em>;
    case 'inlineCode':return <code key={key}>{node.value}</code>;
-   case 'code':return <pre key={key}><code data-language={node.lang||undefined}>{node.value}</code></pre>;
+   case 'code':return <pre key={key} tabIndex={0}><code data-language={node.lang||undefined}>{node.value}</code></pre>;
    case 'blockquote':{
+    const editorial = editorialBlock(node);
+    if (editorial) {
+      const body = children?.slice(1, editorial.attribution ? -1 : undefined);
+      if (editorial.kind === 'quote') return <figure key={key} className="editorial-quote"><blockquote>{body}</blockquote>{editorial.attribution && <figcaption>{editorial.attribution.children?.map((child,index) => render(child, `credit-${index}`))}</figcaption>}</figure>;
+      if (editorial.kind === 'impact') return <div key={key} className="editorial-impact">{body}</div>;
+      return <aside key={key} className="editorial-author" role="note"><span className="editorial-author-label">{locale === 'en' ? 'AUTHOR’S NOTE' : 'NOTA DO AUTOR'}</span>{body}</aside>;
+    }
     const marker=node.children?.[0]?text(node.children[0]).trim():'';
     if(/^\[!(?:reflection|reflexão|nota)\]$/i.test(marker))return <aside className="journal-reflection" role="note" aria-label={copy.reflectionAria} key={key}><span className="journal-reflection-label">{copy.reflectionLabel}</span>{children?.slice(1)}</aside>;
     return <blockquote key={key}>{children}</blockquote>;
@@ -47,7 +55,7 @@ export function MarkdownContent({tree,title}:{tree:MarkdownNode;title:string}){
     return src?<figure key={key}><Image src={src} alt={node.alt||''} width={1200} height={800} sizes="(max-width:700px) 100vw, 740px"/>{destination?.title&&<figcaption>{destination.title}</figcaption>}</figure>:null;
    }
    // Raw HTML/MDX is retained as literal source, never executed as visitor code.
-   case 'html':return <pre key={key}><code>{node.value}</code></pre>;
+   case 'html':return <pre key={key} tabIndex={0}><code>{node.value}</code></pre>;
    case 'definition':return null;
    default:return children||node.value||null;
   }

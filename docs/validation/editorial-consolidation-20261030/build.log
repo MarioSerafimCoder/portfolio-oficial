@@ -1,0 +1,88 @@
+{
+  "lastSync": "2026-10-30T19:10:32.600Z",
+  "articles": 3,
+  "translated": 3,
+  "pending": [],
+  "stale": [],
+  "needsReview": [],
+  "sourceHashes": {
+    "site": "dd59e9ee70a1fcb7e78ed66dbdf28abd6989821037684c486dc943123abcfd00",
+    "post:design-nao-e-so-o-que-voce-ve": "98d71ae3ac16f74dd7ea4b0c661e8e951a98b135d377b41b09d6227bd80dba5d",
+    "post:designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento": "8ace91c62834f3f3880840d8a8c80536cb3044ecf17b87f84573b25e877c6999",
+    "post:o-futuro-da-criatividade-comeca-com-uma-pausa": "8a5b10545c1a64145b70574f2ce033caa479ea753a58766c8c6e111449468f80"
+  },
+  "estimatedCharacters": 0,
+  "usage": {
+    "month": "2026-10",
+    "used": 31345,
+    "limit": 400000,
+    "percent": 7.84,
+    "remaining": 368655,
+    "translatedContents": 4,
+    "date": "2026-10-30T19:10:32.630Z"
+  },
+  "failures": [],
+  "block": null,
+  "alerts": []
+}
+Posts publicados no build: 3
+▲ Next.js 16.4.2 (Turbopack)
+✓ Running next.config.ts took 91ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 5.0s
+  Running TypeScript ...
+  Finished TypeScript in 7.8s ...
+  Collecting page data using 21 workers ...
+  Generating static pages using 21 workers (0/47) ...
+  Generating static pages using 21 workers (11/47)
+  Generating static pages using 21 workers (23/47)
+  Generating static pages using 21 workers (35/47)
+✓ Generating static pages using 21 workers (47/47) in 2.1s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /blog
+├   /blog/[slug]
+│ ├ ● /blog/designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento
+│ ├ ● /blog/design-nao-e-so-o-que-voce-ve
+│ ├ ● /blog/o-futuro-da-criatividade-comeca-com-uma-pausa
+│ └ ● /blog/exemplo-de-leitura
+├   /blog/categoria/[slug]
+│ ├ ● /blog/categoria/direcao-de-arte
+│ └ ● /blog/categoria/tecnologia
+├ ○ /blog/feed.xml
+├ ○ /contato
+├   /en/[[...path]]
+│ ├ ● /en
+│ ├ ● /en/about
+│ ├ ● /en/projects
+│ └ ● [+14 more paths]
+├ ○ /en/feed.xml
+├ ○ /en/og.png
+├ ○ /en/opengraph-image-1nh35u
+├ ○ /feed.xml
+├ ○ /icon.svg
+├ ○ /materiais
+├ ○ /opengraph-image
+├ ○ /privacidade
+├ ○ /projetos
+├   /projetos/[slug]
+│ ├ ● /projetos/amazonita
+│ ├ ● /projetos/rooftop
+│ ├ ● /projetos/simetria
+│ └ ● [+2 more paths]
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+├ ○ /sobre
+└ ○ /trajetoria
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+Validated 38 exported HTML documents: DOCTYPE, document structure and language.

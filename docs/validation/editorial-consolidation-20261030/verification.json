@@ -1,0 +1,93 @@
+{
+  "base": "34af157ed5123195b4ab73dce9770934733c4898",
+  "comparison": "Git clean filters applied, including CRLF normalization",
+  "unchangedFiles": [
+    {
+      "file": ".github/workflows/translations.yml",
+      "unchanged": true
+    },
+    {
+      "file": "cloudflare/README.md",
+      "unchanged": true
+    },
+    {
+      "file": "cloudflare/github-client.mjs",
+      "unchanged": true
+    },
+    {
+      "file": "cloudflare/production-990e2bca.mjs",
+      "unchanged": true
+    },
+    {
+      "file": "cloudflare/publication.mjs",
+      "unchanged": true
+    },
+    {
+      "file": "cloudflare/scheduled-rebuild.mjs",
+      "unchanged": true
+    },
+    {
+      "file": "cloudflare/wrangler.jsonc",
+      "unchanged": true
+    },
+    {
+      "file": "package.json",
+      "unchanged": true
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "unchanged": true
+    },
+    {
+      "file": "src/content/journal-generated.json",
+      "unchanged": true
+    },
+    {
+      "file": "src/content/posts/design-nao-e-so-o-que-voce-ve.md",
+      "unchanged": true
+    },
+    {
+      "file": "src/content/posts/designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento.md",
+      "unchanged": true
+    },
+    {
+      "file": "src/content/posts/exemplo-rascunho.md",
+      "unchanged": true
+    },
+    {
+      "file": "src/content/posts/o-futuro-da-criatividade-comeca-com-uma-pausa.md",
+      "unchanged": true
+    },
+    {
+      "file": "src/i18n/en/posts.json",
+      "unchanged": true
+    },
+    {
+      "file": "src/i18n/reviews/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "file": "src/i18n/reviews/design-nao-e-so-o-que-voce-ve.md",
+      "unchanged": true
+    },
+    {
+      "file": "src/i18n/reviews/designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento.md",
+      "unchanged": true
+    },
+    {
+      "file": "src/i18n/reviews/o-futuro-da-criatividade-comeca-com-uma-pausa.md",
+      "unchanged": true
+    }
+  ],
+  "nodeTests": {
+    "passed": 88,
+    "failed": 0
+  },
+  "typecheck": "passed",
+  "cloudflareReadOnlyAttempt": {
+    "status": 401,
+    "credentialsExposed": false,
+    "infrastructureModified": false
+  },
+  "remoteWritesThisStage": 0
+}

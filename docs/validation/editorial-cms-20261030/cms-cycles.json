@@ -1,0 +1,23 @@
+{
+  "branch": "codex/cms-editorial-qa-20261030",
+  "editUrl": "https://app.pagescms.org/marioserafimcoder/portfolio-oficial/codex%2Fcms-editorial-qa-20261030/collection/posts/edit/src%2Fcontent%2Fposts%2Fqa-blocos-editoriais-20261030.md",
+  "initialSource": "## Antes dos blocos\n\nTexto comum com **negrito**, *ênfase* e [link interno](/blog).\n\n> [!QUOTE]\n>\n> Uma citação com **clareza** e [referência](https://example.com/quote).\n>\n> Segundo parágrafo da citação.\n>\n> — Autoria de teste, [Fonte](https://example.com/source)\n\n> [!IMPACT]\n>\n> Uma ideia com **impacto** e [link](https://example.com/impact).\n\n> [!AUTHOR]\n>\n> Nota pessoal com **ênfase** e [referência](/blog).\n>\n> Segundo parágrafo da nota.\n\n## Depois dos blocos\n\nParágrafo final preservado.\n",
+  "visualHtml": "<h2>Antes dos blocos</h2><p>Texto comum com <strong>negrito</strong>, <em>ênfase</em> e <a href=\"/blog\">link interno</a>.</p><blockquote><p>[!QUOTE]</p><p>Uma citação com <strong>clareza</strong> e <a href=\"https://example.com/quote\">referência</a>.</p><p>Segundo parágrafo da citação.</p><p>— Autoria de teste, <a href=\"https://example.com/source\">Fonte</a></p></blockquote><blockquote><p>[!IMPACT]</p><p>Uma ideia com <strong>impacto</strong> e <a href=\"https://example.com/impact\">link</a>.</p></blockquote><blockquote><p>[!AUTHOR]</p><p>Nota pessoal com <strong>ênfase</strong> e <a href=\"/blog\">referência</a>.</p><p>Segundo parágrafo da nota.</p></blockquote><h2>Depois dos blocos</h2><p>Parágrafo final preservado.</p>",
+  "cycles": [
+    {
+      "cycle": 1,
+      "identical": true,
+      "source": "## Antes dos blocos\n\nTexto comum com **negrito**, *ênfase* e [link interno](/blog).\n\n> [!QUOTE]\n>\n> Uma citação com **clareza** e [referência](https://example.com/quote).\n>\n> Segundo parágrafo da citação.\n>\n> — Autoria de teste, [Fonte](https://example.com/source)\n\n> [!IMPACT]\n>\n> Uma ideia com **impacto** e [link](https://example.com/impact).\n\n> [!AUTHOR]\n>\n> Nota pessoal com **ênfase** e [referência](/blog).\n>\n> Segundo parágrafo da nota.\n\n## Depois dos blocos\n\nParágrafo final preservado."
+    },
+    {
+      "cycle": 2,
+      "identical": true,
+      "source": "## Antes dos blocos\n\nTexto comum com **negrito**, *ênfase* e [link interno](/blog).\n\n> [!QUOTE]\n>\n> Uma citação com **clareza** e [referência](https://example.com/quote).\n>\n> Segundo parágrafo da citação.\n>\n> — Autoria de teste, [Fonte](https://example.com/source)\n\n> [!IMPACT]\n>\n> Uma ideia com **impacto** e [link](https://example.com/impact).\n\n> [!AUTHOR]\n>\n> Nota pessoal com **ênfase** e [referência](/blog).\n>\n> Segundo parágrafo da nota.\n\n## Depois dos blocos\n\nParágrafo final preservado.\n\nRevisão de persistência 2.\n\nEdicao visual 2."
+    },
+    {
+      "cycle": 3,
+      "identical": true,
+      "source": "## Antes dos blocos\n\nTexto comum com **negrito**, *ênfase* e [link interno](/blog).\n\n> [!QUOTE]\n>\n> Uma citação com **clareza** e [referência](https://example.com/quote).\n>\n> Segundo parágrafo da citação.\n>\n> — Autoria de teste, [Fonte](https://example.com/source)\n\n> [!IMPACT]\n>\n> Uma ideia com **impacto** e [link](https://example.com/impact).\n\n> [!AUTHOR]\n>\n> Nota pessoal com **ênfase** e [referência](/blog).\n>\n> Segundo parágrafo da nota.\n\n## Depois dos blocos\n\nParágrafo final preservado.\n\nRevisão de persistência 2.\n\nEdicao visual 2.\n\nEdicao visual 3."
+    }
+  ]
+}

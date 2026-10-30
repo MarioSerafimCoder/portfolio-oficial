@@ -1,0 +1,374 @@
+[
+  {
+    "width": 1440,
+    "theme": "light",
+    "blocks": [
+      {
+        "selector": "figure.editorial-quote > blockquote",
+        "text": "O design organiza relações entre pessoas e ideias, com clareza e intenção.",
+        "font": "36px",
+        "lineHeight": "46.8px",
+        "width": 740,
+        "left": 588,
+        "right": 1328,
+        "padding": "24px 0px 24px 24px",
+        "margin": "0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": ".editorial-impact",
+        "text": "Uma ideia central merece espaço para respirar.",
+        "font": "44px",
+        "lineHeight": "52.8px",
+        "width": 740,
+        "left": 588,
+        "right": 1328,
+        "padding": "20px 0px",
+        "margin": "64px 0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "aside.editorial-author[role=\"note\"]",
+        "text": "NOTA DO AUTOREsta é uma observação pessoal complementar, com referência.",
+        "font": "16px",
+        "lineHeight": "27.2px",
+        "width": 740,
+        "left": 588,
+        "right": 1328,
+        "padding": "20px 24px",
+        "margin": "32px 0px",
+        "background": "rgb(250, 249, 246)"
+      }
+    ],
+    "overflow": false,
+    "links": [
+      {
+        "text": "link interno",
+        "href": "/blog"
+      },
+      {
+        "text": "Fonte",
+        "href": "https://example.com"
+      },
+      {
+        "text": "referência",
+        "href": "/blog"
+      }
+    ],
+    "strong": 3,
+    "caption": "— Autoria de teste, Fonte",
+    "violations": [],
+    "rawHtmlLiteral": true,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "blocks": [
+      {
+        "selector": "figure.editorial-quote > blockquote",
+        "text": "O design organiza relações entre pessoas e ideias, com clareza e intenção.",
+        "font": "36px",
+        "lineHeight": "46.8px",
+        "width": 740,
+        "left": 588,
+        "right": 1328,
+        "padding": "24px 0px 24px 24px",
+        "margin": "0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": ".editorial-impact",
+        "text": "Uma ideia central merece espaço para respirar.",
+        "font": "44px",
+        "lineHeight": "52.8px",
+        "width": 740,
+        "left": 588,
+        "right": 1328,
+        "padding": "20px 0px",
+        "margin": "64px 0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "aside.editorial-author[role=\"note\"]",
+        "text": "NOTA DO AUTOREsta é uma observação pessoal complementar, com referência.",
+        "font": "16px",
+        "lineHeight": "27.2px",
+        "width": 740,
+        "left": 588,
+        "right": 1328,
+        "padding": "20px 24px",
+        "margin": "32px 0px",
+        "background": "rgb(26, 26, 26)"
+      }
+    ],
+    "overflow": false,
+    "links": [
+      {
+        "text": "link interno",
+        "href": "/blog"
+      },
+      {
+        "text": "Fonte",
+        "href": "https://example.com"
+      },
+      {
+        "text": "referência",
+        "href": "/blog"
+      }
+    ],
+    "strong": 3,
+    "caption": "— Autoria de teste, Fonte",
+    "violations": [],
+    "rawHtmlLiteral": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "theme": "light",
+    "blocks": [
+      {
+        "selector": "figure.editorial-quote > blockquote",
+        "text": "O design organiza relações entre pessoas e ideias, com clareza e intenção.",
+        "font": "25px",
+        "lineHeight": "32.5px",
+        "width": 342,
+        "left": 24,
+        "right": 366,
+        "padding": "24px 0px 24px 24px",
+        "margin": "0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": ".editorial-impact",
+        "text": "Uma ideia central merece espaço para respirar.",
+        "font": "28px",
+        "lineHeight": "33.6px",
+        "width": 342,
+        "left": 24,
+        "right": 366,
+        "padding": "20px 0px",
+        "margin": "36px 0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "aside.editorial-author[role=\"note\"]",
+        "text": "NOTA DO AUTOREsta é uma observação pessoal complementar, com referência.",
+        "font": "16px",
+        "lineHeight": "27.2px",
+        "width": 342,
+        "left": 24,
+        "right": 366,
+        "padding": "20px 24px",
+        "margin": "32px 0px",
+        "background": "rgb(250, 249, 246)"
+      }
+    ],
+    "overflow": false,
+    "links": [
+      {
+        "text": "link interno",
+        "href": "/blog"
+      },
+      {
+        "text": "Fonte",
+        "href": "https://example.com"
+      },
+      {
+        "text": "referência",
+        "href": "/blog"
+      }
+    ],
+    "strong": 3,
+    "caption": "— Autoria de teste, Fonte",
+    "violations": [],
+    "rawHtmlLiteral": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "blocks": [
+      {
+        "selector": "figure.editorial-quote > blockquote",
+        "text": "O design organiza relações entre pessoas e ideias, com clareza e intenção.",
+        "font": "25px",
+        "lineHeight": "32.5px",
+        "width": 342,
+        "left": 24,
+        "right": 366,
+        "padding": "24px 0px 24px 24px",
+        "margin": "0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": ".editorial-impact",
+        "text": "Uma ideia central merece espaço para respirar.",
+        "font": "28px",
+        "lineHeight": "33.6px",
+        "width": 342,
+        "left": 24,
+        "right": 366,
+        "padding": "20px 0px",
+        "margin": "36px 0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "aside.editorial-author[role=\"note\"]",
+        "text": "NOTA DO AUTOREsta é uma observação pessoal complementar, com referência.",
+        "font": "16px",
+        "lineHeight": "27.2px",
+        "width": 342,
+        "left": 24,
+        "right": 366,
+        "padding": "20px 24px",
+        "margin": "32px 0px",
+        "background": "rgb(26, 26, 26)"
+      }
+    ],
+    "overflow": false,
+    "links": [
+      {
+        "text": "link interno",
+        "href": "/blog"
+      },
+      {
+        "text": "Fonte",
+        "href": "https://example.com"
+      },
+      {
+        "text": "referência",
+        "href": "/blog"
+      }
+    ],
+    "strong": 3,
+    "caption": "— Autoria de teste, Fonte",
+    "violations": [],
+    "rawHtmlLiteral": true,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "theme": "light",
+    "blocks": [
+      {
+        "selector": "figure.editorial-quote > blockquote",
+        "text": "O design organiza relações entre pessoas e ideias, com clareza e intenção.",
+        "font": "25px",
+        "lineHeight": "32.5px",
+        "width": 272,
+        "left": 24,
+        "right": 296,
+        "padding": "24px 0px 24px 24px",
+        "margin": "0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": ".editorial-impact",
+        "text": "Uma ideia central merece espaço para respirar.",
+        "font": "28px",
+        "lineHeight": "33.6px",
+        "width": 272,
+        "left": 24,
+        "right": 296,
+        "padding": "20px 0px",
+        "margin": "36px 0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "aside.editorial-author[role=\"note\"]",
+        "text": "NOTA DO AUTOREsta é uma observação pessoal complementar, com referência.",
+        "font": "16px",
+        "lineHeight": "27.2px",
+        "width": 272,
+        "left": 24,
+        "right": 296,
+        "padding": "20px 24px",
+        "margin": "32px 0px",
+        "background": "rgb(250, 249, 246)"
+      }
+    ],
+    "overflow": false,
+    "links": [
+      {
+        "text": "link interno",
+        "href": "/blog"
+      },
+      {
+        "text": "Fonte",
+        "href": "https://example.com"
+      },
+      {
+        "text": "referência",
+        "href": "/blog"
+      }
+    ],
+    "strong": 3,
+    "caption": "— Autoria de teste, Fonte",
+    "violations": [],
+    "rawHtmlLiteral": true,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "theme": "dark",
+    "blocks": [
+      {
+        "selector": "figure.editorial-quote > blockquote",
+        "text": "O design organiza relações entre pessoas e ideias, com clareza e intenção.",
+        "font": "25px",
+        "lineHeight": "32.5px",
+        "width": 272,
+        "left": 24,
+        "right": 296,
+        "padding": "24px 0px 24px 24px",
+        "margin": "0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": ".editorial-impact",
+        "text": "Uma ideia central merece espaço para respirar.",
+        "font": "28px",
+        "lineHeight": "33.6px",
+        "width": 272,
+        "left": 24,
+        "right": 296,
+        "padding": "20px 0px",
+        "margin": "36px 0px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "aside.editorial-author[role=\"note\"]",
+        "text": "NOTA DO AUTOREsta é uma observação pessoal complementar, com referência.",
+        "font": "16px",
+        "lineHeight": "27.2px",
+        "width": 272,
+        "left": 24,
+        "right": 296,
+        "padding": "20px 24px",
+        "margin": "32px 0px",
+        "background": "rgb(26, 26, 26)"
+      }
+    ],
+    "overflow": false,
+    "links": [
+      {
+        "text": "link interno",
+        "href": "/blog"
+      },
+      {
+        "text": "Fonte",
+        "href": "https://example.com"
+      },
+      {
+        "text": "referência",
+        "href": "/blog"
+      }
+    ],
+    "strong": 3,
+    "caption": "— Autoria de teste, Fonte",
+    "violations": [],
+    "rawHtmlLiteral": true,
+    "errors": []
+  }
+]

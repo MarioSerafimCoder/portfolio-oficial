@@ -1,0 +1,11 @@
+import {readFileSync} from 'node:fs';
+import {fromMarkdown} from 'mdast-util-from-markdown';
+import {JournalArticle} from '@/components/journal-article';
+import type {MarkdownNode} from '@/content/journal';
+import '@/app/blog/blog.css';
+import '@/app/blog/article-reading.css';
+export const metadata={title:'Homologação local dos blocos',robots:{index:false,follow:false}};
+export default function Page(){
+ const markdownTree=fromMarkdown(readFileSync('tests/fixtures/editorial-blocks.md','utf8')) as MarkdownNode;
+ return <JournalArticle post={{title:'Homologação dos blocos editoriais',slug:'cms-editorial-qa-local',summary:'Artigo temporário para verificar citação, impacto e nota do autor.',category:'processo',date:'2026-10-30',status:'draft',demo:true,content:[],markdownTree}} latestPosts={[]} canonicalUrl="http://127.0.0.1:3013/blog/cms-editorial-qa-local"/>;
+}

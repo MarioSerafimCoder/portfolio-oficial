@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "existingGeneratedArticlesIdentical": true,
+  "exportFileCount": 994,
+  "qaRoutesExported": false,
+  "commands": [
+    "offline i18n-sync",
+    "build-posts",
+    "next build",
+    "validate-export"
+  ]
+}
