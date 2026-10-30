@@ -1,10 +1,10 @@
 'use client';
 import {useSiteTranslation} from '@/i18n/use-translation';
 import Image from 'next/image';
+import {useEffect, useRef, useState} from 'react';
 import { journalHeadings } from '@/lib/journal-headings';
 import { readingMinutes, type JournalBlock, type JournalPost } from '@/content/journal';
 import { formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPostForLocale } from '@/content/journal-i18n';
-import { site } from '@/content/site';
 import { useJournalPreferences } from './journal-preferences';
 import {MarkdownContent} from './markdown-content';
 import { JournalAuthorSignature } from './journal-author-signature';
@@ -37,6 +37,11 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
 }) {
     const { i18nText, i18nHref } = useSiteTranslation();
     const { locale } = useJournalPreferences();
+    const contentRef = useRef<HTMLDivElement>(null);
+    const [contents, setContents] = useState<{id: string; text: string}[]>([]);
+    useEffect(() => {
+      setContents(Array.from(contentRef.current?.querySelectorAll('h2[id]') || []).map(heading => ({id: heading.id, text: heading.textContent || ''})));
+    }, [post.slug, locale]);
     const copy = journalCopy[locale];
     const view = journalPostForLocale(post, locale);
     const headings = journalHeadings(view.content);
@@ -53,6 +58,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
         <div className="journal-post-heading-title"><h1 lang={textLanguage}>{i18nText(view.title)}</h1></div>
         <div className="journal-post-heading-summary">
           <span className="journal-post-category">{i18nText(journalCategoryLabels[locale][post.category])}</span>
+          <div className="journal-reading-meta"><time dateTime={date}>{formatJournalDateLocale(date, locale, true)}</time><span aria-hidden="true">·</span><span>{copy.reading(readTime)}</span></div>
           {i18nText(view.summary && <p lang={textLanguage}>{i18nText(view.summary)}</p>)}
           {i18nText(locale === 'en' && !view.translated && <p className="journal-language-note">{i18nText(copy.unavailable)}</p>)}
         </div>
@@ -60,25 +66,26 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
     </div></header>{i18nText(post.cover && <figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={view.coverAlt||post.cover.alt} width={post.cover.width} height={post.cover.height} preload sizes="(max-width: 700px) 100vw, 1100px"/></figure>)}<div className={`journal-article-wrap section-wrap${latestPosts.length ? '' : ' journal-article-wrap-no-related'}`}>
       <aside className="journal-article-sidebar" aria-label={i18nText(copy.authorKicker)}>
         <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined} demo={post.demo}/>
+        {contents.length > 1 && <details className="journal-contents"><summary>{locale === 'en' ? 'In this article' : 'Neste texto'}</summary><nav aria-label={locale === 'en' ? 'Article contents' : 'Índice do artigo'}><ol>{contents.map(item => <li key={item.id}><a href={`#${item.id}`}>{item.text}</a></li>)}</ol></nav></details>}
       </aside>
       <div className="journal-article-body">
-      <div className="journal-article-content" lang={textLanguage}>{view.markdownTree?<MarkdownContent tree={view.markdownTree} title={view.title}/>:i18nText(view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>))}</div>
+      <div ref={contentRef} className="journal-article-content" lang={textLanguage}>{view.markdownTree?<MarkdownContent tree={view.markdownTree} title={view.title}/>:i18nText(view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>))}</div>
       {i18nText(post.sources && post.sources.length > 0 && <section className="journal-sources" aria-labelledby="journal-sources-title"><h2 id="journal-sources-title">{i18nText(copy.references)}</h2><ul>{i18nText(post.sources.map(source => <li key={source.url}><a href={i18nHref(source.url)} target="_blank" rel="noopener noreferrer">{i18nText(source.label)}</a></li>))}</ul></section>)}
       </div>
     </div></article>
     {i18nText(latestPosts.length ? <section className="journal-post-next section-wrap" aria-labelledby="journal-latest-title">
-      <div className="journal-post-next-heading"><h2 id="journal-latest-title">{i18nText(copy.index)}</h2><a href={i18nHref('/blog')}>{i18nText(copy.backFull)} <span aria-hidden="true">↗</span></a></div>
+      <div className="journal-post-next-heading"><h2 id="journal-latest-title">{locale === 'en' ? 'Other posts' : 'Outros posts'}</h2><a href={i18nHref('/blog')}>{locale === 'en' ? 'View all posts' : 'Ver todos os posts'} <span aria-hidden="true">↗</span></a></div>
       <div className="journal-related">{i18nText(latestPosts.map(item => {
                 const suggestion = journalPostForLocale(item, locale);
                 const itemDate = (item.publishAt || item.date).slice(0, 10);
                 return <a className="journal-related-card" key={item.slug} href={i18nHref(`/blog/${item.slug}`)} onClick={() => trackEvent('journal_related_click', {from_slug: post.slug, to_slug: item.slug, category: item.category})}>
-        <span className="journal-related-topline"><time dateTime={itemDate}>{i18nText(formatJournalDateLocale(itemDate, locale, true))}</time><span className="journal-related-category">{i18nText(journalCategoryLabels[locale][item.category])}</span></span>
+        <span className="journal-related-topline"><time dateTime={itemDate}>{i18nText(formatJournalDateLocale(itemDate, locale, true))}</time><span className="journal-related-category">{item.demo ? (locale === 'en' ? 'Test post' : 'Post de teste') : i18nText(journalCategoryLabels[locale][item.category])}</span></span>
         <span className="journal-related-image">
-          {i18nText(item.cover ? <Image src={item.cover.src} alt={suggestion.coverAlt||item.cover.alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 48vw, 620px" style={{ objectPosition: item.cover.position || 'center' }}/> : <span className="journal-related-cover-fallback" aria-hidden="true"><small>{i18nText("PAUSA DO CAF\u00C9")}</small><span>{i18nText(journalCategoryLabels[locale][item.category])}</span><strong>{i18nText(suggestion.title)}</strong></span>)}
+          {i18nText(item.cover ? <Image src={item.cover.src} alt={suggestion.coverAlt||item.cover.alt} fill sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 400px" style={{ objectPosition: item.cover.position || 'center' }}/> : <span className="journal-related-cover-fallback" aria-hidden="true"><small>{i18nText("PAUSA DO CAF\u00C9")}</small><span>{i18nText(journalCategoryLabels[locale][item.category])}</span><strong>{i18nText(suggestion.title)}</strong></span>)}
         </span>
         <h3 lang={suggestion.translated ? undefined : 'pt-BR'}>{i18nText(suggestion.title)}</h3>
         <span className="journal-related-summary" lang={suggestion.translated ? undefined : 'pt-BR'}>{i18nText(suggestion.summary)}</span>
-        <span className="journal-related-meta"><span>{locale === 'en' ? 'Text' : 'Texto'} · {i18nText(site.name)} {' '}{i18nText(copy.reading(readingMinutes({ ...item, content: suggestion.content })))}</span><span className="journal-related-arrow" aria-hidden="true">{i18nText("\u2197")}</span></span>
+        <span className="journal-related-meta"><span><strong>{locale === 'en' ? 'Read post' : 'Ler post'}</strong> · {i18nText(copy.reading(readingMinutes({ ...item, content: suggestion.content })))}</span><span className="journal-related-arrow" aria-hidden="true">{i18nText("\u2197")}</span></span>
       </a>;
             }))}</div>
     </section> : null)}
