@@ -612,6 +612,23 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 .journal-article-sidebar .journal-author-meta dd{margin:0;color:var(--ink);font-size:12px;line-height:1.4;overflow-wrap:anywhere}
 .journal-article-sidebar .journal-share-compact{justify-self:start;margin:5px 0 0}
 .journal-article-sidebar .journal-share-compact summary{min-height:44px;padding-inline:0;border:0;border-radius:0;font-size:13px;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+.journal-article-sidebar .journal-share-compact details[open]>summary,
+.journal-article-sidebar .journal-share-compact summary:hover,
+.journal-article-sidebar .journal-share-compact summary:focus-visible{background:transparent;border-color:transparent;color:var(--ink)}
+.journal-article-sidebar .journal-share-compact summary>span[aria-hidden=true]{color:var(--accent)}
+.journal-article-sidebar .journal-share-options{left:0;right:auto;min-width:228px;gap:3px;padding:7px;border:1px solid var(--rule);border-top:2px solid var(--accent);border-radius:4px;background:var(--surface);box-shadow:0 14px 34px rgba(0,0,0,.24)}
+.journal-article-sidebar .journal-share-options button,
+.journal-article-sidebar .journal-share-options a{display:flex;width:100%;min-height:48px;align-items:center;justify-content:flex-start;gap:11px;padding:0 11px;border:0;border-radius:2px;background:transparent;color:var(--ink);font-size:12px;text-align:left;text-decoration:none;white-space:nowrap;transition:background-color 180ms var(--ease),color 180ms var(--ease)}
+.journal-article-sidebar .journal-share-options button:hover,
+.journal-article-sidebar .journal-share-options a:hover,
+.journal-article-sidebar .journal-share-options button:focus-visible,
+.journal-article-sidebar .journal-share-options a:focus-visible{background:color-mix(in srgb,var(--accent) 8%,var(--surface));color:var(--ink)}
+.journal-article-sidebar .journal-share-option-icon{display:block;width:18px;height:18px;flex:0 0 18px;color:var(--muted)}
+.journal-article-sidebar .journal-share-options button:hover .journal-share-option-icon,
+.journal-article-sidebar .journal-share-options a:hover .journal-share-option-icon{color:var(--accent)}
+.journal-article-sidebar .journal-share-option-arrow{margin-left:auto;color:var(--muted);font-size:11px}
+@media(max-width:900px){.journal-article-sidebar .journal-share-options{min-width:210px}}
+@media(prefers-reduced-motion:reduce){.journal-article-sidebar .journal-share-options button,.journal-article-sidebar .journal-share-options a{transition:none}}
 .journal-article-body{max-width:72ch;min-width:0;margin:0}
 .journal-article-body p,.journal-article-body li{font-size:clamp(16px,1.15vw,18px);line-height:1.78}
 .journal-article-body p{margin-bottom:1.25em}
