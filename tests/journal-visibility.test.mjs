@@ -7,6 +7,7 @@ import ts from 'typescript';
 const generated = [
   {slug: 'public-post', status: 'published', date: '2026-10-26', category: 'direcao-de-arte', tags: ['criatividade'], content: []},
   {slug: 'demo-post', status: 'published', date: '2026-10-25', category: 'tecnologia', demo: true, content: []},
+  {slug: 'private-draft', status: 'draft', date: '2026-10-24', category: 'branding', content: []},
 ];
 
 function loadJournal() {
@@ -25,9 +26,17 @@ test('test posts stay accessible by direct route but out of public listings', ()
   const journal = loadJournal();
   assert.equal(journal.indexJournal, true);
   assert.deepEqual([...journal.publishedJournalCategories], ['direcao-de-arte']);
+  assert.deepEqual([...journal.visibleJournalCategories], ['direcao-de-arte', 'tecnologia']);
   assert.equal(journal.publishedJournalPosts.some(post => post.slug === 'demo-post'), false);
   assert.equal(journal.visibleJournalPosts.some(post => post.slug === 'demo-post'), true);
   assert.equal(journal.getVisibleJournalPost('demo-post').demo, true);
+});
+
+test('test articles are present in public listings while draft articles remain private', () => {
+  const journal = loadJournal();
+  const visibleSlugs = journal.visibleJournalPosts.map(post => post.slug);
+  assert.ok(visibleSlugs.includes('demo-post'));
+  assert.ok(!visibleSlugs.includes('private-draft'));
 });
 
 test('recommendations exclude the current/demo posts and do not invent unrelated matches', () => {

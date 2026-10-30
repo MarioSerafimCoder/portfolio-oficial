@@ -105,12 +105,12 @@ export const publishedJournalPosts = journalPosts.filter(post => post.status ===
 export const publishedJournalCategories = [...new Set(publishedJournalPosts.map(post => post.category))];
 export const showJournalNavigation = true;
 export const indexJournal = publishedJournalPosts.length >= 1;
-// This set also feeds static route generation so old demo URLs remain available
-// with noindex metadata. Public listings, feeds and recommendations use only
-// publishedJournalPosts above.
+// Published posts and layout demos stay available on their direct routes and in
+// the public index. Sitemap, feeds and recommendations use published posts only.
 export const visibleJournalPosts = journalPosts
   .filter(post => post.status === 'published' || post.demo)
   .sort((a, b) => b.date.localeCompare(a.date));
+export const visibleJournalCategories = [...new Set(visibleJournalPosts.map(post => post.category))];
 export const getVisibleJournalPost = (slug: string) => visibleJournalPosts.find(post => post.slug === slug);
 
 export function relatedJournalPosts(post: JournalPost, candidates = publishedJournalPosts, limit = 2) {

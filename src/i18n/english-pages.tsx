@@ -32,7 +32,7 @@ export async function englishMetadata(parts:string[]):Promise<Metadata>{
  if(page){const metadata=key==='blog'?{...page.metadata,robots:{index:translatedPublishedPosts.length>0,follow:true}}:page.metadata;return localizedMetadata(metadata,originalPath(pathname),'en');}
  if(parts[0]==='projects'&&parts.length===2)return localizedMetadata(await projectMetadata({params:Promise.resolve({slug:parts[1]}),locale:'en'}),`/projetos/${parts[1]}`,'en');
  if(parts[0]==='blog'&&parts.length===2)return localizedMetadata(await articleMetadata({params:Promise.resolve({slug:parts[1]}),locale:'en'}),`/blog/${parts[1]}`,'en');
- if(parts[0]==='blog'&&parts[1]==='category'&&parts.length===3){const name=journalCategoryLabels.en[parts[2] as JournalCategory];return localizedMetadata({title:`${name} — Pausa do café`,description:`Articles by Mário Serafim about ${name?.toLowerCase()}.`},`/blog/categoria/${parts[2]}`,'en');}
+ if(parts[0]==='blog'&&parts[1]==='category'&&parts.length===3){const name=journalCategoryLabels.en[parts[2] as JournalCategory];const hasPublishedPosts=translatedPublishedPosts.some(post=>post.category===parts[2]);return localizedMetadata({title:`${name} — Pausa do café`,description:`Articles by Mário Serafim about ${name?.toLowerCase()}.`,robots:{index:hasPublishedPosts,follow:true}},`/blog/categoria/${parts[2]}`,'en');}
  return {title:'Translation unavailable',robots:{index:false,follow:true}};
 }
 export function EnglishPage({parts}:{parts:string[]}){

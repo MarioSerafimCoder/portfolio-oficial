@@ -81,16 +81,16 @@ export function JournalIndex({ posts, activeCategory }: {
   const copy = journalCopy[locale];
   const [page, setPage] = useState(1);
   const publishedPosts = posts.filter(post => post.status === 'published' && !post.demo);
-  const listedPosts = publishedPosts;
+  const listedPosts = posts.filter(post => post.status === 'published' || post.demo);
 
   useEffect(() => setPage(1), [query, activeCategory]);
 
   const terms = normalize(query).split(/\s+/).filter(Boolean);
   const categoryPosts = activeCategory ? listedPosts.filter(post => post.category === activeCategory) : listedPosts;
   const filtered = terms.length ? categoryPosts.filter(post => terms.every(term => searchableText(post).includes(term))) : categoryPosts;
-  const categories = [...new Set(listedPosts.map(post => post.category))];
-  const newestYear = publishedPosts[0]?.date.slice(2, 4);
-  const archiveEdition = newestYear ? `${String(publishedPosts.length).padStart(2, '0')} / ${newestYear}` : '';
+  const categories = [...new Set(publishedPosts.map(post => post.category))];
+  const newestYear = listedPosts.find(post => post.date)?.date.slice(2, 4);
+  const archiveEdition = newestYear ? `${String(listedPosts.length).padStart(2, '0')} / ${newestYear}` : '';
   const pageSize = 6;
   const totalPages = Math.ceil(filtered.length / pageSize);
   const pageItems = filtered.slice((page - 1) * pageSize, page * pageSize);

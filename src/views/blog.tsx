@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import {publishedJournalPosts,indexJournal} from '@/content/journal';
+import {visibleJournalPosts,indexJournal} from '@/content/journal';
 import {JournalIndex} from '@/components/journal-index';
 import '@/app/blog/blog.css';
 
@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage({locale='pt'}:{locale?:'pt'|'en'}={}) {
-  return <JournalIndex posts={publishedJournalPosts.filter(post=>locale==='pt'||post.translations?.en)}/>;
+  return <JournalIndex posts={visibleJournalPosts.filter(post=>locale==='pt'||post.translations?.en)}/>;
 }
