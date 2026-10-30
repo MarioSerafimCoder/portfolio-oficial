@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { perceptionMotion } from '@/lib/perception-motion';
+import { LivingBackground } from './living-background';
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 type Scene = ReturnType<typeof import('@/lib/ribbon-scene').createRibbonScene>;
 export function PerceptionHero({ children }: {
@@ -91,6 +92,7 @@ export function PerceptionHero({ children }: {
         return () => media.revert();
     }, { scope: root });
     return <section ref={root} className="perception-hero" data-motion-owner="gsap" aria-labelledby="perception-title">
+    <LivingBackground />
     <div className="ribbon-composition" aria-hidden="true"><div className="ribbon-shadow"/><div ref={host} className="ribbon-scene"><img className="ribbon-fallback" src="/media/perception-ribbon.svg" alt={i18nText("")} width="760" height="650" fetchPriority="high"/></div></div>
     {i18nText(children)}
   </section>;

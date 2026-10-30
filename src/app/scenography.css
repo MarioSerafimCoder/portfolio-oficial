@@ -2,6 +2,10 @@
 .spatial-home{overflow:clip;background:var(--paper)}
 .perception-hero{background:transparent;min-height:690px}
 .perception-hero::before{content:'';position:absolute;inset:-30% -15% -70% 28%;z-index:0;background:url('/media/perception-curves.svg') center/cover no-repeat;opacity:.085;pointer-events:none}
+.perception-hero:has(.living-background)::before{display:none}
+.living-background{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;color:rgba(171,41,48,.15)}
+[data-theme=dark] .living-background{color:rgba(222,113,115,.16)}
+@media print{.living-background{display:none}}
 /* One canvas between two DOM text planes. The loop opens around the last letters;
    the second line, signature and CTA sit above it. No duplicate or canvas text. */
 .perception-heading{padding-top:65px;justify-content:center}
