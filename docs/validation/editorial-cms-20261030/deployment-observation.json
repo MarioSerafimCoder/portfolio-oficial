@@ -1,0 +1,24 @@
+{
+  "agentRequestedDeployment": false,
+  "automaticPreviewDeployment": true,
+  "sha": "3ddf766cedfe0dbb7c280ed19b3d3ac77de1d3ca",
+  "checks": [
+    {
+      "name": "Cloudflare Pages",
+      "status": "completed",
+      "conclusion": "success",
+      "title": "Deployed successfully",
+      "summary": "<table><tr><td><strong>Latest commit:</strong> </td><td>\n<code>3ddf766</code>\n</td></tr>\n<tr><td><strong>Status:</strong></td><td>&nbsp;✅&nbsp; Deploy successful!</td></tr>\n<tr><td><strong>Preview URL:</strong></td><td>\n<a href='https://d0510569.portfolio-oficial-8fl.pages.dev'>https://d0510569.portfolio-oficial-8fl.pages.dev</a>\n</td></tr>\n<tr><td><strong>Branch Preview URL:</strong></td><td>\n<a href='https://codex-cms-editorial-qa-20261.portfolio-oficial-8fl.pages.dev'>https://codex-cms-editorial-qa-20261.portfolio-oficial-8fl.pages.dev</a>\n</td></tr>\n</table>\n\n[View logs](https://dash.cloudflare.com/?to=/7bfc908c25ef636aade196a09572a11c/pages/view/portfolio-oficial/d0510569-191b-40b8-a901-816de08cec84)\n"
+    }
+  ],
+  "temporaryArticleRequests": [
+    {
+      "origin": "https://d0510569.portfolio-oficial-8fl.pages.dev",
+      "status": 404
+    },
+    {
+      "origin": "https://marioserafim.com.br",
+      "status": 404
+    }
+  ]
+}

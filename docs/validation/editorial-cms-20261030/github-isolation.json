@@ -1,0 +1,36 @@
+{
+  "base": "34af157ed5123195b4ab73dce9770934733c4898",
+  "head": "3ddf766cedfe0dbb7c280ed19b3d3ac77de1d3ca",
+  "commits": [
+    {
+      "sha": "33a623e339863451699e112857cebae11c719c0b",
+      "message": "Update .pages.yml (via Pages CMS)"
+    },
+    {
+      "sha": "dc02a112ce4f2ac9ab5606d534fc1493f35460c8",
+      "message": "Create src/content/posts/qa-blocos-editoriais-20261030.md (via Pages CMS)"
+    },
+    {
+      "sha": "a486b77c9d24bf0cfadb7a1cb69ece641c1c8e22",
+      "message": "Update src/content/posts/qa-blocos-editoriais-20261030.md (via Pages CMS)"
+    },
+    {
+      "sha": "3ddf766cedfe0dbb7c280ed19b3d3ac77de1d3ca",
+      "message": "Update src/content/posts/qa-blocos-editoriais-20261030.md (via Pages CMS)"
+    }
+  ],
+  "files": [
+    {
+      "filename": ".pages.yml",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1
+    },
+    {
+      "filename": "src/content/posts/qa-blocos-editoriais-20261030.md",
+      "status": "added",
+      "additions": 38,
+      "deletions": 0
+    }
+  ]
+}

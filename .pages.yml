@@ -81,7 +81,7 @@ content:
         type: string
 
       - name: cover_position
-        label: Enquadramento da capa (ex.: 50% 35%)
+        label: "Enquadramento da capa (ex.: 50% 35%)"
         type: string
 
       - name: seo_title
@@ -95,6 +95,9 @@ content:
       - name: body
         label: Conteúdo do artigo
         type: rich-text
+        options:
+          format: markdown
+          switcher: true
 
   - name: translations_en
     label: Revisões em inglês

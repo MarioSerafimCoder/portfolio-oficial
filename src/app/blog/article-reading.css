@@ -45,3 +45,17 @@
   .journal-post-page .journal-post-next-heading{align-items:start;flex-direction:column;gap:12px}
   .journal-post-page .journal-article-content p,.journal-post-page .journal-article-content li{font-size:17px;line-height:1.75}
 }
+
+/* Editorial blocks: local typography, no global identity or signature changes. */
+.journal-article-content .editorial-quote{margin:2.5em 0}
+.journal-article-content .editorial-quote blockquote{margin:0;padding:24px 0 24px 24px;border:0;border-left:2px solid var(--accent)}
+.journal-article-content .editorial-quote blockquote::before{content:none}
+.journal-post-page .editorial-quote blockquote p{font-family:var(--font-serif),Georgia,serif;font-size:clamp(25px,3vw,36px);font-weight:400;line-height:1.3;letter-spacing:-.02em;margin:0 0 .65em}
+.journal-article-content .editorial-quote figcaption{margin:12px 0 0 26px;font-size:13px;line-height:1.6;color:var(--muted)}
+.journal-article-content .editorial-impact{margin:clamp(36px,6vw,64px) 0;padding:20px 0;border-block:1px solid var(--rule)}
+.journal-post-page .editorial-impact p{max-width:28ch;font-family:var(--font-serif),Georgia,serif;font-size:clamp(28px,3.5vw,44px);line-height:1.2;letter-spacing:-.02em;margin:0 0 .65em}
+.journal-article-content .editorial-impact strong{color:var(--accent-text);font-weight:400}
+.journal-article-content .editorial-author{margin:32px 0;padding:20px 24px;border-left:2px solid var(--rule);background:var(--surface)}
+.editorial-author-label{display:block;color:var(--muted);font-size:11px;letter-spacing:.08em;margin-bottom:12px}
+.journal-post-page .editorial-author p{font-size:16px;line-height:1.7;margin-bottom:12px}
+.journal-post-page .editorial-author>:last-child,.journal-post-page .editorial-impact>:last-child,.journal-post-page .editorial-quote blockquote>:last-child{margin-bottom:0}
