@@ -600,14 +600,15 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 .journal-cover img{width:100%;height:100%;object-fit:cover}
 .journal-article-wrap.section-wrap{display:grid;grid-template-columns:minmax(180px,.34fr) minmax(0,1fr);align-items:start;gap:clamp(38px,6vw,90px);width:min(100%,1440px);margin:0 auto;padding-top:clamp(42px,5vw,70px);padding-bottom:clamp(60px,8vw,105px)}
 .journal-article-sidebar{position:sticky;top:104px;min-width:0}
-.journal-article-sidebar .journal-author-signature-compact{display:grid;grid-template-columns:62px minmax(0,1fr);align-items:center;gap:13px;margin:0;padding:0;border:0}
-.journal-article-sidebar .journal-author-avatar{width:62px;height:62px;flex-basis:62px}
-.journal-article-sidebar .journal-author-identity>strong{font-size:17px;line-height:1.2}
-.journal-article-sidebar .journal-author-identity>span{font-size:11px;line-height:1.4}
-.journal-article-sidebar .journal-author-meta{grid-column:1/-1;display:grid;gap:7px;margin:8px 0 0;padding:13px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:11px}
+.journal-article-sidebar .journal-author-signature-compact{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:center;gap:14px;margin:0;padding:0;border:0}
+.journal-article-sidebar .journal-author-avatar{width:76px;height:76px;flex-basis:76px}
+.journal-article-sidebar .journal-author-avatar-placeholder{font-size:20px}
+.journal-article-sidebar .journal-author-identity>strong{font-size:20px;line-height:1.2}
+.journal-article-sidebar .journal-author-identity>span{font-size:13px;line-height:1.45}
+.journal-article-sidebar .journal-author-meta{grid-column:1/-1;display:grid;gap:8px;margin:10px 0 0;padding:15px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:13px}
 .journal-article-sidebar .journal-author-meta>span+span::before{content:none}
 .journal-article-sidebar .journal-share-compact{grid-column:1/-1;justify-self:start;margin:0}
-.journal-article-sidebar .journal-share-compact summary{min-height:40px;padding-inline:0;border:0;border-radius:0;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+.journal-article-sidebar .journal-share-compact summary{min-height:44px;padding-inline:0;border:0;border-radius:0;font-size:14px;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
 .journal-article-body{max-width:72ch;min-width:0;margin:0}
 .journal-article-body p,.journal-article-body li{font-size:clamp(16px,1.15vw,18px);line-height:1.78}
 .journal-article-body p{margin-bottom:1.25em}
@@ -658,11 +659,11 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
   .journal-cover.section-wrap{height:auto;aspect-ratio:1.25;padding:0 var(--gutter)}
   .journal-article-wrap.section-wrap{grid-template-columns:minmax(0,1fr);gap:26px;padding-top:29px;padding-bottom:55px}
   .journal-article-sidebar{position:static;padding-bottom:18px;border-bottom:1px solid var(--rule)}
-  .journal-article-sidebar .journal-author-signature-compact{grid-template-columns:54px minmax(0,1fr);gap:10px 12px}
-  .journal-article-sidebar .journal-author-avatar{width:54px;height:54px;flex-basis:54px}
-  .journal-article-sidebar .journal-author-identity>strong{font-size:16px}
-  .journal-article-sidebar .journal-author-identity>span{font-size:10px}
-  .journal-article-sidebar .journal-author-meta{grid-template-columns:1fr 1fr}
+  .journal-article-sidebar .journal-author-signature-compact{grid-template-columns:64px minmax(0,1fr);gap:10px 13px}
+  .journal-article-sidebar .journal-author-avatar{width:64px;height:64px;flex-basis:64px}
+  .journal-article-sidebar .journal-author-identity>strong{font-size:18px}
+  .journal-article-sidebar .journal-author-identity>span{font-size:12px}
+  .journal-article-sidebar .journal-author-meta{grid-template-columns:1fr 1fr;font-size:12px}
   .journal-article-body p,.journal-article-body li{font-size:16px;line-height:1.75}
   .journal-article-body h2{font-size:31px}
   .journal-article-body blockquote{margin:2.3em 0;padding:21px 0 20px 33px}
