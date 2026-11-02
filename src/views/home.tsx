@@ -39,7 +39,23 @@ export default function Home({ locale = "pt" }: {
     <EditorialProjects />
   </section></div>
 
-  <section className="section-wrap services-section" id="atuacao"><div className="section-heading"><div><span className="eyebrow">{i18nText("O que eu fa\u00E7o")}</span><h2><span className="editorial-line"><span>{i18nText("Logo bonito \u00E9")}</span></span><span className="editorial-line"><span>{i18nText("s\u00F3 o come\u00E7o.")}</span></span></h2><p className="home-section-intro">{i18nText("Uma marca precisa funcionar na vida real: no site, na campanha, na embalagem e at\u00E9 naquele material que aparece pra ontem. Meu trabalho \u00E9 fazer tudo conversar, sem deixar a identidade pelo caminho.")}</p></div><Link className="pill" href={i18nHref("/sobre#processo")}>{i18nText("Conhe\u00E7a minha abordagem ")}<Arrow /></Link></div><Services /><div className="services-contact"><p>{i18nText("Come\u00E7ando do zero ou sentindo que sua marca j\u00E1 n\u00E3o representa o que voc\u00EA faz?")}</p><a className="text-link" href={i18nHref("#contato")}>{i18nText("Vamos conversar \u2197")}</a></div></section>
+  <section className="section-wrap services-section" id="atuacao">
+    <div className="services-heading">
+      <div className="services-heading-title">
+        <span className="eyebrow">{i18nText("O que eu fa\u00E7o")}</span>
+        <h2>
+          <span className="editorial-line"><span>{i18nText("Logo bonito \u00E9")}</span></span>
+          <span className="editorial-line"><span>{i18nText("s\u00F3 o come\u00E7o.")}</span></span>
+        </h2>
+      </div>
+      <div className="services-heading-note">
+        <p className="home-section-intro">{i18nText("Uma marca precisa funcionar na vida real: no site, na campanha, na embalagem e at\u00E9 naquele material que aparece pra ontem. Meu trabalho \u00E9 fazer tudo conversar, sem deixar a identidade pelo caminho.")}</p>
+        <Link className="pill services-approach" href={i18nHref("/sobre#processo")}>{i18nText("Conhe\u00E7a minha abordagem ")}<Arrow /></Link>
+      </div>
+    </div>
+    <Services />
+    <div className="services-contact"><p>{i18nText("Come\u00E7ando do zero ou sentindo que sua marca j\u00E1 n\u00E3o representa o que voc\u00EA faz?")}</p><a className="text-link" href={i18nHref("#contato")}>{i18nText("Vamos conversar \u2197")}</a></div>
+  </section>
 
   <section className="thinking-section section-wrap"><div className="thinking-label"><span className="eyebrow">{i18nText("Como eu trabalho")}</span><span>{i18nText("Olhar & processo")}</span></div><ScrollHighlight /><div className="thinking-bottom"><div className="home-process-intro"><p>{i18nText("O que sua marca precisa resolver? Com quem ela quer conversar? O que j\u00E1 funciona e o que est\u00E1 atrapalhando?")}</p><p>{i18nText("Gosto de entender essas coisas antes de sair escolhendo cores e fontes. N\u00E3o existe f\u00F3rmula infal\u00EDvel, mas come\u00E7ar pelo problema costuma evitar bastante retrabalho.")}</p></div><Link href={i18nHref("/sobre#processo")} className="pill">{i18nText("Um pouco mais sobre como penso ")}<Arrow /></Link></div><div className="home-process"><p>{i18nText("Meu processo passa por tr\u00EAs momentos:")}</p><ProcessSteps steps={steps}/></div></section>
   <section className="faq-section section-wrap" aria-labelledby="faq-title"><span className="eyebrow">{i18nText("Perguntas frequentes")}</span><h2 id="faq-title">{i18nText("Antes de come\u00E7ar.")}</h2><QuietDisclosures>{i18nText(generalFaq.map(item => <details key={item.question}><summary>{i18nText(item.question)}<span aria-hidden="true">{i18nText("+")}</span></summary><p>{i18nText(item.answer)}</p></details>))}</QuietDisclosures></section>
