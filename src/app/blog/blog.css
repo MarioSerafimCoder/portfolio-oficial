@@ -459,7 +459,7 @@ body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-ac
 .journal-masthead-nav a[aria-current=page]::after{background:var(--accent)}
 .journal-masthead-title{grid-template-columns:minmax(0,1fr) minmax(250px,.42fr);align-items:end;gap:clamp(32px,5vw,78px);padding:clamp(35px,4.5vw,64px) 0 27px}
 .journal-masthead-title .eyebrow{color:var(--muted);font-size:10px;letter-spacing:.16em}
-.journal-masthead-title h1{margin:12px 0 0;font-family:var(--font-sans),Arial,sans-serif;font-size:clamp(58px,9.5vw,136px);font-weight:750;line-height:.78;letter-spacing:-.085em;text-transform:uppercase;white-space:nowrap}
+.journal-masthead-title h1{margin:12px 0 0;font-family:var(--font-serif),Georgia,serif;font-size:clamp(58px,9.5vw,136px);font-weight:400;line-height:.84;letter-spacing:-.035em;text-transform:uppercase;white-space:nowrap}
 .journal-masthead-description{max-width:370px;padding-bottom:0}
 .journal-masthead-description p{color:var(--ink);font-size:clamp(14px,1.15vw,16px);line-height:1.6}
 .journal-masthead-description>span{margin-top:14px;padding-top:9px;border-color:var(--rule);color:var(--muted);font-size:9px}
@@ -547,7 +547,7 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 @media(max-width:700px){
   .journal-masthead-inner{padding-inline:var(--gutter)}
   .journal-masthead-title{gap:19px;padding:39px 0 23px}
-  .journal-masthead-title h1{font-size:clamp(47px,12.8vw,86px);line-height:.82;letter-spacing:-.075em;white-space:normal}
+  .journal-masthead-title h1{font-size:clamp(47px,12.8vw,86px);line-height:.84;letter-spacing:-.025em;white-space:normal}
   .journal-ticker{grid-template-columns:auto minmax(0,1fr);gap:8px 12px;margin-bottom:20px;padding:10px 12px}
   .journal-ticker>span{font-size:9px}
   .journal-ticker p{gap:6px;font-size:9px}
