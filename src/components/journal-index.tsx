@@ -114,7 +114,7 @@ export function JournalIndex({ posts, activeCategory }: {
         <div className="journal-masthead-title">
           <div>
             <span className="eyebrow">{i18nText(copy.eyebrow)} {i18nText(copy.location)}</span>
-            <h1 id="journal-index-title">{i18nText('Pausa do ')}{i18nText('café')}</h1>
+            <h1 id="journal-index-title">{i18nText('Pausa do ')}<em>{i18nText('café')}</em></h1>
           </div>
           <div className="journal-masthead-description">
             <p>{i18nText(copy.intro)}</p>
