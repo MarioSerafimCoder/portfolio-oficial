@@ -160,13 +160,13 @@
 .service-inline-preview{display:none}
 @media(max-width:700px){.service-workbench>.service-preview{display:none}.service-inline-preview{display:block;margin:0 0 24px 37px}.service-inline-preview .service-preview-stage{overflow:hidden}.service-inline-preview .service-preview-stage>img{object-fit:contain}.service-inline-preview .brand-foundations{min-height:200px}.identity-study{padding:7%}.identity-study-type{font-size:clamp(78px,25vw,130px)}.identity-study-note{font-size:8px}.identity-study-footer strong{font-size:20px}.identity-study-footer span{font-size:8px}.identity-study-swatches i{height:26px}}
 
-.footer-base>.footer-logo-link{display:block;flex:0 1 auto;width:clamp(115px,15vw,180px);line-height:0}
+.footer-base>.footer-logo-link{display:block;flex:0 1 auto;width:clamp(90px,12vw,150px);line-height:0}
 .footer-logo{display:block;width:100%;height:auto}
 .footer-logo--dark{display:none}
 :root[data-theme=dark] .footer-logo--light{display:none}
 :root[data-theme=dark] .footer-logo--dark{display:block}
-.home-atmosphere .footer-base>.footer-logo-link{width:clamp(300px,54vw,700px)}
-@media(max-width:700px){.footer-base>.footer-logo-link{width:min(115px,100%)}.home-atmosphere .footer-base>.footer-logo-link{width:min(100%,430px)}}
+.home-atmosphere .footer-base>.footer-logo-link{width:clamp(220px,42vw,520px)}
+@media(max-width:700px){.footer-base>.footer-logo-link{width:min(95px,100%)}.home-atmosphere .footer-base>.footer-logo-link{width:min(100%,330px)}}
 
 /* One viewport-sized canvas follows the complete portfolio, stopping at its end. */
 .portfolio-atmosphere{position:relative;isolation:isolate}
