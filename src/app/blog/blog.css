@@ -330,7 +330,7 @@ body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-ac
 .journal-masthead-title{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(250px,.55fr);align-items:end;gap:clamp(30px,5vw,72px);padding:clamp(42px,5vw,72px) 0 34px}
 .journal-masthead-title .eyebrow{color:#ADB5BD;font-size:10px;letter-spacing:.12em}
 .journal-masthead-title h1{max-width:100%;margin:16px 0 0;font-family:var(--font-serif),Georgia,serif;font-size:clamp(58px,7.8vw,112px);font-weight:400;line-height:.86;letter-spacing:-.045em;text-transform:uppercase;white-space:nowrap}
-.journal-masthead-title h1 em{color:var(--accent);font-style:italic;font-weight:400}
+.journal-masthead-title h1 em{color:#E50914;font-style:italic;font-weight:400}
 .journal-masthead-description{max-width:410px;padding-bottom:4px}
 .journal-masthead-description p{margin:0;color:#D1D5DB;font-size:clamp(15px,1.35vw,18px);line-height:1.65}
 .journal-masthead-description>span{display:block;margin-top:20px;padding-top:12px;border-top:1px solid #444;color:#ADB5BD;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
