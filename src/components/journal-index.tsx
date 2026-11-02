@@ -34,11 +34,10 @@ function EditorialArtwork({ index }: { index: number }) {
   </span>;
 }
 
-function EditorialCard({ post, index, locale, featuredLabel, readLabel, variant }: {
+function EditorialCard({ post, index, locale, readLabel, variant }: {
   post: JournalPost;
   index: number;
   locale: 'pt' | 'en';
-  featuredLabel: string;
   readLabel: string;
   variant: 'featured' | 'visual' | 'typographic';
 }) {
@@ -46,6 +45,7 @@ function EditorialCard({ post, index, locale, featuredLabel, readLabel, variant 
   const view = journalPostForLocale(post, locale);
   const date = (post.publishAt || post.date).slice(0, 10);
   const readTime = readingMinutes({ ...post, content: view.content });
+  const Title = variant === 'featured' ? 'h2' : 'strong';
 
   return <article className={`journal-editorial-card journal-editorial-card-${variant}`}>
     <a href={i18nHref(`/blog/${post.slug}`)} onClick={() => trackEvent('journal_article_open', { placement: 'index', slug: post.slug, category: post.category })}>
@@ -56,12 +56,11 @@ function EditorialCard({ post, index, locale, featuredLabel, readLabel, variant 
       </span>
       <span className="journal-editorial-copy">
         <span className="journal-editorial-meta">
-          {variant === 'featured' && <span className="journal-editorial-featured-label">{i18nText(featuredLabel)}</span>}
           <span>{i18nText(journalCategoryLabels[locale][post.category])}</span>
           {post.demo && <span className="journal-demo-label">{i18nText(journalCopy[locale].preview)}</span>}
           <time dateTime={date}>{i18nText(formatJournalDateLocale(date, locale))}</time>
         </span>
-        <strong className="journal-editorial-title" lang={view.translated ? undefined : 'pt-BR'}>{i18nText(view.title)}</strong>
+        <Title className="journal-editorial-title" lang={view.translated ? undefined : 'pt-BR'}>{i18nText(view.title)}</Title>
         <span className="journal-editorial-summary" lang={view.translated ? undefined : 'pt-BR'}>{i18nText(view.summary)}</span>
         <span className="journal-editorial-footer">
           <span>{i18nText(journalCopy[locale].reading(readTime))}</span>
@@ -129,7 +128,7 @@ export function JournalIndex({ posts, activeCategory }: {
         </div>
 
         {featured && <section className="journal-feature" id="journal-feature" aria-label={i18nText(copy.featured)}>
-          <EditorialCard post={featured} index={0} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant="featured" />
+          <EditorialCard post={featured} index={0} locale={locale} readLabel={copy.readArticle} variant="featured" />
         </section>}
       </div>
     </header>
@@ -149,7 +148,7 @@ export function JournalIndex({ posts, activeCategory }: {
         <div className="journal-archive-feed">
           <ol className="journal-editorial-list">
             {remaining.map((post, index) => <li key={post.slug}>
-              <EditorialCard post={post} index={index + 1} locale={locale} featuredLabel={copy.featured} readLabel={copy.readArticle} variant={post.cover ? 'visual' : 'typographic'} />
+              <EditorialCard post={post} index={index + 1} locale={locale} readLabel={copy.readArticle} variant={post.cover ? 'visual' : 'typographic'} />
             </li>)}
           </ol>
           {totalPages > 1 && <nav className="journal-pagination" aria-label={i18nText(locale === 'en' ? 'Pages' : 'Páginas')}>
