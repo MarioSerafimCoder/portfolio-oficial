@@ -46,8 +46,8 @@ export default function About({ locale = "pt" }: {
 
     <section className="about-origin section-wrap" aria-labelledby="origin-title">
       <span className="eyebrow">{i18nText("01 / Um pouco sobre mim")}</span>
-      <div><h2 id="origin-title">{i18nText("Meu caminho")}<br /><em>{i18nText("at\u00E9 aqui.")}</em></h2>
-        {i18nText(photoExists && <figure className="about-portrait"><Image src={site.authorPhoto} alt={i18nText("Retrato de M\u00E1rio Serafim")} width={640} height={800} sizes="(max-width: 700px) 90vw, 420px"/></figure>)}
+      <div className="about-origin-grid"><h2 id="origin-title">{i18nText("Meu caminho")}<br /><em>{i18nText("at\u00E9 aqui.")}</em></h2>
+        {i18nText(photoExists && <figure className="about-portrait"><Image src={site.authorPhoto} alt={i18nText("Retrato de M\u00E1rio Serafim")} width={520} height={520} sizes="(max-width: 700px) 90vw, (max-width: 1200px) 42vw, 40vw"/></figure>)}
         <div className="about-prose"><p>{i18nText("Comecei pelo marketing e, aos poucos, o design foi ocupando cada vez mais espaço. Passei por agências, educação, esporte e hoje trabalho também com rochas naturais.")}</p><p>{i18nText("Parece uma mistura improvável. E talvez seja. Mas circular por universos tão diferentes me ensinou uma coisa: nem toda marca precisa seguir a tendência do momento.")}</p><p>{i18nText("Às vezes, a melhor decisão é justamente não fazer o que todo mundo está fazendo.")}</p></div>
       </div>
     </section>
