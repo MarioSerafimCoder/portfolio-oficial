@@ -664,7 +664,7 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 .journal-related-arrow{flex:0 0 auto}
 .journal-newsletter.journal-newsletter-article:not(.journal-newsletter-blog){width:100%;max-width:none;margin:0;padding:clamp(42px,6vw,72px) max(var(--gutter),calc((100vw - 1200px)/2));border:0;background:#111;color:#F3F4F6}
 .journal-newsletter-article .journal-newsletter-copy>.eyebrow{color:#CF815F}
-.journal-newsletter-article h2{max-width:12ch;color:#F3F4F6;font-family:var(--font-sans),Arial,sans-serif;font-size:clamp(38px,5vw,64px);font-weight:750;line-height:.95;letter-spacing:-.06em;text-transform:uppercase}
+.journal-newsletter-article h2{max-width:12ch;color:#F3F4F6;font-family:var(--font-sans),Arial,sans-serif;font-size:clamp(38px,5vw,64px);font-weight:500;line-height:.95;letter-spacing:-.06em;text-transform:uppercase}
 .journal-newsletter-article .journal-newsletter-description,.journal-newsletter-article .journal-newsletter-promise,.journal-newsletter-article .newsletter-feedback{color:#ADB5BD}
 .journal-newsletter-article .journal-newsletter-email input{border-color:#7B828B;color:#F3F4F6}
 .journal-newsletter-article .journal-newsletter-email input::placeholder{color:#ADB5BD}
