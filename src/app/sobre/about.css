@@ -41,8 +41,7 @@
 }
 @media(prefers-reduced-motion:reduce){.about-credential-list article::after,.about-credential-list h3>span,.about-credential-list article>span::after,.about-credential-list p{transition:none}.about-credential-list article:hover .credential-title-base,.about-credential-list article:hover .credential-title-italic,.about-credential-list article:hover>span::after{transform:none}}
 
-@font-face{font-family:'DM Sans Light Local';src:url('/fonts/dm-sans-light.woff2') format('woff2');font-style:normal;font-weight:300;font-display:swap}
-.about-opening-bottom .about-typewriter{position:relative;font-family:'DM Sans Light Local',var(--font-sans),Arial,sans-serif;font-weight:300;color:color-mix(in srgb,var(--ink) 84%,var(--paper))}
+.about-opening-bottom .about-typewriter{position:relative;font-family:var(--font-sans),Arial,sans-serif;font-weight:300;color:color-mix(in srgb,var(--ink) 84%,var(--paper))}
 @media(max-width:700px){
   .about-opening-top,.about-credential-list article>span{font-size:12px}
   .about-prose p,.about-thinking-copy p,.about-credentials-head p,.about-credential-list p,.about-ending p{font-size:16px}

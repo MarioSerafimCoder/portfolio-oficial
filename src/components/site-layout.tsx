@@ -17,7 +17,7 @@ import {ChapterReveals} from '@/components/chapter-reveals';
 import {SpatialMotion} from '@/components/spatial-motion';
 import {AnalyticsProvider} from '@/components/analytics-provider';
 const serif=localFont({src:[{path:'../../public/fonts/instrument-serif-regular.woff2',weight:'400',style:'normal'},{path:'../../public/fonts/instrument-serif-italic.woff2',weight:'400',style:'italic'}],variable:'--font-serif',display:'swap'});
-const sans=localFont({src:[{path:'../../public/fonts/dm-sans-regular.woff2',weight:'400',style:'normal'},{path:'../../public/fonts/dm-sans-medium.woff2',weight:'500',style:'normal'},{path:'../../public/fonts/dm-sans-semibold.woff2',weight:'600',style:'normal'}],variable:'--font-sans',display:'swap',preload:false});
+const sans=localFont({src:[{path:'../../public/fonts/aglet-sans-variable.otf',weight:'100 900',style:'normal'},{path:'../../public/fonts/aglet-sans-variable-italic.otf',weight:'100 900',style:'italic'}],variable:'--font-sans',display:'swap',preload:false});
 export const fontClassName=`${serif.variable} ${sans.variable}`;
 const configuredUrl=process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br';
 export const metadata:Metadata={
