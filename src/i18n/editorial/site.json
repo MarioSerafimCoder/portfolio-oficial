@@ -245,5 +245,9 @@
   "Article summary": "Article summary",
   "MS": "MS",
   "NOTA DO AUTOR": "AUTHOR’S NOTE",
-  "AUTHOR’S NOTE": "AUTHOR’S NOTE"
+  "AUTHOR’S NOTE": "AUTHOR’S NOTE",
+  "Acompanhamento privado do projeto": "Private project follow-up",
+  "Após o envio do e-mail, os dados essenciais do pedido também são encaminhados ao Lastro, meu painel privado hospedado na Cloudflare, para acompanhar a conversa, proposta e próximo contato. O acesso é restrito ao administrador. A retenção padrão é de 365 dias a partir do recebimento, com exclusão na próxima consulta ou entrada de contato; o prazo pode ser ajustado conforme a necessidade do projeto. Você pode solicitar acesso, correção ou exclusão pelo e-mail abaixo. Seus dados comerciais não são inscritos na newsletter e não geram mensagens comerciais automáticas.": "After the email is sent, essential request details are also forwarded to Lastro, my private dashboard hosted on Cloudflare, to track the conversation, proposal and next contact. Access is restricted to the administrator. The default retention period is 365 days from receipt, with deletion on the next dashboard read or incoming request; this period can be adjusted to the needs of the project. You can request access, correction or deletion using the email address below. Your business contact details are not subscribed to the newsletter and do not trigger automated commercial messages.",
+  "O acompanhamento de pedidos no Lastro usa armazenamento privado na Cloudflare. As mensagens permanecem na caixa de e-mail enquanto forem necessárias para a conversa ou obrigações aplicáveis. Para solicitar acesso, correção ou exclusão dos dados, escreva para": "Project follow-up in Lastro uses private storage on Cloudflare. Messages remain in the mailbox for as long as needed for the conversation or applicable obligations. To request access, correction or deletion, email",
+  "Privacidade / Atualizada em 3 de novembro de 2026": "Privacy / Updated on November 3, 2026"
 }

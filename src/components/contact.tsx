@@ -163,6 +163,6 @@ export function ContactForm() {
   </form>)}
   <p role="status" className={`form-status ${sent ? 'success' : ''}`}>{i18nText(feedback)}</p>
   <iframe ref={frame} name={`${id}-delivery`} title={i18nText("Confirma\u00E7\u00E3o do envio")} className="delivery-frame" tabIndex={-1} aria-hidden="true"/>
-  <form ref={deliveryForm} action={i18nHref(endpoint)} method="post" target={`${id}-delivery`} hidden aria-hidden="true">{i18nText(['token', 'name', 'email', 'type', 'description', 'website'].map(key => <input key={key} type="hidden" name={key} defaultValue=""/>))}</form>
+  <form ref={deliveryForm} action={i18nHref(endpoint)} method="post" target={`${id}-delivery`} hidden aria-hidden="true">{i18nText(['token', 'name', 'email', 'type', 'description', 'website', 'whatsapp', 'industry', 'budget', 'summary'].map(key => <input key={key} type="hidden" name={key} defaultValue=""/>))}</form>
  </div>;
 }

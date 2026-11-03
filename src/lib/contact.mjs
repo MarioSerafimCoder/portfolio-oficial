@@ -6,7 +6,7 @@ export function briefingText({name,email,type,description,budget='',whatsapp='',
 // and minimum description length. Optional fields travel in the email body.
 export function deliveryPayload(data, origin, submittedAt = new Date().toISOString()) {
   const types = {'Site ou experiência digital':'Experiência digital','Ainda não tenho certeza':'Quero entender as possibilidades'};
-  return {name:data.name.trim(), email:data.email.trim(), type:types[data.type] || data.type,
+  return {whatsapp:(data.whatsapp || '').slice(0,25), industry:(data.industry || '').slice(0,100), budget:(data.budget || '').slice(0,100), summary:(data.description || 'Prefiro conversar sobre os detalhes.').trim().slice(0,750), name:data.name.trim(), email:data.email.trim(), type:types[data.type] || data.type,
     description:[`Solicitação: ${data.type}`, `Área de atuação: ${data.industry || 'Não informada'}`, `Investimento previsto: ${data.budget || 'Não informado'}`,
       `WhatsApp: ${data.whatsapp || 'Não informado'}`, '', data.description.trim() || 'Prefiro conversar sobre os detalhes.',
       '', `Data do contato: ${submittedAt}`, `Origem: ${origin}`].join('\n')};
