@@ -7,4 +7,7 @@ test('export guard rejects the document wrapping regression even when page conte
  assert.doesNotThrow(()=>validateDocument(valid,'en.html'));
  assert.throws(()=>validateDocument(`<script src="/polyfill.js"></script><div>${valid}</div>`,'en.html'),/DOCTYPE/);
  assert.throws(()=>validateDocument(valid.replace('<main>','<html><main>').replace('</main>','</main></html>'),'en.html'),/exactly one <html>/);
+ const fallback=valid.replace(' lang="en"','');
+ assert.doesNotThrow(()=>validateDocument(fallback,'out/en/__translation_pending__.html'));
+ assert.throws(()=>validateDocument(fallback,'out/en/blog.html'),/missing supported document language/);
 });
