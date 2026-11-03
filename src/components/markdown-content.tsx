@@ -55,7 +55,7 @@ export function MarkdownContent({tree,title}:{tree:MarkdownNode;title:string}){
     return src?<figure key={key}><Image src={src} alt={node.alt||''} width={1200} height={800} sizes="(max-width:700px) 100vw, 740px"/>{destination?.title&&<figcaption>{destination.title}</figcaption>}</figure>:null;
    }
    // Raw HTML/MDX is retained as literal source, never executed as visitor code.
-   case 'html':return <pre key={key} tabIndex={0}><code>{node.value}</code></pre>;
+   case 'html':return /^<\/?u>$/i.test(node.value?.trim()||'')?null:<pre key={key} tabIndex={0}><code>{node.value}</code></pre>;
    case 'definition':return null;
    default:return children||node.value||null;
   }
