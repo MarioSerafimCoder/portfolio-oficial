@@ -1,16 +1,14 @@
 ---
 title: Design não é arte, e outros absurdos que espalham por ai.
 summary: Reflexão sobre a relação entre arte e design, questionando a
-  necessidade de separar expressão artística e funcionalidade. A partir das
-  ideias de Bruno Munari e Victor Papanek, discute como a criatividade, a
-  sensibilidade estética e a responsabilidade social podem coexistir no processo
-  de criação. Mais do que resolver problemas, o design também comunica, provoca
-  emoções e constrói significados. A reflexão central é que reconhecer a
-  influência da arte não diminui o caráter estratégico do design, mas amplia
-  suas possibilidades e reforça sua dimensão humana.
+  necessidade de separar expressão artística e funcionalidade.  Mais do que
+  resolver problemas, o design também comunica, provoca emoções e constrói
+  significados. A reflexão central é que reconhecer a influência da arte não
+  diminui o caráter estratégico do design, mas amplia suas possibilidades e
+  reforça sua dimensão humana.
 category: direcao-de-arte
 status: published
-publish_at: 2026-11-06T14:41
+publish_at: 2026-11-06T14:44
 ---
 Existe uma tentativa curiosa de separar arte e design como se fossem duas coisas que nunca deveriam sentar à mesma mesa. De um lado, a arte do outro, o design, mas será que essa divisão é tão simples assim?
 
