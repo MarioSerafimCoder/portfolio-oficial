@@ -19,9 +19,19 @@ export function validateDocument(html, file) {
 }
 
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?walk(path.join(dir,entry.name)):[path.join(dir,entry.name)]);}
+function flatRscTarget(file,root='out'){
+ const parts=path.relative(root,file).split(path.sep);
+ const marker=parts.findIndex(part=>part.startsWith('__next.')&&!part.endsWith('.txt'));
+ if(marker<0||marker===parts.length-1)return null;
+ return path.join(root,...parts.slice(0,marker),`${parts[marker]}.${parts.slice(marker+1).join('.')}`);
+}
 if(process.argv[1]&&path.resolve(process.argv[1])===path.resolve('scripts/validate-export.mjs')){
  const files=walk('out').filter(file=>file.endsWith('.html'));
  if(!files.length)throw new Error('No exported HTML documents found');
  for(const file of files)validateDocument(fs.readFileSync(file,'utf8'),file);
+ const nestedRsc=walk('out').filter(file=>flatRscTarget(file));
+ const missingRsc=nestedRsc.map(file=>flatRscTarget(file)).filter(file=>!fs.existsSync(file));
+ if(missingRsc.length)throw new Error(`Missing flat RSC payload files for static navigation: ${missingRsc.join(', ')}`);
  console.log(`Validated ${files.length} exported HTML documents: DOCTYPE, document structure and language.`);
+ console.log(`Validated ${nestedRsc.length} flat RSC payload paths for static navigation.`);
 }
