@@ -727,3 +727,67 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
   .journal-editorial-cover:has(> [data-journal-image]),
   .journal-related-image:has(> [data-journal-image]){display:none!important}
 }
+.site-footer:has(.journal-footer-invitation:not(.is-article)){
+  padding:clamp(32px,4vw,60px) max(24px,calc((100% - 1350px)/2)) 24px;
+}
+.journal-footer-invitation:not(.is-article){
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);
+  align-items:center;
+  gap:clamp(24px,4vw,56px);
+  max-width:none;
+  margin-bottom:24px;
+  padding:clamp(22px,4vw,54px);
+  background:var(--paper);
+  border:1px solid var(--rule);
+  border-radius:12px;
+}
+.journal-footer-kicker{
+  display:block;
+  margin-bottom:12px;
+  color:var(--hover);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.journal-footer-invitation .journal-footer-copy p{margin:14px 0 0;max-width:54ch}
+.journal-footer-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  padding-left:clamp(16px,3vw,40px);
+  border-left:1px solid var(--rule);
+}
+.journal-footer-cta{
+  display:inline-flex;
+  align-items:center;
+  min-height:48px;
+  padding:10px 16px;
+  border:1px solid var(--hover);
+  border-radius:6px;
+  background:var(--hover);
+  color:#fff;
+  font-size:14px;
+  font-weight:650;
+  transition:background-color .2s ease,color .2s ease;
+}
+.journal-footer-cta:hover,.journal-footer-cta:focus-visible{background:transparent;color:var(--hover)}
+.journal-footer-email{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  overflow-wrap:anywhere;
+  color:var(--muted);
+  font-size:14px;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.journal-footer-email:hover,.journal-footer-email:focus-visible{color:var(--hover)}
+.site-footer:has(.journal-footer-invitation:not(.is-article)) .footer-secondary{padding-block:10px 14px}
+@media(max-width:700px){
+  .journal-footer-invitation:not(.is-article){grid-template-columns:minmax(0,1fr)}
+  .journal-footer-actions{padding:16px 0 0;border-left:0;border-top:1px solid var(--rule)}
+}
+@media(prefers-reduced-motion:reduce){.journal-footer-cta{transition:none}}
