@@ -320,7 +320,6 @@ body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-ac
 
 .journal-masthead{background:#121212;color:#F3F4F6}
 .journal-page{--paper:#F8F9FA;--surface:#FAF9F6;--ink:#212529;--muted:#4B5563;--rule:#E5E7EB;--control:#747B85;--accent:#E50914;--accent-text:#E50914;--on-accent:#F8F9FA;--focus:#E50914;background:#FAF9F6;color:#212529}
-.journal-masthead-inner{width:min(100%,1600px);margin:0 auto;padding:0 var(--gutter)}
 .journal-masthead-nav{display:flex;align-items:center;gap:clamp(18px,3vw,42px);min-height:54px;overflow-x:auto;border-bottom:1px solid #333;scrollbar-width:none}
 .journal-masthead-nav::-webkit-scrollbar{display:none}
 .journal-masthead-nav a{flex:none;min-height:44px;display:inline-flex;align-items:center;gap:7px;color:#ADB5BD;font-size:11px;font-weight:500;white-space:nowrap;transition:color .2s ease}
@@ -394,7 +393,6 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:#333}
   .journal-editorial-card-featured>a{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
 }
 @media(max-width:700px){
-  .journal-masthead-inner{padding-inline:var(--gutter)}
   .journal-masthead-nav{gap:19px;min-height:50px}
   .journal-masthead-nav a{font-size:10px}
   .journal-masthead-nav a:first-child{margin-right:0}
@@ -452,7 +450,12 @@ body:has(.journal-masthead) .journal-site-header .journal-language-toggle{color:
 body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-active{color:var(--ink)}
 .journal-masthead{background:var(--paper);color:var(--ink)}
 .journal-page{background:var(--paper);color:var(--ink)}
-.journal-masthead-inner{width:100%;padding-inline:var(--gutter)}
+.journal-page{--journal-grid-width:min(1350px,calc(100% - 48px))}
+.journal-masthead-inner,
+.journal-page .journal-archive,
+.journal-page .journal-empty,
+.journal-newsletter-wrap{width:var(--journal-grid-width);margin-inline:auto}
+.journal-page .journal-archive,.journal-page .journal-empty{padding-inline:0}
 .journal-masthead-nav{min-height:55px;gap:clamp(18px,2.8vw,40px);border-color:var(--ink)}
 .journal-masthead-nav a{color:var(--muted);font-size:12px}
 .journal-masthead-nav a[aria-current=page],.journal-masthead-nav a:hover{color:var(--ink)}
@@ -534,12 +537,7 @@ body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-ac
 .journal-print-mark{display:flex;align-items:end;justify-content:space-between;margin-top:22px;padding-top:12px;border-top:1px solid #FFF8F177;font-size:10px;font-weight:700;letter-spacing:.08em}
 .journal-print-mark b{font-size:22px;line-height:.8;font-weight:400}
 .journal-print-edition>p{margin:11px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
-.journal-newsletter-wrap{margin-inline:var(--gutter);padding:29px clamp(20px,3vw,48px) 38px;background:#111111;color:#F3F4F6}
-@media(min-width:1800px){
-  .journal-page{--journal-wide-gutter:max(var(--gutter),calc((100vw - 1550px)/2))}
-  .journal-masthead-inner,.journal-page .journal-archive{padding-inline:var(--journal-wide-gutter)}
-  .journal-newsletter-wrap{margin-inline:var(--journal-wide-gutter)}
-}
+.journal-newsletter-wrap{padding:29px clamp(20px,3vw,48px) 38px;background:#111111;color:#F3F4F6}
 .journal-newsletter-blog{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:20px clamp(28px,5vw,70px);margin:0;padding:0;border:0;color:#F3F4F6}
 body:has(.journal-masthead) .site-footer{background:var(--surface);color:var(--ink);border-top:1px solid var(--rule)}
 body:has(.journal-masthead) .site-footer .eyebrow,body:has(.journal-masthead) .site-footer .footer-base>span{color:var(--muted)}
@@ -550,7 +548,6 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
   .journal-masthead-title h1{font-size:clamp(56px,11vw,112px)}
 }
 @media(max-width:700px){
-  .journal-masthead-inner{padding-inline:var(--gutter)}
   .journal-masthead-title{gap:19px;padding:39px 0 23px}
   .journal-masthead-title h1{font-size:clamp(47px,12.8vw,86px);line-height:.84;letter-spacing:-.025em;white-space:normal}
   .journal-ticker{grid-template-columns:auto minmax(0,1fr);gap:8px 12px;margin-bottom:20px;padding:10px 12px}
