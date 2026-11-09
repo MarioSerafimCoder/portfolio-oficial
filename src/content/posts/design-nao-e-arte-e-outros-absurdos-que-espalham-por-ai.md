@@ -28,7 +28,7 @@ A arte amplia as possibilidades do design. O design dá a essas possibilidades u
 
 > [!AUTHOR]
 >
-> Isso não significa que todo designer seja artista, muito menos que todo projeto precise ser uma obra de arte. Significa apenas reconhecer que nossa profissão não nasceu de uma separação absoluta entre expressão e função. Afinal, estudamos cor, composição, ritmo, proporção, movimento e linguagem visual. Experimentamos, interpretamos e construímos significados. Tudo isso enquanto tentamos resolver problemas reais.
+> Isso não significa que todo designer seja artista, muito menos que todo projeto precisa ser uma obra de arte. Significa apenas reconhecer que nossa profissão não nasceu de uma separação absoluta entre expressão e função. Afinal, estudamos cor, composição, ritmo, proporção, movimento e linguagem visual. Experimentamos, interpretamos e construímos significados. Tudo isso enquanto tentamos resolver problemas reais.
 
 Reduzir o design à funcionalidade é ignorar boa parte do que o torna uma experiência humana.
 
