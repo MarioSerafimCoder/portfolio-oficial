@@ -58,12 +58,16 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
           {i18nText(locale === 'en' && !view.translated && <p className="journal-language-note">{i18nText(copy.unavailable)}</p>)}
         </div>
       </div>
-    </div></header>{i18nText(post.cover && <figure className="journal-cover section-wrap"><Image src={post.cover.src} alt={view.coverAlt||post.cover.alt} width={post.cover.width} height={post.cover.height} preload sizes="(max-width: 700px) 100vw, 1100px"/></figure>)}<div className={`journal-article-wrap section-wrap${latestPosts.length ? '' : ' journal-article-wrap-no-related'}`}>
+    </div></header><div className={`journal-article-wrap section-wrap${latestPosts.length ? '' : ' journal-article-wrap-no-related'}`}>
       <aside className="journal-article-sidebar" aria-label={i18nText(copy.authorKicker)}>
         <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined}/>
         <section className="journal-auto-summary" aria-labelledby="journal-summary-title"><h2 id="journal-summary-title">{locale === 'en' ? 'Article summary' : 'Resumo do artigo'}</h2><p lang={textLanguage}>{journalSummary(view.content, view.summary)}</p></section>
       </aside>
       <div className="journal-article-body">
+      {i18nText(post.cover && <figure className="journal-article-cover">
+        <Image src={post.cover.src} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
+          preload sizes="(max-width: 800px) 90vw, 740px"/>
+      </figure>)}
       <div className="journal-article-content" lang={textLanguage}>{view.markdownTree?<MarkdownContent tree={view.markdownTree} title={view.title}/>:i18nText(view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>))}</div>
       {i18nText(post.sources && post.sources.length > 0 && <section className="journal-sources" aria-labelledby="journal-sources-title"><h2 id="journal-sources-title">{i18nText(copy.references)}</h2><ul>{i18nText(post.sources.map(source => <li key={source.url}><a href={i18nHref(source.url)} target="_blank" rel="noopener noreferrer">{i18nText(source.label)}</a></li>))}</ul></section>)}
       </div>
