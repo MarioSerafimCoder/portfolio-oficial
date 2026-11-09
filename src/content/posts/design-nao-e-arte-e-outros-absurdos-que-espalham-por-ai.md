@@ -8,8 +8,11 @@ summary: Reflexão sobre a relação entre arte e design, questionando a
   reforça sua dimensão humana.
 category: direcao-de-arte
 status: published
-publish_at: 2026-11-09T11:25
+publish_at: 2026-11-09T14:23
+cover: /media/blog/6c95df59-8ce0-4cb8-8ca0-cc7b4c991874.png
 ---
+![](/media/blog/ca6fc58a-eca7-460a-8baa-2e8c9350e0bf.png)
+
 Existe uma tentativa curiosa de separar arte e design como se fossem duas coisas que nunca deveriam sentar à mesma mesa. De um lado, a arte do outro, o design, mas será que essa divisão é tão simples assim?
 
 Desde o movimento Arts and Crafts até a Bauhaus, passando pelo dadaísmo, pela arte concreta e pelo experimentalismo gráfico dos anos 1970, o design sempre manteve uma relação bastante íntima com a expressão artística. Às vezes se aproximando, às vezes tentando se distanciar, mas nunca deixando de conversar com ela.
