@@ -1,3 +1,4 @@
+import {journalCoverUrl} from '@/lib/journal-cover-url';
 import {createTranslator} from '@/i18n/translate';
 import type {SiteLocale} from '@/i18n/routes';
 import type { Metadata } from 'next';
@@ -34,7 +35,7 @@ export async function generateMetadata({ params,locale='pt' }: Props&{locale?:Si
     const description = view.seo?.description || view.summary;
     if (post.status !== 'published' || post.demo)
         return { title, description, robots: { index: false, follow: false } };
-    const image = post.cover?.src || '/opengraph-image';
+    const image = post.cover ? journalCoverUrl(post.cover.src) : '/opengraph-image';
     return { title, description, alternates: { canonical: `/blog/${slug}` }, openGraph: { type: 'article', title, description, url: `/blog/${slug}`, images: [{ url: image, alt: view.coverAlt || view.title }], publishedTime: post.publishAt || post.date, ...(post.updatedAt ? { modifiedTime: post.updatedAt } : {}), authors: ['Mário Serafim'] }, twitter: { card: 'summary_large_image', title, description, images: [image] } };
 }
 export default async function JournalPost({ params, locale = "pt" }: Props & {
@@ -52,7 +53,7 @@ export default async function JournalPost({ params, locale = "pt" }: Props & {
     // Continue reading even when there are no category/tag matches.
     const latestPosts = [...contextualPosts, ...candidates.filter(item => item.slug !== post.slug && !contextualPosts.some(match => match.slug === item.slug))].slice(0, 3);
     const canonicalUrl = `${(process.env.NEXT_PUBLIC_SITE_URL || 'https://marioserafim.com.br').replace(/\/$/, '')}${localizedHref(`/blog/${post.slug}`,locale)}`;
-    const structuredData = [{ '@context': 'https://schema.org', '@type': 'Article', headline: view.title, description: view.summary, datePublished: post.publishAt || post.date, ...(post.updatedAt ? { dateModified: post.updatedAt } : {}), ...(post.cover ? { image: `${(process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br').replace(/\/$/,'')}${post.cover.src}` } : {}), inLanguage: locale==='en'?'en':'pt-BR', author: { '@type': 'Person', name: site.name, jobTitle: locale==='en'?'Art director':'Diretor de arte', url: canonicalUrl.replace(/\/blog\/[^/]+$/, ''), sameAs: [site.linkedin] }, mainEntityOfPage: canonicalUrl }, { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: locale==='en'?'Home':'Início', item: canonicalUrl.replace(/\/blog\/[^/]+$/, '') }, { '@type': 'ListItem', position: 2, name: 'Pausa do café', item: canonicalUrl.replace(/\/[^/]+$/, '') }, { '@type': 'ListItem', position: 3, name: view.title, item: canonicalUrl }] }];
+    const structuredData = [{ '@context': 'https://schema.org', '@type': 'Article', headline: view.title, description: view.summary, datePublished: post.publishAt || post.date, ...(post.updatedAt ? { dateModified: post.updatedAt } : {}), ...(post.cover ? { image: `${(process.env.NEXT_PUBLIC_SITE_URL||'https://marioserafim.com.br').replace(/\/$/,'')}${journalCoverUrl(post.cover.src)}` } : {}), inLanguage: locale==='en'?'en':'pt-BR', author: { '@type': 'Person', name: site.name, jobTitle: locale==='en'?'Art director':'Diretor de arte', url: canonicalUrl.replace(/\/blog\/[^/]+$/, ''), sameAs: [site.linkedin] }, mainEntityOfPage: canonicalUrl }, { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: locale==='en'?'Home':'Início', item: canonicalUrl.replace(/\/blog\/[^/]+$/, '') }, { '@type': 'ListItem', position: 2, name: 'Pausa do café', item: canonicalUrl.replace(/\/[^/]+$/, '') }, { '@type': 'ListItem', position: 3, name: view.title, item: canonicalUrl }] }];
     const authorPhoto = existsSync(join(process.cwd(), 'public', site.authorPhoto.replace(/^\//, ''))) ? site.authorPhoto : undefined;
     return <>{i18nText(post.status === 'published' && !post.demo && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}/>)}<JournalArticle post={post} latestPosts={latestPosts} canonicalUrl={canonicalUrl} authorPhoto={authorPhoto}/></>;
 }

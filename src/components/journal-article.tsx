@@ -1,4 +1,5 @@
 'use client';
+import {journalCoverUrl} from '@/lib/journal-cover-url';
 import {useSiteTranslation} from '@/i18n/use-translation';
 import {JournalImage} from './journal-image';
 import {journalHeaderSummary, journalSummary} from '@/lib/journal-summary';
@@ -69,7 +70,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
       </aside>
       <div className="journal-article-body">
       {i18nText(post.cover && <figure className="journal-article-cover">
-        <JournalImage src={post.cover.src} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
+        <JournalImage src={journalCoverUrl(post.cover.src)} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
           preload sizes="(max-width: 800px) 90vw, 740px"/>
       </figure>)}
       <div className="journal-article-content" lang={textLanguage}>{view.markdownTree?<MarkdownContent tree={view.markdownTree} title={view.title}/>:i18nText(view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>))}</div>
@@ -84,7 +85,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
                 return <a className="journal-related-card" key={item.slug} href={i18nHref(`/blog/${item.slug}`)} onClick={() => trackEvent('journal_related_click', {from_slug: post.slug, to_slug: item.slug, category: item.category})}>
         <span className="journal-related-topline"><time dateTime={itemDate}>{i18nText(formatJournalDateLocale(itemDate, locale, true))}</time><span className="journal-related-category">{item.demo ? (locale === 'en' ? 'Test post' : 'Post de teste') : i18nText(journalCategoryLabels[locale][item.category])}</span></span>
         <span className="journal-related-image">
-          {i18nText(item.cover ? <JournalImage src={item.cover.src} alt={suggestion.coverAlt||item.cover.alt} fill sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 400px" style={{ objectPosition: item.cover.position || 'center' }}/> : <span className="journal-related-cover-fallback" aria-hidden="true"><small>{i18nText("PAUSA DO CAF\u00C9")}</small><span>{i18nText(journalCategoryLabels[locale][item.category])}</span><strong>{i18nText(suggestion.title)}</strong></span>)}
+          {i18nText(item.cover ? <JournalImage src={journalCoverUrl(item.cover.src)} alt={suggestion.coverAlt||item.cover.alt} fill sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 400px" style={{ objectPosition: item.cover.position || 'center' }}/> : <span className="journal-related-cover-fallback" aria-hidden="true"><small>{i18nText("PAUSA DO CAF\u00C9")}</small><span>{i18nText(journalCategoryLabels[locale][item.category])}</span><strong>{i18nText(suggestion.title)}</strong></span>)}
         </span>
         <h3 lang={suggestion.translated ? undefined : 'pt-BR'}>{i18nText(suggestion.title)}</h3>
         <span className="journal-related-summary" lang={suggestion.translated ? undefined : 'pt-BR'}>{i18nText(suggestion.summary)}</span>

@@ -31,5 +31,21 @@ export function normalizeStaticRscPaths(root = 'out') {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve('scripts/normalize-static-export.mjs')) {
-  normalizeStaticRscPaths(process.argv[2] || 'out');
+  const root = process.argv[2] || 'out';
+  normalizeStaticRscPaths(root);
+
+  // These covers were exposed at their original URLs before cover-only URLs existed.
+  const legacyCovers = [
+    '/media/blog/6c95df59-8ce0-4cb8-8ca0-cc7b4c991874.png',
+    '/media/blog/geminigeneratedimagelarixhlarixhlari.jpg',
+  ];
+  const posts = JSON.parse(fs.readFileSync('src/content/journal-generated.json', 'utf8'));
+  const bodies = JSON.stringify(posts.flatMap(post => [
+    post.markdownTree, post.content, post.translations?.en?.markdownTree, post.translations?.en?.content,
+  ]));
+  const rules = legacyCovers.filter(src => !bodies.includes(src)).flatMap(src => [
+    src, `/media/responsive/${src.slice('/media/'.length)}/*`,
+  ]).map(url => `${url}\n  X-Robots-Tag: noindex\n`);
+  const baseHeaders = fs.readFileSync('public/_headers', 'utf8').trimEnd();
+  fs.writeFileSync(path.join(root, '_headers'), [baseHeaders, ...rules].join('\n') + '\n');
 }

@@ -1,4 +1,4 @@
-import {readdir,mkdir,stat,writeFile,readFile} from 'node:fs/promises';
+import {readdir,mkdir,stat,writeFile,readFile,copyFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import sharp from 'sharp';
@@ -9,7 +9,7 @@ const version=(await stat(fileURLToPath(import.meta.url))).mtimeMs;
 async function walk(directory) {
   const files=[];
   for(const item of await readdir(directory,{withFileTypes:true})) {
-    if(item.name==='responsive')continue;
+    if(item.name==='responsive'||item.name==='cover-only')continue;
     const file=path.join(directory,item.name);
     if(item.isDirectory())files.push(...await walk(file));
     else if(/\.(webp|png|jpe?g)$/i.test(item.name))files.push(file);
@@ -30,3 +30,19 @@ for(const file of await walk(root)) {
   count++;
 }
 console.log(`Responsive images: ${count} sources updated; ${widths.length} sizes per source.`);
+
+const posts = JSON.parse(await readFile('src/content/journal-generated.json', 'utf8'));
+const covers = new Set(posts.map(post => post.cover?.src).filter(Boolean));
+for (const src of covers) {
+  if (!/^\/media\/blog\/[\w./%-]+$/.test(src) || src.includes('..')) throw Error(`Invalid cover path: ${src}`);
+  const relative = src.slice('/media/'.length);
+  const original = path.join(root, 'cover-only', relative);
+  await mkdir(path.dirname(original), {recursive:true});
+  await copyFile(path.join(root, relative), original);
+  if (!/\.(webp|png|jpe?g)$/i.test(src)) continue;
+  const variants = path.join(root, 'responsive', 'cover-only', relative);
+  await mkdir(variants, {recursive:true});
+  await Promise.all(widths.map(width => copyFile(
+    path.join(root, 'responsive', relative, `${width}.webp`), path.join(variants, `${width}.webp`),
+  )));
+}
