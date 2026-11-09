@@ -1,6 +1,6 @@
 'use client';
 import {createElement,type ReactNode} from 'react';
-import Image from 'next/image';
+import {JournalImage} from './journal-image';
 import {editorialBlock} from '@/lib/editorial-block';
 import type {MarkdownNode} from '@/content/journal';
 import {journalCopy} from '@/content/journal-i18n';
@@ -52,7 +52,7 @@ export function MarkdownContent({tree,title}:{tree:MarkdownNode;title:string}){
    }
    case 'image':case 'imageReference':{
     const destination=node.type==='image'?node:definitions.get(node.identifier?.toLowerCase()||'');const src=safeUrl(destination?.url);
-    return src?<figure key={key}><Image src={src} alt={node.alt||''} width={1200} height={800} sizes="(max-width:700px) 100vw, 740px"/>{destination?.title&&<figcaption>{destination.title}</figcaption>}</figure>:null;
+    return src?<figure key={key}><JournalImage src={src} alt={node.alt||''} width={1200} height={800} sizes="(max-width:700px) 100vw, 740px"/>{destination?.title&&<figcaption>{destination.title}</figcaption>}</figure>:null;
    }
    // Raw HTML/MDX is retained as literal source, never executed as visitor code.
    case 'html':return /^<\/?u>$/i.test(node.value?.trim()||'')?null:<pre key={key} tabIndex={0}><code>{node.value}</code></pre>;

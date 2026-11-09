@@ -1,6 +1,6 @@
 'use client';
 import {useSiteTranslation} from '@/i18n/use-translation';
-import Image from 'next/image';
+import {JournalImage} from './journal-image';
 import {journalHeaderSummary, journalSummary} from '@/lib/journal-summary';
 import { journalHeadings } from '@/lib/journal-headings';
 import { readingMinutes, type JournalBlock, type JournalPost } from '@/content/journal';
@@ -27,7 +27,7 @@ function ArticleBlock({ block, id, sourceLabel }: {
         return <ul>{i18nText(block.items.map(item => <li key={item}>{i18nText(item)}</li>))}</ul>;
     if (block.type === 'quote')
         return <blockquote><p>{i18nText(block.text)}</p>{i18nText(block.attribution && <cite>{i18nText(block.attribution)}</cite>)}</blockquote>;
-    return <figure className={block.layout === 'wide' ? 'journal-figure-wide' : undefined}><Image src={block.src} alt={i18nText(block.alt)} width={block.width} height={block.height} sizes={block.layout === 'wide' ? '(max-width: 700px) 100vw, 1100px' : '(max-width: 700px) 100vw, 740px'}/>{i18nText((block.caption || block.credit) && <figcaption>{i18nText(block.caption)}{i18nText(block.caption && block.credit && <span aria-hidden="true">{i18nText(" \u00B7 ")}</span>)}{i18nText(block.credit && <span>{i18nText(sourceLabel)}{i18nText(": ")}{i18nText(block.credit)}</span>)}</figcaption>)}</figure>;
+    return <figure className={block.layout === 'wide' ? 'journal-figure-wide' : undefined}><JournalImage src={block.src} alt={i18nText(block.alt)} width={block.width} height={block.height} sizes={block.layout === 'wide' ? '(max-width: 700px) 100vw, 1100px' : '(max-width: 700px) 100vw, 740px'}/>{i18nText((block.caption || block.credit) && <figcaption>{i18nText(block.caption)}{i18nText(block.caption && block.credit && <span aria-hidden="true">{i18nText(" \u00B7 ")}</span>)}{i18nText(block.credit && <span>{i18nText(sourceLabel)}{i18nText(": ")}{i18nText(block.credit)}</span>)}</figcaption>)}</figure>;
 }
 export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }: {
     post: JournalPost;
@@ -69,7 +69,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
       </aside>
       <div className="journal-article-body">
       {i18nText(post.cover && <figure className="journal-article-cover">
-        <Image src={post.cover.src} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
+        <JournalImage src={post.cover.src} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
           preload sizes="(max-width: 800px) 90vw, 740px"/>
       </figure>)}
       <div className="journal-article-content" lang={textLanguage}>{view.markdownTree?<MarkdownContent tree={view.markdownTree} title={view.title}/>:i18nText(view.content.map((block, index) => <ArticleBlock key={`${block.type}-${index}`} block={block} id={headingIds.get(index)} sourceLabel={copy.source}/>))}</div>
@@ -84,7 +84,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
                 return <a className="journal-related-card" key={item.slug} href={i18nHref(`/blog/${item.slug}`)} onClick={() => trackEvent('journal_related_click', {from_slug: post.slug, to_slug: item.slug, category: item.category})}>
         <span className="journal-related-topline"><time dateTime={itemDate}>{i18nText(formatJournalDateLocale(itemDate, locale, true))}</time><span className="journal-related-category">{item.demo ? (locale === 'en' ? 'Test post' : 'Post de teste') : i18nText(journalCategoryLabels[locale][item.category])}</span></span>
         <span className="journal-related-image">
-          {i18nText(item.cover ? <Image src={item.cover.src} alt={suggestion.coverAlt||item.cover.alt} fill sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 400px" style={{ objectPosition: item.cover.position || 'center' }}/> : <span className="journal-related-cover-fallback" aria-hidden="true"><small>{i18nText("PAUSA DO CAF\u00C9")}</small><span>{i18nText(journalCategoryLabels[locale][item.category])}</span><strong>{i18nText(suggestion.title)}</strong></span>)}
+          {i18nText(item.cover ? <JournalImage src={item.cover.src} alt={suggestion.coverAlt||item.cover.alt} fill sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 400px" style={{ objectPosition: item.cover.position || 'center' }}/> : <span className="journal-related-cover-fallback" aria-hidden="true"><small>{i18nText("PAUSA DO CAF\u00C9")}</small><span>{i18nText(journalCategoryLabels[locale][item.category])}</span><strong>{i18nText(suggestion.title)}</strong></span>)}
         </span>
         <h3 lang={suggestion.translated ? undefined : 'pt-BR'}>{i18nText(suggestion.title)}</h3>
         <span className="journal-related-summary" lang={suggestion.translated ? undefined : 'pt-BR'}>{i18nText(suggestion.summary)}</span>

@@ -720,3 +720,10 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
   .journal-newsletter-article h2{font-size:clamp(38px,10vw,53px)}
 }
 @media(prefers-reduced-motion:reduce){.journal-related-image img{transition:none}}
+[data-journal-image]{-webkit-touch-callout:none}
+@media print{
+  [data-journal-image],
+  .journal-article-cover:has(> [data-journal-image]),
+  .journal-editorial-cover:has(> [data-journal-image]),
+  .journal-related-image:has(> [data-journal-image]){display:none!important}
+}

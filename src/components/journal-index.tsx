@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import {JournalImage} from './journal-image';
 import { useEffect, useState } from 'react';
 import { useSiteTranslation } from '@/i18n/use-translation';
 import { formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPostForLocale } from '@/content/journal-i18n';
@@ -50,7 +50,7 @@ function EditorialCard({ post, index, locale, readLabel, variant }: {
   return <article className={`journal-editorial-card journal-editorial-card-${variant}`}>
     <a href={i18nHref(`/blog/${post.slug}`)} onClick={() => trackEvent('journal_article_open', { placement: 'index', slug: post.slug, category: post.category })}>
       <span className="journal-editorial-cover">
-        {post.cover ? <Image src={post.cover.src} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
+        {post.cover ? <JournalImage src={post.cover.src} alt={view.coverAlt || post.cover.alt} width={post.cover.width} height={post.cover.height}
           sizes={variant === 'featured' ? '(max-width: 700px) calc(100vw - 2 * var(--gutter)), (max-width: 1100px) 52vw, 760px' : '(max-width: 700px) calc(100vw - 2 * var(--gutter)), (max-width: 1100px) 48vw, 620px'}
           style={{ objectPosition: post.cover.position || 'center' }} {...(variant === 'featured' ? { preload: true } : {})} /> : <EditorialArtwork index={index} />}
       </span>
