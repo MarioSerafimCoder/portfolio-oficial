@@ -663,14 +663,16 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 .journal-related-meta>span:first-child{max-width:calc(100% - 25px)}
 .journal-related-arrow{flex:0 0 auto}
 .journal-newsletter.journal-newsletter-article:not(.journal-newsletter-blog){width:100%;max-width:none;margin:0;padding:clamp(42px,6vw,72px) max(var(--gutter),calc((100vw - 1200px)/2));border:0;background:#111;color:#F3F4F6}
-.journal-newsletter-article .journal-newsletter-copy>.eyebrow{color:#CF815F}
+.journal-newsletter-article .journal-newsletter-copy>.eyebrow{color:var(--accent)}
 .journal-newsletter-article h2{max-width:12ch;color:#F3F4F6;font-family:var(--font-sans),Arial,sans-serif;font-size:clamp(38px,5vw,64px);font-weight:500;line-height:.95;letter-spacing:-.06em;text-transform:uppercase}
 .journal-newsletter-article .journal-newsletter-description,.journal-newsletter-article .journal-newsletter-promise,.journal-newsletter-article .newsletter-feedback{color:#ADB5BD}
 .journal-newsletter-article .journal-newsletter-email input{border-color:#7B828B;color:#F3F4F6}
 .journal-newsletter-article .journal-newsletter-email input::placeholder{color:#ADB5BD}
 .journal-newsletter-article .newsletter-consent a{color:#F3F4F6}
 .journal-newsletter-article .journal-newsletter-submit{background:#F3F4F6;color:#111}
-.journal-newsletter-article .journal-newsletter-submit:hover{background:#D9D9D9;color:#111}
+.journal-newsletter-article .journal-newsletter-submit:enabled:hover,
+.journal-newsletter-article .journal-newsletter-submit:enabled:focus-visible{background:var(--accent);color:var(--on-accent)}
+.journal-newsletter-article .journal-newsletter-submit:enabled:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(max-width:900px){
   .journal-post-heading{grid-template-columns:minmax(0,1fr) minmax(230px,.85fr);gap:28px}
   .journal-post-heading-title h1{font-size:clamp(38px,6.5vw,62px)}

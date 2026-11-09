@@ -1,6 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {journalSummary} from '../src/lib/journal-summary.ts';
+import {journalHeaderSummary, journalSummary} from '../src/lib/journal-summary.ts';
+
+test('header summary counts spaces, punctuation and Unicode characters', () => {
+  const summary = 'a'.repeat(315) + ' 🎨.';
+  assert.equal(journalHeaderSummary(summary, []), summary);
+  assert.equal(Array.from(journalHeaderSummary(summary + ' Mais texto.', [])).length, 318);
+});
+
+test('header summary uses article prose when the editorial summary is short', () => {
+  const summary = 'Uma reflexão sobre design.';
+  const content = [{type:'heading',level:2,text:'Título'}, {type:'paragraph',text:'Uma reflexão sobre design e cultura visual. '.repeat(10)}];
+  const result = journalHeaderSummary(summary, content);
+  assert.equal(Array.from(result).length, 318);
+  assert.ok(result.startsWith(summary + ' '));
+  assert.ok(!result.includes('Título'));
+});
 
 test('summary uses article sentences and ignores image captions and headings', () => {
   const first = 'Uma identidade visual consistente conecta as decisões de design ao contexto da marca.';

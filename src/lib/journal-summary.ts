@@ -1,5 +1,27 @@
 import type {JournalBlock} from '@/content/journal';
 
+const headerSummaryLength = 318;
+
+export function journalHeaderSummary(summary: string, content: JournalBlock[]) {
+  const normalize = (text: string) => text.normalize('NFC').replace(/\s+/g, ' ').trim();
+  const editorial = normalize(summary);
+  const characters = Array.from(editorial);
+  if (characters.length === headerSummaryLength) return editorial;
+  if (characters.length < headerSummaryLength) {
+    for (const block of content) {
+      if (block.type !== 'paragraph') continue;
+      const paragraph = normalize(block.text ?? block.segments.map(segment => segment.text).join(''));
+      if (!paragraph || editorial.includes(paragraph)) continue;
+      if (characters.length) characters.push(' ');
+      characters.push(...Array.from(paragraph).slice(0, headerSummaryLength + 1 - characters.length));
+      if (characters.length >= headerSummaryLength) break;
+    }
+  }
+  if (characters.length < headerSummaryLength) return '';
+  if (characters.length === headerSummaryLength) return characters.join('');
+  return characters.slice(0, headerSummaryLength - 1).join('') + '…';
+}
+
 /** Extractive summary: select representative sentences without inventing claims. */
 export function journalSummary(content: JournalBlock[], fallback = '', maxLength = 320) {
   const paragraphs = content.flatMap(block => block.type === 'paragraph'

@@ -1,7 +1,7 @@
 'use client';
 import {useSiteTranslation} from '@/i18n/use-translation';
 import Image from 'next/image';
-import {journalSummary} from '@/lib/journal-summary';
+import {journalHeaderSummary, journalSummary} from '@/lib/journal-summary';
 import { journalHeadings } from '@/lib/journal-headings';
 import { readingMinutes, type JournalBlock, type JournalPost } from '@/content/journal';
 import { formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPostForLocale } from '@/content/journal-i18n';
@@ -45,6 +45,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
     const textLanguage = view.translated ? undefined : 'pt-BR';
     const date = (post.publishAt || post.date).slice(0, 10);
     const readTime = readingMinutes({ ...post, content: view.content });
+    const headerSummary = journalHeaderSummary(view.summary, view.content);
     return <main id="conteudo" className="journal-post-page"><ReadingProgress />
     <article><header className="journal-post-hero section-wrap"><div className="journal-post-head-inner">
       <a className="journal-back" href={i18nHref("/blog")}>{i18nText(backLabel)}</a>
@@ -54,7 +55,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
         <div className="journal-post-heading-summary">
           <span className="journal-post-category">{i18nText(journalCategoryLabels[locale][post.category])}</span>
           <div className="journal-reading-meta"><time dateTime={date}>{formatJournalDateLocale(date, locale, true)}</time><span aria-hidden="true">·</span><span>{copy.reading(readTime)}</span></div>
-          {i18nText(view.summary && <p lang={textLanguage}>{i18nText(view.summary)}</p>)}
+          {headerSummary && <p lang={textLanguage}>{headerSummary}</p>}
           {i18nText(locale === 'en' && !view.translated && <p className="journal-language-note">{i18nText(copy.unavailable)}</p>)}
         </div>
       </div>
@@ -62,6 +63,9 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
       <aside className="journal-article-sidebar" aria-label={i18nText(copy.authorKicker)}>
         <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined}/>
         <section className="journal-auto-summary" aria-labelledby="journal-summary-title"><h2 id="journal-summary-title">{locale === 'en' ? 'Article summary' : 'Resumo do artigo'}</h2><p lang={textLanguage}>{journalSummary(view.content, view.summary)}</p></section>
+        <a className="journal-sidebar-back" href={i18nHref('/blog')}>
+          <span aria-hidden="true">←</span>{copy.sidebarBack}
+        </a>
       </aside>
       <div className="journal-article-body">
       {i18nText(post.cover && <figure className="journal-article-cover">
