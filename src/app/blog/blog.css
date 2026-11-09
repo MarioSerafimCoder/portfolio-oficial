@@ -535,6 +535,11 @@ body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-ac
 .journal-print-mark b{font-size:22px;line-height:.8;font-weight:400}
 .journal-print-edition>p{margin:11px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
 .journal-newsletter-wrap{margin-inline:var(--gutter);padding:29px clamp(20px,3vw,48px) 38px;background:#111111;color:#F3F4F6}
+@media(min-width:1800px){
+  .journal-page{--journal-wide-gutter:max(var(--gutter),calc((100vw - 1550px)/2))}
+  .journal-masthead-inner,.journal-page .journal-archive{padding-inline:var(--journal-wide-gutter)}
+  .journal-newsletter-wrap{margin-inline:var(--journal-wide-gutter)}
+}
 .journal-newsletter-blog{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:20px clamp(28px,5vw,70px);margin:0;padding:0;border:0;color:#F3F4F6}
 body:has(.journal-masthead) .site-footer{background:var(--surface);color:var(--ink);border-top:1px solid var(--rule)}
 body:has(.journal-masthead) .site-footer .eyebrow,body:has(.journal-masthead) .site-footer .footer-base>span{color:var(--muted)}
