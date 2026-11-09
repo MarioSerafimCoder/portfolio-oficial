@@ -1,0 +1,6 @@
+/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
+/blog/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
+/en/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8

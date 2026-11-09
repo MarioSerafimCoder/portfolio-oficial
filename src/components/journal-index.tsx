@@ -108,7 +108,7 @@ export function JournalIndex({ posts, activeCategory }: {
         <nav className="journal-masthead-nav" aria-label={i18nText(copy.categoryFilter)}>
           <a href="#journal-feature" aria-current={!activeCategory ? 'page' : undefined}>{i18nText(copy.index)}</a>
           {categories.map(category => <a key={category} href={i18nHref(`/blog/categoria/${category}`)} aria-current={activeCategory === category ? 'page' : undefined} onClick={() => trackEvent('journal_filter', { filter: 'category', category })}>{i18nText(journalCategoryLabels[locale][category])}</a>)}
-          <a href={i18nHref('/feed.xml')}>RSS <span aria-hidden="true">↗</span></a>
+          <a href={locale === 'en' ? '/en/feed.xml' : '/feed.xml'} type="application/rss+xml">RSS <span aria-hidden="true">↗</span></a>
         </nav>
 
         <div className="journal-masthead-title">
