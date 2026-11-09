@@ -8,7 +8,7 @@ summary: Reflexão sobre a relação entre arte e design, questionando a
   reforça sua dimensão humana.
 category: direcao-de-arte
 status: published
-publish_at: 2026-11-09T14:23
+publish_at: 2026-11-09T14:25
 cover: /media/blog/6c95df59-8ce0-4cb8-8ca0-cc7b4c991874.png
 ---
 ![](/media/blog/ca6fc58a-eca7-460a-8baa-2e8c9350e0bf.png)
