@@ -54,9 +54,9 @@
 .process-steps h3 { transition:transform var(--motion-ui) var(--motion-ease),color var(--motion-fast) }
 @media(hover:hover) and (pointer:fine) {
  .process-steps li:hover::before { opacity:1 }
- .home-process .process-steps li:hover .process-step-number { color:var(--accent-text) }
+ .home-process .process-steps li:hover .process-step-number { color:var(--hover) }
  .process-steps li:hover .process-step-number::before { opacity:1;transform:rotate(0) scale(1) }
- .process-steps li:hover h3 { transform:translateX(6px);color:var(--accent) }
+ .process-steps li:hover h3 { transform:translateX(6px);color:var(--hover) }
  .home-process .process-steps li:hover>p { color:var(--ink) }
 }
 @media(max-width:1000px) {

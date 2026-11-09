@@ -43,21 +43,21 @@
 @keyframes editorial-arrive{from{opacity:.7;translate:0 10px}to{opacity:1;translate:0 0}}
 @keyframes detail-arrive{from{opacity:.65;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 @media(hover:hover) and (pointer:fine){
- .pill:hover:not(:disabled),.pill.filled:hover:not(:disabled){background:transparent;border-color:var(--accent);color:var(--on-accent)}
- .pill:hover:not(:disabled)::before{transform:translateY(0)}
+ .pill:hover:not(:disabled),.pill.filled:hover:not(:disabled){background:transparent;border-color:var(--hover);color:var(--on-accent)}
+ .pill:hover:not(:disabled)::before{background:var(--hover);transform:translateY(0)}
  .pill:hover .arrow{transform:translate(3px,-3px)}
  .text-link:hover::after,.footer-secondary a:hover::after{transform:scaleX(1);transform-origin:left}
  .project-card:hover .project-media>img,.feature-link:hover .feature-media>img{transform:scale(1.025)}
  .project-card:hover .project-caption::after{transform:scaleX(1)}
- .project-card:hover .project-caption>.arrow{color:var(--accent);transform:translate(3px,-3px)}
- .service-row summary:hover h3{transform:translateX(4px);color:var(--ink)}
+ .project-card:hover .project-caption>.arrow{color:var(--hover);transform:translate(3px,-3px)}
+ .service-row summary:hover h3{transform:translateX(4px);color:var(--hover)}
  .service-row:hover::after{transform:scaleX(1)}
- .menu-links>a:hover{color:var(--ink);transform:translateX(6px)}
+ .menu-links>a:hover{color:var(--hover);transform:translateX(6px)}
  .menu-links>a:hover::after{transform:scaleX(1)}
- .menu-projects>a:hover>span:last-child{color:var(--accent);transform:translate(3px,-3px)}
- .menu-trigger:hover span{background:var(--accent)}
- .project-option:hover .option-mark{color:var(--accent);transform:translate(1px,-1px)}
- .round-button:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+ .menu-projects>a:hover>span:last-child{color:var(--hover);transform:translate(3px,-3px)}
+ .site-header .menu-trigger:hover,.site-header .theme-toggle:hover{color:var(--hover)}
+ .project-option:hover .option-mark{color:var(--hover);transform:translate(1px,-1px)}
+ .round-button:hover{background:var(--hover);border-color:var(--hover);color:var(--on-accent)}
 }
 @media(max-width:700px){.menu-links>a{margin-inline:auto}}
 @media(prefers-reduced-motion:reduce){
