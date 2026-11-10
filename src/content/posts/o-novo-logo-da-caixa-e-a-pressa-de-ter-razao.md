@@ -3,11 +3,11 @@ title: O novo logo da Caixa e a pressa de ter razão
 summary: A nova identidade da Caixa mal chegou e o debate na internet tá pegando
   fogo. Entre críticas apressadas e apego à memória visual, trago aqui meus dois
   centavos sobre como confundimos gosto pessoal com análise técnica e esquecemos
-  que uma marca vai muito além do logotipo.
+  que uma marca vai muito além do logotipo...
 category: branding
 status: published
 cover: /media/blog/cb5482f7-9b6f-4493-802f-a02d32244fbe.png
-publish_at: 2026-11-10T13:34
+publish_at: 2026-11-10T13:52
 ---
 Bastou a Caixa apresentar sua nova identidade visual para começar o chororô. Em poucas horas, as redes sociais já estavam tomadas por designers, especialistas de ocasião e sommeliers de logotipo decretando que a marca ficou feia, que perdeu sua personalidade e que destruíram um patrimônio visual brasileiro.&#xA;
 
