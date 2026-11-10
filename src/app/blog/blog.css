@@ -528,15 +528,13 @@ body:has(.journal-masthead) .journal-site-header .journal-language-toggle .is-ac
 .journal-editorial-list .journal-editorial-action{color:var(--ink)}
 .journal-editorial-list .journal-editorial-card>a:hover .journal-editorial-title{color:var(--hover)}
 .journal-print-edition{min-width:0;padding-top:2px}
-.journal-print-edition>.eyebrow{display:block;color:var(--ink);font-size:9px;font-weight:700;letter-spacing:.08em}
-.journal-print-number{display:block;margin:5px 0 15px;font-family:var(--font-sans),Arial,sans-serif;font-size:clamp(25px,3vw,36px);line-height:1;letter-spacing:-.045em}
 .journal-print-cover{position:relative;isolation:isolate;min-height:420px;aspect-ratio:580/786;overflow:hidden;padding:clamp(18px,2.2vw,28px);background:#e60000;color:#F5F6F5}
 .journal-print-illustration{z-index:-1;object-fit:contain;object-position:center bottom}
 .journal-print-content{display:flex;max-width:28ch;flex-direction:column;align-items:flex-start}
 .journal-print-kicker{font-size:9px;font-weight:750;letter-spacing:.07em;line-height:1.4}
 .journal-print-content h3{margin:14px 0 10px;font-family:var(--font-sans),Arial,sans-serif;font-size:clamp(28px,2.8vw,36px);font-weight:750;line-height:.95;letter-spacing:-.055em}
 .journal-print-content p{max-width:26ch;margin:0;font-size:11px;line-height:1.45}
-.journal-print-cta{display:inline-flex;min-height:42px;align-items:center;gap:9px;margin-top:15px;padding:9px 12px;border:1px solid #111;border-radius:4px;background:#111;color:#fff;font-size:10px;font-weight:700;line-height:1.2;text-decoration:none;transition:background-color 200ms ease,color 200ms ease,transform 200ms ease}
+.journal-print-cta{position:absolute;right:auto;bottom:clamp(18px,2.2vw,28px);left:clamp(18px,2.2vw,28px);display:inline-flex;min-height:42px;align-items:center;gap:9px;padding:9px 12px;border:1px solid #111;border-radius:4px;background:#111;color:#fff;font-size:10px;font-weight:700;line-height:1.2;text-decoration:none;transition:background-color 200ms ease,color 200ms ease,transform 200ms ease}
 .journal-print-cta:hover{background:#fff;color:#111;transform:translateY(-2px)}
 .journal-print-cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
 @keyframes journal-print-appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
@@ -575,11 +573,10 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
   .journal-editorial-list .journal-editorial-summary{font-size:11px;-webkit-line-clamp:2}
   .journal-editorial-list .journal-editorial-footer{font-size:8px}
   .journal-print-edition{display:block;padding-top:20px;border-top:1px solid var(--rule)}
-  .journal-print-number{align-self:start;margin:0}
   .journal-print-cover{min-height:0;padding:22px}
   .journal-print-content h3{font-size:34px}
   .journal-print-content p{font-size:12px}
-  .journal-print-cta{min-height:44px;font-size:11px}
+  .journal-print-cta{bottom:22px;left:22px;min-height:44px;font-size:11px}
   .journal-print-edition>p{max-width:22ch;font-size:10px}
   .journal-newsletter-wrap{padding:23px 20px 28px}
   .journal-newsletter-blog{grid-template-columns:minmax(0,1fr);gap:14px}

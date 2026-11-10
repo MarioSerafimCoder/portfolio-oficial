@@ -10,6 +10,7 @@ import { readingMinutes, type JournalCategory, type JournalPost } from '@/conten
 import { trackEvent } from '@/lib/analytics';
 import { useJournalPreferences } from './journal-preferences';
 import { Newsletter } from './newsletter';
+import { FortuneCookie } from './fortune-cookie';
 
 function normalize(value: string) {
   return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase().trim();
@@ -90,8 +91,6 @@ export function JournalIndex({ posts, activeCategory }: {
   const categoryPosts = activeCategory ? listedPosts.filter(post => post.category === activeCategory) : listedPosts;
   const filtered = terms.length ? categoryPosts.filter(post => terms.every(term => searchableText(post).includes(term))) : categoryPosts;
   const categories = [...new Set(publishedPosts.map(post => post.category))];
-  const newestYear = listedPosts.find(post => post.date)?.date.slice(2, 4);
-  const archiveEdition = newestYear ? `${String(listedPosts.length).padStart(2, '0')} / ${newestYear}` : '';
   const pageSize = 6;
   const totalPages = Math.ceil(filtered.length / pageSize);
   const pageItems = filtered.slice((page - 1) * pageSize, page * pageSize);
@@ -159,17 +158,16 @@ export function JournalIndex({ posts, activeCategory }: {
             <button disabled={page === totalPages} onClick={() => setPage(value => value + 1)}>{i18nText(copy.nextPage)}</button>
           </nav>}
         </div>
-        <aside className="journal-print-edition" aria-label={i18nText(copy.archiveKicker)}>
-          <span className="eyebrow">{i18nText(copy.archiveKicker)}</span>
-          <strong className="journal-print-number">{archiveEdition}</strong>
+        <aside className="journal-print-edition" aria-label="Biscoito da Discórdia e newsletter">
+          <FortuneCookie />
           <div className="journal-print-cover">
             <Image className="journal-print-illustration" src="/images/mais-um-cafezinho.webp" alt="Xícara de café, livros e lápis desenhados à mão" fill sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) 225px, 325px" />
             <div className="journal-print-content">
               <span className="journal-print-kicker">NEWSLETTER · MAIS UM CAFEZINHO</span>
               <h3>O café esfriou.<br />A conversa não.</h3>
               <p>Ideias, reflexões e provocações sobre design e criatividade, direto no seu e-mail.</p>
-              <a href="#newsletter-signup" className="journal-print-cta">Quero mais um cafezinho <span aria-hidden="true">↗</span></a>
             </div>
+            <a href="#newsletter-signup" className="journal-print-cta">Quero mais um cafezinho <span aria-hidden="true">↗</span></a>
           </div>
         </aside>
       </div>
