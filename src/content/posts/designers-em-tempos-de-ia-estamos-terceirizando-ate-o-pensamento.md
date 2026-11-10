@@ -5,12 +5,12 @@ summary: A IA está transformando o design, mas será que estamos deixando de
   profissional e o papel do pensamento crítico no futuro da profissão.
 category: direcao-de-arte
 status: published
-publish_at: 2026-11-09T17:23
+publish_at: 2026-11-10T13:41
 seo_title: "Designers em tempos de IA: o futuro da profissão"
 seo_description: Como a inteligência artificial está mudando o trabalho dos
   designers? Uma reflexão sobre criatividade, mercado, pensamento crítico e o
   futuro da profissão.
-cover: /media/blog/3913c633-cf39-47ee-9f89-1232c306c4dc.png
+cover: /media/blog/9614eec5-6531-4e22-bbf6-4f84cf28f539.png
 ---
 Para inaugurar o blog, resolvi falar de um assunto que tem tirado o sono de muita gente da nossa profissão: **o futuro do designer em tempos de inteligência artificial**. Mas, antes de falar de IA, vale lembrar que nossos problemas não começaram com o ChatGPT.
 
