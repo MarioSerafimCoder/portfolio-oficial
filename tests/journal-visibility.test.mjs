@@ -10,12 +10,12 @@ const generated = [
   {slug: 'private-draft', status: 'draft', date: '2026-10-24', category: 'branding', content: []},
 ];
 
-function loadJournal() {
+function loadJournal(posts = generated) {
   const module = {exports: {}};
   const source = fs.readFileSync('src/content/journal.ts', 'utf8');
   const code = ts.transpileModule(source, {compilerOptions: {module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, esModuleInterop: true}}).outputText;
   vm.runInNewContext(code, {module, exports: module.exports, require: name => {
-    if (name === './journal-generated.json') return generated;
+    if (name === './journal-generated.json') return posts;
     if (name === './journal-demo-en') return {journalDemoEnglish: []};
     throw new Error(`Unexpected import: ${name}`);
   }}, {filename: 'src/content/journal.ts'});
@@ -37,6 +37,18 @@ test('test articles are present in public listings while draft articles remain p
   const visibleSlugs = journal.visibleJournalPosts.map(post => post.slug);
   assert.ok(visibleSlugs.includes('demo-post'));
   assert.ok(!visibleSlugs.includes('private-draft'));
+});
+
+test('the latest publication leads both listings regardless of edit dates', () => {
+  const [post] = generated;
+  const {publishedJournalPosts, visibleJournalPosts} = loadJournal([
+    {...post, slug: 'older-edit', publishAt: '2026-10-26T15:00:00Z', updatedAt: '2026-10-28'},
+    {...post, slug: 'date-only', date: '2026-10-25'},
+    {...post, slug: 'newest', publishAt: '2026-10-26T13:00:00-03:00'},
+  ]);
+  for (const listing of [publishedJournalPosts, visibleJournalPosts]) {
+    assert.deepEqual(Array.from(listing, post => post.slug), ['newest', 'older-edit', 'date-only']);
+  }
 });
 
 test('recommendations exclude the current/demo posts and do not invent unrelated matches', () => {

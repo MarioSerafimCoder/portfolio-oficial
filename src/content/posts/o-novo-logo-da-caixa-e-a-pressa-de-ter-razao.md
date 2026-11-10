@@ -7,7 +7,7 @@ summary: A nova identidade da Caixa mal chegou e o debate na internet tá pegand
 category: branding
 status: published
 cover: /media/blog/cb5482f7-9b6f-4493-802f-a02d32244fbe.png
-publish_at: 2026-11-10T13:52
+publish_at: 2026-11-10T13:34
 ---
 Bastou a Caixa apresentar sua nova identidade visual para começar o chororô. Em poucas horas, as redes sociais já estavam tomadas por designers, especialistas de ocasião e sommeliers de logotipo decretando que a marca ficou feia, que perdeu sua personalidade e que destruíram um patrimônio visual brasileiro.&#xA;
 

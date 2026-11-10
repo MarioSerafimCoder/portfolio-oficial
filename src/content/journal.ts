@@ -50,7 +50,11 @@ const editorialFixtures: JournalPost[] = [
   ]},
 ];
 export const journalPosts: JournalPost[] = [...generatedPosts as JournalPost[], ...editorialFixtures];
-export const publishedJournalPosts = journalPosts.filter(post => post.status === 'published' && !post.demo).sort((a, b) => b.date.localeCompare(a.date));
+function newestPublicationFirst(a: JournalPost, b: JournalPost) {
+  return Date.parse(b.publishAt || b.date) - Date.parse(a.publishAt || a.date);
+}
+
+export const publishedJournalPosts = journalPosts.filter(post => post.status === 'published' && !post.demo).sort(newestPublicationFirst);
 export const publishedJournalCategories = [...new Set(publishedJournalPosts.map(post => post.category))];
 export const showJournalNavigation = true;
 export const indexJournal = publishedJournalPosts.length >= 1;
@@ -58,7 +62,7 @@ export const indexJournal = publishedJournalPosts.length >= 1;
 // the public index. Sitemap, feeds and recommendations use published posts only.
 export const visibleJournalPosts = journalPosts
   .filter(post => post.status === 'published' || post.demo)
-  .sort((a, b) => b.date.localeCompare(a.date));
+  .sort(newestPublicationFirst);
 export const visibleJournalCategories = [...new Set(visibleJournalPosts.map(post => post.category))];
 export const getVisibleJournalPost = (slug: string) => visibleJournalPosts.find(post => post.slug === slug);
 
