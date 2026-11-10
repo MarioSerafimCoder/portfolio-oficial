@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import {journalCoverUrl} from '@/lib/journal-cover-url';
 
 import {JournalImage} from './journal-image';
@@ -162,19 +161,16 @@ export function JournalIndex({ posts, activeCategory }: {
         <aside className="journal-print-edition" aria-label={i18nText(copy.archiveKicker)}>
           <span className="eyebrow">{i18nText(copy.archiveKicker)}</span>
           <strong className="journal-print-number">{archiveEdition}</strong>
-          <div className="journal-print-cover">
-            <Image className="journal-print-illustration" src="/images/mais-um-cafezinho.webp" alt="Xícara de café com livros e lápis em traços de desenho" width={580} height={600} sizes="(max-width: 700px) 140px, (max-width: 1100px) 225px, 320px" />
-            <div className="journal-print-content">
-              <span className="journal-print-kicker">NEWSLETTER · MAIS UM CAFEZINHO</span>
-              <h3>O café esfriou.<br />A conversa não.</h3>
-              <p>Ideias, reflexões e provocações sobre design e criatividade, direto no seu e-mail.</p>
-              <a href="#newsletter-signup" className="journal-print-cta">Quero mais um cafezinho <span aria-hidden="true">↗</span></a>
-            </div>
+          <div className="journal-print-cover" aria-hidden="true">
+            <span>{i18nText('Pausa do ')}<br />{i18nText('café')}</span>
+            <strong>{i18nText(copy.archiveTitle)}</strong>
+            <em>{i18nText(copy.location)}</em>
+            <span className="journal-print-mark">{archiveEdition} <b>↗</b></span>
           </div>
         </aside>
       </div>
     </section>}
-    <section id="newsletter-signup" className="journal-newsletter-wrap section-wrap" aria-label={i18nText(copy.newsletterEyebrow)}>
+    <section className="journal-newsletter-wrap section-wrap" aria-label={i18nText(copy.newsletterEyebrow)}>
       <Newsletter variant="blog" />
     </section>
   </main>;
