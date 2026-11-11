@@ -51,6 +51,9 @@ export function FortuneCookie() {
   return (
     <div className={`fortune-cookie fortune-cookie-${phase}`}>
       <span className="fortune-cookie-heading">BISCOITO DA DISCÓRDIA</span>
+      <span className="fortune-cookie-hint">
+        {expanded ? 'Clique para guardar a discórdia.' : 'Abra por sua conta e risco.'}
+      </span>
       <div className="fortune-cookie-stage">
         <button
           type="button"
@@ -72,9 +75,6 @@ export function FortuneCookie() {
         </span>
         <span id={paperId} className="sr-only" role="status">{expanded ? phrase : ''}</span>
       </div>
-      <span className="fortune-cookie-hint">
-        {expanded ? 'Clique para guardar a discórdia.' : 'Abra por sua conta e risco.'}
-      </span>
     </div>
   );
 }
