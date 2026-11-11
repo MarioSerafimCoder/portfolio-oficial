@@ -1,0 +1,802 @@
+[
+  {
+    "id": "bd-001",
+    "categoria": "IA e automação",
+    "texto": "A IA entregou em segundos. A dúvida sobre o que entregar continua humana."
+  },
+  {
+    "id": "bd-002",
+    "categoria": "IA e automação",
+    "texto": "Prompt bom não salva ideia ruim. Só deixa a vergonha em alta resolução."
+  },
+  {
+    "id": "bd-003",
+    "categoria": "IA e automação",
+    "texto": "O robô aprendeu o estilo. O cliente ainda não aprendeu a aprovar."
+  },
+  {
+    "id": "bd-004",
+    "categoria": "IA e automação",
+    "texto": "A direção de arte virou um botão. O bom gosto continua sem atalho."
+  },
+  {
+    "id": "bd-005",
+    "categoria": "IA e automação",
+    "texto": "Seu fluxo é automático. A crise estética, artesanal."
+  },
+  {
+    "id": "bd-006",
+    "categoria": "IA e automação",
+    "texto": "A máquina faz trinta opções. O problema é que você pediu quarenta."
+  },
+  {
+    "id": "bd-007",
+    "categoria": "IA e automação",
+    "texto": "A IA pode gerar o conceito. Convencer o financeiro é ficção científica."
+  },
+  {
+    "id": "bd-008",
+    "categoria": "IA e automação",
+    "texto": "A imagem ficou realista. A ideia, nem tanto."
+  },
+  {
+    "id": "bd-009",
+    "categoria": "IA e automação",
+    "texto": "Tem muita arte gerada. Pensamento, às vezes, não veio no pacote."
+  },
+  {
+    "id": "bd-010",
+    "categoria": "IA e automação",
+    "texto": "A criatividade não morreu. Só virou campo obrigatório do formulário."
+  },
+  {
+    "id": "bd-011",
+    "categoria": "IA e automação",
+    "texto": "O prompt tem duas páginas. A intenção não cabe em nenhuma."
+  },
+  {
+    "id": "bd-012",
+    "categoria": "IA e automação",
+    "texto": "O futuro chegou com seis dedos e uma tipografia suspeita."
+  },
+  {
+    "id": "bd-013",
+    "categoria": "IA e automação",
+    "texto": "A IA fez o moodboard. A identidade continuou sem personalidade."
+  },
+  {
+    "id": "bd-014",
+    "categoria": "IA e automação",
+    "texto": "Você chama de cocriação. O histórico chama de Ctrl+C com autoestima."
+  },
+  {
+    "id": "bd-015",
+    "categoria": "IA e automação",
+    "texto": "Automatizaram o processo e deixaram a reunião."
+  },
+  {
+    "id": "bd-016",
+    "categoria": "IA e automação",
+    "texto": "Se a ferramenta pensa por você, pelo menos revise o pensamento."
+  },
+  {
+    "id": "bd-017",
+    "categoria": "IA e automação",
+    "texto": "Seu estilo pessoal parece o preset de todo mundo."
+  },
+  {
+    "id": "bd-018",
+    "categoria": "IA e automação",
+    "texto": "O software ganhou inteligência. O briefing segue indecifrável."
+  },
+  {
+    "id": "bd-019",
+    "categoria": "IA e automação",
+    "texto": "Seu diferencial não é usar IA. É saber quando desligá-la."
+  },
+  {
+    "id": "bd-020",
+    "categoria": "IA e automação",
+    "texto": "Tudo pode ser gerado. Nem tudo precisava existir."
+  },
+  {
+    "id": "bd-021",
+    "categoria": "Briefing e clientes",
+    "texto": "O briefing veio aberto. A cobrança veio fechada."
+  },
+  {
+    "id": "bd-022",
+    "categoria": "Briefing e clientes",
+    "texto": "Querem algo disruptivo, mas sem assustar o diretor."
+  },
+  {
+    "id": "bd-023",
+    "categoria": "Briefing e clientes",
+    "texto": "O cliente pediu minimalismo e mandou 18 informações obrigatórias."
+  },
+  {
+    "id": "bd-024",
+    "categoria": "Briefing e clientes",
+    "texto": "O “só um ajuste” já tem nome, sobrenome e orçamento próprio."
+  },
+  {
+    "id": "bd-025",
+    "categoria": "Briefing e clientes",
+    "texto": "A referência é a concorrência. A exigência é ser original."
+  },
+  {
+    "id": "bd-026",
+    "categoria": "Briefing e clientes",
+    "texto": "A reunião alinhou tudo, menos as expectativas."
+  },
+  {
+    "id": "bd-027",
+    "categoria": "Briefing e clientes",
+    "texto": "O prazo é para ontem. A aprovação, para quando der."
+  },
+  {
+    "id": "bd-028",
+    "categoria": "Briefing e clientes",
+    "texto": "A marca quer se destacar, desde que pareça com todas as outras."
+  },
+  {
+    "id": "bd-029",
+    "categoria": "Briefing e clientes",
+    "texto": "“Confio em você” é lindo até chegar o PDF comentado."
+  },
+  {
+    "id": "bd-030",
+    "categoria": "Briefing e clientes",
+    "texto": "A ideia foi aprovada. Depois alguém mostrou ao grupo da família."
+  },
+  {
+    "id": "bd-031",
+    "categoria": "Briefing e clientes",
+    "texto": "Se todo mundo é diretor de arte, ninguém precisa pagar um."
+  },
+  {
+    "id": "bd-032",
+    "categoria": "Briefing e clientes",
+    "texto": "O layout está limpo. O briefing insiste em sujar."
+  },
+  {
+    "id": "bd-033",
+    "categoria": "Briefing e clientes",
+    "texto": "Pedem personalidade. Entregam um manual de proibições."
+  },
+  {
+    "id": "bd-034",
+    "categoria": "Briefing e clientes",
+    "texto": "Falta impacto, disse quem aprovou o cinza."
+  },
+  {
+    "id": "bd-035",
+    "categoria": "Briefing e clientes",
+    "texto": "Tem cliente que chama ansiedade de senso de urgência."
+  },
+  {
+    "id": "bd-036",
+    "categoria": "Briefing e clientes",
+    "texto": "A versão final é uma crença, não um arquivo."
+  },
+  {
+    "id": "bd-037",
+    "categoria": "Briefing e clientes",
+    "texto": "A palavra “premium” perdeu a dignidade no terceiro slide."
+  },
+  {
+    "id": "bd-038",
+    "categoria": "Briefing e clientes",
+    "texto": "Querem aumentar a logo sem diminuir nada. É uma nova física."
+  },
+  {
+    "id": "bd-039",
+    "categoria": "Briefing e clientes",
+    "texto": "Querem campanha memorável. O orçamento prefere o esquecimento."
+  },
+  {
+    "id": "bd-040",
+    "categoria": "Briefing e clientes",
+    "texto": "O feedback começou com “amei”. Prepare-se."
+  },
+  {
+    "id": "bd-041",
+    "categoria": "Marcas e identidade",
+    "texto": "Trocar o logo é fácil. Trocar o comportamento da marca custa mais."
+  },
+  {
+    "id": "bd-042",
+    "categoria": "Marcas e identidade",
+    "texto": "A identidade é visual. A incoerência é institucional."
+  },
+  {
+    "id": "bd-043",
+    "categoria": "Marcas e identidade",
+    "texto": "A marca quer ser humana, mas responde com chatbot."
+  },
+  {
+    "id": "bd-044",
+    "categoria": "Marcas e identidade",
+    "texto": "Um logo não precisa gritar para alguém notar que ele existe."
+  },
+  {
+    "id": "bd-045",
+    "categoria": "Marcas e identidade",
+    "texto": "Sua nova identidade tem propósito. O atendimento não recebeu a notícia."
+  },
+  {
+    "id": "bd-046",
+    "categoria": "Marcas e identidade",
+    "texto": "A promessa é ousadia. A paleta termina em azul corporativo."
+  },
+  {
+    "id": "bd-047",
+    "categoria": "Marcas e identidade",
+    "texto": "Rebrand não é banho de loja para empresa mal-educada."
+  },
+  {
+    "id": "bd-048",
+    "categoria": "Marcas e identidade",
+    "texto": "Às vezes a marca não precisa de redesign. Precisa de vergonha."
+  },
+  {
+    "id": "bd-049",
+    "categoria": "Marcas e identidade",
+    "texto": "O símbolo ficou menor. A insegurança ficou gigante."
+  },
+  {
+    "id": "bd-050",
+    "categoria": "Marcas e identidade",
+    "texto": "A tipografia mudou. A cultura permaneceu em Comic Sans."
+  },
+  {
+    "id": "bd-051",
+    "categoria": "Marcas e identidade",
+    "texto": "Identidade forte não se mede pelo tamanho do manifesto."
+  },
+  {
+    "id": "bd-052",
+    "categoria": "Marcas e identidade",
+    "texto": "Tem marca tão autêntica que usa o mesmo mockup de outras vinte."
+  },
+  {
+    "id": "bd-053",
+    "categoria": "Marcas e identidade",
+    "texto": "Simplicidade não é preguiça com espaço em branco."
+  },
+  {
+    "id": "bd-054",
+    "categoria": "Marcas e identidade",
+    "texto": "O conceito é atemporal até aparecer o relatório de tendências."
+  },
+  {
+    "id": "bd-055",
+    "categoria": "Marcas e identidade",
+    "texto": "Sua marca não é premium porque descobriu o bege."
+  },
+  {
+    "id": "bd-056",
+    "categoria": "Marcas e identidade",
+    "texto": "A cor do ano não vai resolver sua falta de posicionamento."
+  },
+  {
+    "id": "bd-057",
+    "categoria": "Marcas e identidade",
+    "texto": "O manual tem 90 páginas. O post ignora 89."
+  },
+  {
+    "id": "bd-058",
+    "categoria": "Marcas e identidade",
+    "texto": "Coerência visual não é colocar o logo em tudo."
+  },
+  {
+    "id": "bd-059",
+    "categoria": "Marcas e identidade",
+    "texto": "O rebranding só é revolucionário para quem não leu o briefing anterior."
+  },
+  {
+    "id": "bd-060",
+    "categoria": "Marcas e identidade",
+    "texto": "Nem todo redesign precisa de um tribunal no Instagram."
+  },
+  {
+    "id": "bd-061",
+    "categoria": "Estética e tendências",
+    "texto": "A imperfeição virou tendência. Agora errar exige direção criativa."
+  },
+  {
+    "id": "bd-062",
+    "categoria": "Estética e tendências",
+    "texto": "O feito à mão voltou. Só falta tirar a mão do mouse."
+  },
+  {
+    "id": "bd-063",
+    "categoria": "Estética e tendências",
+    "texto": "O zine virou estética. A rebeldia passou pelo jurídico."
+  },
+  {
+    "id": "bd-064",
+    "categoria": "Estética e tendências",
+    "texto": "O brutalismo agora tem bordas arredondadas para não ofender."
+  },
+  {
+    "id": "bd-065",
+    "categoria": "Estética e tendências",
+    "texto": "A colagem é artesanal. As mãos vieram do banco de imagens."
+  },
+  {
+    "id": "bd-066",
+    "categoria": "Estética e tendências",
+    "texto": "Retrô virou palavra elegante para saudade sem contexto."
+  },
+  {
+    "id": "bd-067",
+    "categoria": "Estética e tendências",
+    "texto": "A textura parece papel. O arquivo pesa três gigas."
+  },
+  {
+    "id": "bd-068",
+    "categoria": "Estética e tendências",
+    "texto": "O minimalismo cansou. O maximalismo pediu mais espaço."
+  },
+  {
+    "id": "bd-069",
+    "categoria": "Estética e tendências",
+    "texto": "O design antidesign já ganhou template."
+  },
+  {
+    "id": "bd-070",
+    "categoria": "Estética e tendências",
+    "texto": "Todo mundo quer parecer espontâneo depois de 27 revisões."
+  },
+  {
+    "id": "bd-071",
+    "categoria": "Estética e tendências",
+    "texto": "O visual é cru. A produção teve 14 aprovações."
+  },
+  {
+    "id": "bd-072",
+    "categoria": "Estética e tendências",
+    "texto": "O surrealismo está em alta. Finalmente o briefing faz sentido."
+  },
+  {
+    "id": "bd-073",
+    "categoria": "Estética e tendências",
+    "texto": "A estética “sem filtro” ganhou um filtro próprio."
+  },
+  {
+    "id": "bd-074",
+    "categoria": "Estética e tendências",
+    "texto": "O analógico voltou em formato de assinatura mensal."
+  },
+  {
+    "id": "bd-075",
+    "categoria": "Estética e tendências",
+    "texto": "O nostálgico é novo. O novo já nasceu nostálgico."
+  },
+  {
+    "id": "bd-076",
+    "categoria": "Estética e tendências",
+    "texto": "Tipografia gigante: quando falta assunto, sobra corpo."
+  },
+  {
+    "id": "bd-077",
+    "categoria": "Estética e tendências",
+    "texto": "A interface é líquida. A navegação continua um tijolo."
+  },
+  {
+    "id": "bd-078",
+    "categoria": "Estética e tendências",
+    "texto": "O autêntico virou efeito. A ironia não precisa de plugin."
+  },
+  {
+    "id": "bd-079",
+    "categoria": "Estética e tendências",
+    "texto": "O layout é experimental até alguém tentar encontrar o botão."
+  },
+  {
+    "id": "bd-080",
+    "categoria": "Estética e tendências",
+    "texto": "A tendência mais ousada do ano: ter uma ideia."
+  },
+  {
+    "id": "bd-081",
+    "categoria": "Redes e algoritmos",
+    "texto": "O algoritmo ama consistência. A criatividade pediu férias."
+  },
+  {
+    "id": "bd-082",
+    "categoria": "Redes e algoritmos",
+    "texto": "Seu post foi ignorado. Pelo menos a grade está harmônica."
+  },
+  {
+    "id": "bd-083",
+    "categoria": "Redes e algoritmos",
+    "texto": "Fazer arte para engajamento é pintar um quadro para o porteiro."
+  },
+  {
+    "id": "bd-084",
+    "categoria": "Redes e algoritmos",
+    "texto": "A obra precisa causar impacto. Mas só nos primeiros três segundos."
+  },
+  {
+    "id": "bd-085",
+    "categoria": "Redes e algoritmos",
+    "texto": "O carrossel tem nove slides. A opinião ficou no rascunho."
+  },
+  {
+    "id": "bd-086",
+    "categoria": "Redes e algoritmos",
+    "texto": "O feed parece galeria. A legenda parece aviso de condomínio."
+  },
+  {
+    "id": "bd-087",
+    "categoria": "Redes e algoritmos",
+    "texto": "Ninguém viu o detalhe. O algoritmo viu a frequência."
+  },
+  {
+    "id": "bd-088",
+    "categoria": "Redes e algoritmos",
+    "texto": "A internet não quer reflexão. Quer uma seta apontando para o lado."
+  },
+  {
+    "id": "bd-089",
+    "categoria": "Redes e algoritmos",
+    "texto": "O post diz “seja você mesmo” com o mesmo template de ontem."
+  },
+  {
+    "id": "bd-090",
+    "categoria": "Redes e algoritmos",
+    "texto": "Criar para agradar todo mundo é ótimo para não marcar ninguém."
+  },
+  {
+    "id": "bd-091",
+    "categoria": "Redes e algoritmos",
+    "texto": "A estética viral dura menos que a revisão."
+  },
+  {
+    "id": "bd-092",
+    "categoria": "Redes e algoritmos",
+    "texto": "Seu conteúdo é autêntico. Patrocinado por uma fórmula."
+  },
+  {
+    "id": "bd-093",
+    "categoria": "Redes e algoritmos",
+    "texto": "Se a arte não engaja, ainda pode ser arte. Que escândalo."
+  },
+  {
+    "id": "bd-094",
+    "categoria": "Redes e algoritmos",
+    "texto": "A capa promete uma revolução. O slide final vende consultoria."
+  },
+  {
+    "id": "bd-095",
+    "categoria": "Redes e algoritmos",
+    "texto": "Tem mais designer ensinando a criar que criando."
+  },
+  {
+    "id": "bd-096",
+    "categoria": "Redes e algoritmos",
+    "texto": "O algoritmo não tem gosto. Tem metas."
+  },
+  {
+    "id": "bd-097",
+    "categoria": "Redes e algoritmos",
+    "texto": "A pesquisa virou rolagem infinita com justificativa."
+  },
+  {
+    "id": "bd-098",
+    "categoria": "Redes e algoritmos",
+    "texto": "A ideia precisava respirar. Mandaram virar Reels."
+  },
+  {
+    "id": "bd-099",
+    "categoria": "Redes e algoritmos",
+    "texto": "O conteúdo é profundo. A métrica mede até onde passaram o dedo."
+  },
+  {
+    "id": "bd-100",
+    "categoria": "Redes e algoritmos",
+    "texto": "O botão de salvar virou o novo museu. Ninguém volta para visitar."
+  },
+  {
+    "id": "bd-101",
+    "categoria": "Ferramentas e processos",
+    "texto": "A fonte é gratuita. A discussão custou três reuniões."
+  },
+  {
+    "id": "bd-102",
+    "categoria": "Ferramentas e processos",
+    "texto": "O Figma organiza componentes. O caos vem por comentário."
+  },
+  {
+    "id": "bd-103",
+    "categoria": "Ferramentas e processos",
+    "texto": "Tem 64 variações. Faltou uma razão."
+  },
+  {
+    "id": "bd-104",
+    "categoria": "Ferramentas e processos",
+    "texto": "O arquivo se chama FINAL_v12. A mentira está no nome."
+  },
+  {
+    "id": "bd-105",
+    "categoria": "Ferramentas e processos",
+    "texto": "A camada está nomeada. O projeto continua sem norte."
+  },
+  {
+    "id": "bd-106",
+    "categoria": "Ferramentas e processos",
+    "texto": "O grid funciona. Quem não se alinha é o time."
+  },
+  {
+    "id": "bd-107",
+    "categoria": "Ferramentas e processos",
+    "texto": "Um pixel fora do lugar. Uma estratégia inteira fora de foco."
+  },
+  {
+    "id": "bd-108",
+    "categoria": "Ferramentas e processos",
+    "texto": "O mockup está lindo. O produto não existe."
+  },
+  {
+    "id": "bd-109",
+    "categoria": "Ferramentas e processos",
+    "texto": "O render é perfeito. A experiência é um labirinto."
+  },
+  {
+    "id": "bd-110",
+    "categoria": "Ferramentas e processos",
+    "texto": "A apresentação tem transições. A ideia não sai do lugar."
+  },
+  {
+    "id": "bd-111",
+    "categoria": "Ferramentas e processos",
+    "texto": "Mais espaço negativo, menos reunião positiva."
+  },
+  {
+    "id": "bd-112",
+    "categoria": "Ferramentas e processos",
+    "texto": "Kernar bem não resolve uma mensagem mal pensada."
+  },
+  {
+    "id": "bd-113",
+    "categoria": "Ferramentas e processos",
+    "texto": "O efeito ficou incrível. Pergunta rápida: para quê?"
+  },
+  {
+    "id": "bd-114",
+    "categoria": "Ferramentas e processos",
+    "texto": "O plugin economizou vinte minutos e criou outro problema."
+  },
+  {
+    "id": "bd-115",
+    "categoria": "Ferramentas e processos",
+    "texto": "Nem todo alinhamento melhora com régua."
+  },
+  {
+    "id": "bd-116",
+    "categoria": "Ferramentas e processos",
+    "texto": "A paleta é coesa. O discurso segue fragmentado."
+  },
+  {
+    "id": "bd-117",
+    "categoria": "Ferramentas e processos",
+    "texto": "As ferramentas são profissionais. O prazo parece amador."
+  },
+  {
+    "id": "bd-118",
+    "categoria": "Ferramentas e processos",
+    "texto": "O arquivo é editável. O cliente descobriu isso como ameaça."
+  },
+  {
+    "id": "bd-119",
+    "categoria": "Ferramentas e processos",
+    "texto": "Sua interface tem microinterações. Falta uma macroideia."
+  },
+  {
+    "id": "bd-120",
+    "categoria": "Ferramentas e processos",
+    "texto": "Não confunda sistema de design com coleção de retângulos."
+  },
+  {
+    "id": "bd-121",
+    "categoria": "Mercado criativo",
+    "texto": "Paixão pelo que faz não paga hora extra."
+  },
+  {
+    "id": "bd-122",
+    "categoria": "Mercado criativo",
+    "texto": "Criatividade é diferencial até chegar a planilha de custos."
+  },
+  {
+    "id": "bd-123",
+    "categoria": "Mercado criativo",
+    "texto": "Pedem originalidade com orçamento de cópia."
+  },
+  {
+    "id": "bd-124",
+    "categoria": "Mercado criativo",
+    "texto": "Todo processo é colaborativo até a hora dos créditos."
+  },
+  {
+    "id": "bd-125",
+    "categoria": "Mercado criativo",
+    "texto": "O portfólio mostra processo. A vaga pede velocidade."
+  },
+  {
+    "id": "bd-126",
+    "categoria": "Mercado criativo",
+    "texto": "O job é simples. O contrato é um romance de terror."
+  },
+  {
+    "id": "bd-127",
+    "categoria": "Mercado criativo",
+    "texto": "A agência quer talentos inquietos e cadeiras bem quietas."
+  },
+  {
+    "id": "bd-128",
+    "categoria": "Mercado criativo",
+    "texto": "A inovação começa depois da aprovação do financeiro."
+  },
+  {
+    "id": "bd-129",
+    "categoria": "Mercado criativo",
+    "texto": "Chamam de cultura criativa. Proíbem qualquer erro."
+  },
+  {
+    "id": "bd-130",
+    "categoria": "Mercado criativo",
+    "texto": "A pressa é inimiga da ideia e melhor amiga do faturamento."
+  },
+  {
+    "id": "bd-131",
+    "categoria": "Mercado criativo",
+    "texto": "Ser criativo sob pressão funciona. O problema é morar nela."
+  },
+  {
+    "id": "bd-132",
+    "categoria": "Mercado criativo",
+    "texto": "O profissional é multidisciplinar. O salário é monossilábico."
+  },
+  {
+    "id": "bd-133",
+    "categoria": "Mercado criativo",
+    "texto": "A reunião sobre produtividade matou a manhã produtiva."
+  },
+  {
+    "id": "bd-134",
+    "categoria": "Mercado criativo",
+    "texto": "Querem pensamento estratégico e entregas até as 14h."
+  },
+  {
+    "id": "bd-135",
+    "categoria": "Mercado criativo",
+    "texto": "Experiência não é conhecer todos os atalhos."
+  },
+  {
+    "id": "bd-136",
+    "categoria": "Mercado criativo",
+    "texto": "A liberdade criativa dura até o primeiro comitê."
+  },
+  {
+    "id": "bd-137",
+    "categoria": "Mercado criativo",
+    "texto": "O prazo é enxuto. O escopo está fazendo bulking."
+  },
+  {
+    "id": "bd-138",
+    "categoria": "Mercado criativo",
+    "texto": "A empresa ama inovação. Desde que não mude o processo."
+  },
+  {
+    "id": "bd-139",
+    "categoria": "Mercado criativo",
+    "texto": "O criativo virou executor quando a coragem saiu de férias."
+  },
+  {
+    "id": "bd-140",
+    "categoria": "Mercado criativo",
+    "texto": "O trabalho ficou pronto. O reconhecimento está em aprovação."
+  },
+  {
+    "id": "bd-141",
+    "categoria": "Arte e reflexão",
+    "texto": "Nem tudo que provoca é bom. Nem tudo que agrada é arte."
+  },
+  {
+    "id": "bd-142",
+    "categoria": "Arte e reflexão",
+    "texto": "Bom gosto não é certificado. É discussão que nunca acaba."
+  },
+  {
+    "id": "bd-143",
+    "categoria": "Arte e reflexão",
+    "texto": "Você não precisa entender uma obra para sentir alguma coisa."
+  },
+  {
+    "id": "bd-144",
+    "categoria": "Arte e reflexão",
+    "texto": "Originalidade começa quando acaba a vontade de parecer original."
+  },
+  {
+    "id": "bd-145",
+    "categoria": "Arte e reflexão",
+    "texto": "A referência inspira. A cópia só muda a legenda."
+  },
+  {
+    "id": "bd-146",
+    "categoria": "Arte e reflexão",
+    "texto": "A estética virou argumento para não discutir conteúdo."
+  },
+  {
+    "id": "bd-147",
+    "categoria": "Arte e reflexão",
+    "texto": "A arte incomoda. O mercado prefere incomodar com educação."
+  },
+  {
+    "id": "bd-148",
+    "categoria": "Arte e reflexão",
+    "texto": "O vazio também comunica. Principalmente em apresentação sem ideia."
+  },
+  {
+    "id": "bd-149",
+    "categoria": "Arte e reflexão",
+    "texto": "Ser conceitual não dispensa ser compreensível."
+  },
+  {
+    "id": "bd-150",
+    "categoria": "Arte e reflexão",
+    "texto": "O gosto pessoal é livre. A crítica também."
+  },
+  {
+    "id": "bd-151",
+    "categoria": "Arte e reflexão",
+    "texto": "Nem toda provocação vira pensamento. Algumas só viram post."
+  },
+  {
+    "id": "bd-152",
+    "categoria": "Arte e reflexão",
+    "texto": "O processo criativo não é bonito. Só o making of."
+  },
+  {
+    "id": "bd-153",
+    "categoria": "Arte e reflexão",
+    "texto": "Quem só segue tendências anda sempre um passo atrás."
+  },
+  {
+    "id": "bd-154",
+    "categoria": "Arte e reflexão",
+    "texto": "A mão erra de um jeito que o algoritmo ainda tenta copiar."
+  },
+  {
+    "id": "bd-155",
+    "categoria": "Arte e reflexão",
+    "texto": "Desenhar feio de propósito dá mais trabalho do que parece."
+  },
+  {
+    "id": "bd-156",
+    "categoria": "Arte e reflexão",
+    "texto": "A obra não precisa ser útil. Mas o discurso pode ser honesto."
+  },
+  {
+    "id": "bd-157",
+    "categoria": "Arte e reflexão",
+    "texto": "Existe diferença entre ousar e esquecer o público."
+  },
+  {
+    "id": "bd-158",
+    "categoria": "Arte e reflexão",
+    "texto": "A beleza não explica tudo. Ainda bem."
+  },
+  {
+    "id": "bd-159",
+    "categoria": "Arte e reflexão",
+    "texto": "A melhor ideia às vezes é a que você teve longe da tela."
+  },
+  {
+    "id": "bd-160",
+    "categoria": "Arte e reflexão",
+    "texto": "Se todo mundo concordou de primeira, talvez faltou uma pergunta."
+  }
+]
