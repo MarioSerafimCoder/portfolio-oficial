@@ -1,6 +1,7 @@
 'use client';
 
 import {useEffect, useId, useRef, useState} from 'react';
+import Image from 'next/image';
 import './fortune-cookie.css';
 
 type Phase = 'closed' | 'opening' | 'open' | 'closing';
@@ -50,17 +51,14 @@ export function FortuneCookie() {
   return <div className="fortune-cookie">
     <span className="fortune-cookie-heading">BISCOITO DA DISCÓRDIA</span>
     <button type="button" className={`fortune-cookie-button fortune-cookie-${phase}`} onClick={toggle} disabled={phase === 'opening' || phase === 'closing'} aria-expanded={expanded} aria-controls={paperId} aria-label={expanded ? 'Fechar biscoito' : 'Abrir biscoito'}>
-      <span id={paperId} className="fortune-cookie-paper" aria-hidden={!expanded}>{phrase}</span>
-      <svg className="fortune-cookie-art" viewBox="0 0 220 170" aria-hidden="true" focusable="false">
-        <g className="fortune-cookie-half fortune-cookie-left">
-          <path d="M110 14 C77 5 43 20 28 48 C8 77 19 119 47 139 C66 157 91 160 110 154 L104 136 L114 119 L105 101 L113 80 L103 61 L112 42 Z" />
-          <path className="fortune-cookie-chip" d="m48 60 9-4 5 7-8 5z M72 112 l9-5 5 8-8 5z M86 37 l7-4 4 7-7 4z" />
-        </g>
-        <g className="fortune-cookie-half fortune-cookie-right">
-          <path d="M110 14 C145 8 178 26 192 51 C210 83 198 124 171 143 C152 158 128 161 110 154 L104 136 L114 119 L105 101 L113 80 L103 61 L112 42 Z" />
-          <path className="fortune-cookie-chip" d="m146 51 9-4 5 8-8 5z M172 103 l8-4 5 8-8 5z M135 130 l8-5 4 8-7 4z" />
-        </g>
-      </svg>
+      <span id={paperId} className="fortune-cookie-paper" aria-hidden={!expanded}>
+        <Image src="/images/biscoito-papel.webp" alt="" width={1182} height={413} sizes="(max-width: 700px) 320px, 300px" />
+        <span className="fortune-cookie-paper-copy">{phrase}</span>
+      </span>
+      <span className="fortune-cookie-art" aria-hidden="true">
+        <Image className="fortune-cookie-half fortune-cookie-left" src="/images/biscoito-esquerdo.webp" alt="" width={409} height={660} sizes="100px" />
+        <Image className="fortune-cookie-half fortune-cookie-right" src="/images/biscoito-direito.webp" alt="" width={441} height={660} sizes="100px" />
+      </span>
     </button>
     <span className="fortune-cookie-hint">{expanded ? 'Clique para fechar' : 'Clique para abrir'}</span>
   </div>;
