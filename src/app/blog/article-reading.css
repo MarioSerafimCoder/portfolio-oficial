@@ -20,9 +20,6 @@
 .journal-post-page .journal-article-content pre{max-width:100%;overflow:auto}
 .journal-post-page .journal-author-meta dt{font-size:12px}
 .journal-post-page .journal-author-meta dd{font-size:14px}
-.journal-auto-summary{border-top:1px solid var(--rule);margin-top:20px;padding-top:18px}
-.journal-auto-summary h2{font-family:var(--font-sans),Arial,sans-serif;font-size:14px;font-weight:500;line-height:1.4;letter-spacing:0;margin:0 0 10px}
-.journal-auto-summary p{font-size:14px;line-height:1.65;color:var(--muted);margin:0;overflow-wrap:break-word}
 .journal-sidebar-back{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-top:22px;padding:8px 14px;border-radius:4px;background:var(--accent);color:var(--on-accent);font-size:13px;font-weight:650;text-decoration:none;transition:background-color 180ms var(--ease),box-shadow 180ms var(--ease)}
 .journal-sidebar-back span{transition:transform 180ms var(--ease)}
 .journal-sidebar-back:hover,.journal-sidebar-back:focus-visible{background:color-mix(in srgb,var(--accent) 85%,black);color:var(--on-accent)}

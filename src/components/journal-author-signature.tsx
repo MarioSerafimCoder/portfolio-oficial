@@ -11,6 +11,7 @@ type Props = {
     date?: string;
     readingTime?: number;
     url?: string;
+    title?: string;
 };
 
 function Avatar({ photo }: { photo?: string }) {
@@ -20,7 +21,7 @@ function Avatar({ photo }: { photo?: string }) {
     return <span className="journal-author-avatar journal-author-avatar-placeholder" aria-hidden="true">{i18nText('MS')}</span>;
 }
 
-export function JournalAuthorSignature({ photo, date, readingTime, url }: Props) {
+export function JournalAuthorSignature({ photo, date, readingTime, url, title }: Props) {
     const { i18nText } = useSiteTranslation();
     const { locale } = useJournalPreferences();
     const copy = journalCopy[locale];
@@ -42,6 +43,6 @@ export function JournalAuthorSignature({ photo, date, readingTime, url }: Props)
         {i18nText(date && <div><dt>{i18nText(copy.publishedLabel)}</dt><dd><time dateTime={date}>{i18nText(formatJournalDateLocale(date, locale, true))}</time></dd></div>)}
         {i18nText(readingTime !== undefined && <div><dt>{i18nText(copy.readingLabel)}</dt><dd>{i18nText(copy.readingValue(readingTime))}</dd></div>)}
       </dl>
-      <JournalShare variant="compact" url={url}/>
+      <JournalShare variant="compact" url={url} title={title}/>
     </div>;
 }

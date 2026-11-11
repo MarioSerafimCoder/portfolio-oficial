@@ -2,7 +2,7 @@
 import {journalCoverUrl} from '@/lib/journal-cover-url';
 import {useSiteTranslation} from '@/i18n/use-translation';
 import {JournalImage} from './journal-image';
-import {journalHeaderSummary, journalSummary} from '@/lib/journal-summary';
+import {journalHeaderSummary} from '@/lib/journal-summary';
 import { journalHeadings } from '@/lib/journal-headings';
 import { readingMinutes, type JournalBlock, type JournalPost } from '@/content/journal';
 import { formatJournalDateLocale, journalCategoryLabels, journalCopy, journalPostForLocale } from '@/content/journal-i18n';
@@ -62,8 +62,7 @@ export function JournalArticle({ post, latestPosts, canonicalUrl, authorPhoto }:
       </div>
     </div></header><div className={`journal-article-wrap section-wrap${latestPosts.length ? '' : ' journal-article-wrap-no-related'}`}>
       <aside className="journal-article-sidebar" aria-label={i18nText(copy.authorKicker)}>
-        <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined}/>
-        <section className="journal-auto-summary" aria-labelledby="journal-summary-title"><h2 id="journal-summary-title">{locale === 'en' ? 'Article summary' : 'Resumo do artigo'}</h2><p lang={textLanguage}>{journalSummary(view.content, view.summary)}</p></section>
+        <JournalAuthorSignature photo={authorPhoto} date={date} readingTime={readTime} title={i18nText(view.title)} url={post.status === 'published' && !post.demo ? canonicalUrl : undefined}/>
         <a className="journal-sidebar-back" href={i18nHref('/blog')}>
           <span aria-hidden="true">←</span>{copy.sidebarBack}
         </a>
