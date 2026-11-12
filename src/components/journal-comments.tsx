@@ -62,7 +62,7 @@ const copy = {
 
 export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'pt'|'en';privacyHref:string}) {
   const t=copy[locale];
-  const [listing,setListing]=useState<Listing|null>(null), [unavailable,setUnavailable]=useState(false);
+  const [listing,setListing]=useState<Listing|null>(null);
   const [loading,setLoading]=useState(true), [loadError,setLoadError]=useState(false), [loadAttempt,setLoadAttempt]=useState(0);
   const [author,setAuthor]=useState(''), [body,setBody]=useState(''), [token,setToken]=useState('');
   const [message,setMessage]=useState(''), [sendError,setSendError]=useState(''), [sending,setSending]=useState(false);
@@ -72,10 +72,10 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
   useEffect(()=>{
     const controller=new AbortController();
     setLoading(true);setLoadError(false);
-    void fetch(endpoint,{signal:controller.signal}).then(async response=>{
-      if(response.status===404){setUnavailable(true);return}
+    void fetch(endpoint,{signal:AbortSignal.any([controller.signal,AbortSignal.timeout(18000)])}).then(async response=>{
       if(!response.ok)throw Error();
-      setListing(await response.json() as Listing);
+      const data=await response.json() as Listing;
+      if(!controller.signal.aborted)setListing(data);
     }).catch(()=>{if(!controller.signal.aborted)setLoadError(true)})
       .finally(()=>{if(!controller.signal.aborted)setLoading(false)});
     return ()=>controller.abort();
@@ -143,7 +143,6 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
       if(widgetId.current!==null)widget()?.reset(widgetId.current);
     }
   }
-  if(unavailable)return null;
   const date=(value:number)=>new Intl.DateTimeFormat(locale==='en'?'en':'pt-BR',{dateStyle:'medium',timeZone:'America/Fortaleza'}).format(value);
   return <section className="journal-comments" aria-labelledby="journal-comments-title">
     <h2 id="journal-comments-title">{t.title}</h2>
