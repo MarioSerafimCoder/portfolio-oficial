@@ -20,15 +20,11 @@
 .journal-post-page .journal-article-content pre{max-width:100%;overflow:auto}
 .journal-post-page .journal-author-meta dt{font-size:12px}
 .journal-post-page .journal-author-meta dd{font-size:14px}
-.journal-sidebar-back{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-top:22px;padding:8px 14px;border-radius:4px;background:var(--accent);color:var(--on-accent);font-size:13px;font-weight:650;text-decoration:none;transition:background-color 180ms var(--ease),box-shadow 180ms var(--ease)}
-.journal-sidebar-back span{transition:transform 180ms var(--ease)}
-.journal-sidebar-back:hover,.journal-sidebar-back:focus-visible{background:color-mix(in srgb,var(--accent) 85%,black);color:var(--on-accent)}
-.journal-sidebar-back:hover span,.journal-sidebar-back:focus-visible span{transform:translateX(-3px)}
+.journal-sidebar-back{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-top:22px;padding:8px 14px;border-radius:var(--journal-button-radius);background:var(--accent);color:var(--on-accent);font-size:13px;font-weight:650;text-decoration:none;transition:background-color 180ms ease,box-shadow 180ms var(--ease)}
 .journal-sidebar-back:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
 .journal-sidebar-back:active{box-shadow:inset 0 2px 5px rgb(0 0 0 / 25%)}
 @media(prefers-reduced-motion:reduce){
-  .journal-sidebar-back,.journal-sidebar-back span{transition:none}
-  .journal-sidebar-back:hover span,.journal-sidebar-back:focus-visible span{transform:none}
+  .journal-sidebar-back{transition:none}
 }
 .journal-post-page .journal-post-next-heading{align-items:center;margin-bottom:28px}
 .journal-post-page .journal-post-next-heading h2{margin:0;font-family:var(--font-serif),Georgia,serif;font-size:clamp(36px,4vw,52px);font-weight:400;line-height:1.1;letter-spacing:-.03em;text-transform:none}
