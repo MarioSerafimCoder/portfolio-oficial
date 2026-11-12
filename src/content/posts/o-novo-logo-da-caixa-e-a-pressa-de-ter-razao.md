@@ -9,56 +9,57 @@ status: published
 cover: /media/blog/cb5482f7-9b6f-4493-802f-a02d32244fbe.png
 publish_at: 2026-11-10T13:34
 ---
-Bastou a Caixa apresentar sua nova identidade visual para começar o chororô. Em poucas horas, as redes sociais já estavam tomadas por designers, especialistas de ocasião e sommeliers de logotipo decretando que a marca ficou feia, que perdeu sua personalidade e que destruíram um patrimônio visual brasileiro.&#xA;
+Bastou a Caixa apresentar sua nova identidade visual para começar o chororô. Em poucas horas, as redes sociais já estavam cheias de designers, especialistas de ocasião e sommeliers de logotipo decretando que a marca ficou feia, perdeu a personalidade e destruiu um patrimônio visual brasileiro.
 
-Eu entendo o estranhamento. São quase três décadas convivendo com uma identidade que faz parte da paisagem do país. Está nas fachadas das agências, nos cartões, nas lotéricas e, principalmente, na memória de milhões de brasileiros. Mudar algo tão familiar nunca seria uma tarefa simples.&#xA;
+&#xA;Eu até entendo a reação. São quase três décadas convivendo com uma identidade que já faz parte da paisagem do país. Está nas fachadas das agências, nos cartões, nas lotéricas e na memória de milhões de brasileiros. A gente se acostumou tanto com aquela marca que qualquer mudança provavelmente causaria algum estranhamento.&#xA;
 
-Mas me chama a atenção a velocidade com que conseguimos transformar uma impressão pessoal em diagnóstico técnico. Parece que basta olhar para uma imagem durante cinco segundos para compreender um projeto que levou anos de pesquisa, estratégia e desenvolvimento.E olha que estamos falando de designers. Gente que deveria saber que existe uma diferença enorme entre desenhar um logotipo e construir uma identidade visual.&#xA;
+O que me chama a atenção é outra coisa: a facilidade com que uma opinião pessoal vira diagnóstico técnico. Cinco segundos olhando para um logotipo e pronto, já tem gente com uma análise completa de um projeto que envolveu anos de pesquisa, estratégia e desenvolvimento. E olha que estamos falando de designers. Gente que, em tese, deveria saber a diferença entre desenhar um logo e desenvolver uma identidade visual.&#xA;
 
 > [!IMPACT]
 >
-> ## A marca não termina no logotipo
+> ## A marca não termina apenas no logo.
 
-&#xA;
+A nova identidade da Caixa, desenvolvida pela Tátil, vai muito além de uma mudança tipográfica. O trabalho envolve linguagem verbal, cores, grafismos, ilustrações, aplicações digitais e a organização de um ecossistema com mais de 50 projetos de marca.
 
-A nova identidade da Caixa, desenvolvida pela Tátil, não se resume à troca de uma tipografia. O projeto envolve linguagem verbal, cores, grafismos, ilustrações, aplicações digitais e a organização de um ecossistema com mais de 50 projetos de marca.
+Estamos falando de uma instituição com 165 anos de história tentando se aproximar de novas gerações sem jogar fora tudo o que construiu até aqui. O famoso X continua lá. O azul e o laranja também. A tipografia ficou mais arredondada e a comunicação passou a buscar uma linguagem mais próxima do cotidiano das pessoas.&#xA;
 
-A proposta é aproximar uma instituição de 165 anos de novas gerações sem abandonar aquilo que já faz parte da sua história. O tradicional X continua ali, assim como o azul e o laranja. A tipografia ganhou formas mais arredondadas, e a comunicação passou a explorar uma linguagem mais próxima do cotidiano.&#xA;
-
-Podemos discutir se todas essas decisões foram acertadas? Claro. Eu mesmo ainda estou formando minha opinião sobre algumas escolhas tipográficas. Mas existe uma distância considerável entre questionar uma solução e reduzir um sistema inteiro ao nosso gosto pessoal.&#xA;
-
-Alexandre Wollner, um dos nomes fundamentais na construção do design moderno brasileiro, já defendia essa distinção muito antes de existirem redes sociais para julgar identidades visuais. Em uma entrevista à Folha de S.Paulo, em 1998, ele afirmava que a estética não é a principal referência do design, mas uma de suas consequências. Wollner entendia identidade visual como um trabalho de planejamento, conceito e organização dos diferentes meios de comunicação de uma empresa. Não era simplesmente fazer um desenho bonito para colocar na fachada.&#xA;
-
-> [!AUTHOR]
->
-> E talvez seja justamente isso que estejamos esquecendo.
-
-
+Se todas essas decisões foram boas, aí já é outra conversa. Tem coisa que me agrada, tem coisa sobre a qual ainda não formei uma opinião. E não vejo problema nenhum nisso. O problema começa quando a nossa preferência estética vira argumento suficiente para condenar um projeto inteiro.&#xA;
 
 > [!QUOTE]
 >
-> A familiaridade também influencia profundamente a maneira como julgamos uma marca. Um estudo publicado em 2024, que analisou a mudança do logotipo do Burger King com 468 consumidores, identificou que a percepção de familiaridade e adequação do novo desenho está relacionada à atitude e à lealdade em relação à marca.&#xA;
+> Alexandre Wollner, um dos nomes mais importantes do design moderno brasileiro, já discutia essa questão quando a internet nem sonhava em ter tanta gente distribuindo parecer sobre logotipos. Em uma entrevista à *Folha de S.Paulo*, em 1998, Wollner defendia que a estética não deveria ser a principal referência do design, mas uma consequência do trabalho. Para ele, identidade visual envolvia planejamento, conceito e organização dos diferentes meios de comunicação de uma empresa.
+
+Não estou dizendo que a identidade anterior da Caixa era ruim ou que só gostávamos dela por hábito. Estou dizendo que a memória tem um peso nessa avaliação e ignorar isso é um erro. Uma pesquisa publicada em 2024, que analisou a mudança do logotipo do Burger King com 468 consumidores, identificou uma relação entre a percepção de familiaridade, a adequação do novo desenho e as atitudes e a lealdade dos consumidores em relação à marca.&#xA;
+
+Outro estudo, publicado em 2025 no *Journal of Brand Management*, trouxe um dado interessante. Os pesquisadores compararam as avaliações de profissionais de marketing com dados reais de consumidores sobre 405 elementos visuais de 50 marcas.
+
+E descobriram que os próprios profissionais frequentemente erravam ao tentar identificar quais elementos eram realmente conhecidos e distintivos para o público.&#xA;
+
+E aqui cabe uma pergunta que vale para qualquer projeto: será que aquilo de que gostamos é necessariamente aquilo que funciona?
+
+A marca anterior da Caixa atravessou gerações. Teve décadas para ocupar seu espaço na memória das pessoas. É perfeitamente natural que uma mudança provoque resistência. Mas essa resistência, sozinha, não prova que a nova identidade fracassou.
+
+Da mesma forma, nenhum desses estudos comprova que a nova Caixa seja um projeto bem-sucedido. São pesquisas com contextos próprios, que ajudam a compreender como as pessoas percebem identidades visuais. Não são um certificado de qualidade para o trabalho da Tátil.&#xA;
+
+> [!AUTHOR]
 >
-> Outro estudo, publicado em 2025 no *Journal of Brand Management*, comparou o julgamento de profissionais de marketing com dados reais de consumidores sobre 405 elementos visuais de 50 marcas. Os pesquisadores descobriram que os profissionais frequentemente erravam ao estimar quais elementos eram realmente conhecidos e distintivos para o público.
+> Talvez o que mais me incomode nessa história nem seja a rejeição à nova marca. É perceber como nós, designers, ajudamos a alimentar justamente aquela visão limitada da profissão que passamos tanto tempo tentando combater. Vivemos explicando que design envolve pesquisa, estratégia, comportamento, cultura, contexto e comunicação. Que uma decisão visual precisa fazer sentido dentro de um problema maior. Aí uma empresa muda o logotipo e, de repente, tudo volta a ser uma competição para decidir quem achou mais bonito.
 
-&#xA;
+Aliás, questionar decisões faz parte do nosso trabalho. Uma identidade pode ter problemas de legibilidade, reconhecimento, consistência, aplicação e adequação ao público. Pode funcionar muito bem em uma apresentação de portfólio e encontrar dificuldades na vida real.
 
-Isso não significa que a nova identidade da Caixa seja necessariamente boa. Significa apenas que nossa experiência profissional, por maior que seja, não nos transforma automaticamente em representantes da percepção de milhões de pessoas.
+Há muito o que analisar.&#xA;
 
-Afinal, quantas vezes confundimos aquilo de que gostamos com aquilo que funciona?
+Só acho que, antes de decretar que um projeto deu errado, deveríamos pelo menos tentar entender o que ele se propôs a resolver.
 
-A marca anterior da Caixa era familiar porque atravessou gerações. Ela conquistou espaço na nossa memória por meio de décadas de exposição e uso. É natural que uma mudança provoque resistência. O que não podemos é usar essa resistência como prova definitiva de que o novo projeto fracassou.&#xA;
+Por que determinada escolha foi feita? Como ela funciona nas diferentes aplicações? O que foi preservado? O que precisava mudar? E, principalmente, para quem aquela identidade está sendo construída? Rage bait hoje em dia dá mais engajamento e é mais fácil vomitar uma opinião polêmica.&#xA;
 
-Criticar também exige responsabilidade&#xA;
--------------------------------------------
+Mas existe uma diferença enorme entre olhar para um trabalho, reconhecer o que não agrada e tentar compreender por que aquelas decisões foram tomadas. Talvez o maior problema dessa história nem seja a nova marca da Caixa. É essa nossa pressa de mostrar que entendemos de design antes mesmo de entender o projeto.
 
-O que mais me incomoda nessa história nem é a rejeição à nova Caixa. É perceber como nós, designers, às vezes contribuímos para reduzir nossa própria profissão àquilo que tanto tentamos combater: a ideia de que design é uma questão de gosto. Passamos anos explicando que nosso trabalho envolve pesquisa, estratégia, contexto, comportamento, cultura e comunicação. Mas basta aparecer um novo logotipo para muita gente esquecer tudo isso e começar a distribuir sentenças.&#xA;
+> [!IMPACT]
+>
+> E pensar que somos justamente nós que vivemos dizendo que design não é só estética.
 
-Não precisamos gostar de toda mudança. Muito menos concordar com cada justificativa apresentada em um case de branding.
 
-Mas precisamos aprender a fazer perguntas melhores.  No fim, talvez o maior problema não seja a nova marca da Caixa. Talvez seja a nossa pressa em provar que entendemos de design, mesmo quando ainda não paramos para entender o projeto.&#xA;
-
-E pensar que somos justamente nós que vivemos dizendo que design não é só estética.
 
 ***
 
