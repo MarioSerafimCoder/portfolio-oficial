@@ -9,7 +9,7 @@ const version=(await stat(fileURLToPath(import.meta.url))).mtimeMs;
 async function walk(directory) {
   const files=[];
   for(const item of await readdir(directory,{withFileTypes:true})) {
-    if(item.name==='responsive'||item.name==='cover-only')continue;
+    if(item.name==='responsive'||item.name==='cover-only'||item.name==='avatars')continue;
     const file=path.join(directory,item.name);
     if(item.isDirectory())files.push(...await walk(file));
     else if(/\.(webp|png|jpe?g)$/i.test(item.name))files.push(file);

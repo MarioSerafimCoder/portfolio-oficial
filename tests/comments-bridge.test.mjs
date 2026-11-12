@@ -6,7 +6,7 @@ import {onRequestGet,onRequestPost} from '../functions/api/comments.ts';
 const origin='https://blog.test', slug='o-novo-logo-da-caixa-e-a-pressa-de-ter-razao';
 const env={COMMENTS_HMAC_SECRET:'test-signing-key-'.repeat(3),COMMENTS_STUDIO_ORIGIN:'https://studio.test',COMMENTS_TURNSTILE_SITEKEY:'public-key'};
 const url=origin+'/api/comments?slug='+slug;
-const valid={author:'Pessoa',body:'Olá',token:'test-token',website:''};
+const valid={author:'Pessoa',body:'Olá',token:'test-token',website:'',avatar_id:'avatar-07'};
 const request=(body=valid,overrides={})=>new Request(url,{
   method:'POST',headers:{Origin:origin,'Content-Type':'application/json','CF-Connecting-IP':'192.0.2.1',...overrides},
   body:JSON.stringify(body),
@@ -27,7 +27,8 @@ test('the bridge signs eligible list and submit requests and forwards only a pro
       assert.deepEqual(payload,{op:'list',slug,page:0});
       return Response.json({accepting:true,comments:[],nextPage:null});
     }
-    assert.deepEqual(Object.keys(payload).sort(),['author','body','op','originKey','slug','token']);
+    assert.deepEqual(Object.keys(payload).sort(),['author','avatar_id','body','op','originKey','slug','token']);
+    assert.equal(payload.avatar_id,valid.avatar_id);
     assert.match(payload.originKey,/^[a-f0-9]{64}$/);
     return Response.json({received:true},{status:202});
   });
@@ -46,6 +47,10 @@ test('private, future, demo and invalid requests are stopped before forwarding',
   assert.equal((await onRequestPost({request:request(valid,{Origin:'https://evil.test'}),env})).status,403);
   assert.equal((await onRequestPost({request:request({...valid,website:'bot'}),env})).status,400);
   assert.equal((await onRequestPost({request:request({...valid,status:'approved'}),env})).status,400);
+  for(const avatar_id of ['avatar-00','avatar-11','AVATAR-01','https://evil.test/avatar.webp','../avatar-01.webp','<svg/>','__proto__',null,{}]){
+    assert.equal((await onRequestPost({request:request({...valid,avatar_id}),env})).status,400);
+  }
+  assert.equal((await onRequestPost({request:request({...valid,author:'Mário Serafim · Autor'}),env})).status,400);
   assert.equal((await onRequestPost({request:request({...valid,body:'á'.repeat(5000)}),env})).status,413);
   assert.equal(outbound.mock.callCount(),0);
 });

@@ -8,3 +8,5 @@
   X-Robots-Tag: noindex
 /media/responsive/cover-only/*
   X-Robots-Tag: noindex
+/media/avatars/*
+  Cache-Control: public, max-age=604800

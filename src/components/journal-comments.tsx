@@ -1,8 +1,10 @@
 'use client';
 
 import {useEffect,useRef,useState,type FormEvent} from 'react';
+import {avatarIds,isAvatarId,type AvatarId} from '../lib/comment-avatars.mjs';
 
-type PublicComment = {author:string;body:string;date:number;reply:{body:string;date:number}|null};
+type PublicComment = {author:string;avatar_id:AvatarId|null;body:string;date:number;reply:{body:string;date:number}|null};
+const avatarSources = Object.fromEntries(avatarIds.map(id=>[id,`/media/avatars/${id}.webp`]));
 type Listing = {comments:PublicComment[];nextPage:number|null;accepting:boolean;sitekey:string|null};
 type Widget = {
   render(element:HTMLElement,options:Record<string,unknown>):string;
@@ -39,7 +41,9 @@ const copy = {
     placeholder:'deixe aqui seus dois centavos sobre o assunto.',
     name:'Nome ou apelido', comment:'Comentário', send:'Enviar comentário', sending:'Enviando…',
     confirmTitle:'Só falta se identificar.',
-    confirmDescription:'Seu comentário está pronto. Informe como deseja aparecer e confirme o envio para moderação.',
+    confirmDescription:'Escolha como você quer aparecer na conversa.',
+    chooseAvatar:'Escolha seu avatar', avatar:(index:number)=>`Avatar ${index}`,
+    reservedAuthor:'Escolha outro nome ou apelido para comentar.',
     confirm:'Confirmar envio', back:'Voltar', invalidBody:'Escreva um comentário de até 600 caracteres.',
     received:'Comentário recebido!', thanks:'Obrigado por participar, em breve o seu comentário estará visível.',
     loading:'Carregando comentários…', empty:'Ainda não há comentários publicados.', more:'Carregar mais',
@@ -59,7 +63,9 @@ const copy = {
     placeholder:'Leave your two cents on the topic.',
     name:'Name or nickname', comment:'Comment', send:'Send comment', sending:'Sending…',
     confirmTitle:'Just tell us your name.',
-    confirmDescription:'Your comment is ready. Enter how you’d like to appear and confirm your submission for review.',
+    confirmDescription:'Choose how you’d like to appear in the conversation.',
+    chooseAvatar:'Choose your avatar', avatar:(index:number)=>`Avatar ${index}`,
+    reservedAuthor:'Choose another name or nickname to comment.',
     confirm:'Confirm submission', back:'Back', invalidBody:'Write a comment of up to 600 characters.',
     received:'Comment received!', thanks:'Thanks for taking part. Your comment will be visible soon.',
     loading:'Loading comments…', empty:'No comments have been published yet.', more:'Load more',
@@ -80,6 +86,7 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
   const [listing,setListing]=useState<Listing|null>(null);
   const [loading,setLoading]=useState(true), [loadError,setLoadError]=useState(false), [loadAttempt,setLoadAttempt]=useState(0);
   const [author,setAuthor]=useState(''), [body,setBody]=useState(''), [token,setToken]=useState('');
+  const [avatarId,setAvatarId]=useState<AvatarId>(avatarIds[0]);
   const [received,setReceived]=useState(false), [sendError,setSendError]=useState(''), [sending,setSending]=useState(false);
   const [panelOpen,setPanelOpen]=useState(false), [bodyInvalid,setBodyInvalid]=useState(false);
   const [widgetStatus,setWidgetStatus]=useState<'loading'|'ready'|'expired'|'error'>('loading');
@@ -193,16 +200,16 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
     try {
       const response=await fetch(endpoint,{
         method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({author,body,token,website}),signal:AbortSignal.timeout(18000),
+        body:JSON.stringify({author,body,token,website,avatar_id:avatarId}),signal:AbortSignal.timeout(18000),
       });
       if(response.status!==202){
         const failure=await response.json().catch(()=>null) as {error?:string}|null;
-        setSendError(failure?.error==='invalid_challenge'?t.challengeRejected:
+        setSendError(failure?.error==='invalid_challenge'?t.challengeRejected:failure?.error==='reserved_author'?t.reservedAuthor:
           response.status===429?t.limit:failure?.error==='comments_closed'?t.closed:t.sendError);
         return;
       }
       accepted=true;
-      setBody('');setAuthor('');setReceived(true);
+      setBody('');setAuthor('');setAvatarId(avatarIds[0]);setReceived(true);
     } catch {setSendError(t.sendError)}
     finally {
       submission.current=false;setSending(false);setToken('');
@@ -218,9 +225,14 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
     {listing&&!listing.comments.length&&!listing.accepting&&<p>{t.empty}</p>}
     {listing&&listing.comments.length>0&&<ol className="journal-comments-list">
       {listing.comments.map((item,index)=><li key={index}>
-        <header><strong>{item.author}</strong><time dateTime={new Date(item.date).toISOString()}>{date(item.date)}</time></header>
-        <p className="journal-comment-text">{item.body}</p>
-        {item.reply&&<div className="journal-comment-reply"><header><strong>{t.author}</strong><time dateTime={new Date(item.reply.date).toISOString()}>{date(item.reply.date)}</time></header><p className="journal-comment-text">{item.reply.body}</p></div>}
+        {isAvatarId(item.avatar_id)
+          ? <img className="journal-comment-avatar" src={avatarSources[item.avatar_id]} alt="" width={48} height={48} loading="lazy"/>
+          : <span className="journal-comment-avatar journal-comment-avatar-fallback" aria-hidden="true">{Array.from(item.author)[0]?.toLocaleUpperCase(locale)}</span>}
+        <div>
+          <header><strong>{item.author}</strong><time dateTime={new Date(item.date).toISOString()}>{date(item.date)}</time></header>
+          <p className="journal-comment-text">{item.body}</p>
+          {item.reply&&<div className="journal-comment-reply"><header><strong>{t.author}</strong><time dateTime={new Date(item.reply.date).toISOString()}>{date(item.reply.date)}</time></header><p className="journal-comment-text">{item.reply.body}</p></div>}
+        </div>
       </li>)}
     </ol>}
     {listing?.nextPage!=null&&!loadError&&<button className="journal-comments-more" type="button" disabled={loading} onClick={()=>void more()}>{t.more}</button>}
@@ -249,6 +261,19 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
       <form className="journal-comment-form" onSubmit={submit}>
         <label>{t.name}<input required maxLength={nameLimit} autoComplete="nickname" readOnly={sending}
           value={author} onChange={event=>setAuthor(event.target.value)}/></label>
+        <fieldset className="journal-avatar-field" disabled={sending}>
+          <legend>{t.chooseAvatar}</legend>
+          <div className="journal-avatar-grid">
+            {avatarIds.map((id,index)=><label className="journal-avatar-choice" key={id}>
+              <input className="sr-only" type="radio" name="avatar_id" value={id} aria-label={t.avatar(index+1)}
+                checked={avatarId===id} onChange={()=>setAvatarId(id)}/>
+              <span className="journal-avatar-option">
+                <img src={avatarSources[id]} alt="" width={144} height={144} loading="lazy"/>
+                <span className="journal-avatar-check" aria-hidden="true">✓</span>
+              </span>
+            </label>)}
+          </div>
+        </fieldset>
         <div className="journal-comment-trap" aria-hidden="true" inert><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
         <div className="journal-comment-widget" ref={widgetHost}/>
         {widgetStatus==='loading'&&<p role="status">{t.challengeLoading}</p>}

@@ -945,7 +945,10 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 .journal-comments > h2{font-size:clamp(32px,5vw,52px);margin-bottom:.65rem}
 .journal-comments p{margin-block:.5rem}
 .journal-comments-list{list-style:none;margin:1.5rem 0;padding:0}
-.journal-comments-list>li{padding:1rem 0;border-top:1px solid var(--rule);overflow-wrap:anywhere}
+.journal-comments-list>li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.75rem;padding:1rem 0;border-top:1px solid var(--rule);overflow-wrap:anywhere}
+.journal-comment-avatar{display:grid;place-items:center;width:48px;height:48px;object-fit:cover;border:1px solid var(--rule);border-radius:var(--journal-button-radius)}
+.journal-comment-avatar-fallback{background:var(--surface);color:var(--muted);font-weight:650}
+@media(max-width:600px){.journal-comment-avatar{width:40px;height:40px}}
 .journal-comments-list header{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem 1rem}
 .journal-comments-list time,.journal-comments #journal-comment-count{color:var(--muted);font-size:.82rem}
 .journal-comment-text{white-space:pre-wrap}
@@ -953,7 +956,7 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 .journal-comment-form{display:grid;gap:.65rem;margin-top:1rem;position:relative}
 .journal-comment-form .journal-comment-invitation{margin:0 0 .25rem}
 .journal-comment-form label{display:grid;gap:.35rem}
-.journal-comment-form input,.journal-comment-form textarea{width:100%;min-height:44px;padding:.7rem;border:1px solid var(--control);border-radius:var(--journal-button-radius);background:var(--surface);color:var(--ink);font-size:16px}
+.journal-comment-form input:not([type=radio]),.journal-comment-form textarea{width:100%;min-height:44px;padding:.7rem;border:1px solid var(--control);border-radius:var(--journal-button-radius);background:var(--surface);color:var(--ink);font-size:16px}
 .journal-comment-form :is(input,textarea):focus-visible{outline-color:var(--focus)}
 .journal-comment-form textarea::placeholder{color:var(--muted)}
 .journal-comment-form textarea{resize:vertical}
@@ -962,6 +965,17 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 .journal-comment-widget{width:100%;min-height:65px}
 .journal-comments-more{justify-self:start;min-height:44px;padding:.6rem .9rem}
 .journal-comment-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.65rem}
+.journal-avatar-field{min-inline-size:0;margin:0;padding:0;border:0}
+.journal-avatar-field legend{margin-block-end:.35rem;padding:0}
+.journal-avatar-grid{display:grid;grid-template-columns:repeat(5,minmax(44px,1fr));gap:.5rem}
+.journal-avatar-choice{position:relative;cursor:pointer}
+.journal-avatar-option{position:relative;display:block;aspect-ratio:1;border:2px solid var(--control);border-radius:var(--journal-button-radius);background:var(--surface)}
+.journal-avatar-option img{width:100%;height:100%;object-fit:cover;border-radius:calc(var(--journal-button-radius) - 2px)}
+.journal-avatar-choice:hover .journal-avatar-option,.journal-avatar-choice input:checked + .journal-avatar-option{border-color:var(--accent)}
+.journal-avatar-choice input:focus-visible + .journal-avatar-option{outline:2px solid var(--focus);outline-offset:2px}
+.journal-avatar-check{position:absolute;inset-block-end:2px;inset-inline-end:2px;display:none;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:12px}
+.journal-avatar-choice input:checked + .journal-avatar-option .journal-avatar-check{display:grid}
+@media(max-width:300px){.journal-avatar-grid{grid-template-columns:repeat(4,minmax(44px,1fr))}}
 .journal-comment-dialog{
   position:fixed;
   inset:0;

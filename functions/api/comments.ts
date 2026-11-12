@@ -1,4 +1,5 @@
 import publicSlugs from '../../src/content/journal-comments-public.mjs';
+import {isAvatarId, isReservedCommentAuthor} from '../../src/lib/comment-avatars.mjs';
 
 type Env = {
   COMMENTS_HMAC_SECRET?: string;
@@ -84,11 +85,13 @@ export async function onRequestPost({request,env}:Context) {
   let data;
   try { data = await readSubmission(request); }
   catch (cause) {return cause instanceof RangeError ? error(413,'body_too_large') : error(400,'invalid_json');}
-  if (!data || typeof data !== 'object' || Array.isArray(data) || Object.keys(data).some(key=>!['author','body','token','website'].includes(key)) ||
+  if (!data || typeof data !== 'object' || Array.isArray(data) || Object.keys(data).some(key=>!['author','body','token','website','avatar_id'].includes(key)) ||
       typeof data.author !== 'string' || !data.author.trim() || data.author.length>50 ||
       typeof data.body !== 'string' || !data.body.trim() || data.body.length>800 ||
       typeof data.token !== 'string' || !data.token || data.token.length>2048 || data.website !== '') {
     return error(400,'invalid_payload');
   }
-  return forward(env,{op:'submit',slug,author:data.author,body:data.body,token:data.token},ip);
+  if (isReservedCommentAuthor(data.author)) return error(400,'reserved_author');
+  if (data.avatar_id !== undefined && !isAvatarId(data.avatar_id)) return error(400,'invalid_avatar');
+  return forward(env,{op:'submit',slug,author:data.author,body:data.body,token:data.token,avatar_id:data.avatar_id},ip);
 }
