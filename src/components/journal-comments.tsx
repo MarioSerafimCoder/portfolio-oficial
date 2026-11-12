@@ -6,9 +6,10 @@ type PublicComment = {author:string;body:string;date:number;reply:{body:string;d
 type Listing = {comments:PublicComment[];nextPage:number|null;accepting:boolean;sitekey:string|null};
 type Widget = {
   render(element:HTMLElement,options:Record<string,unknown>):string;
-  reset(id:string):void;
   remove(id:string):void;
 };
+const commentLimit = 600;
+const nameLimit = 50;
 const widget = () => (window as Window & {turnstile?:Widget}).turnstile;
 let scriptLoad:Promise<Widget>|undefined;
 function loadWidget():Promise<Widget> {
@@ -34,29 +35,43 @@ function loadWidget():Promise<Widget> {
 const copy = {
   pt:{
     title:'A conversa continua.',
-    description:'Discordou, concordou ou tem algo a acrescentar? Este espaço também é seu.',
+    invitation:'Curtiu? Se sim, deixa teu comentário. Se não gostou, deixa também!',
+    placeholder:'Escreva o que você pensa...',
     name:'Nome ou apelido', comment:'Comentário', send:'Enviar comentário', sending:'Enviando…',
-    received:'Comentário recebido! Ele aparecerá aqui depois da moderação.',
+    confirmTitle:'Só falta se identificar.',
+    confirmDescription:'Seu comentário está pronto. Informe como deseja aparecer e confirme o envio para moderação.',
+    confirm:'Confirmar envio', back:'Voltar', invalidBody:'Escreva um comentário de até 600 caracteres.',
+    received:'Comentário recebido!', thanks:'Obrigado por participar. Seu comentário aparecerá depois da aprovação.',
     loading:'Carregando comentários…', empty:'Ainda não há comentários publicados.', more:'Carregar mais',
     error:'Não foi possível carregar os comentários. Tente novamente.', retry:'Tentar novamente',
     sendError:'Não foi possível enviar. Confira o texto e tente novamente.',
     limit:'Muitas tentativas. Aguarde um pouco antes de enviar novamente.',
     closed:'O envio de novos comentários está suspenso.', author:'Mário Serafim · Autor',
-    challenge:'Não foi possível carregar a verificação de segurança.', privacy:'Política de privacidade',
-    policy:'Discordâncias, críticas fundamentadas, correções e sugestões são bem-vindas. Os comentários passam por moderação humana. Ameaças, assédio, ataques abusivos, discriminação, exposição de dados privados, spam, propaganda abusiva e links maliciosos não são aceitos.',
+    challenge:'Não foi possível carregar a verificação de segurança.',
+    challengeLoading:'Carregando verificação…', challengeExpired:'A verificação expirou. Aguarde a renovação ou tente novamente.',
+    challengeRejected:'A verificação não foi aceita. Conclua a nova verificação para tentar novamente.',
+    moderation:'Cada comentário passa por aprovação antes de aparecer.',
+    rules:'Regras da conversa', privacy:'Política de privacidade', newTab:' (abre em nova aba)',
   },
   en:{
     title:'The conversation continues.',
-    description:'Agree, disagree, or have something to add? This space is yours too.',
+    invitation:'Liked it? Leave a comment. Didn’t like it? Leave one anyway!',
+    placeholder:'Write what you think...',
     name:'Name or nickname', comment:'Comment', send:'Send comment', sending:'Sending…',
-    received:'Comment received! It will appear here after moderation.',
+    confirmTitle:'Just tell us your name.',
+    confirmDescription:'Your comment is ready. Enter how you’d like to appear and confirm your submission for review.',
+    confirm:'Confirm submission', back:'Back', invalidBody:'Write a comment of up to 600 characters.',
+    received:'Comment received!', thanks:'Thanks for taking part. Your comment will appear after approval.',
     loading:'Loading comments…', empty:'No comments have been published yet.', more:'Load more',
     error:'Could not load comments. Please try again.', retry:'Try again',
     sendError:'Could not send your comment. Check your text and try again.',
     limit:'Too many attempts. Wait a little before sending again.',
     closed:'New comments are currently paused.', author:'Mário Serafim · Author',
-    challenge:'Could not load the security check.', privacy:'Privacy policy',
-    policy:'Disagreement, thoughtful criticism, corrections and suggestions are welcome. Comments are reviewed by a person. Threats, harassment, personal abuse, discrimination, sharing private information, spam, abusive advertising and malicious links are prohibited.',
+    challenge:'Could not load the security check.',
+    challengeLoading:'Loading the security check…', challengeExpired:'The security check expired. Wait for it to refresh or try again.',
+    challengeRejected:'The security check was not accepted. Complete the new check to try again.',
+    moderation:'Each comment is reviewed before it appears.',
+    rules:'Conversation rules', privacy:'Privacy policy', newTab:' (opens in a new tab)',
   },
 };
 
@@ -65,9 +80,13 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
   const [listing,setListing]=useState<Listing|null>(null);
   const [loading,setLoading]=useState(true), [loadError,setLoadError]=useState(false), [loadAttempt,setLoadAttempt]=useState(0);
   const [author,setAuthor]=useState(''), [body,setBody]=useState(''), [token,setToken]=useState('');
-  const [message,setMessage]=useState(''), [sendError,setSendError]=useState(''), [sending,setSending]=useState(false);
-  const [widgetError,setWidgetError]=useState(false), [widgetAttempt,setWidgetAttempt]=useState(0);
-  const widgetHost=useRef<HTMLDivElement>(null), widgetId=useRef<string|null>(null), submission=useRef(false);
+  const [received,setReceived]=useState(false), [sendError,setSendError]=useState(''), [sending,setSending]=useState(false);
+  const [panelOpen,setPanelOpen]=useState(false), [bodyInvalid,setBodyInvalid]=useState(false);
+  const [widgetStatus,setWidgetStatus]=useState<'loading'|'ready'|'expired'|'error'>('loading');
+  const [widgetAttempt,setWidgetAttempt]=useState(0);
+  const dialog=useRef<HTMLDialogElement>(null), dialogTitle=useRef<HTMLHeadingElement>(null);
+  const composer=useRef<HTMLTextAreaElement>(null), trigger=useRef<HTMLButtonElement>(null);
+  const widgetHost=useRef<HTMLDivElement>(null), submission=useRef(false);
   const endpoint='/api/comments?slug='+encodeURIComponent(slug);
   useEffect(()=>{
     const controller=new AbortController();
@@ -82,36 +101,58 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
   },[endpoint,loadAttempt]);
   const sitekey=listing?.sitekey;
   useEffect(()=>{
-    if(!sitekey||!widgetHost.current)return;
-    let cancelled=false;
+    if(!panelOpen||!sitekey||!widgetHost.current)return;
     const host=widgetHost.current;
-    setWidgetError(false);setToken('');
+    let cancelled=false, renderVersion=0, widgetId:string|null=null;
+    setWidgetStatus('loading');
+    setToken('');
     function render(api:Widget) {
-      if(widgetId.current!==null)api.remove(widgetId.current);
+      const version=++renderVersion;
+      const current=()=>!cancelled&&version===renderVersion;
+      if(widgetId!==null)api.remove(widgetId);
+      widgetId=null;
       setToken('');
-      widgetId.current=api.render(host,{
-        sitekey,action:'blog_comment',language:locale==='pt'?'pt-br':'en',size:'flexible',
+      setWidgetStatus('ready');
+      widgetId=api.render(host,{
+        sitekey,action:'blog_comment',language:locale==='pt'?'pt-br':'en',
+        size:host.clientWidth<300?'compact':'flexible',
         theme:document.documentElement.dataset.theme==='dark'?'dark':'light',
-        callback:(value:string)=>{setWidgetError(false);setToken(value)},
-        'expired-callback':()=>setToken(''),
-        'error-callback':()=>{setToken('');setWidgetError(true)},
+        'refresh-expired':'auto',
+        callback:(value:string)=>{if(current()){setWidgetStatus('ready');setToken(value)}},
+        'expired-callback':()=>{if(current()){setToken('');setWidgetStatus('expired')}},
+        'error-callback':()=>{if(current()){setToken('');setWidgetStatus('error')}},
       });
     }
     const observer=new MutationObserver(()=>{
       const api=widget();
-      if(api&&widgetId.current!==null){try{render(api)}catch{setWidgetError(true)}}
+      if(api&&widgetId!==null){try{render(api)}catch{setWidgetStatus('error')}}
     });
     void loadWidget().then(api=>{
       if(cancelled)return;
       render(api);
       observer.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
-    }).catch(()=>{if(!cancelled)setWidgetError(true)});
+    }).catch(()=>{if(!cancelled)setWidgetStatus('error')});
     return ()=>{
       cancelled=true;observer.disconnect();
-      if(widgetId.current!==null)widget()?.remove(widgetId.current);
-      widgetId.current=null;
+      if(widgetId!==null)widget()?.remove(widgetId);
     };
-  },[sitekey,widgetAttempt,locale]);
+  },[panelOpen,sitekey,widgetAttempt,locale]);
+  useEffect(()=>{
+    const viewport=window.visualViewport, panel=dialog.current;
+    if(!panelOpen||!viewport||!panel)return;
+    function fitPanel() {
+      if(!viewport||!panel)return;
+      panel.style.setProperty('--comment-viewport-height',`${viewport.height}px`);
+      panel.style.setProperty('--comment-viewport-bottom',`${Math.max(0,window.innerHeight-viewport.height-viewport.offsetTop)}px`);
+    }
+    fitPanel();
+    viewport.addEventListener('resize',fitPanel);
+    viewport.addEventListener('scroll',fitPanel);
+    return ()=>{
+      viewport.removeEventListener('resize',fitPanel);
+      viewport.removeEventListener('scroll',fitPanel);
+    };
+  },[panelOpen]);
   async function more() {
     if(listing?.nextPage==null||loading)return;
     setLoading(true);setLoadError(false);
@@ -123,33 +164,58 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
     } catch {setLoadError(true)}
     finally {setLoading(false)}
   }
+  const validBody=body.trim().length>0&&body.length<=commentLimit;
+  const validAuthor=author.trim().length>0&&author.length<=nameLimit;
+  function openPanel(event:FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if(!validBody){setBodyInvalid(true);composer.current?.focus();return}
+    if(!sitekey||!dialog.current||dialog.current.open)return;
+    setToken('');setSendError('');setWidgetStatus('loading');
+    dialog.current.showModal();
+    dialogTitle.current?.focus({preventScroll:true});
+    setPanelOpen(true);
+  }
+  function closePanel() {
+    if(submission.current)return;
+    dialog.current?.close();
+    setPanelOpen(false);setToken('');
+    trigger.current?.focus({preventScroll:true});
+  }
+  function retryWidget() {
+    setToken('');setWidgetStatus('loading');setWidgetAttempt(value=>value+1);
+  }
   async function submit(event:FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if(!token||submission.current)return;
+    if(!dialog.current?.open||!token||!validAuthor||!validBody||submission.current)return;
     const website=new FormData(event.currentTarget).get('website');
-    submission.current=true;setSending(true);setMessage('');setSendError('');
+    submission.current=true;setSending(true);setSendError('');
+    let accepted=false;
     try {
       const response=await fetch(endpoint,{
         method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({author,body,token,website}),signal:AbortSignal.timeout(18000),
       });
       if(response.status!==202){
-        setSendError(response.status===429?t.limit:response.status===403?t.closed:t.sendError);return;
+        const failure=await response.json().catch(()=>null) as {error?:string}|null;
+        setSendError(failure?.error==='invalid_challenge'?t.challengeRejected:
+          response.status===429?t.limit:failure?.error==='comments_closed'?t.closed:t.sendError);
+        return;
       }
-      setBody('');setAuthor('');setMessage(t.received);
+      accepted=true;
+      setBody('');setAuthor('');setReceived(true);
     } catch {setSendError(t.sendError)}
     finally {
       submission.current=false;setSending(false);setToken('');
-      if(widgetId.current!==null)widget()?.reset(widgetId.current);
+      if(accepted)closePanel();
+      else retryWidget();
     }
   }
   const date=(value:number)=>new Intl.DateTimeFormat(locale==='en'?'en':'pt-BR',{dateStyle:'medium',timeZone:'America/Fortaleza'}).format(value);
   return <section className="journal-comments" aria-labelledby="journal-comments-title">
     <h2 id="journal-comments-title">{t.title}</h2>
-    <p>{t.description}</p>
     {loading&&<p role="status">{t.loading}</p>}
     {loadError&&<p role="alert">{t.error} <button className="journal-comments-more" onClick={()=>listing?void more():setLoadAttempt(value=>value+1)}>{t.retry}</button></p>}
-    {listing&&!listing.comments.length&&<p>{t.empty}</p>}
+    {listing&&!listing.comments.length&&!listing.accepting&&<p>{t.empty}</p>}
     {listing&&listing.comments.length>0&&<ol className="journal-comments-list">
       {listing.comments.map((item,index)=><li key={index}>
         <header><strong>{item.author}</strong><time dateTime={new Date(item.date).toISOString()}>{date(item.date)}</time></header>
@@ -159,17 +225,50 @@ export function JournalComments({slug,locale,privacyHref}:{slug:string;locale:'p
     </ol>}
     {listing?.nextPage!=null&&!loadError&&<button className="journal-comments-more" type="button" disabled={loading} onClick={()=>void more()}>{t.more}</button>}
     {listing&&!listing.accepting&&<p>{t.closed}</p>}
-    {listing?.accepting&&<form className="journal-comment-form" onSubmit={submit}>
-      <p id="journal-comment-policy">{t.policy} <a href={privacyHref}>{t.privacy}</a>.</p>
-      <label>{t.name}<input required maxLength={50} autoComplete="nickname" value={author} onChange={event=>setAuthor(event.target.value)}/></label>
-      <label>{t.comment}<textarea required maxLength={800} rows={5} aria-describedby="journal-comment-count journal-comment-policy" value={body} onChange={event=>setBody(event.target.value)}/></label>
-      <span id="journal-comment-count">{body.length}/800</span>
-      <div className="journal-comment-trap" aria-hidden="true" inert><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
-      <div className="journal-comment-widget" ref={widgetHost}/>
-      {widgetError&&<p role="alert">{t.challenge} <button type="button" className="journal-comments-more" onClick={()=>setWidgetAttempt(value=>value+1)}>{t.retry}</button></p>}
-      <button className="journal-comment-submit" disabled={!token||sending||!author.trim()||!body.trim()} type="submit">{sending?t.sending:t.send}</button>
-      <p role="status">{message}</p>
-      {sendError&&<p role="alert">{sendError}</p>}
+    {listing?.accepting&&<form className="journal-comment-form" onSubmit={openPanel} noValidate>
+      {!listing.comments.length&&<p className="journal-comment-invitation">{t.invitation}</p>}
+      <label className="sr-only" htmlFor="journal-comment-body">{t.comment}</label>
+      <textarea id="journal-comment-body" ref={composer} required maxLength={commentLimit} rows={4}
+        placeholder={t.placeholder} aria-invalid={bodyInvalid||undefined}
+        aria-describedby={bodyInvalid?'journal-comment-count journal-comment-error':'journal-comment-count'}
+        value={body} onChange={event=>{setBody(event.target.value);setBodyInvalid(false);setReceived(false)}}/>
+      <div className="journal-comment-actions">
+        <span id="journal-comment-count">{body.length}/{commentLimit}</span>
+        <button ref={trigger} className="journal-action" type="submit" aria-haspopup="dialog">{t.send}</button>
+      </div>
+      {bodyInvalid&&<p id="journal-comment-error" role="alert">{t.invalidBody}</p>}
     </form>}
+    <div role="status" aria-atomic="true">
+      {received&&<><p><strong>{t.received}</strong></p><p>{t.thanks}</p></>}
+    </div>
+    <dialog ref={dialog} className="journal-comment-dialog" aria-labelledby="journal-comment-confirm-title"
+      aria-describedby="journal-comment-confirm-description"
+      onCancel={event=>{event.preventDefault();closePanel()}}>
+      <h2 id="journal-comment-confirm-title" ref={dialogTitle} tabIndex={-1}>{t.confirmTitle}</h2>
+      <p id="journal-comment-confirm-description">{t.confirmDescription}</p>
+      <form className="journal-comment-form" onSubmit={submit}>
+        <label>{t.name}<input required maxLength={nameLimit} autoComplete="nickname" readOnly={sending}
+          value={author} onChange={event=>setAuthor(event.target.value)}/></label>
+        <div className="journal-comment-trap" aria-hidden="true" inert><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
+        <div className="journal-comment-widget" ref={widgetHost}/>
+        {widgetStatus==='loading'&&<p role="status">{t.challengeLoading}</p>}
+        {(widgetStatus==='error'||widgetStatus==='expired')&&<p role="status">
+          {widgetStatus==='error'?t.challenge:t.challengeExpired}{' '}
+          <button type="button" className="journal-comments-more" disabled={sending} onClick={retryWidget}>{t.retry}</button>
+        </p>}
+        <div className="journal-comment-moderation">
+          <p>{t.moderation}</p>
+          <div>
+            <a href={`${privacyHref}#regras-da-conversa`} target="_blank" rel="noopener noreferrer">{t.rules}<span className="sr-only">{t.newTab}</span></a>
+            <a href={privacyHref} target="_blank" rel="noopener noreferrer">{t.privacy}<span className="sr-only">{t.newTab}</span></a>
+          </div>
+        </div>
+        {sendError&&<p role="alert">{sendError}</p>}
+        <div className="journal-comment-actions">
+          <button className="journal-action is-secondary" type="button" disabled={sending} onClick={closePanel}>{t.back}</button>
+          <button className="journal-action" disabled={!token||sending||!validAuthor||!validBody} type="submit">{sending?t.sending:t.confirm}</button>
+        </div>
+      </form>
+    </dialog>
   </section>;
 }
