@@ -938,3 +938,26 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
   .journal-footer-actions{padding:16px 0 0;border-left:0;border-top:1px solid var(--rule)}
 }
 @media(prefers-reduced-motion:reduce){.journal-footer-cta{transition:none}}
+
+
+/* Comments share the editorial reading width and existing color tokens. */
+.journal-comments{width:min(100% - 48px,740px);margin:clamp(40px,8vw,96px) auto;padding-block:clamp(24px,4vw,48px);border-block:1px solid var(--rule);color:var(--ink)}
+.journal-comments h2{font-size:clamp(32px,5vw,52px);margin-bottom:.65rem}
+.journal-comments p{margin-block:.5rem}
+.journal-comments-list{list-style:none;margin:1.5rem 0;padding:0}
+.journal-comments-list>li{padding:1rem 0;border-top:1px solid var(--rule);overflow-wrap:anywhere}
+.journal-comments-list header{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem 1rem}
+.journal-comments-list time,.journal-comments #journal-comment-count{color:var(--muted);font-size:.82rem}
+.journal-comment-text{white-space:pre-wrap}
+.journal-comment-reply{margin:.75rem 0 0;padding:.65rem 0 .3rem 1rem;border-inline-start:2px solid var(--accent)}
+.journal-comment-form{display:grid;gap:.85rem;margin-top:1.5rem;position:relative}
+.journal-comment-form label{display:grid;gap:.35rem}
+.journal-comment-form input,.journal-comment-form textarea{width:100%;min-height:44px;padding:.7rem;border:1px solid var(--control);border-radius:var(--journal-button-radius);background:var(--surface);color:var(--ink)}
+.journal-comment-form textarea{resize:vertical}
+.journal-comment-form a,.journal-comments-more{text-decoration:underline;text-underline-offset:4px}
+.journal-comment-trap{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip-path:inset(50%)}
+.journal-comment-widget{width:100%;min-height:65px}
+.journal-comment-submit,.journal-comments-more{justify-self:start;min-height:44px;padding:.6rem .9rem}
+.journal-comment-submit{background:var(--accent);color:var(--on-accent)}
+.journal-comment-submit:enabled:hover{background:var(--journal-red-button-hover)}
+.journal-comment-submit:disabled{opacity:.7}
