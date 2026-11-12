@@ -1,5 +1,5 @@
-[
+export default [
   "design-nao-e-arte-e-outros-absurdos-que-espalham-por-ai",
   "designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento",
   "o-novo-logo-da-caixa-e-a-pressa-de-ter-razao"
-]
+];

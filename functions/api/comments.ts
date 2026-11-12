@@ -1,4 +1,4 @@
-import publicSlugs from '../../src/content/journal-comments-public.json' with {type:'json'};
+import publicSlugs from '../../src/content/journal-comments-public.mjs';
 
 type Env = {
   COMMENTS_HMAC_SECRET?: string;
