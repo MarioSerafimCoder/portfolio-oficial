@@ -34,7 +34,7 @@ function loadWidget():Promise<Widget> {
 }
 const copy = {
   pt:{
-    title:'A conversa continua.',
+    title:'Comentários',
     invitation:'Curtiu? Se sim, deixa teu comentário. Se não gostou, deixa também!',
     placeholder:'Escreva o que você pensa...',
     name:'Nome ou apelido', comment:'Comentário', send:'Enviar comentário', sending:'Enviando…',
@@ -54,7 +54,7 @@ const copy = {
     rules:'Regras da conversa', privacy:'Política de privacidade', newTab:' (abre em nova aba)',
   },
   en:{
-    title:'The conversation continues.',
+    title:'Comments',
     invitation:'Liked it? Leave a comment. Didn’t like it? Leave one anyway!',
     placeholder:'Write what you think...',
     name:'Name or nickname', comment:'Comment', send:'Send comment', sending:'Sending…',

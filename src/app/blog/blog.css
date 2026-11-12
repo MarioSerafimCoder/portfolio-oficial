@@ -944,7 +944,8 @@ body:has(.journal-masthead) .site-footer .footer-base{border-color:var(--rule)}
 
 
 /* Comments share the editorial reading width and existing color tokens. */
-.journal-comments{width:min(100% - 48px,740px);margin:clamp(40px,8vw,96px) auto;padding-block:clamp(24px,4vw,48px);border-block:1px solid var(--rule);color:var(--ink)}
+.journal-post-page > article:has(+ .journal-comments) .journal-article-wrap.section-wrap{padding-bottom:clamp(16px,3vw,36px)}
+.journal-comments{width:min(100% - 48px,740px);margin:0 auto clamp(40px,8vw,96px);padding-block:clamp(24px,4vw,48px);border-block:1px solid var(--rule);color:var(--ink)}
 .journal-comments > h2{font-size:clamp(32px,5vw,52px);margin-bottom:.65rem}
 .journal-comments p{margin-block:.5rem}
 .journal-comments-list{list-style:none;margin:1.5rem 0;padding:0}
