@@ -19,7 +19,8 @@
 }
 
 :root[data-theme='dark'] .editorial-about h1 em,
-:root[data-theme='dark'] .editorial-about h2 em {
+:root[data-theme='dark'] .editorial-about h2 em,
+.editorial-about .about-close h2 em {
     color: color-mix(in srgb, var(--accent) 85%, var(--ink));
 }
 
@@ -290,12 +291,20 @@
 }
 
 .about-close {
+    --paper: #000;
+    --ink: var(--contrast-ink);
+    --muted: var(--ash);
+    --rule: #545454;
+    --focus: var(--contrast-ink);
+    --hover: color-mix(in srgb, var(--accent) 82%, var(--paper));
+    --on-accent: var(--contrast-ink);
     display: grid;
     grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
     gap: var(--about-gap);
     align-items: end;
     border-block: 1px solid var(--rule);
-    background: var(--surface);
+    background: var(--paper);
+    color: var(--ink);
 }
 
 .about-close h2 {
@@ -305,6 +314,10 @@
 
 .about-close p {
     margin: 0;
+}
+
+.about-close .pill:focus-visible::before {
+    background: var(--hover);
 }
 
 .about-close-actions {
