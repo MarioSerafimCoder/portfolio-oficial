@@ -17,23 +17,21 @@ Uma ilustradora termina um trabalho e publica no portfólio. Quer que sua arte s
 >
 > Parece que só existem duas alternativas: mostrar tudo ou esconder tudo. Só que nenhuma delas resolve o problema.
 
-Em artigo publicado pela Creative Commons, Anna Tumadóttir discute como a dificuldade de estabelecer condições para determinados usos pode levar criadores a restringir o acesso às próprias obras.&#x20;
+Em artigo publicado pela **Creative Commons**, *Anna Tumadóttir* discute como a dificuldade de estabelecer condições para determinados usos pode levar criadores a restringir o acesso às próprias obras.&#x20;
 
-É uma contradição interessante: a internet facilita a circulação cultural, mas essa mesma abertura pode expor trabalhos a usos que seus autores não desejamUma ilustradora poderia, por exemplo, disponibilizar parte do portfólio e explicar claramente quais reutilizações permite. Isso não impediria usos indevidos, mas ajudaria a comunicar suas escolhas sem transformar cada visita em um pedido de autorização.
+É uma contradição interessante: a internet facilita a circulação cultural, mas essa mesma abertura pode expor trabalhos a usos que seus autores não desejam. Uma ilustradora poderia disponibilizar parte do portfólio e explicar claramente quais reutilizações permite, isso não impediria usos indevidos, mas ajudaria a comunicar suas escolhas sem transformar cada visita em um pedido de autorização.
 
 > [!QUOTE]
 >
-> Leonardo Foletto, em ensaio na BaixaCultura, amplia essa discussão ao examinar como a inteligência artificial generativa pode se apropriar economicamente do conhecimento produzido coletivamente. Sua crítica não se limita à remuneração individual dos autores. Ele questiona quem controla essa infraestrutura e quem se beneficia do valor construído por tantas pessoas.
+> Leonardo Foletto, em ensaio na BaixaCultura, amplia essa discussão ao examinar como a inteligência artificial generativa pode se apropriar economicamente do conhecimento produzido coletivamente. Sua crítica não se limita à remuneração individual dos autores, ele questiona quem controla essa infraestrutura e quem se beneficia do valor construído por tantas pessoas.
 
 É uma diferença importante. Negociar o uso de uma ilustração pode proteger interesses individuais, mas não resolve, por si só, as desigualdades de um sistema que depende da produção coletiva.
 
 > [!AUTHOR]
 >
-> No fim, a discussão apresenta um dilema. Exigir autorização para qualquer acesso pode prejudicar a circulação da cultura. Permitir qualquer reutilização, por outro lado, pode contrariar os interesses de quem cria. Não acredito que a solução esteja em escolher um desses extremos. Prefiro pensar em formas de compartilhar que respeitem tanto o desejo de circulação quanto a autonomia dos autores.
+> No fim, a discussão apresenta um dilema. Exigir autorização para qualquer acesso pode dificultar a circulação da cultura. Permitir qualquer reutilização, pode contrariar os interesses de quem cria. Não acredito que a solução esteja em escolher um desses extremos, gosto de pensar em formas de compartilhar que respeitem tanto o desejo de circulação quanto a autonomia dos autores.
 
-Porque uma obra pode ser pública sem que isso signifique estar disponível para qualquer finalidade.
-
-E seria uma pena se, para proteger o próprio trabalho, o artista precisasse abrir mão de ser visto.
+No final uma obra pode ser pública sem que isso signifique estar disponível para qualquer finalidade, de fato seria uma pena se, para proteger o próprio trabalho, o artista precisasse abrir mão de ser visto.&#xA;
 
 Os artigos usados nesse post, vai deixa de preguiça e dá uma lida também:
 
