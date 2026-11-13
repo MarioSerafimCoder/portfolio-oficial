@@ -27,13 +27,6 @@
     line-height: 1.62;
 }
 
-.about-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-    gap: var(--about-gap);
-    align-items: center;
-}
-
 .about-kicker,
 .about-index,
 .about-journey-image figcaption {
@@ -52,7 +45,7 @@
 }
 
 .about-hero h1 {
-    max-width: 13ch;
+    max-width: 19ch;
     margin-block: clamp(16px, 2vw, 30px) clamp(18px, 2.4vw, 34px);
     font-size: clamp(60px, 7.4vw, 110px);
     line-height: .96;
@@ -69,17 +62,10 @@
     font-size: clamp(17px, 1.52vw, 22px);
 }
 
-.about-hero-image,
 .about-journey-image {
     margin: 0;
 }
 
-.about-hero-image {
-    width: min(100%, 450px);
-    justify-self: end;
-}
-
-.about-hero-image img,
 .about-journey-image img,
 .about-case-media img {
     width: 100%;
@@ -349,10 +335,6 @@
 }
 
 @media (701px <= width <= 1000px) {
-    .about-hero {
-        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    }
-
     .about-hero h1 {
         font-size: clamp(58px, 8.2vw, 84px);
     }
@@ -368,7 +350,6 @@
         padding-top: 28px;
     }
 
-    .about-hero,
     .about-journey,
     .about-interests,
     .about-case,
@@ -379,10 +360,6 @@
 
     .about-hero h1 {
         font-size: clamp(49px, 12vw, 78px);
-    }
-
-    .about-hero-image {
-        width: min(80%, 350px);
     }
 
     .about-journey {
