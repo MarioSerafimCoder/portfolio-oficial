@@ -1,6 +1,7 @@
 .editorial-about {
     --about-section-space: clamp(52px, 7vw, 104px);
     --about-gap: clamp(24px, 4vw, 64px);
+    --about-accent: var(--accent);
 }
 
 .editorial-about > section {
@@ -15,13 +16,13 @@
 
 .editorial-about h1 em,
 .editorial-about h2 em {
-    color: var(--accent);
+    color: var(--about-accent);
 }
 
-:root[data-theme='dark'] .editorial-about h1 em,
-:root[data-theme='dark'] .editorial-about h2 em,
-.editorial-about .about-close h2 em {
-    color: color-mix(in srgb, var(--accent) 85%, var(--ink));
+:root[data-theme='dark'] .editorial-about,
+.about-close,
+.about-practice {
+    --about-accent: color-mix(in srgb, var(--accent) 78%, var(--contrast-ink));
 }
 
 .editorial-about p {
@@ -144,12 +145,13 @@
 }
 
 .about-case {
+    position: relative;
+    border-top: 1px solid var(--rule);
     display: grid;
     grid-template-columns: minmax(0, 1.72fr) minmax(0, 1fr);
     gap: 20px var(--about-gap);
     align-items: center;
     padding-block: clamp(26px, 4vw, 54px);
-    border-top: 1px solid var(--rule);
 }
 
 .about-case--rooftop {
@@ -188,6 +190,7 @@
 
 .about-case .about-link {
     margin-top: 12px;
+    border-bottom: 1px solid var(--control);
 }
 
 .about-link:focus-visible,
@@ -266,6 +269,7 @@
 }
 
 .about-reading li {
+    position: relative;
     border-top: 1px solid var(--rule);
     padding-block: 12px;
 }
@@ -276,6 +280,7 @@
 
 .about-article-link {
     display: flex;
+    align-items: start;
     justify-content: space-between;
 }
 
@@ -288,6 +293,24 @@
 
 .about-reading li p {
     margin-top: 5px;
+}
+
+.about-article-icon {
+    display: grid;
+    flex: 0 0 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    border: 1px solid var(--control);
+    border-radius: 50%;
+}
+
+.about-arrow {
+    display: inline-block;
+    --about-arrow-shift: 3px -3px;
+}
+
+.about-arrow-down {
+    --about-arrow-shift: 0 4px;
 }
 
 .about-close {
@@ -328,22 +351,99 @@
     margin-top: 22px;
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .about-link:hover,
-    .about-article-link:hover {
-        text-decoration: underline;
-        text-underline-offset: .2em;
+.about-case-link::after,
+.about-article-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+.about-case-link:focus-visible {
+    color: var(--about-accent);
+    border-color: currentColor;
+}
+
+.about-article-link:focus-visible .about-article-icon {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .about-case-media img {
+        transition: scale var(--motion-image) var(--motion-ease);
+    }
+
+    .about-arrow {
+        transition: translate var(--motion-ui) var(--motion-ease);
+    }
+
+    .about-article-icon {
+        transition: background-color var(--motion-fast), border-color var(--motion-fast), color var(--motion-fast);
+    }
+
+    .about-case:has(.about-case-link:focus-visible) img {
+        scale: 1.035;
+    }
+
+    .editorial-about a:focus-visible .about-arrow {
+        translate: var(--about-arrow-shift);
     }
 }
 
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    .about-case-media img {
-        transition: transform 380ms var(--ease);
+@media (hover: hover) and (pointer: fine) {
+    .about-case-link:hover {
+        color: var(--about-accent);
+        border-color: currentColor;
     }
 
-    .about-case:has(.about-link:hover) .about-case-media img,
-    .about-case:has(.about-link:focus-visible) .about-case-media img {
-        transform: scale(1.025);
+    .about-article-link:hover .about-article-icon {
+        background: var(--ink);
+        border-color: var(--ink);
+        color: var(--paper);
+    }
+
+    .about-chapters li,
+    .about-practice li {
+        position: relative;
+    }
+
+    :is(.about-chapters, .about-practice-list) li::before {
+        content: '';
+        position: absolute;
+        inset: -1px 0 auto;
+        height: 2px;
+        background: var(--about-accent);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    :is(.about-chapters, .about-practice-list) li:hover::before {
+        opacity: 1;
+    }
+
+    :is(.about-chapters, .about-practice-list) li:hover .about-index {
+        color: var(--about-accent);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .about-case:has(.about-case-link:hover) img {
+            scale: 1.035;
+        }
+
+        .editorial-about a:hover .about-arrow {
+            translate: var(--about-arrow-shift);
+        }
+
+        :is(.about-chapters, .about-practice-list) li::before {
+            scale: 0 1;
+            transform-origin: left;
+            transition: scale var(--motion-image) var(--motion-ease), opacity var(--motion-fast);
+        }
+
+        :is(.about-chapters, .about-practice-list) li:hover::before {
+            scale: 1;
+        }
     }
 }
 

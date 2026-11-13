@@ -137,8 +137,8 @@ export default function About({ locale = 'pt' }: { locale?: SiteLocale } = {}) {
                                 <p className="about-kicker">{i18nText(project.nature)}</p>
                                 <h3>{title}</h3>
                                 <p>{i18nText(selection.text)}</p>
-                                <Link className="text-link about-link" href={i18nHref(`/projetos/${project.slug}`)}>
-                                    {i18nText(selection.link)} <span aria-hidden="true">↗</span>
+                                <Link className="about-link about-case-link" href={i18nHref(`/projetos/${project.slug}`)}>
+                                    {i18nText(selection.link)} <span className="about-arrow" aria-hidden="true">↗</span>
                                 </Link>
                             </div>
                         </article>
@@ -180,7 +180,8 @@ export default function About({ locale = 'pt' }: { locale?: SiteLocale } = {}) {
                                 return (
                                     <li key={post.slug}>
                                         <Link className="about-article-link" href={i18nHref(`/blog/${post.slug}`)}>
-                                            <h4>{copy.title}</h4><span aria-hidden="true">↗</span>
+                                            <h4>{copy.title}</h4>
+                                            <span className="about-article-icon" aria-hidden="true"><span className="about-arrow">↗</span></span>
                                         </Link>
                                         <p>{copy.summary}</p>
                                     </li>
@@ -196,8 +197,8 @@ export default function About({ locale = 'pt' }: { locale?: SiteLocale } = {}) {
                 <div>
                     <p>{i18nText('Nos projetos, mostro como as respostas foram tomando forma, da primeira escolha visual ao uso de cada peça.')}</p>
                     <div className="about-close-actions">
-                        <Link className="pill filled" href={i18nHref('/projetos')}>{i18nText('Conhecer meus projetos')} <span aria-hidden="true">↗</span></Link>
-                        <a className="text-link about-link" href="#contato">{i18nText('Vamos conversar')} <span aria-hidden="true">↓</span></a>
+                        <Link className="pill filled" href={i18nHref('/projetos')}>{i18nText('Conhecer meus projetos')} <span className="about-arrow" aria-hidden="true">↗</span></Link>
+                        <a className="text-link about-link" href="#contato">{i18nText('Vamos conversar')} <span className="about-arrow about-arrow-down" aria-hidden="true">↓</span></a>
                     </div>
                 </div>
             </section>
