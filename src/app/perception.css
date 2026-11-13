@@ -33,11 +33,16 @@
 .editorial-rooftop-mark{aspect-ratio:2000/1160;background:transparent}
 .editorial-simetria{padding:35px 0 0}
 .editorial-simetria-application{margin-top:-70px;z-index:2;border:8px solid var(--paper)}
-.editorial-closing article:first-child .editorial-image{transition:transform .35s var(--motion-ease)}
-.editorial-closing article:last-child .editorial-image{border-radius:2px;transition:border-radius .4s var(--motion-ease)}
-.editorial-closing article:first-child:focus-within .editorial-image{transform:translateY(-5px)}
-.editorial-closing article:last-child:focus-within .editorial-image{border-radius:36px 2px 36px 2px}
-@media(hover:hover) and (pointer:fine){.editorial-closing article:first-child:hover .editorial-image{transform:translateY(-5px)}.editorial-closing article:last-child:hover .editorial-image{border-radius:36px 2px 36px 2px}}
+:is(.editorial-closing article:first-child,.about-case--rooftop) .editorial-image{transition:transform .35s var(--motion-ease)}
+:is(.editorial-closing article:last-child,.about-case--simetria) .editorial-image{border-radius:2px;transition:border-radius .4s var(--motion-ease)}
+@media(prefers-reduced-motion:no-preference){
+ :is(.editorial-closing article:first-child,.about-case--rooftop):focus-within .editorial-image{transform:translateY(-5px)}
+ :is(.editorial-closing article:last-child,.about-case--simetria):focus-within .editorial-image{border-radius:36px 2px 36px 2px}
+ @media(hover:hover) and (pointer:fine){
+  :is(.editorial-closing article:first-child,.about-case--rooftop):hover .editorial-image{transform:translateY(-5px)}
+  :is(.editorial-closing article:last-child,.about-case--simetria):hover .editorial-image{border-radius:36px 2px 36px 2px}
+ }
+}
 /* A fixed-height sticky header compacts internally, with no layout shift. */
 .site-header{position:sticky;top:0;height:88px;background:color-mix(in srgb,var(--paper) 94%,transparent);border-bottom:1px solid transparent;transition:border-color .25s,background .25s;backdrop-filter:blur(12px)}
 .site-header[data-compact=true]{border-bottom-color:var(--rule)}
