@@ -41,10 +41,8 @@
 /* A fixed-height sticky header compacts internally, with no layout shift. */
 .site-header{position:sticky;top:0;height:88px;background:color-mix(in srgb,var(--paper) 94%,transparent);border-bottom:1px solid transparent;transition:border-color .25s,background .25s;backdrop-filter:blur(12px)}
 .site-header[data-compact=true]{border-bottom-color:var(--rule)}
-.site-header .wordmark,.menu-top .wordmark{font-family:var(--font-serif);font-weight:400;letter-spacing:-.045em;font-size:32px;display:inline-flex;align-items:baseline;gap:.2em;transition:transform .3s;transform-origin:left center}
+.menu-top .wordmark{font-family:var(--font-serif);font-weight:400;letter-spacing:-.045em;font-size:32px;display:inline-flex;align-items:baseline;gap:.2em;transition:transform .3s;transform-origin:left center}
 .wordmark-logo{display:block;width:auto;height:28px}
-.site-header[data-compact=true] .wordmark{transform:scale(.88)}
-.site-header .wordmark::after{content:none}
 .header-actions{gap:22px}.header-nav{gap:24px}
 .header-nav>a:last-child{border-bottom:1px solid var(--control);padding:7px 0}
 .site-header .menu-trigger{width:74px;height:42px;flex-direction:row;border:1px solid var(--control);border-radius:30px;gap:9px;font-size:12px}

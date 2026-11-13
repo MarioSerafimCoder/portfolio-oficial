@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
-import Script from 'next/script';
 import {Header,Footer,MotionObserver} from '@/components/shell';
 import {JournalPreferencesProvider,SiteSkipLink} from '@/components/journal-preferences';
 import {site} from '@/content/site';
@@ -13,6 +12,7 @@ import '@/app/reveals.css';
 import '@/app/editorial.css';
 import '@/app/perception.css';
 import '@/app/scenography.css';
+import '@/app/animated-logo.css';
 import {ChapterReveals} from '@/components/chapter-reveals';
 import {SpatialMotion} from '@/components/spatial-motion';
 import {AnalyticsProvider} from '@/components/analytics-provider';
@@ -29,6 +29,20 @@ export const metadata:Metadata={
  robots:{index:true,follow:true},
 };
 export const viewport:Viewport={width:'device-width',initialScale:1,themeColor:[{media:'(prefers-color-scheme: light)',color:'#F8F9FA'},{media:'(prefers-color-scheme: dark)',color:'#121212'}]};
-const themeScript=`(()=>{try{const v=localStorage.getItem('ms-theme');document.documentElement.dataset.theme=v==='dark'||v==='light'?v:matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}})();`;
+// Run inline before the header is parsed, including on static exports without hydration yet.
+const appearanceScript = `(() => {
+    const root = document.documentElement;
+    let theme;
+    try { theme = localStorage.getItem('ms-theme'); } catch {}
+    root.dataset.theme = theme === 'dark' || theme === 'light'
+        ? theme : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+    const key = 'mario-serafim-logo-intro-v1';
+    try {
+        if (sessionStorage.getItem(key)) return;
+        sessionStorage.setItem(key, '1');
+    } catch {}
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) root.dataset.logoIntro = '';
+})();`;
 /** Shared body content only. Every root layout owns its document elements directly. */
-export default function SiteLayout({children}:{children:React.ReactNode}){return <><Script id="site-theme" strategy="beforeInteractive" dangerouslySetInnerHTML={{__html:themeScript}}/><JournalPreferencesProvider><SiteSkipLink/><Header/>{children}<Footer/><MotionObserver/><SpatialMotion/><ChapterReveals/><AnalyticsProvider/></JournalPreferencesProvider></>}
+export default function SiteLayout({children}:{children:React.ReactNode}){return <><script id="site-appearance" dangerouslySetInnerHTML={{__html:appearanceScript}}/><JournalPreferencesProvider><SiteSkipLink/><Header/>{children}<Footer/><MotionObserver/><SpatialMotion/><ChapterReveals/><AnalyticsProvider/></JournalPreferencesProvider></>}

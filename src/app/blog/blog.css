@@ -359,18 +359,18 @@
 .journal-language-note{font-size:13px!important;color:var(--muted)!important;margin-top:18px}
 @media(max-width:700px){
   .journal-site-header{height:136px;align-items:flex-start;padding-top:0}
-  .journal-site-header>.wordmark,.journal-site-header>.header-actions{height:74px;display:flex;align-items:center}
+  .journal-site-header>.header-brand,.journal-site-header>.header-actions{height:74px;display:flex;align-items:center}
   .journal-site-header .header-actions{gap:4px}
   .journal-header-tools{gap:4px}
   .journal-header-search{position:absolute;top:77px;left:var(--gutter);right:var(--gutter);width:auto}
   .journal-language-toggle{min-width:59px}
   .site-footer:has(.journal-footer-invitation) .footer-base{grid-template-columns:1fr}
 }
-@media(max-width:380px){.journal-site-header>.wordmark{font-size:12px}.journal-site-header .header-actions{gap:0}.journal-language-toggle{min-width:56px}}
+@media(max-width:380px){.journal-site-header .header-actions{gap:0}.journal-language-toggle{min-width:56px}}
 
 @media(max-width:700px){
   .journal-site-header{justify-content:space-between}
-  .journal-site-header>.wordmark,.journal-site-header>.header-actions{height:74px}
+  .journal-site-header>.header-brand,.journal-site-header>.header-actions{height:74px}
   .journal-header-search{right:calc(var(--gutter) + 70px)}
   .journal-language-toggle{position:absolute;top:77px;right:var(--gutter);height:44px;min-width:60px}
 }
