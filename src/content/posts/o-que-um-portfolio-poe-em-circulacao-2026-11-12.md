@@ -37,8 +37,6 @@ E seria uma pena se, para proteger o próprio trabalho, o artista precisasse abr
 
 &#x20;Referências consultadas
 
-1\. \*\*Anna Tumadóttir — Creative Commons (2026).\*\* \[A Principled Approach as the Sands Shift]\([https://creativecommons.org/2026/09/21/a-principled-approach-as-the-sands-shift/](https://creativecommons.org/2026/09/21/a-principled-approach-as-the-sands-shift/)).&#xA;
-
-2\. \*\*InternetLab (2026).\*\* \[Nota sobre a menção à pesquisa “Papo de IA” em comunicado da Meta]\([https://internetlab.org.br/pt/opiniao/nota-sobre-a-mencao-a-pesquisa-papo-de-ia-em-comunicado-da-meta/](https://internetlab.org.br/pt/opiniao/nota-sobre-a-mencao-a-pesquisa-papo-de-ia-em-comunicado-da-meta/)).&#x20;&#xA;
-
-3\. \*\*Leonardo Foletto — BaixaCultura (2026).\*\* \[Desnaturalizar a IA: os comuns digitais como matéria-prima de um novo cercamento]\([https://baixacultura.org/2026/07/13/desnaturalizar-a-ia-os-comuns-digitais-como-materia-prima-de-um-novo-cercamento/](https://baixacultura.org/2026/07/13/desnaturalizar-a-ia-os-comuns-digitais-como-materia-prima-de-um-novo-cercamento/)).
+1. Anna Tumadóttir — Creative Commons (2026).\*\* \[A Principled Approach as the Sands Shift]\([https://creativecommons.org/2026/09/21/a-principled-approach-as-the-sands-shift/](https://creativecommons.org/2026/09/21/a-principled-approach-as-the-sands-shift/)).&#xA;
+2. InternetLab (2026).\*\* \[Nota sobre a menção à pesquisa “Papo de IA” em comunicado da Meta]\([https://internetlab.org.br/pt/opiniao/nota-sobre-a-mencao-a-pesquisa-papo-de-ia-em-comunicado-da-meta/](https://internetlab.org.br/pt/opiniao/nota-sobre-a-mencao-a-pesquisa-papo-de-ia-em-comunicado-da-meta/)).&#x20;&#xA;
+3. Leonardo Foletto — BaixaCultura (2026).\*\* \[Desnaturalizar a IA: os comuns digitais como matéria-prima de um novo cercamento]\([https://baixacultura.org/2026/07/13/desnaturalizar-a-ia-os-comuns-digitais-como-materia-prima-de-um-novo-cercamento/](https://baixacultura.org/2026/07/13/desnaturalizar-a-ia-os-comuns-digitais-como-materia-prima-de-um-novo-cercamento/)).
