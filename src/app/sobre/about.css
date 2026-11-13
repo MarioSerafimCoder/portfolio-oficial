@@ -88,8 +88,7 @@
 }
 
 .about-chapters,
-.about-practice-list,
-.about-reading ul {
+.about-practice-list {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -122,7 +121,7 @@
 .about-practice li p,
 .about-studies > p,
 .about-reading > p:not(.about-kicker),
-.about-reading li p,
+.about-article p,
 .about-close p {
     margin-top: 12px;
     color: var(--muted);
@@ -264,18 +263,25 @@
     margin-top: 8px;
 }
 
-.about-reading ul {
-    margin-top: 20px;
-}
-
-.about-reading li {
+.about-article {
     position: relative;
+    margin-top: 20px;
+    padding-top: 16px;
     border-top: 1px solid var(--rule);
-    padding-block: 12px;
 }
 
-.about-reading li:last-child {
-    padding-bottom: 0;
+.about-article-cover {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2 / 1;
+    margin-bottom: 12px;
+    border-radius: 2px;
+    background: var(--paper);
+}
+
+.about-article-cover img {
+    object-fit: cover;
+    -webkit-touch-callout: none;
 }
 
 .about-article-link {
@@ -291,7 +297,7 @@
     text-wrap: pretty;
 }
 
-.about-reading li p {
+.about-article p {
     margin-top: 5px;
 }
 
@@ -363,6 +369,28 @@
     .about-article-link:hover h4 {
         text-decoration: underline;
         text-underline-offset: .16em;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .about-article-cover img {
+        transition: scale var(--motion-image) var(--motion-ease);
+    }
+
+    .about-article:has(.about-article-link:focus-visible) img {
+        scale: 1.04;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .about-article:hover img {
+            scale: 1.04;
+        }
+    }
+}
+
+@media print {
+    .about-article-cover {
+        display: none;
     }
 }
 

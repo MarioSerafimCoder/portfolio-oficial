@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { JournalImage } from '@/components/journal-image';
 import { publishedJournalPosts } from '@/content/journal';
+import { journalPostForLocale } from '@/content/journal-i18n';
 import dimensions from '@/content/media-dimensions.json';
 import { projects, type Project } from '@/content/projects';
 import { site } from '@/content/site';
 import { createTranslator, translateObject } from '@/i18n/translate';
 import type { SiteLocale } from '@/i18n/routes';
+import { journalCoverUrl } from '@/lib/journal-cover-url';
 import { socialLinks } from '@/lib/site-links';
 import '@/app/sobre/about.css';
 
@@ -55,11 +58,6 @@ const featuredProjects = projects.filter((project): project is Project & { slug:
 const trajectoryImage = projects.find(project => project.slug === 'amazonita')?.gallery.find(
     image => image.src === '/media/amazonita-editorial-1.webp',
 );
-const featuredPostSlugs = new Set([
-    'designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento',
-    'o-futuro-da-criatividade-comeca-com-uma-pausa',
-]);
-
 const workingHabits = [
     {
         title: 'Entender',
@@ -90,9 +88,8 @@ export default function About({ locale = 'pt' }: { locale?: SiteLocale } = {}) {
     const { i18nText, i18nHref } = createTranslator(locale);
     const origin = (process.env.NEXT_PUBLIC_SITE_URL || 'https://marioserafim.com.br').replace(/\/$/, '');
     const structuredData = { '@context': 'https://schema.org', '@type': 'Person', name: site.name, url: origin, jobTitle: 'Diretor de arte', sameAs: socialLinks.map(link => link.url) };
-    const featuredPosts = publishedJournalPosts.filter(post =>
-        featuredPostSlugs.has(post.slug) && (locale === 'pt' || post.translations?.en),
-    );
+    const latestPost = publishedJournalPosts.find(post => locale === 'pt' || post.translations?.en);
+    const latestPostCopy = latestPost && journalPostForLocale(latestPost, locale);
 
     return (
         <main id="conteudo" className="editorial-about">
@@ -169,25 +166,24 @@ export default function About({ locale = 'pt' }: { locale?: SiteLocale } = {}) {
                         ))}
                     </dl>
                 </div>
-                {featuredPosts.length > 0 && (
+                {latestPost && latestPostCopy && (
                     <div className="about-reading">
                         <p className="about-kicker">Pausa do café</p>
                         <h3>{i18nText('Também penso em voz alta.')}</h3>
                         <p>{i18nText('Escrevo sobre design, arte e a profissão. Volto com frequência a uma pergunta: o que muda no nosso jeito de criar quando muda a ferramenta?')}</p>
-                        <ul role="list">
-                            {featuredPosts.map(post => {
-                                const copy = locale === 'en' ? post.translations?.en ?? post : post;
-                                return (
-                                    <li key={post.slug}>
-                                        <Link className="about-article-link" href={i18nHref(`/blog/${post.slug}`)}>
-                                            <h4>{copy.title}</h4>
-                                            <span aria-hidden="true">↗</span>
-                                        </Link>
-                                        <p>{copy.summary}</p>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                        <article className="about-article">
+                            {latestPost.cover && (
+                                <div className="about-article-cover">
+                                    <JournalImage src={journalCoverUrl(latestPost.cover.src)} alt={latestPostCopy.coverAlt ?? ''}
+                                        fill sizes="(max-width: 700px) 84vw, 42vw" style={{ objectPosition: latestPost.cover.position }} />
+                                </div>
+                            )}
+                            <Link className="about-article-link" href={i18nHref(`/blog/${latestPost.slug}`)}>
+                                <h4>{latestPostCopy.title}</h4>
+                                <span aria-hidden="true">↗</span>
+                            </Link>
+                            <p>{latestPostCopy.summary}</p>
+                        </article>
                     </div>
                 )}
             </section>
