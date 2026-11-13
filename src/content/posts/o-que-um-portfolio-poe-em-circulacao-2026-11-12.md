@@ -33,9 +33,9 @@ Em artigo publicado pela Creative Commons, Anna Tumadóttir discute como a dific
 
 Porque uma obra pode ser pública sem que isso signifique estar disponível para qualquer finalidade.
 
-E seria uma pena se, para proteger o próprio trabalho, o artista precisasse abrir mão de ser visto.&#xA;
+E seria uma pena se, para proteger o próprio trabalho, o artista precisasse abrir mão de ser visto.
 
-&#x20;Referências consultadas
+Os artigos usados nesse post, vai deixa de preguiça e dá uma lida também:
 
 1. Anna Tumadóttir — Creative Commons (2026).\*\* \[A Principled Approach as the Sands Shift]\([https://creativecommons.org/2026/09/21/a-principled-approach-as-the-sands-shift/](https://creativecommons.org/2026/09/21/a-principled-approach-as-the-sands-shift/)).&#xA;
 2. InternetLab (2026).\*\* \[Nota sobre a menção à pesquisa “Papo de IA” em comunicado da Meta]\([https://internetlab.org.br/pt/opiniao/nota-sobre-a-mencao-a-pesquisa-papo-de-ia-em-comunicado-da-meta/](https://internetlab.org.br/pt/opiniao/nota-sobre-a-mencao-a-pesquisa-papo-de-ia-em-comunicado-da-meta/)).&#x20;&#xA;
