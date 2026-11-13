@@ -1,62 +1,212 @@
-import {translateObject} from '@/i18n/translate';
-import {createTranslator} from '@/i18n/translate';
-import type {SiteLocale} from '@/i18n/routes';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import { AboutTypewriter } from '@/components/about-typewriter';
-import { PointerProse } from '@/components/pointer-prose';
-import '@/app/sobre/about.css';
+import { publishedJournalPosts } from '@/content/journal';
+import dimensions from '@/content/media-dimensions.json';
+import { projects, type Project } from '@/content/projects';
 import { site } from '@/content/site';
+import { createTranslator, translateObject } from '@/i18n/translate';
+import type { SiteLocale } from '@/i18n/routes';
 import { socialLinks } from '@/lib/site-links';
+import '@/app/sobre/about.css';
+
 export const metadata: Metadata = {
     title: 'Sobre Mário Serafim | Diretor de Arte e Designer',
     description: 'Sou Mário Serafim, diretor de arte em Fortaleza. Trabalho com identidade visual, campanhas e projetos digitais.',
     alternates: { canonical: '/sobre' },
     openGraph: { title: 'Sobre Mário Serafim | Direção de arte em Fortaleza', description: 'Minha trajetória, formação e maneira de trabalhar com direção de arte e identidade visual.', url: '/sobre' },
 };
-// Certificação Adobe: reservar a inclusão até confirmar título oficial e validade.
-const highlights = [
-    { label: 'Direção de Arte', body: 'Pós-graduação pela Anhanguera. Uma formação que acompanha minha atuação profissional.' },
-    { label: 'Marketing', body: 'Graduação pela Wyden/Fanor. Foi onde minha formação profissional começou.' },
-    { label: 'UX, UI e Desenvolvimento Web', body: 'Estudos em experiência do usuário, interfaces digitais e programação. Conhecimentos que ajudam a aproximar a criação visual do uso real.' },
+
+const chapters = [
+    {
+        title: 'O começo no marketing',
+        body: 'Minha formação começou no marketing. Também trabalhei em gráfica rápida, onde ouvi muita gente tratar design como se fosse só apertar uns botões no Photoshop. Aos poucos, fui me interessando justamente pelo que ficava de fora dessa ideia de trabalho: entender o que precisava ser comunicado e fazer escolhas a partir daí.',
+    },
+    {
+        title: 'Agências, educação e esporte',
+        body: 'Passei por agências, educação e esporte. Nas agências, vi a demanda por conteúdo crescer e o tempo para explorar ideias encolher. Circular entre áreas diferentes me fez prestar mais atenção em quem recebe o trabalho e no contexto em que ele vai aparecer.',
+    },
+    {
+        title: 'Da rocha à interface',
+        body: 'Trabalhar com rochas naturais me pôs diante de uma matéria que já tem cor, textura e presença. Na direção de arte, precisei decidir quanto espaço deixar para ela. Estudar UX, UI e desenvolvimento web me ajudou a levar perguntas como essa para a tela, onde a apresentação também precisa funcionar como interface.',
+    },
 ];
-const processParagraphs = [
-    'Antes de pensar em cores, fontes ou referências, prefiro entender o problema. Quem é a marca? Com quem ela conversa? O que precisa mudar?',
-    'Parece óbvio, eu sei. Mas um layout bonito não faz milagre com um briefing mal resolvido.',
-    'Também fui estudar UX e desenvolvimento web. Não pra abandonar a direção de arte, mas pra entender o que acontece depois que a ideia sai da apresentação e precisa funcionar de verdade.',
-    'Gosto de testar, questionar e mudar de ideia quando aparece uma solução melhor. Faz parte.',
+
+const projectSelections = {
+    amazonita: {
+        text: 'Usei uma paleta neutra para dar espaço ao verde-azulado da rocha. No motion, preferi transições sutis para que o movimento ajudasse a perceber a textura.',
+        link: 'Ver projeto Amazonita',
+    },
+    rooftop: {
+        text: 'Escolhi uma assinatura serifada para dialogar com as linhas precisas da arquitetura. Na apresentação editorial, dei espaço às imagens e usei a tipografia para organizar a leitura.',
+        link: 'Ver projeto Rooftop Arquitetura',
+        image: '/media/rooftop-02.webp',
+    },
+    simetria: {
+        text: 'Usei curvas equilibradas no símbolo e uma paleta de tons foscos para expressar cuidado. O padrão modular me permitiu levar essa linguagem a peças bem diferentes.',
+        link: 'Ver projeto Simetria Estética',
+    },
+};
+
+type FeaturedSlug = keyof typeof projectSelections;
+const featuredProjects = projects.filter((project): project is Project & { slug: FeaturedSlug } =>
+    Object.hasOwn(projectSelections, project.slug),
+);
+const trajectoryImage = projects.find(project => project.slug === 'amazonita')?.gallery.find(
+    image => image.src === '/media/amazonita-editorial-1.webp',
+);
+const featuredPostSlugs = new Set([
+    'designers-em-tempos-de-ia-estamos-terceirizando-ate-o-pensamento',
+    'o-futuro-da-criatividade-comeca-com-uma-pausa',
+]);
+
+const workingHabits = [
+    {
+        title: 'Entender',
+        body: 'Antes de abrir o Photoshop, quero entender com quem a marca conversa, o que precisa mudar e onde o trabalho vai ser usado. Essas respostas me ajudam a decidir por onde começar.',
+    },
+    {
+        title: 'Experimentar',
+        body: 'Testo caminhos diferentes na peça ou na tela em que a ideia vai viver. Colocar as opções lado a lado ajuda a perceber o que se sustenta quando entram o texto, a imagem e as limitações do formato.',
+    },
+    {
+        title: 'Revisar',
+        body: 'Às vezes, a ideia de que mais gosto é a que mais atrapalha a leitura. Volto ao que o projeto precisa resolver e mudo o desenho quando faz sentido.',
+    },
 ];
-export default function About({ locale = "pt" }: {
-    locale?: SiteLocale;
-} = {}) {
+
+const studies = [
+    { title: 'Marketing', body: 'Graduação pela Wyden/Fanor' },
+    { title: 'Direção de Arte', body: 'Pós-graduação pela Anhanguera' },
+    { title: 'UX, UI e desenvolvimento web', body: 'Estudos em experiência do usuário, interfaces e programação' },
+];
+
+function AboutImage({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
+    const { width, height } = dimensions[src as keyof typeof dimensions];
+    return <Image src={src} alt={alt} width={width} height={height} sizes={sizes} />;
+}
+
+export default function About({ locale = 'pt' }: { locale?: SiteLocale } = {}) {
     const { i18nText, i18nHref } = createTranslator(locale);
     const origin = (process.env.NEXT_PUBLIC_SITE_URL || 'https://marioserafim.com.br').replace(/\/$/, '');
     const structuredData = { '@context': 'https://schema.org', '@type': 'Person', name: site.name, url: origin, jobTitle: 'Diretor de arte', sameAs: socialLinks.map(link => link.url) };
-    return <main id="conteudo" className="editorial-about">
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(translateObject(structuredData,locale)).replace(/</g, '\\u003c') }}/>
-    <section className="about-opening section-wrap" aria-labelledby="about-title">
-      <div className="about-opening-top"><span className="eyebrow">{i18nText("Sobre M\u00E1rio Serafim")}</span><span>{i18nText("Dire\u00E7\u00E3o de arte \u00B7 Fortaleza, CE")}</span></div>
-      <h1 id="about-title">{i18nText("Gosto de entender")}<br />{i18nText("antes de ")}<em>{i18nText("desenhar.")}</em></h1>
-      <div className="about-opening-bottom"><span aria-hidden="true">{i18nText("\u2198")}</span><AboutTypewriter /></div>
-    </section>
+    const featuredPosts = publishedJournalPosts.filter(post =>
+        featuredPostSlugs.has(post.slug) && (locale === 'pt' || post.translations?.en),
+    );
 
-    <section className="about-origin section-wrap" aria-labelledby="origin-title">
-      <span className="eyebrow">{i18nText("01 / Um pouco sobre mim")}</span>
-      <div className="about-origin-grid"><h2 id="origin-title">{i18nText("Meu caminho")}<br /><em>{i18nText("at\u00E9 aqui.")}</em></h2>
-        <div className="about-prose"><p>{i18nText("Comecei pelo marketing e, aos poucos, o design foi ocupando cada vez mais espaço. Passei por agências, educação, esporte e hoje trabalho também com rochas naturais.")}</p><p>{i18nText("Parece uma mistura improvável. E talvez seja. Mas circular por universos tão diferentes me ensinou uma coisa: nem toda marca precisa seguir a tendência do momento.")}</p><p>{i18nText("Às vezes, a melhor decisão é justamente não fazer o que todo mundo está fazendo.")}</p></div>
-      </div>
-    </section>
+    return (
+        <main id="conteudo" className="editorial-about">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(translateObject(structuredData, locale)).replace(/</g, '\\u003c') }} />
 
-    <section className="about-thinking section-wrap" id="processo" aria-labelledby="thinking-title">
-      <div className="about-thinking-head"><span className="eyebrow">{i18nText("02 / Como eu trabalho")}</span></div>
-      <div className="about-thinking-body"><h2 id="thinking-title">{i18nText("N\u00E3o come\u00E7o pelo ")}<em>{i18nText("Photoshop.")}</em></h2><PointerProse paragraphs={processParagraphs}/></div>
-    </section>
+            <section className="about-hero section-wrap" aria-labelledby="about-title">
+                <div className="about-hero-copy">
+                    <p className="about-kicker">{site.name} <span aria-hidden="true">/</span> {i18nText('Fortaleza, CE')}</p>
+                    <h1 id="about-title">{i18nText('Não foi uma linha reta.')} <em>{i18nText('Ainda bem.')}</em></h1>
+                    <p className="about-lead">{i18nText('Sou diretor de arte e designer. Comecei no marketing, passei por agências, educação e esporte e fui parar até no universo das rochas naturais. Gosto de como cada projeto me faz olhar de outro jeito para alguma coisa que eu achava que já conhecia.')}</p>
+                </div>
+                <figure className="about-hero-image">
+                    <Image src={site.authorPhoto} alt={i18nText('Retrato de Mário Serafim')} width={520} height={520}
+                        sizes="(max-width: 700px) 85vw, (max-width: 1100px) 34vw, 450px" loading="eager" fetchPriority="high" />
+                </figure>
+            </section>
 
-    <section className="about-credentials section-wrap" aria-labelledby="credentials-title">
-      <div className="about-credentials-head"><span className="eyebrow">{i18nText("Algumas coisas pelo caminho")}</span><div><h2 id="credentials-title">{i18nText("Nem tudo precisa virar")}<br />{i18nText("uma linha do tempo.")}</h2><p>{i18nText("Minha trajet\u00F3ria passou por \u00E1reas diferentes. Estes s\u00E3o alguns dos estudos e experi\u00EAncias que considero relevantes para o trabalho que fa\u00E7o hoje.")}</p></div></div>
-      <div className="about-credential-list">{i18nText(highlights.map((item, index) => <article key={item.label}><span>{i18nText(String(index + 1).padStart(2, '0'))}{i18nText(" /")}</span><div><h3><span className="credential-title-base">{i18nText(item.label)}</span><span className="credential-title-italic" aria-hidden="true">{i18nText(item.label)}</span></h3><p>{i18nText(item.body)}</p></div></article>))}</div>
-    </section>
+            <section className="about-journey section-wrap" aria-labelledby="journey-title">
+                <h2 id="journey-title">{i18nText('Fui aprendendo no caminho.')}</h2>
+                <ol className="about-chapters" role="list">
+                    {chapters.map(({ title, body }, index) => (
+                        <li key={title}>
+                            <span className="about-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                            <div><h3>{i18nText(title)}</h3><p>{i18nText(body)}</p></div>
+                        </li>
+                    ))}
+                </ol>
+                {trajectoryImage && <figure className="about-journey-image">
+                    <AboutImage src={trajectoryImage.src} alt={i18nText(trajectoryImage.alt)}
+                        sizes="(max-width: 700px) 72vw, (max-width: 1100px) 28vw, 360px" />
+                    <figcaption>{i18nText('Peça editorial da Amazonita para a Granistone.')}</figcaption>
+                </figure>}
+            </section>
 
-    <section className="about-ending section-wrap" aria-labelledby="ending-title"><span className="eyebrow">{i18nText("O trabalho continua")}</span><div><h2 id="ending-title">{i18nText("O restante est\u00E1")}<br /><em>{i18nText("nos projetos.")}</em></h2><p>{i18nText("Já falei um bocado sobre mim. Mas acho que a melhor maneira de entender meu trabalho é conhecer os projetos, as decisões que tomei e os problemas que tentei resolver.")}</p><div className="about-ending-actions"><Link className="pill filled" href={i18nHref("/projetos")}>{i18nText("Ver meus projetos ")}<span aria-hidden="true">{i18nText("\u2197")}</span></Link><Link className="text-link" href={i18nHref("/contato")}>{i18nText("Entrar em contato \u2197")}</Link></div></div></section>
-  </main>;
+            <section className="about-work section-wrap" aria-labelledby="work-title">
+                <h2 id="work-title">{i18nText('O trabalho por trás')} <em>{i18nText('do trabalho.')}</em></h2>
+                {featuredProjects.map(project => {
+                    const selection = projectSelections[project.slug];
+                    const media = 'image' in selection ? project.gallery.find(item => item.src === selection.image) : undefined;
+                    const title = i18nText(project.name);
+                    return (
+                        <article className={`about-case about-case--${project.slug}`} key={project.slug}>
+                            <div className="about-case-media">
+                                <AboutImage src={media?.src ?? project.cover} alt={i18nText(media?.alt ?? project.coverAlt)}
+                                    sizes="(max-width: 700px) 94vw, (max-width: 1100px) 57vw, 780px" />
+                            </div>
+                            <div className="about-case-copy">
+                                <p className="about-kicker">{i18nText(project.nature)}</p>
+                                <h3>{title}</h3>
+                                <p>{i18nText(selection.text)}</p>
+                                <Link className="text-link about-link" href={i18nHref(`/projetos/${project.slug}`)}>
+                                    {i18nText(selection.link)} <span aria-hidden="true">↗</span>
+                                </Link>
+                            </div>
+                        </article>
+                    );
+                })}
+            </section>
+
+            <section id="processo" className="about-practice section-wrap" aria-labelledby="practice-title">
+                <h2 id="practice-title">{i18nText('Como eu trabalho')}</h2>
+                <ol className="about-practice-list" role="list">
+                    {workingHabits.map(({ title, body }, index) => (
+                        <li key={title}>
+                            <span className="about-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                            <h3>{i18nText(title)}</h3>
+                            <p>{i18nText(body)}</p>
+                        </li>
+                    ))}
+                </ol>
+            </section>
+
+            <section className="about-interests section-wrap" aria-labelledby="interests-title">
+                <div className="about-studies">
+                    <h2 id="interests-title">{i18nText('O que me interessa')}</h2>
+                    <p>{i18nText('Gosto de acompanhar o que acontece com uma ideia quando ela sai da apresentação e alguém precisa usá-la. Foi por isso que fui estudar experiência do usuário e desenvolvimento web, além da minha formação em marketing e direção de arte.')}</p>
+                    <dl>
+                        {studies.map(({ title, body }) => (
+                            <div key={title}><dt>{i18nText(title)}</dt><dd>{i18nText(body)}</dd></div>
+                        ))}
+                    </dl>
+                </div>
+                {featuredPosts.length > 0 && (
+                    <div className="about-reading">
+                        <p className="about-kicker">Pausa do café</p>
+                        <h3>{i18nText('Também penso em voz alta.')}</h3>
+                        <p>{i18nText('Escrevo sobre design, arte e a profissão. Volto com frequência a uma pergunta: o que muda no nosso jeito de criar quando muda a ferramenta?')}</p>
+                        <ul role="list">
+                            {featuredPosts.map(post => {
+                                const copy = locale === 'en' ? post.translations?.en ?? post : post;
+                                return (
+                                    <li key={post.slug}>
+                                        <Link className="about-article-link" href={i18nHref(`/blog/${post.slug}`)}>
+                                            <h4>{copy.title}</h4><span aria-hidden="true">↗</span>
+                                        </Link>
+                                        <p>{copy.summary}</p>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                )}
+            </section>
+
+            <section className="about-close section-wrap" aria-labelledby="about-close-title">
+                <h2 id="about-close-title">{i18nText('Cada projeto pede')} <em>{i18nText('outras perguntas.')}</em></h2>
+                <div>
+                    <p>{i18nText('Nos projetos, mostro como as respostas foram tomando forma, da primeira escolha visual ao uso de cada peça.')}</p>
+                    <div className="about-close-actions">
+                        <Link className="pill filled" href={i18nHref('/projetos')}>{i18nText('Conhecer meus projetos')} <span aria-hidden="true">↗</span></Link>
+                        <a className="text-link about-link" href="#contato">{i18nText('Vamos conversar')} <span aria-hidden="true">↓</span></a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    );
 }

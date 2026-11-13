@@ -10,7 +10,7 @@ seo_description: >-
   How is artificial intelligence changing the work of designers? A reflection on
   creativity, the market, critical thinking, and the future of the profession.
 cover_alt: ''
-source_hash: 8ace91c62834f3f3880840d8a8c80536cb3044ecf17b87f84573b25e877c6999
+source_hash: 0ff9f697121fc87f65ba9d185c3bf0250c753a2df72fa620e8644f63ec485635
 review_status: reviewed
 ---
 For the first post on this blog, I wanted to talk about something that has been keeping many of us in design awake at night: **the future of design in the age of artificial intelligence**. But before we talk about AI, let's remember that our problems didn't start with ChatGPT.
