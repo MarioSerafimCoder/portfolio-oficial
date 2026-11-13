@@ -17,8 +17,6 @@ Uma ilustradora termina um trabalho e publica no portfólio. Quer que sua arte s
 >
 > Parece que só existem duas alternativas: mostrar tudo ou esconder tudo. Só que nenhuma delas resolve o problema.
 
-
-
 Em artigo publicado pela Creative Commons, Anna Tumadóttir discute como a dificuldade de estabelecer condições para determinados usos pode levar criadores a restringir o acesso às próprias obras.&#x20;
 
 É uma contradição interessante: a internet facilita a circulação cultural, mas essa mesma abertura pode expor trabalhos a usos que seus autores não desejamUma ilustradora poderia, por exemplo, disponibilizar parte do portfólio e explicar claramente quais reutilizações permite. Isso não impediria usos indevidos, mas ajudaria a comunicar suas escolhas sem transformar cada visita em um pedido de autorização.
@@ -39,8 +37,8 @@ E seria uma pena se, para proteger o próprio trabalho, o artista precisasse abr
 
 &#x20;Referências consultadas
 
-1\. \*\*Anna Tumadóttir — Creative Commons (2026).\*\* \[A Principled Approach as the Sands Shift]\(https://creativecommons.org/2026/09/21/a-principled-approach-as-the-sands-shift/). CC BY 4.0.&#xA;
+1\. \*\*Anna Tumadóttir — Creative Commons (2026).\*\* \[A Principled Approach as the Sands Shift]\([https://creativecommons.org/2026/09/21/a-principled-approach-as-the-sands-shift/](https://creativecommons.org/2026/09/21/a-principled-approach-as-the-sands-shift/)). CC BY 4.0.&#xA;
 
-2\. \*\*InternetLab (2026).\*\* \[Nota sobre a menção à pesquisa “Papo de IA” em comunicado da Meta]\(https://internetlab.org.br/pt/opiniao/nota-sobre-a-mencao-a-pesquisa-papo-de-ia-em-comunicado-da-meta/). CC BY-SA 4.0.&#xA;
+2\. \*\*InternetLab (2026).\*\* \[Nota sobre a menção à pesquisa “Papo de IA” em comunicado da Meta]\([https://internetlab.org.br/pt/opiniao/nota-sobre-a-mencao-a-pesquisa-papo-de-ia-em-comunicado-da-meta/](https://internetlab.org.br/pt/opiniao/nota-sobre-a-mencao-a-pesquisa-papo-de-ia-em-comunicado-da-meta/)). CC BY-SA 4.0.&#xA;
 
-3\. \*\*Leonardo Foletto — BaixaCultura (2026).\*\* \[Desnaturalizar a IA: os comuns digitais como matéria-prima de um novo cercamento]\(https://baixacultura.org/2026/07/13/desnaturalizar-a-ia-os-comuns-digitais-como-materia-prima-de-um-novo-cercamento/). CC BY-SA 4.0.
+3\. \*\*Leonardo Foletto — BaixaCultura (2026).\*\* \[Desnaturalizar a IA: os comuns digitais como matéria-prima de um novo cercamento]\([https://baixacultura.org/2026/07/13/desnaturalizar-a-ia-os-comuns-digitais-como-materia-prima-de-um-novo-cercamento/](https://baixacultura.org/2026/07/13/desnaturalizar-a-ia-os-comuns-digitais-como-materia-prima-de-um-novo-cercamento/)). CC BY-SA 4.0.
