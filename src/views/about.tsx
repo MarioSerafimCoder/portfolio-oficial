@@ -175,14 +175,16 @@ export default function About({ locale = 'pt' }: { locale?: SiteLocale } = {}) {
                             {latestPost.cover && (
                                 <div className="about-article-cover">
                                     <JournalImage src={journalCoverUrl(latestPost.cover.src)} alt={latestPostCopy.coverAlt ?? ''}
-                                        fill sizes="(max-width: 700px) 84vw, 42vw" style={{ objectPosition: latestPost.cover.position }} />
+                                        fill sizes="(max-width: 700px) 84vw, (max-width: 1100px) 42vw, 20vw" style={{ objectPosition: latestPost.cover.position }} />
                                 </div>
                             )}
-                            <Link className="about-article-link" href={i18nHref(`/blog/${latestPost.slug}`)}>
-                                <h4>{latestPostCopy.title}</h4>
-                                <span aria-hidden="true">↗</span>
-                            </Link>
-                            <p>{latestPostCopy.summary}</p>
+                            <div className="about-article-copy">
+                                <Link className="about-article-link" href={i18nHref(`/blog/${latestPost.slug}`)}>
+                                    <h4>{latestPostCopy.title}</h4>
+                                    <span aria-hidden="true">↗</span>
+                                </Link>
+                                <p>{latestPostCopy.summary}</p>
+                            </div>
                         </article>
                     </div>
                 )}
