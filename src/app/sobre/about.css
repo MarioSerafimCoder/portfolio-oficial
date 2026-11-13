@@ -59,8 +59,9 @@
     letter-spacing: -.045em;
 }
 
-.about-hero h1 em {
+.about-hero h1 > * {
     display: block;
+    text-wrap: balance;
 }
 
 .about-lead {

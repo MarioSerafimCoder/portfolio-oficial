@@ -101,7 +101,7 @@ export default function About({ locale = 'pt' }: { locale?: SiteLocale } = {}) {
             <section className="about-hero section-wrap" aria-labelledby="about-title">
                 <div className="about-hero-copy">
                     <p className="about-kicker">{site.name} <span aria-hidden="true">/</span> {i18nText('Fortaleza, CE')}</p>
-                    <h1 id="about-title">{i18nText('Não foi uma linha reta.')} <em>{i18nText('Ainda bem.')}</em></h1>
+                    <h1 id="about-title"><span>{i18nText('Não foi uma linha reta.')}</span> <em>{i18nText('Ainda bem.')}</em></h1>
                     <p className="about-lead">{i18nText('Sou diretor de arte e designer. Comecei no marketing, passei por agências, educação e esporte e fui parar até no universo das rochas naturais. Gosto de como cada projeto me faz olhar de outro jeito para alguma coisa que eu achava que já conhecia.')}</p>
                 </div>
                 <figure className="about-hero-image">
