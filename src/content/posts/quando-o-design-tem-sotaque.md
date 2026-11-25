@@ -5,7 +5,7 @@ summary: "Fortaleza pegou uma rede de dormir e transformou em árvore de Natal.
   lá fora quando temos tanta coisa interessante debaixo do nosso nariz? Bora
   conversar sobre design, identidade cultural e essa nossa mania de achar que
   tudo que vem de fora é melhor."
-category: processo
+category: referencias
 status: published
 cover: /media/blog/55346d18-1021-4dbe-bab0-74d3cfb112cb.png
 publish_at: 2026-11-25T08:57
