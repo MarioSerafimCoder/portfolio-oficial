@@ -16,19 +16,29 @@ Quem foi que disse que uma árvore de Natal precisa parecer que saiu de um filme
 
 Na Praça Portugal, a árvore chega a 36 metros de altura. Na Praça do Ferreira, a 25. Mas o que chama atenção mesmo é a escolha da rede. Quem cresceu no Nordeste sabe o quanto esse objeto é presente na nossa vida. Tem rede na varanda, na sala, na casa da avó, naquele cochilo depois do almoço de domingo. É um objeto comum que, nas mãos de quem soube trabalhar a ideia, ganhou outra dimensão sem deixar de ser familiar.
 
+
+
 > [!QUOTE]
 >
 > Em 2025, José Nathanael da Silva apresentou uma pesquisa bem interessante na Universidade Federal do Ceará sobre a produção de redes em Jaguaruana, no interior do estado. O trabalho explora como essa tradição pode conversar com o design experimental e a arte contemporânea, testando materiais e técnicas sem perder o vínculo com sua origem.
+
+
 
 Enquanto Fortaleza faz isso, as imagens da decoração natalina de São Paulo que circulam pela internet deixam a desejar. A prefeitura publicou um edital de até R$ 7 milhões para as festividades. É bom esclarecer que esse dinheiro também contempla atividades culturais e apresentações artísticas. Seria injusto colocar essa conta inteira nas costas da decoração, principalmente com o projeto ainda em andamento.
 
 Mas, deixando os valores de lado, como é que um projeto desse porte consegue parecer tão genérico?
 
+
+
 > [!QUOTE]
 >
 > Em 2009, a designer e pesquisadora brasileira Lia Krucken publicou o livro *Design e território: valorização de identidades e produtos locais*, no qual aborda como o design pode ajudar a reconhecer e valorizar os saberes e as particularidades culturais de um lugar.
->
-> É uma leitura interessante pra entender que a identidade de um projeto começa muito antes de alguém abrir o Illustrator. Começa nas referências que escolhemos, nos materiais e nas pessoas que participam da criação.
+
+
+
+É uma leitura interessante pra entender que a identidade de um projeto começa muito antes de alguém abrir o Illustrator. Começa nas referências que escolhemos, nos materiais e nas pessoas que participam da criação.
+
+
 
 Tenho a impressão de que existe um certo complexo de inferioridade na maneira como enxergamos a nossa própria cultura. Quando uma referência vem de fora, logo ganha ares de sofisticação. Quando vem daqui, a gente costuma colocar na caixinha do artesanato ou do folclore.&#x20;&#xA;
 
